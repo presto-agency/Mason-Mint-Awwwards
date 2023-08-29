@@ -1,0 +1,12 @@
+.modal{
+	position: relative;
+	padding: 10rem 0;
+	
+		&__actions{
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20rem;
+			align-items: center;
+			margin-top: 30rem;
+		}
+}

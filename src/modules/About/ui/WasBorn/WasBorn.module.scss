@@ -1,0 +1,72 @@
+@import '@/app/styles/variables/breackpoints';
+
+.WasBorn{
+  position: relative;
+  margin: 164rem 0 250rem;
+
+  &::before{
+    position: absolute;
+    top: -104rem;
+    right: 42rem;
+    width: 1343rem;
+    height: 1494rem;
+    background-image: url("/images/home/circled_arrow_bg.svg");
+    background-size: 1343rem 1494rem;
+    content: '';
+    pointer-events: none;
+
+    @media (width<=$breakpoint-mob) {
+      display: none;
+    }
+  }
+
+  @media (width<=$breakpoint-mob) {
+    margin: 80rem 0;
+  }
+
+  .title{
+    max-width: 976rem;
+  }
+
+  &__content{
+    display: flex;
+    justify-content: space-between;
+    margin: 64rem 0 0;
+
+    &_left{
+      padding: 157rem 0 0 120rem;
+
+      .image{
+        width: 304rem;
+        height: 451rem;
+      }
+
+      @media (width<=$breakpoint-mob) {
+        display: none;
+      }
+    }
+
+    &_right{
+      width: 100%;
+      max-width: 640rem;
+
+      .image{
+        width: 100%;
+        height: 413rem;
+
+        @media (width<=$breakpoint-mob) {
+          height: 269rem;
+        }
+      }
+
+      .description{
+        margin: 40rem 0 0;
+
+        @media (width<=$breakpoint-mob) {
+          margin: 24rem 0 0;
+
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "Create Component": {
+    "prefix": "mmrc",
+    "body": [
+      "import { FC } from 'react'",
+      "import classNames from 'classnames'",
+      "import styles from './${1:${3:${TM_DIRECTORY/.*\\/(.*)$/$1/g}}}.module.scss'",
+      "",
+      "type ${1:${3:${TM_DIRECTORY/.*\\/(.*)$/$1/g}}}Props = {",
+      "\tclassName?: string",
+      "}",
+      "",
+      "export const ${1:${3:${TM_DIRECTORY/.*\\/(.*)$/$1/g}}}: FC<${1:${3:${TM_DIRECTORY/.*\\/(.*)$/$1/g}}}Props> = ({ className }) => {",
+      "\treturn <div className={classNames(styles.${1:${3:${TM_DIRECTORY/.*\\/(.*)$/$1/g}}}, className)}></div>",
+      "}",
+      ""
+    ]
+  }
+}

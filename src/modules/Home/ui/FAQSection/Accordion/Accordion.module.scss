@@ -1,0 +1,73 @@
+@import '@/app/styles/variables/breackpoints';
+
+.item {
+  list-style: none;
+  border-bottom: 1px solid var(--gray-300);
+
+  &__title {
+    position: relative;
+    padding: 33rem 35rem 33rem 0;
+    cursor: pointer;
+
+    &_inner{
+      padding: 0;
+    }
+
+    &_arrow {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 18rem;
+      height: 9rem;
+      transform: translateY(-50%);
+      transition: var(--move-duration) var(--ease);
+
+      @media (max-width: $breakpoint-mob) {
+        top: 30rem;
+        transform: initial;
+        transition: initial;
+      }
+
+      &.active{
+        transform: translateY(-50%) rotateX(180deg);
+      }
+    }
+
+  }
+
+  &__dropdownMenu {
+    &_photoContainer {
+      float: left;
+      width: 48rem;
+      height: 48rem;
+      margin: 0 16rem 0 0;
+    }
+
+    &_description {
+      padding: 0 0 32rem;
+      color: var(--gray-800);
+      font-family: var(--font-family-secondary);
+      line-height: 1.563em;
+      
+        a{
+          color: var(--primary-color);
+        }
+    }
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .item{
+    &__title{
+      padding: 24rem 35rem 24rem 0;
+
+    }
+
+    &__dropdownMenu{
+      &_photoContainer{
+        width: 44rem;
+        height: 44rem;
+      }
+    }
+  }
+}

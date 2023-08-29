@@ -1,0 +1,174 @@
+@import "@/app/styles/variables/breackpoints";
+
+.form{
+	position: relative;
+	padding: 30rem 0;
+	
+	&__thumbs{
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20rem;
+			
+		&_item{
+			flex-grow: 1;
+			background-color: transparent;
+					
+			img{
+				object-fit: contain;
+			}
+		}
+	}
+	
+	&__uploader{
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 30rem 0;
+		padding: 30rem 20rem;
+		background-color: var(--gray-300);
+		border-radius: 5px;
+		cursor: pointer;
+
+		&::before{
+			position: absolute;
+			border: 1px var(--gray-600) dashed;
+			border-radius: 4px;
+			content: '';
+			inset: 10rem;
+		}
+			
+		&_title{
+			font-size: 12rem;
+		}
+	}
+
+	&__upload_container {
+		display: grid; 
+		grid-template-areas: 
+			"obverse reverse"
+			"additional additional"; 
+		grid-template-rows: 300rem 1fr; 
+		grid-template-columns: 1fr 1fr; 
+		gap: 24rem; 
+
+		@media (width <= $breakpoint-mob) {
+			grid-template-areas: 
+				"obverse"
+				"reverse"
+				"additional"; 
+			grid-template-rows: 300rem 300rem 300rem;
+			grid-template-columns: 1fr; 
+			padding-top: 24rem; 
+		}
+	}
+
+	&__upload_item {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--gray-200);
+		border: 1px var(--gray-600) dashed;
+		border-radius: 20rem;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	
+}
+
+.grid_item {
+	display: flex;
+	flex-direction: column;
+	gap: 15rem;
+	justify-content: space-between;
+
+	.buttons {
+		display: flex;
+		gap: 15rem;
+		width: 100%;
+		height: 40rem;
+	}
+}
+
+.obverse { 
+	grid-area: obverse; 
+}
+
+.reverse { 
+	grid-area: reverse;
+}
+
+.additional { 
+	grid-area: additional;
+	gap: 30rem;
+	justify-content: flex-start;
+
+	.images_list{
+		display: flex;
+		gap: 20rem;
+		width: 100%;
+		height: 100rem;
+	
+	
+		&_item {
+			position: relative;
+			width: 100rem;
+	
+			.image {
+				height: 100%;
+			}		
+	
+			.delete{
+				position: absolute;
+				top: 0;
+				right: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 25rem;
+				height: 25rem;
+				color: var(--white);
+				font-family: var(--font-family-secondary);
+				line-height: 1;
+				background-color: var(--error);
+				border-radius: 2rem;
+	
+				&:hover {
+					background-color: var(--attention);
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	
+	
+
+	.form__upload_item{
+		max-height: 150rem;
+	}
+}
+
+.delete_button, .reset_button{
+	flex-grow: 1;
+	font: var(--font-button-l);
+	background: none;
+	border-radius: 15rem;
+	
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.delete_button {
+	color: var(--error);
+	border: 1px solid var(--error);
+}
+
+.reset_button {
+	color: var(--gray-800);
+	border: 1px solid var(--gray-800);
+}

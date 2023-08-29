@@ -1,0 +1,111 @@
+@import "@/app/styles/variables/breackpoints";
+
+.empty{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 100rem 0;
+	
+		&__box{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	
+		&__label{
+			color: var(--gray-700);
+			font-weight: 500;
+			font-family: var(--font-family-primary);
+		}
+	
+		&__core{
+			display: flex;
+			align-items: center;
+			margin: 40rem 0 54rem;
+			font-weight: 300;
+			font-size: 292rem;
+			line-height: .7em;
+			
+				@media (width <= $breakpoint-mob) {
+					margin: 28rem 0 86rem;
+					font-size: 154rem;
+				}
+			
+				&_thumb{
+					position: relative;
+					display: inline-block;
+					width: 220rem;
+					height: 220rem;
+					margin: 0 65rem;
+					
+						@media (width <= $breakpoint-mob) {
+							width: 135rem;
+							height: 135rem;
+							margin: 0 8rem;
+						}
+				}
+			
+				span{
+						&:nth-child(1){
+							transform: translateX(3px);
+						}
+
+						&:nth-child(3){
+							transform: translateX(-3px);
+						}
+				}
+		}
+	
+		&__description{
+			position: relative;
+			text-align: center;
+
+				@media (width <= $breakpoint-mob) {
+					max-width: 70%;
+					margin: 0 auto;
+				}
+		}
+	
+		&__action{
+			min-width: 212rem;
+			margin-top: 25rem;
+			
+				@media (width <= $breakpoint-mob) {
+					margin-top: 24rem;
+				}
+		}
+	
+		&__coin{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+				
+				&_item{
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+					object-position: center;
+				}
+		}
+	
+		.firstPart{
+			left: -45rem;
+			transform-origin: bottom center;
+			
+				@media (width <= $breakpoint-mob) {
+					left: -30rem;
+				}
+		}
+	
+		.secondPart{
+			right: -8rem;
+			transform-origin: right;
+			
+				@media (width <= $breakpoint-mob) {
+					right: -4rem;
+				}
+		}
+}

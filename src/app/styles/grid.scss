@@ -1,0 +1,25 @@
+// custom container
+.base-container {
+  position: relative;
+  width: 100%;
+  max-width: 1440rem;
+  margin: 0 auto;
+  padding: 0 64rem;
+
+  &.xl {
+    padding: 0 36rem;
+  }
+
+  @media (width <= $breakpoint-mob) {
+    padding: 0 24rem;
+
+    &.xl {
+      padding: 0 8rem;
+    }
+  }
+}
+
+// overwriting Bootstrap .row
+.row {
+  --bs-gutter-x: 32rem;
+}

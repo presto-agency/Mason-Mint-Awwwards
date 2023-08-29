@@ -1,0 +1,12 @@
+@import '@/app/styles/variables/breackpoints';
+
+.HomeContent {
+  display: block;
+  padding-bottom: 164rem;
+}
+
+@media (width<=$breakpoint-mob) {
+  .HomeContent {
+    padding-bottom: 80rem;
+  }
+}

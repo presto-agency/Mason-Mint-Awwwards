@@ -1,0 +1,72 @@
+@import "@/app/styles/variables/breackpoints";
+
+.dropdown{
+	position: relative;
+	z-index: 3;
+	display: block;
+	
+		&__header{
+			position: relative;
+			display: flex;
+			align-items: center;
+			padding: 14rem 30rem 14rem 0;
+			
+				&:hover{
+					cursor: pointer;
+				}
+			
+				&_placeholder{
+					font-weight: 500;
+					font-size: 15rem;
+					font-family: var(--font-family-primary);
+					text-transform: uppercase;
+					
+						@media (width <= $breakpoint-mob) {
+							font-size: 13rem;
+						}
+				}
+			
+				&_border{
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 1rem;
+					background-color: var(--black);
+					transition: opacity var(--hover-duration) var(--ease);
+					
+						@media (width <= $breakpoint-mob) {
+							height: 1px;
+						}
+				}
+		}
+	
+		&__arrow{
+			position: absolute;
+			top: 50%;
+			right: 3rem;
+			width: 16rem;
+			height: 16rem;
+			margin-top: -8rem;
+			transition: transform var(--hover-duration) var(--ease);
+				
+				&.active{
+					transform: scaleY(-1);
+				}
+		}
+	
+		&__menu{
+			position: absolute;
+			top: 100%;
+			left: 0;
+			z-index: 1;
+			padding: 20rem 24rem;
+			background-color: var(--white);
+			border: 1rem var(--black) solid;
+			border-radius: 16px;
+			
+				@media (width <= $breakpoint-mob) {
+					border-width: 1px;
+				}
+		}
+}

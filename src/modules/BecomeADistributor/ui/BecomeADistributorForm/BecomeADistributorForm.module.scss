@@ -1,0 +1,33 @@
+@import "@/app/styles/variables/breackpoints";
+
+.form {
+  &__group {
+    margin: 32rem 0 38rem;
+
+    &:last-of-type {
+      margin: 32rem 0 0;
+    }
+  }
+
+  &__action{
+    margin: 15rem 0 0;
+    
+      @media (width <= $breakpoint-mob) {
+        margin-top: -25rem;
+      }
+  }
+}
+
+@media (max-width: $breakpoint-mob) {
+  .form{
+    margin: 0 0 80rem;
+
+    &__group{
+      margin: 24rem 0 40rem;
+
+      &:last-of-type {
+        margin: 24rem 0 0;
+      }
+    }
+  }
+}

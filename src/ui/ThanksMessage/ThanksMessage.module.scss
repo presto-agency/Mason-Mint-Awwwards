@@ -1,0 +1,18 @@
+.thanks{
+	position: relative;
+	
+		&__title{
+			margin-bottom: 6rem;
+			font: var(--font-h3);
+		}
+	
+		&__subtitle{
+			color: var(--gray-800);
+		}
+	
+		&__detail{
+			margin-top: 33rem;
+			color: var(--gray-700);
+			font-size: 12rem;
+		}
+}

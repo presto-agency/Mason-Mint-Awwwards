@@ -1,0 +1,40 @@
+@import "variables";
+
+h1, .h1 {
+  font: var(--font-h1);
+  letter-spacing: -0.01em;
+}
+
+h2, .h2 {
+  font: var(--font-h2);
+  letter-spacing: -0.01em;
+}
+
+h3, .h3 {
+  font: var(--font-h3);
+  letter-spacing: -0.01em;
+}
+
+h4, .h4 {
+  font: var(--font-h4);
+  letter-spacing: -0.01em;
+}
+
+h5, .h5 {
+  font: var(--font-h5);
+  letter-spacing: -0.01em;
+}
+
+h6, .h6 {
+  font: var(--font-h6);
+  letter-spacing: -0.01em;
+}
+
+p {
+  font: var(--font-l);
+}
+
+a {
+  color: var(--black);
+  text-decoration: none;
+}

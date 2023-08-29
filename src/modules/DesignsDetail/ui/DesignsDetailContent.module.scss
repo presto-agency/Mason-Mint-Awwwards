@@ -1,0 +1,51 @@
+@import "@/app/styles/variables/breackpoints";
+
+.detail{
+	position: relative;
+	padding-top: 160rem;
+	padding-bottom: 164rem;
+	
+		@media (width <= $breakpoint-mob) {
+			padding-top: 98px;
+		}
+	
+		&__nav{
+			@media (width <= $breakpoint-mob) {
+				display: flex;
+				justify-content: flex-end;
+			}
+		}
+	
+		&__thumbnail{
+			margin-bottom: 122rem;
+			
+				@media (width <= $breakpoint-mob) {
+					margin-top: 20rem;
+					margin-bottom: 27rem;
+				}
+		}
+	
+		&__description{
+			margin-bottom: 122rem;
+			
+				@media (width <= $breakpoint-mob) {
+					margin-bottom: 20rem;
+				}
+		}
+	
+		&__gallery{
+			margin-bottom: 130rem;
+			
+				@media (width <= $breakpoint-mob) {
+					margin-bottom: 60rem;
+				}
+		}
+	
+		&__carousel{
+			margin: 130rem 0 158rem;
+			
+				@media (width <= $breakpoint-mob) {
+					margin: 60rem 0 58rem;
+				}
+		}
+}

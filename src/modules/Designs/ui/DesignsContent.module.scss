@@ -1,0 +1,24 @@
+@import "@/app/styles/variables/breackpoints";
+
+.designsContent{
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+	
+		&__body{
+			padding: 154rem 0 164rem;
+			
+				@media (width <= $breakpoint-mob) {
+					padding: 80rem 0;
+				}
+		}
+	
+		&__empty{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			min-height: 100rem;
+			text-align: center;
+		}
+}

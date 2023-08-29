@@ -1,0 +1,94 @@
+@import '@/app/styles/variables/breackpoints';
+
+.NaturalVehicle{
+  position: relative;
+  margin: 164rem 0;
+
+  @media (width <=$breakpoint-mob) {
+    margin: 80rem 0 77rem;
+  }
+  
+  &__abstract{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    
+      &::before{
+        position: absolute;
+        top: -277rem;
+        right: 152rem;
+        width: 1395rem;
+        height: 1550rem;
+        background-image: url("/images/home/circled_arrow_bg.svg");
+        background-size: 1395rem 1550rem;
+        content: '';
+        
+          @media (width<=$breakpoint-mob) {
+            display: none;
+          }
+      }
+  }
+
+  &__content{
+    display: flex;
+    justify-content: space-between;
+
+    @media (width <=$breakpoint-mob) {
+      flex-direction: column;
+      justify-content: initial;
+    }
+
+    &_left{
+      max-width: 640rem;
+
+      .image{
+        width: 528rem;
+        height: 667rem;
+        margin: 164rem 0 0 112rem;
+
+        @media (width <=$breakpoint-mob) {
+          width: 312rem;
+          height: 340rem;
+          margin: 40rem 0 0;
+        }
+      }
+
+      .description{
+        color: var(--gray-800);
+      }
+    }
+
+    &_right{
+      max-width: 304rem;
+      margin: 142rem 110rem 0 0;
+
+      @media (width <=$breakpoint-mob) {
+        max-width: 100%;
+        margin: 24rem 0 0;
+
+        .buttonContainer{
+          width: 100%;
+
+          .button{
+            width: 100%;
+          }
+        }
+      }
+
+      .image{
+        width: 304rem;
+        height: 282rem;
+        margin: 0 0 40rem;
+
+        @media (width <=$breakpoint-mob) {
+          display: none;
+        }
+      }
+
+      .description{
+        margin: 0 0 30rem;
+        color: var(--gray-800);
+      }
+    }
+  }
+}

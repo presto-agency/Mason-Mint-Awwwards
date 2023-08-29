@@ -1,0 +1,59 @@
+@import '@/app/styles/variables/breackpoints';
+
+.HeroDetail{
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: calc(100vh - 95rem);
+  margin: 0 0 164rem;
+  overflow: hidden;
+
+  @media (width<=$breakpoint-mob) {
+    min-height: calc(100vh - 70rem);
+    margin: 0 0 80rem;
+  }
+  
+  &__image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+
+      .image{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  }
+
+  .container{
+    z-index: 2;
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+    padding: 64rem 112rem;
+
+      @media (width <= $breakpoint-mob) {
+        padding: 64rem 0;
+      }
+  
+      &_description{
+        max-width: 304rem;
+  
+          .title, .subtitle{
+            color: var(--white);
+          }
+    
+          .title{
+            margin: 0 0 16rem;
+          }
+      }
+  }
+}

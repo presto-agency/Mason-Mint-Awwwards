@@ -1,0 +1,64 @@
+:root {
+  /* ====================================== TEXT STYLES =========================================== */
+
+  // HEADINGS
+  --font-h1: 300 88rem / 96% var(--font-family-primary);
+  --font-h2: 500 58rem / 104% var(--font-family-primary);
+  --font-h3: 500 40rem / 114% var(--font-family-primary);
+  --font-h4: 500 24rem / 115% var(--font-family-primary);
+  --font-h5: 500 19rem / 115% var(--font-family-primary);
+  --font-h6: 500 16rem / 96% var(--font-family-primary);
+
+  // BODY
+  --font-l: 400 16rem / 155% var(--font-family-secondary);
+  --font-s: 400 12rem / 155% var(--font-family-secondary);
+
+  // OTHER
+  --font-button-l: 500 16rem var(--font-family-primary);
+  --font-button-m: 500 15rem var(--font-family-primary);
+  --font-link: 500 12rem var(--font-family-primary);
+
+  /* ====================================== COLORS =========================================== */
+
+    --primary-color: #266ef9;
+    --white: #fff;
+    --gray-200: #F0F1F5;
+    --gray-300: #ecedf2;
+    --gray-400: #e5e9eb;
+    --gray-500: #d4dadd;
+    --gray-600: #c2cacf;
+    --gray-700: #9aa6af;
+    --gray-800: #6d7378;
+    --black: #24282c;
+    --error: #ff5c5c;
+    --attention: #D84339;
+    --success: #21d184;
+    --link: #3870ff;
+
+  /* ====================================== COLORS =========================================== */
+
+    --ease: ease;
+    --move-duration: .5s;
+    --hover-duration: .3s;
+
+}
+
+@media (width <= $breakpoint-mob)  {
+  :root {
+    --font-h1: 300 52rem / 96% var(--font-family-primary);
+    --font-h2: 500 38rem / 115% var(--font-family-primary);
+    --font-h3: 500 26rem / 114% var(--font-family-primary);
+    --font-h4: 500 20rem / 120% var(--font-family-primary);
+    --font-h5: 500 16rem / 120% var(--font-family-primary);
+    --font-h6: 500 14rem / 96% var(--font-family-primary);
+
+    // BODY
+    --font-l: 400 14rem / 155% var(--font-family-secondary);
+    --font-s: 400 12rem / 155% var(--font-family-secondary);
+
+    // OTHER
+    --font-button-l: 500 14rem var(--font-family-primary);
+    --font-button-m: 500 13rem var(--font-family-primary);
+    --font-link: 500 13rem var(--font-family-primary);
+  }
+}

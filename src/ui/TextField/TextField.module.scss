@@ -1,0 +1,152 @@
+@import "@/app/styles/variables/breackpoints";
+
+.inputField{
+	position: relative;
+	display: block;
+	padding-top: 18rem;
+	padding-bottom: 30rem;
+	
+		@media (width <= $breakpoint-mob) {
+			padding-top: 16rem;
+			padding-bottom: 28rem;
+		}
+	
+		&.readonly{
+			pointer-events: none;
+		}
+	
+		&__item{
+			position: relative;
+			width: 100%;
+			height: 44rem;
+			padding: 13rem 0 10rem;
+			color: var(--black);
+			font-weight: 500;
+			font-size: 15rem;
+			font-family: var(--font-family-primary);
+			border: none;
+			
+				@media (width <= $breakpoint-mob) {
+					font-size: 13rem;
+				}
+			
+				&_resize{
+					position: absolute;
+					right: 1rem;
+					bottom: 30rem;
+					color: inherit;
+					pointer-events: none;
+				}
+			
+				&::placeholder {
+					color: var(--black);
+					text-transform: uppercase;
+				}
+			
+				&:focus{
+					outline: none;
+					
+						& ~ [class*="__border"] {
+							&::before{
+								width: 0;
+							}
+
+							&::after{
+								width: 100%;
+							}
+						}
+						
+						& ~ [class*="__label"]{
+							color: var(--primary-color);
+						}
+				}
+			
+				&[readonly]{
+					color: var(--gray-800);
+					pointer-events: none;
+				}
+		}
+	
+		textarea{
+			height: 70rem;
+			min-height: 70rem;
+			resize: none;
+		}
+	
+		&__border{
+			position: absolute;
+			bottom: 25rem;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			
+				&::before{
+					position: absolute;
+					top: 0;
+					right: 0;
+					width: 100%;
+					height: 100%;
+					background-color: var(--black);
+					transition: width var(--move-duration) var(--ease);
+					content: '';
+				}
+				
+				&::after{
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 0;
+					height: 100%;
+					background-color: var(--primary-color);
+					transition: width var(--move-duration) var(--ease);
+					content: '';
+				}
+			
+				&.__error{
+						&::before,
+						&::after{
+							background-color: var(--error);
+						}
+				}
+		}
+	
+		&__label{
+			position: absolute;
+			top: 0;
+			left: 0;
+			color: var(--gray-700);
+			font-weight: 400;
+			font-size: 12rem;
+			transition: color var(--hover-duration) var(--ease);
+			
+				&.__error{
+					color: var(--error);
+				}
+		}
+	
+		&__message{
+			position: absolute;
+			bottom: 5rem;
+			left: 0;
+			display: inline-block;
+			max-width: 100%;
+			padding-left: 21rem;
+			overflow: hidden;
+			color: var(--error);
+			font-weight: 400;
+			font-size: 12rem;
+			font-family: var(--font-family-secondary);
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			
+				&_icon{
+					position: absolute;
+					top: 2rem;
+					left: 0;
+					width: 14rem;
+					height: 14rem;
+					margin-right: 6rem;
+					color: var(--error);
+				}
+		}
+}

@@ -1,0 +1,106 @@
+@import '@/app/styles/variables/breackpoints';
+
+.CustomDesignsSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 93rem);
+  min-height: 450rem;
+  padding: 50rem 0;
+  overflow: hidden;
+  color: var(--white);
+  background-color: var(--black);
+  
+    @media (width <= $breakpoint-mob) {
+      align-items: flex-start;
+      height: calc(100vh - 70rem);
+      min-height: 0;
+      padding: 63rem 0;
+    }
+
+    &__content{
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 443rem;
+      margin-left: 80rem;
+      padding-bottom: 5rem;
+      
+        @media (width <= $breakpoint-mob) {
+          width: 100%;
+          height: 60%;
+          margin: 0;
+        }
+  
+        &_subtitle{
+          color: var(--gray-700);
+        }
+    
+        &_title {
+          padding-top: 10rem;
+          
+            @media (width <= $breakpoint-mob) {
+              padding-top: 12rem;
+            }
+        }
+    
+        &_description{
+          color: var(--gray-400);
+        }
+    
+        &_button {
+          margin-top: 40rem;
+          
+            @media (width <= $breakpoint-mob) {
+              width: 100%;
+              margin-top: 24rem;
+            }
+        }
+    }
+  
+    &__overlay{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+  
+    &__carousel{
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      
+        &_slide{
+          height: calc(100vh - 95rem);
+          min-height: 450rem;
+          
+            @media (width <= $breakpoint-mob) {
+              min-height: 0;
+            }
+        }
+      
+        &_image{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          transform-origin: left center;
+          transition: transform 7s ease;
+          will-change: transform;
+        }
+    }
+  
+    &__mob{
+      position: absolute;
+      inset: 0;
+      
+        &_image{
+          width: 100%;
+          height: 100%;
+        }
+    }
+}

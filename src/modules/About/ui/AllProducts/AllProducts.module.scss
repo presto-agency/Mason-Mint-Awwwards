@@ -1,0 +1,102 @@
+@import '@/app/styles/variables/breackpoints';
+
+.AllProducts{
+  position: relative;
+  padding: 136rem 0;
+  overflow: hidden;
+  background-color: var(--gray-300);
+
+  @media (width <= $breakpoint-mob) {
+    padding: 64rem 0;
+  }
+
+  &__abstract{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    
+      &::before{
+        position: absolute;
+        top: -219rem;
+        right: 264rem;
+        width: 1223rem;
+        height: 1405rem;
+        background-image: url("/images/home/circled_arrow_bg_w.svg");
+        background-size: 1223rem 1405rem;
+        transform: scaleX(-1);
+        content: '';
+        
+          @media (width <= $breakpoint-mob) {
+            top: -58rem;
+            right: -567rem;
+            width: 672rem;
+            height: 726rem;
+            background-size: 672rem 726rem;
+            transform: initial;
+          }
+      }
+  }
+
+  .title{
+    max-width: 424rem;
+    margin: 0 0 0 78rem;
+
+    @media (width <= $breakpoint-mob) {
+      margin: 0;
+    }
+
+    .blue{
+      color: var(--primary-color);
+    }
+  }
+
+  &__content{
+    display: flex;
+    gap: 32rem;
+    margin: 64rem 0 0 ;
+    list-style: none;
+
+    @media (width <= $breakpoint-mob) {
+      flex-direction: column;
+      margin: 40rem 0 0 ;
+    }
+
+
+    &_item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: calc(100% / 3);
+
+      @media (width <= $breakpoint-mob) {
+        width: 100%;
+      }
+
+      .imageContainer{
+        position: relative;
+        width: 226rem;
+        height: 277rem;
+        margin: 16rem auto;
+
+        @media (width <= $breakpoint-mob) {
+          width: 152rem;
+          height: 193rem;
+        }
+
+        .image{
+          object-fit: contain;
+
+          @media (width <= $breakpoint-mob) {
+            object-position: bottom;
+          }
+        }
+      }
+
+      .descriptionItem{
+        max-width: 224rem;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+  }
+}

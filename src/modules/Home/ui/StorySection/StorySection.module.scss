@@ -1,0 +1,118 @@
+@import '@/app/styles/variables/breackpoints';
+
+.story {
+  position: relative;
+  padding: 164rem 0 153rem;
+  overflow: hidden;
+  
+    &__abstract{
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      
+        &::before{
+          position: absolute;
+          top: -84rem;
+          right: 153rem;
+          width: 1395rem;
+          height: 1550rem;
+          background-image: url("/images/home/circled_arrow_bg.svg");
+          background-size: 1395rem 1550rem;
+          content: '';
+        }
+    }
+
+  &__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 112rem 0 0;
+
+    &_left {
+      display: flex;
+      flex-direction: column;
+      max-width: 640rem;
+
+      .photoContainer {
+        align-self: flex-end;
+        width: 83%;
+        margin-top: 162rem;
+        aspect-ratio: 18/23;
+      }
+
+      .title{
+        margin: 0 0 6rem;
+      }
+
+      .description{
+        color: var(--gray-800);
+      }
+    }
+
+    &_right {
+      width: 25%;
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        padding: 45rem 0 40rem;
+      }
+
+      .photoContainer {
+        width: 304rem;
+        height: 361rem;
+      }
+    }
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .story {
+    padding: 80rem 0;
+
+    &::before{
+      display: none;
+    }
+
+    &__content{
+      flex-direction: column;
+      gap: 32rem;
+      padding: 0;
+
+      &_left {
+        gap: 4rem;
+        width: 100%;
+
+        .photoContainer {
+          display: none;
+          width: 100%;
+        }
+
+        .title{
+          margin: 0;
+        }
+      }
+
+      &_right {
+        width: 100%;
+        margin: 0 80rem;
+
+        .text {
+          padding: 11rem 0 26rem;
+        }
+
+        .buttonContainer{
+          width: 100%;
+
+          &__button{
+            width: 100%;
+          }
+        }
+
+        .photoContainer{
+          aspect-ratio: 17/19;
+        }
+      }
+    }
+  }
+}

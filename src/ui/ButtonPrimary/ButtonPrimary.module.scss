@@ -1,0 +1,346 @@
+@import '@/app/styles/variables/breackpoints';
+
+.buttonPrimary {
+  display: flex;
+  gap: 12rem;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 48rem;
+  padding: 0 32rem;
+  font: var(--font-button-l);
+  font-weight: 500;
+  font-size: 16rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+  border: 1px transparent solid;
+  border-radius: 100px;
+
+  &.white {
+    color: var(--black);
+    background-color: var(--white);
+    border: 1px solid var(--black);
+
+    &:disabled {
+      color: var(--gray-700);
+      background-color: var(--gray-400);
+      border: 1px solid transparent;
+      cursor: default;
+    }
+  }
+
+  &.transparent {
+    color: var(--black);
+    background: transparent;
+    border: 1px solid var(--black);
+
+    &:disabled {
+      color: var(--gray-700);
+      border: 1px solid var(--gray-400);
+      cursor: default;
+    }
+  }
+
+  &.white, &.transparent {
+    color: var(--black);
+  }
+
+  &.blue {
+    color: var(--white);
+    background-color: var(--primary-color);
+
+    &:disabled {
+      color: var(--gray-700);
+      background-color: var(--gray-400);
+      border: 1px solid var(--gray-400);
+      cursor: default;
+    }
+  }
+
+  &.noStroked {
+    gap: 16rem;
+    width: fit-content;
+    padding: 0;
+    color: var(--primary-color);
+    background: none;
+
+    .buttonPrimary {
+      &__content {
+        &_icon {
+          top: calc(50% - 1rem);
+        }
+      }
+    }
+
+    &.small{
+      padding: 0;
+    }
+
+    &.noArrowsAnimation {
+      &:not(:disabled):hover {
+        color: var(--black);
+        background-color: initial;
+      }
+    }
+
+    .arrow {
+      stroke: var(--primary-color);
+    }
+
+    &:disabled {
+      color: var(--gray-700);
+      cursor: default;
+    }
+  }
+  
+  &.small {
+    height: 36rem;
+    padding: 0 16rem;
+    font-weight: 500;
+    font-size: 15rem;
+
+    .buttonPrimary {
+      &__content {
+        padding-right: 24rem;
+
+        &_icon {
+          width: 15rem;
+          height: 12rem;
+
+          &.__1 {
+            left: 3rem;
+            transform: translate(-24rem, -50%);
+          }
+
+          &.__2 {
+            right: 3rem;
+          }
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      &:not(:disabled):hover {
+        cursor: pointer;
+
+        .buttonPrimary {
+          &__content {
+            padding-left: 24rem;
+
+            &_icon {
+              &.__2 {
+                transform: translate(24rem, -50%);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint-mob) {
+      width: 100%;
+      height: 38rem;
+      font-size: 13rem;
+    }
+  }
+
+  &.backwardArrows {
+    .buttonPrimary {
+      &__content {
+        padding-right: 0;
+        padding-left: 32rem;
+
+        &_icon {
+          &.__1 {
+            right: 0;
+            left: initial;
+            transform: translate(32rem, -50%) rotate(180deg);
+          }
+
+          &.__2 {
+            right: initial;
+            left: 0;
+            transform: translate(0, -50%) rotate(180deg);
+          }
+        }
+      }
+    }
+
+    &.small {
+      .buttonPrimary {
+        &__content {
+          padding-left: 24rem;
+
+          &_icon {
+            &.__1 {
+              transform: translate(24rem, -50%) rotate(180deg);
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      &:not(:disabled):hover {
+        .buttonPrimary {
+          &__content {
+            padding-right: 32rem;
+            padding-left: 0;
+
+            &_icon {
+              &.__1 {
+                transform: translate(0, -50%) rotate(180deg);
+              }
+
+              &.__2 {
+                transform: translate(-32rem, -50%) rotate(180deg);
+              }
+            }
+          }
+        }
+
+        &.small {
+          .buttonPrimary {
+            &__content {
+              padding-right: 24rem;
+              padding-left: 0;
+
+              &_icon {
+                &.__2 {
+                  transform: translate(-24rem, -50%) rotate(180deg);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.noArrowsAnimation {
+    transition: var(--move-duration) var(--ease);
+
+    &.small{
+      .buttonPrimary{
+        &__content{
+          padding-left: initial;
+        }
+      }
+
+      &:not(:disabled):hover{
+        .buttonPrimary{
+          &__content{
+            padding-right: initial;
+          }
+        }
+      }
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      &:not(:disabled):hover {
+        color: var(--white);
+        background-color: var(--black);
+        cursor: pointer;
+
+        .buttonPrimary {
+          &__content {
+            padding-right: initial;
+            padding-left: initial;
+          }
+        }
+      }
+    }
+
+    .buttonPrimary {
+      &__content {
+        padding-right: initial;
+        padding-left: initial;
+      }
+    }
+  }
+
+  @media (width <= $breakpoint-mob) {
+    height: 44rem;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    gap: 12rem;
+    align-items: center;
+    justify-content: center;
+    padding-right: 32rem;
+    transition: padding var(--move-duration) var(--ease);
+
+    & &_icon {
+      position: absolute;
+      top: 50%;
+      width: 19rem;
+      height: 14rem;
+      transform: translateY(-50%);
+      transition: opacity var(--hover-duration) var(--ease), transform var(--move-duration) var(--ease);
+      transition-delay: .03s;
+
+      &.__1 {
+        left: 0;
+        transform: translate(-32rem, -50%);
+        opacity: 0;
+      } 
+
+      &.__2 {
+        right: 0;
+      }
+    }
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    &:not(:disabled):hover {
+      cursor: pointer;
+
+      .buttonPrimary {
+        &__content {
+          padding-right: 0;
+          padding-left: 32rem;
+
+          &_icon {
+            &.__1 {
+              transform: translate(0, -50%);
+              opacity: 1;
+            }
+
+            &.__2 {
+              transform: translate(32rem, -50%);
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media (width <= $breakpoint-mob) {
+    &.noStroked{
+      height: 36rem;
+      padding: 0;
+      font-weight: 500;
+      font-size: 13rem;
+
+      .buttonPrimary {
+        &__content {
+          &_icon {
+            top: calc(50% - 1rem);
+          }
+        }
+      }
+    }
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+  
+  &.disabled{
+    pointer-events: none;
+  }
+}
+

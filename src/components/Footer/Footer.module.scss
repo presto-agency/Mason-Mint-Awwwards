@@ -1,0 +1,222 @@
+@import '@/app/styles/variables/breackpoints';
+
+.footer {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--black);
+  background-image: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 32%) 93.75%);
+
+    &__content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+  
+      &::before{
+        position: absolute;
+        top: -161rem;
+        left: 286rem;
+        width: 1395rem;
+        height: 1551rem;
+        background-image: url("/images/home/drawn_arrow_bg.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 1395rem 1551rem;
+        transform: scaleX(-1);
+        opacity: .2;
+        content: '';
+      }
+  
+      &_top {
+        position: relative;
+        display: grid;
+        grid-template-areas:
+      "logo nav"
+      "info nav";
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 60% 40%;
+        width: 100%;
+        padding: 80rem 0 42rem;
+      }
+  
+      &_bottom {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 32rem 0;
+        color: var(--gray-800);
+        font: var(--font-s);
+        border-top: 1px solid rgb(255 255 255 / 10%);
+  
+        
+          .creators {
+            display: flex;
+            align-items: center;
+            color: var(--gray-800);
+            transition: color var(--hover-duration) var(--ease);
+    
+            @media (min-width: $breakpoint-tablet) {
+              &:hover{
+                color: var(--primary-color);
+    
+                .creators{
+                  &__logo{
+                    fill: var(--primary-color)
+                  }
+                }
+              }
+            }
+    
+            &__logo {
+              margin: 0 16rem;
+              transition: fill var(--hover-duration) var(--ease);
+              fill: var(--gray-800);
+            }
+          }
+      }
+    }
+}
+
+.arrow {
+  stroke: var(--primary-color);
+}
+
+.logo {
+  grid-area: logo;
+
+  &__item {
+    fill: var(--white);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  grid-area: info;
+  gap: 24rem;
+  color: var(--gray-700);
+  font: var(--font-h4);
+
+  &__field {
+    display: flex;
+    gap: 24rem;
+    align-items: center;
+  }
+}
+
+.navigation {
+  display: flex;
+  grid-area: nav;
+  justify-content: space-between;
+
+  &__column{
+    display: flex;
+    flex-direction: column;
+    padding: 0 20rem 0 0;
+
+    &:last-child{
+      padding: 0;
+    }
+
+    &_title{
+      margin: 0 0 24rem;
+      color: var(--gray-800);
+    }
+    
+    .links{
+      display: flex;
+      flex-direction: column;
+
+      &__link{
+        margin: 0 0 32rem;
+        color: var(--white);
+        font: var(--font-button-m);
+        text-transform: uppercase;
+        transition: color var(--hover-duration) var(--ease);
+
+        @media (min-width: $breakpoint-tablet) {
+          &:hover{
+            color: var(--primary-color);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .footer {
+    &__content {
+      &::before{
+        top: 84rem;
+        left: 72rem;
+        width: 937rem;
+        height: 1043rem;
+        background-size: 937rem 1043rem;
+      }
+
+      &_top {
+        grid-template-areas:
+      "logo"
+      "nav"
+      "info";
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 67rem 0 42rem;
+      }
+
+      &_bottom {
+        flex-direction: column;
+        gap: 24rem;
+        max-width: 234rem;
+        margin: 0 auto;
+        padding: 24rem 0 28rem;
+        text-align: center;
+      }
+    }
+  }
+
+  .navigation {
+    display: grid;
+    grid-gap: 14rem;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr);
+    margin: 33rem 0 32rem;
+
+    &__column{
+      width: initial;
+      padding: 0;
+      
+
+      &:nth-child(1){
+        grid-area: 1 / 2 / 2 / 3;
+      }
+
+      &:nth-child(2){
+        grid-area: 1 / 1 / 2 / 2;
+      }
+
+
+      &:nth-child(3){
+        grid-area: 2 / 1 / 3 / 3;
+
+        .links{
+          flex-direction: initial;
+          flex-wrap: wrap;
+
+          &__link{
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+  
+  .socials {
+    display: flex;
+    flex-direction: row;
+    gap: 52rem;
+  }
+}

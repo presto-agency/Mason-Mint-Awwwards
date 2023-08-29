@@ -1,0 +1,204 @@
+@import '@/app/styles/variables/breackpoints';
+
+.ExploreDesignsSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 115rem 0;
+  overflow: hidden;
+  background-color: var(--gray-300);
+  
+    &__abstract{
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      
+        &::before{
+          position: absolute;
+          top: -312rem;
+          left: 153rem;
+          width: 1223rem;
+          height: 1318rem;
+          background-image: url("/images/home/circled_arrow_bg_w.svg");
+          background-size: 1223rem 1318rem;
+          content: '';
+        }
+  }
+
+  &__content{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    .sliderText {
+      max-width: 100%;
+      height: 100%;
+      max-height: 190rem;
+      margin: 17rem 0 0;
+
+      &__title{
+        display: -webkit-box;
+        margin: 0 0 16rem;
+        overflow: hidden;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
+
+      &__description{
+        display: -webkit-box;
+        margin: 0 0 20rem;
+        overflow: hidden;
+        color: var(--gray-800);
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    &_description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 505rem;
+      padding: 47rem 0 0 80rem;
+    }
+
+    &_sliderCoin{
+      position: relative;
+      width: 100%;
+      max-width: 672rem;
+
+      .sliderCoin{
+        &__slide{
+          position: relative;
+
+          .coinsContainer{
+            position: relative;
+            height: 468rem;
+          }
+
+          &_containerFront{
+            position: absolute;
+            top: 17rem;
+            left: 0;
+            width: 451rem;
+            height: 451rem;
+
+            .coinFront{
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &_containerBack{
+            position: absolute;
+            top: 0;
+            left: 189rem;
+            width: 350rem;
+            height: 350rem;
+
+            .coinBack{
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+        }
+      }
+
+      .arrowDesign{
+        position: absolute;
+        right: 0;
+        bottom: 55rem;
+        z-index: 2;
+        width: 56rem;
+        height: 56rem;
+
+        &__prev{
+          right: 64rem;
+        }
+
+        &__next{
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+.textSwiper{
+    &__title{
+      margin-bottom: 16rem;
+    }
+  
+    &__description{
+      margin-bottom: 21rem;
+    }
+}
+
+@media (width <= $breakpoint-mob) {
+  .ExploreDesignsSection{
+    padding: 64rem 0;
+
+    &::before{
+      position: absolute;
+      top: -177rem;
+      left: 234rem;
+      width: 839rem;
+      height: 906rem;
+      background-size: 839rem 906rem;
+    }
+
+    &__content{
+      flex-direction: column;
+      justify-content: initial;
+
+
+      &_description{
+        padding: 0;
+      }
+
+      &_sliderCoin{
+        .sliderCoin{
+          padding: 40rem 0 90rem;
+
+          &__slide{
+            .coinsContainer{
+              height: 234rem;
+              margin: 0 0 20rem;
+            }
+
+            &_containerFront{
+              top: 5rem;
+              left: 25rem;
+              width: 225rem;
+              height: 225rem;
+            }
+
+            &_containerBack{
+              right: 20rem;
+              left: initial;
+              width: 175rem;
+              height: 175rem;
+            }
+          }
+        }
+
+        .arrowDesign{
+          right: 0;
+          bottom: 0;
+
+          &__prev{
+            right: calc(50% + 6rem);
+          }
+
+          &__next{
+            right: 0;
+            left: calc(50% + 6rem);
+          }
+        }
+      }
+    }
+  }
+}

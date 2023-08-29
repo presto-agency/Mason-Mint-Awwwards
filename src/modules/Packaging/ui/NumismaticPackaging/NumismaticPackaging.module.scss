@@ -1,0 +1,101 @@
+@import '@/app/styles/variables/breackpoints';
+
+.NumismaticPackaging{
+  position: relative;
+  padding: 164rem 0;
+  overflow: hidden;
+  background-color: var(--gray-300);
+
+    @media (width <=$breakpoint-mob) {
+      margin: 77rem 0;
+      padding: 80rem 0 70rem;
+    }
+
+    &__abstract{
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      
+        &::before{
+          position: absolute;
+          top: -192rem;
+          right: -543rem;
+          width: 1223rem;
+          height: 1318rem;
+          background-image: url("/images/home/circled_arrow_bg_w.svg");
+          background-size: 1223rem 1318rem;
+          content: '';
+          
+            @media (width <=$breakpoint-mob) {
+              display: none;
+            }
+        }
+    }
+  
+    .arrows{
+      top: 50%;
+      transform: translateY(-50%);
+      
+        @media (width <=$breakpoint-mob) {
+          top: 0;
+          margin-top: -10rem;
+          transform: none;
+        }
+    }
+  
+    &__content{
+      display: flex;
+      justify-content: space-between;
+  
+      @media (width <=$breakpoint-mob) {
+        flex-direction: column;
+        justify-content: initial;
+      }
+  
+      &_left{
+        max-width: 752rem;
+  
+        .title{
+          @media (width <=$breakpoint-mob) {
+            font-size: 26rem;
+          }
+        }
+      }
+  
+      &_right{
+        max-width: 304rem;
+        margin: 0 112rem 0 0;
+  
+        @media (width <=$breakpoint-mob) {
+          max-width: 100%;
+          margin: 0;
+        }
+  
+        .description{
+          color: var(--gray-800);
+        }
+  
+        .description + .description{
+          margin: 16rem 0 0;
+  
+          @media (width <=$breakpoint-mob) {
+            margin: 5rem 0 0;
+          }
+        }
+      }
+    }
+  
+    &__slider{
+      margin: 40rem 0 0;
+  
+      .image{
+        width: 416rem;
+        height: 383rem;
+  
+        @media (width <=$breakpoint-mob) {
+          width: 312rem;
+          height: 287rem;
+        }
+      }
+    }
+}

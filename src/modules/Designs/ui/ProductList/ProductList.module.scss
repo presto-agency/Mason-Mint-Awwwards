@@ -1,0 +1,29 @@
+@import "@/app/styles/variables/breackpoints";
+
+.list{
+	position: relative;
+	padding-top: 82rem;
+	
+		@media (width <= $breakpoint-mob) {
+			padding-top: 60rem;
+		}
+	
+		&::before{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 1rem;
+			background-color: var(--black);
+			opacity: .1;
+			content: '';
+			
+				@media (width <= $breakpoint-mob) {
+					display: none;
+				}
+		}
+	
+		&__carousel{
+			margin-bottom: 120rem;
+		}
+}

@@ -1,0 +1,68 @@
+@import '@/app/styles/variables/breackpoints';
+
+.FAQSection{
+  display: flex;
+  margin: 155rem 0;
+
+  &__content{
+    display: flex;
+    justify-content: space-between;
+
+    &_left {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      max-width: 500rem;
+
+      &::before{
+        position: absolute;
+        top: 336rem;
+        right: 154rem;
+        width: 915rem;
+        height: 1116rem;
+        background-image: url("/images/home/circled_arrow_bg.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 915rem 1116rem;
+        content: '';
+      }
+
+      .subtitle {
+        max-width: 416rem;
+        color: var(--gray-800);
+      }
+
+      .photoContainer {
+        width: 192rem;
+        height: 219rem;
+        margin: 152rem 0 0 102rem;
+      }
+    }
+
+    &_right{
+      width: 100%;
+      max-width: 640rem;
+    }
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .FAQSection{
+    margin: 80rem 0;
+
+    &__content{
+      flex-direction: column;
+      justify-content: initial;
+
+      &_left{
+        &::before{
+          display: none;
+        }
+
+        .photoContainer{
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+@import '@/app/styles/variables/breackpoints';
+
+.BecomeDistributorSection {
+  position: relative;
+  overflow: hidden;
+  color: var(--white);
+  text-align: center;
+
+  &::before {
+    position: absolute;
+    top: -962rem;
+    right: 193rem;
+    z-index: 2;
+    width: 1458rem;
+    height: 1617rem;
+    background-image: url("/images/home/drawn_arrow_bg.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1458rem 1617rem;
+    transform: rotate(-180deg);
+    opacity: .5;
+    content: '';
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 158rem 0;
+    overflow: hidden;
+    background-color: var(--black);
+
+    &_description {
+      max-width: 540rem;
+      padding: 13rem 0 40rem;
+      color: var(--gray-300);
+    }
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .BecomeDistributorSection {
+    margin: 80rem 0 0;
+
+    &::before {
+      top: -178rem;
+      right: 168rem;
+      width: 1052rem;
+      height: 1165rem;
+      background-size: 1052rem 1165rem;
+      transform: initial;
+    }
+
+    &__content {
+      padding: 124rem 15rem 122rem;
+
+      &_description {
+        max-width: 280rem;
+        padding: 6rem 0 24rem;
+      }
+
+      .buttonContainer {
+        width: 100%;
+
+        &__button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

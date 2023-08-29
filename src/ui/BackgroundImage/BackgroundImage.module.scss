@@ -1,0 +1,49 @@
+.BackgroundImage {
+  position: relative;
+
+  .description{
+    position: absolute;
+    top: 0;
+    left: -34rem;
+    z-index: 1;
+    display: block;
+    color: var(--gray-700);
+    font: var(--font-h6);
+    writing-mode: vertical-rl;
+    text-transform: lowercase;
+
+    &.right{
+      right: -34rem;
+      left: initial;
+    }
+  }
+
+  &__container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    &_animatedWrapper{
+      position: relative;
+      width: 100% ;
+      height: 100% ;
+
+      .cowerStyle{
+        object-fit: cover;
+      }
+
+      .containStyle{
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.content{
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}

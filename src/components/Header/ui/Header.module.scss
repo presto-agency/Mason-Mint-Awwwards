@@ -1,0 +1,208 @@
+@import '@/app/styles/variables/breackpoints';
+
+.header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  padding: 30rem 0;
+  transition: padding 1s ease-out, background-color 0.4s ease-out;
+  
+    @media (width <= $breakpoint-tablet) {
+      height: 105rem;
+    }
+  
+  .logo{
+    transition: fill 0.3s ease-in-out;
+  }
+
+  &.dark {
+    color: var(--white);
+
+    .navigation {
+      &__content{
+        &_link {
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  &.light {
+    color: var(--black);
+
+    .navigation {
+      &__content{
+        &_link {
+          color: var(--black);
+        }
+      }
+    }
+  }
+
+  &.scrolled{
+    padding: 9rem 0;
+    background-color: var(--white);
+    
+      @media (width <= $breakpoint-tablet) {
+        height: 84rem;
+      }
+    
+      @media (width <= $breakpoint-mob) {
+        height: 56rem;
+      }
+  }
+
+  &.opened{
+    height: 100%;
+    background-color: var(--black);
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &_link{
+      position: relative;
+      z-index: 10;
+    }
+    
+    &_desktop {
+      width: 100%;
+
+      .navigation {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__content{
+          display: flex;
+          gap: 36rem;
+          justify-content: center;
+          width: 100%;
+          padding: 0 30rem;
+          font: var(--font-button-m);
+
+          &_link{
+            text-transform: uppercase;
+            transition: color var(--hover-duration) var(--ease);
+
+            &.active{
+              color: var(--primary-color);
+            }
+
+            @media (min-width: $breakpoint-tablet) {
+              &:hover{
+                color: var(--primary-color);
+              }
+            }
+          }
+        }
+      }
+
+      &.mobile{
+        display: block;
+        flex-grow: initial;
+        align-self: flex-start;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+        background-color: var(--black);
+        background-image: url("/images/home/drawn_arrow_bg_mirr.svg");
+        background-repeat: no-repeat;
+        background-size: 937rem 1043rem;
+        background-attachment: fixed;
+
+        .navigation{
+          position: relative;
+          flex-direction: column;
+          align-items: initial;
+          padding: 140rem 56rem;
+          overflow: hidden;
+
+          &__content{
+            position: relative;
+            flex-direction: column;
+            gap: 32rem;
+            margin: 0 0 64rem;
+
+            &_link{
+              color: var(--white);
+              font: var(--font-h4);
+              text-transform: initial;
+              transition: color var(--hover-duration) var(--ease);
+
+              &.active{
+                color: var(--primary-color);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &_mobile {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 0 64rem;
+      
+        @media (width <= $breakpoint-mob) {
+          padding: 0 24rem;
+        }
+    }
+  }
+}
+
+@media (width <= $breakpoint-tablet) {
+  .header {
+    &__content {
+      &_desktop {
+        display: none;
+
+        &.mobile{
+          background-position: top 130rem left 17rem;
+
+          .navigation{
+            padding: 194rem 56rem 143rem;
+
+            &__content{
+              padding: 0;
+
+              &_link{
+                font-size: 24rem;
+              }
+            }
+          }
+        }
+      }
+
+      &_mobile {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .header {
+    &__content {
+      &_desktop {
+        &.mobile{
+          background-position: top 130rem left 17rem;
+
+          .navigation{
+            &__content{
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}

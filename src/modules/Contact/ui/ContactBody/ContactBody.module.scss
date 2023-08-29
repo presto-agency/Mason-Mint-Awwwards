@@ -1,0 +1,58 @@
+@import "@/app/styles/variables/breackpoints";
+
+.contactBody{
+	position: relative;
+	
+		&__title{
+			margin-bottom: 47rem;
+		}
+	
+		&__contacts{
+			padding: 28rem 0;
+			color: var(--gray-800);
+
+				&_title{
+					margin-bottom: 5rem;
+				}
+		}
+	
+		&__clock{
+			margin: 52rem 0 32rem;
+			user-select: none;
+			pointer-events: none;
+			
+				&_box{
+					display: block;
+					
+						@media (width <= $breakpoint-mob) {
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: center;
+						}
+				}
+			
+				@media (width <= $breakpoint-mob) {
+					margin: 34rem auto 23rem;
+				}
+		}
+	
+		&__address{
+			max-width: 192rem;
+			color: var(--gray-800);
+			
+			@media (width <= $breakpoint-mob) {
+				margin: 0 auto;
+				text-align: center;
+			}
+			
+				&_title{
+					position: relative;
+					margin-bottom: 5rem;
+					
+						@media (width <= $breakpoint-mob) {
+							text-align: center;
+						}
+				}
+		}
+}

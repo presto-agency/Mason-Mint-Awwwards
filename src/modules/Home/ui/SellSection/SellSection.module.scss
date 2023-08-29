@@ -1,0 +1,112 @@
+@import '@/app/styles/variables/breackpoints';
+
+.sellSection{
+  position: relative;
+  height: 200vh;
+
+  &__content{
+    display: flex;
+    justify-content: space-between;
+    padding: 94rem 112rem;
+
+    .imageWrapper{
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 528rem;
+      height: 100vh;
+      transform-style: preserve-3d;
+
+      &::before{
+        position: absolute;
+        top: -33rem;
+        right: -735rem;
+        width: 1395rem;
+        height: 1551rem;
+        background-image: url("/images/home/circled_arrow_bg_sell.svg");
+        background-repeat: no-repeat;
+        background-position: top 10rem right -49rem;
+        background-size: 1395rem 1551rem;
+        content: '';
+        pointer-events: none;
+      }
+    }
+
+    .imageContainer{
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 528rem;
+      height: 528rem;
+      transform: translateY(-50%);
+    }
+
+    &_left{
+      position: relative;
+    }
+
+    &_right{
+      max-width: 416rem;
+
+      .subtitle{
+        margin: 8rem 0;
+        color: var(--gray-700);
+      }
+
+      .title{
+        margin: 0 0 8rem;
+      }
+
+      .description{
+        margin: 0 0 20rem;
+      }
+
+      .sectionWrapper{
+        display: flex;
+        align-items: center;
+        height: 100vh;
+
+        .image{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .sellSection {
+    height: initial;
+    margin: 80rem 0;
+
+    &__content{
+      padding: initial;
+
+      &_right{
+        .subtitle{
+          margin: 8rem 0 11rem;
+        }
+
+        .title{
+          margin: 0;
+        }
+
+        .sectionWrapper{
+          height: initial;
+          margin: 0 0 67rem;
+
+          &:last-of-type{
+            margin: 0;
+          }
+
+          .image{
+            display: block;
+            width: 200rem;
+            height: 200rem;
+            margin: 0 0 46rem;
+          }
+        }
+      }
+    }
+  }
+}

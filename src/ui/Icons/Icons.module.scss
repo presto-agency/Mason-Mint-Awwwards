@@ -1,0 +1,36 @@
+@import "@/app/styles/variables/breackpoints";
+
+.icon{
+	width: 100%;
+	height: 100%;
+}
+
+.iconAttention{
+	width: 14rem;
+	height: 14rem;
+}
+
+.iconClose{
+	width: 16rem;
+	height: 16rem;
+	
+		@media (width <= $breakpoint-mob)  {
+			width: 18rem;
+			height: 18rem;
+		}
+}
+
+.iconResize{
+	width: 17rem;
+	height: 16rem;
+}
+
+.iconExclamation{
+	width: 25rem;
+	height: 25rem;
+}
+
+.iconCheck{
+	width: 11rem;
+	height: 11rem;
+}

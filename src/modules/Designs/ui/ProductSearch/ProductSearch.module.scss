@@ -1,0 +1,68 @@
+@import "@/app/styles/variables/breackpoints";
+
+.search{
+	position: relative;
+	max-width: 320rem;
+	
+		&__field{
+			padding-top: 0;
+			
+				input{
+					padding-right: 30rem;
+				}
+		}
+	
+		&__reset{
+			position: absolute;
+			top: 8rem;
+			right: 0;
+			width: 30rem;
+			height: 30rem;
+			padding: 0;
+			background-color: transparent;
+			border: none;
+			
+				&::before,
+				&::after{
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: 14rem;
+					height: 1rem;
+					background-color: var(--gray-800);
+					border-radius: 2px;
+					content: '';
+					
+						@media (width <= $breakpoint-mob) {
+							height: 1px;
+						}
+				}
+
+				&::before{
+					transform: translate(-50%,-50%) rotate(45deg);
+				}
+
+				&::after{
+					transform: translate(-50%,-50%) rotate(-45deg);
+				}
+			
+				&:hover{
+					cursor: pointer;
+					
+					&::before,
+					&::after{
+						background-color: var(--black);
+						transition: background-color var(--hover-duration) var(--ease);
+					}
+				}
+		}
+	
+		&__icon{
+			position: absolute;
+			top: 16rem;
+			right: 8rem;
+			width: 15rem;
+			height: 15rem;
+			pointer-events: none;
+		}
+}

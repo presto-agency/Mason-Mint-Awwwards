@@ -1,0 +1,27 @@
+{
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": [
+    "next",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-unused-vars": "warn",
+    "@typescript-eslint/no-explicit-any": "error",
+    "func-style": ["error", "expression"],
+    "react/display-name": "off",
+    "prettier/prettier": ["error", {
+      "tabWidth": 2,
+      "semi": false,
+      "singleQuote": true
+    }],
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": "allow-with-description"
+      }
+    ]
+  }
+}

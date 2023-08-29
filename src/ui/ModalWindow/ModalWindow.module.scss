@@ -1,0 +1,66 @@
+@import '@/app/styles/variables/breackpoints';
+
+.modal{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 11;
+	display: flex;
+	width: 100%;
+	height: 100%;
+	padding: 32rem 0;
+	overflow-y: auto;
+	
+		&__bg{
+			position: fixed;
+			inset: 0;
+			background-color: var(--black);
+			opacity: .5;
+		}
+		
+		&__close{
+			position: fixed;
+			inset: 0;
+		}
+	
+		&__body{
+			position: relative;
+			width: 88%;
+			height: auto;
+			margin: auto;
+			padding: 40rem 32rem;
+			background-color: var(--white);
+			
+				@media (width <= $breakpoint-mob)  {
+					padding: 32rem;
+				}
+			
+				&_close{
+					position: absolute;
+					top: 14rem;
+					right: 16rem;
+					width: 26rem;
+					height: 26rem;
+					padding: 5rem;
+					background-color: transparent;
+					border: none;
+					
+						@media (width <= $breakpoint-mob)  {
+							width: 28rem;
+							height: 28rem;
+						}
+					
+						&:hover{
+							cursor: pointer;
+						}
+				}
+			
+				&.md{
+					max-width: 500rem;
+				}
+			
+				&.xs{
+					max-width: 450rem;
+				}
+		}
+}

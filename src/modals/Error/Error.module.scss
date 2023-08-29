@@ -1,0 +1,35 @@
+.errorModal{
+	border: 2px var(--error) solid;
+}
+
+.modal{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	max-width: 320rem;
+	margin: 0 auto;
+	text-align: center;
+		
+		&__icon{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 20rem;
+			height: 20rem;
+			margin: 0 auto;
+			color: var(--attention);
+			border-radius: 50%;
+			
+				&_item{
+					width: 100%;
+					height: 100%;
+				}
+		}
+	
+		&__title{
+			margin: 12rem 0 32rem;
+			color: var(--error);
+		}
+}

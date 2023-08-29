@@ -1,0 +1,121 @@
+@import '@/app/styles/variables/breackpoints';
+
+.arrow{
+  position: relative;
+  width: 56rem;
+  height: 56rem;
+  color: var(--primary-color);
+  background-color: var(--white);
+  border: 1px var(--primary-color) solid;
+  border-radius: 50%;
+  transition: background-color var(--hover-duration) var(--ease), color var(--hover-duration) var(--ease);
+  pointer-events: auto;
+
+  svg{
+    display: none;
+  }
+
+  &::before,
+  &::after{
+    position: absolute;
+    top: 50%;
+    width: 16rem;
+    height: 9rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9' fill='none'%3E%3Cpath d='M15 1C9.5 1 8 8 8 8C8 8 7 1 1 0.999999' stroke='%23266ef9' strokeLinecap='round' strokeLinejoin='round' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    transition: background-image var(--hover-duration) var(--ease), left var(--move-duration) var(--ease), opacity var(--hover-duration) var(--ease);
+    content: '';
+  }
+
+  &_prev{
+    &::before,
+    &::after{
+      transform: translate(-50%,-50%) rotate(90deg);
+    }
+
+    &::before{
+      left: 47%;
+    }
+
+    &::after{
+      left: 67%;
+      opacity: 0;
+      transition-delay: .03s;
+    }
+
+    @media (width > $breakpoint-mob) {
+      &:hover:not(:disabled){
+        &::before{
+          left: 27%;
+          opacity: 0;
+        }
+
+        &::after{
+          left: 47%;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &_next{
+    &::before,
+    &::after{
+      transform: translate(-50%,-50%) rotate(-90deg);
+    }
+
+    &::before{
+      left: 53%;
+    }
+
+    &::after{
+      left: 33%;
+      opacity: 0;
+      transition-delay: .03s;
+    }
+
+    @media (width > $breakpoint-mob) {
+      &:hover:not(:disabled){
+        &::before{
+          left: 73%;
+          opacity: 0;
+        }
+
+        &::after{
+          left: 53%;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &[disabled]{
+    color: var(--gray-700);
+    background-color: var(--white);
+    border-color: var(--gray-700);
+    cursor: default;
+    opacity: 1;
+
+    &::before,
+    &::after{
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9' fill='none'%3E%3Cpath d='M15 1C9.5 1 8 8 8 8C8 8 7 1 1 0.999999' stroke='%239aa6af' strokeLinecap='round' strokeLinejoin='round' /%3E%3C/svg%3E");
+    }
+  }
+
+  &:hover:not(:disabled){
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  @media (width > $breakpoint-mob) {
+    &:hover:not(:disabled){
+      color: var(--white);
+      background-color: var(--primary-color);
+
+      &::before,
+      &::after{
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9' fill='none'%3E%3Cpath d='M15 1C9.5 1 8 8 8 8C8 8 7 1 1 0.999999' stroke='%23ffffff' strokeLinecap='round' strokeLinejoin='round' /%3E%3C/svg%3E");
+      }
+    }
+  }
+}

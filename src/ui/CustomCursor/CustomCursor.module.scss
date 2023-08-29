@@ -1,0 +1,12 @@
+@import "@/app/styles/variables/breackpoints";
+
+.customCursor{
+  position: fixed;
+  top: -17px;
+  left: -12px;
+  z-index: 1000;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  transform: translate3d(0, 0, 0);
+  pointer-events: none;
+}
