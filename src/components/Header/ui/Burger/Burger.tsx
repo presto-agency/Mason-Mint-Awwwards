@@ -81,6 +81,7 @@ export const Burger: FC<BurgerProps> = ({
   toggleMenu,
 }) => {
   const mods = {
+    [styles.opened]: opened,
     [styles.scrolled]: scrolled,
     [styles[theme]]: true,
   }

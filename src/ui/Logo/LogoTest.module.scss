@@ -1,0 +1,52 @@
+@import '@/app/styles/variables/breackpoints';
+
+.Logo {
+  height: 60rem;
+  fill: var(--black);
+
+  & .icon {
+    transition: fill 0.3s ease-in-out;
+    fill: #266EF9;
+  }
+
+  & .smallText {
+    transition: fill 0.3s ease-in-out;
+    fill: #266EF9;
+  }
+  
+  & .mainText {
+    transition: fill 0.3s ease-in-out;
+    fill: #24282C;
+  }
+
+  &.white {
+    .icon, .smallText, .mainText {
+      fill: #fff;
+    }
+  }
+
+  &.withoutText {
+    .smallText {
+      // fill: #fff0;
+      display: none;
+    }
+
+    .mainText {
+      // fill: #fff0;
+      display: none;
+    }
+  }
+
+  @media (width <= $breakpoint-mob) {
+    width: 125rem;
+    height: auto;
+  }
+  
+  // svg{
+  //   width: 100%;
+  //   height: 100%;
+  //   object-fit: contain;
+  //   object-position: left center;
+  // }
+}
+

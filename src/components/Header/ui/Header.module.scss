@@ -4,15 +4,77 @@
   position: fixed;
   z-index: 10;
   width: 100%;
-  padding: 30rem 0;
-  transition: padding 1s ease-out, background-color 0.4s ease-out;
+  padding: 16rem 36rem;
+  transition: padding 1s ease-out;
   
+  @media (width <= $breakpoint-tablet) {
+    padding: 0;
+  }
+
+  &__container {
+    padding: 0 28rem !important;
+    border-radius: 8rem;
+    transition: background-color 0.4s ease-out, box-shadow .2s ease;
+
     @media (width <= $breakpoint-tablet) {
-      height: 105rem;
+      height: 100%;
+      padding: 0 64rem!important;
+      border-radius: 0;
+    }
+
+    @media (width <= $breakpoint-mob) {
+      padding: 0 24rem !important;
+    }
+  }
+
+  &.scrolled{
+    .header__container {
+      background-color: var(--white);
+      box-shadow: 0 0 10rem -7rem #000;
     }
   
+    .logo__icon {
+      height: 38rem;
+    }
+
+    .header__content {
+      padding: 10rem 0;
+    }
+
+    @media (width <= $breakpoint-tablet) {
+      .header__content {
+        padding-top: 26rem;
+      }
+
+      .logo__icon {
+        height: 60rem;
+      }
+    }
+
+    @media (width <= $breakpoint-mob) {
+      .header__content {
+        padding-top: 13rem;
+      }
+    }
+  }
+  
   .logo{
-    transition: fill 0.3s ease-in-out;
+    width: 200rem;
+
+    &__icon{
+      height: 60rem;
+      transition: height 0.3s ease-in-out;
+    }
+
+    @media (width <= $breakpoint-mob) {
+      .logo {
+        width: auto;
+
+        &__icon{
+          height: auto;
+        }
+      }
+    }
   }
 
   &.dark {
@@ -39,18 +101,6 @@
     }
   }
 
-  &.scrolled{
-    padding: 9rem 0;
-    background-color: var(--white);
-    
-      @media (width <= $breakpoint-tablet) {
-        height: 84rem;
-      }
-    
-      @media (width <= $breakpoint-mob) {
-        height: 56rem;
-      }
-  }
 
   &.opened{
     height: 100%;
@@ -61,10 +111,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10rem 0;
 
     &_link{
       position: relative;
       z-index: 10;
+      display: flex;
     }
     
     &_desktop {
@@ -152,9 +204,9 @@
       height: 100%;
       padding: 0 64rem;
       
-        @media (width <= $breakpoint-mob) {
-          padding: 0 24rem;
-        }
+      @media (width <= $breakpoint-mob) {
+        padding: 0 24rem;
+      }
     }
   }
 }
@@ -162,6 +214,9 @@
 @media (width <= $breakpoint-tablet) {
   .header {
     &__content {
+      padding-top: 26rem;
+      transition: padding 0.4s ease-out;
+
       &_desktop {
         display: none;
 
@@ -186,6 +241,13 @@
         display: block;
       }
     }
+
+    &.opened.scrolled {
+      .header__content {
+        padding-top: 26rem;
+      }
+    }
+
   }
 }
 

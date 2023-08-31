@@ -10,18 +10,23 @@
   height: 16rem;
   transition: top 0.4s ease-out;
   
+  @media (width <= $breakpoint-mob) {
+    top: 38rem;
+    right: 24rem;
+  }
+
+  &.scrolled{
     @media (width <= $breakpoint-mob) {
-      top: 45rem;
-      right: 24rem;
+      top: 24rem;
     }
-    
-    &.scrolled{
-      top: 35rem;
-      
-        @media (width <= $breakpoint-mob) {
-          top: 20rem;
-        }
+  }
+
+
+  &.opened{
+    @media (width <= $breakpoint-mob) {
+      top: 38rem;
     }
+  }
 
   &:hover{
     cursor: pointer;

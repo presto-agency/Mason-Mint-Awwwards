@@ -1,25 +1,28 @@
 import { FC, useCallback, useEffect, useState, memo, useContext } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import classNames from 'classnames'
-import useWindowDimensions from '@/hooks/useWindowDimensions'
-import { Logo } from '@/ui/Logo'
-import { MobileLayout } from './MobileLayout/MobileLayout'
-import Container from '@/app/layouts/Container'
-import { useRouter } from 'next/router'
-import { NavigationLayout } from '@/components/Header/ui/NavigationLayout/NavigationLayout'
 import { motion } from 'framer-motion'
 
-import styles from './Header.module.scss'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { useScroll } from '@/hooks/useScroll'
+
+import Container from '@/app/layouts/Container'
+import { NavigationLayout } from '@/components/Header/ui/NavigationLayout/NavigationLayout'
+import { LogoTest } from '@/ui/Logo/LogoTest'
+import { MobileLayout } from './MobileLayout/MobileLayout'
+
 import { Store } from '@/utils/Store'
+import styles from './Header.module.scss'
 
 type HeaderProps = {
   theme: 'dark' | 'light'
 }
 
 const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
-  const [y, setY] = useState<number>(0)
-  const [scrollDirection, setScrollDirection] = useState<'down' | 'up'>('up')
-  const [scrolled, setScrolled] = useState(false)
+  const { scrolled, scrollDirection } = useScroll()
+  const [scrolledClassToAdd, setScrolledClassToAdd] = useState(false)
+
   const [menuOpened, setMenuOpened] = useState(false)
   const [headerTheme, setHeaderTheme] = useState(initialTheme)
   const { width } = useWindowDimensions()
@@ -28,7 +31,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
 
   const mods = {
     [styles[headerTheme]]: true,
-    [styles.scrolled]: scrolled,
+    [styles.scrolled]: scrolledClassToAdd,
     [styles.opened]: menuOpened,
   }
 
@@ -41,21 +44,11 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
       return
     }
 
-    if (scrolled && y > window.scrollY) {
-      setScrollDirection('up')
-    } else if (scrolled && y < window.scrollY) {
-      setScrollDirection('down')
-    }
-    setY(window.scrollY)
-
-    if (window.scrollY > 10) {
-      setScrolled(true)
-      setHeaderTheme('light')
-    } else {
-      setScrolled(false)
+    if (window.scrollY < 10) {
+      setScrolledClassToAdd(false)
       setHeaderTheme(initialTheme)
     }
-  }, [menuOpened, y, initialTheme])
+  }, [menuOpened, initialTheme])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -77,8 +70,9 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
       setHeaderTheme('dark')
     }
 
-    if (!menuOpened && scrolled) {
+    if (!menuOpened && scrolled && width <= 991) {
       setHeaderTheme('light')
+      setScrolledClassToAdd(true)
     }
   }, [menuOpened, initialTheme, scrolled])
 
@@ -114,18 +108,38 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
               : 0,
         }}
         transition={{ duration: 1, ease: 'easeInOut' }}
+        onAnimationComplete={() => {
+          if (scrolled && scrollDirection === 'down' && width > 991) {
+            setScrolledClassToAdd(true)
+            setHeaderTheme('light')
+            return
+          }
+        }}
       >
-        <Container>
+        <Container className={styles['header__container']}>
           <div className={styles['header__content']}>
             <Link
               scroll={false}
               className={styles['header__content_link']}
               href={'/'}
+              onClick={() => {
+                if (router.pathname !== '/') {
+                  setHeaderTheme('light')
+                  setScrolledClassToAdd(false)
+                }
+              }}
             >
-              <Logo
+              {/* <Logo
                 className={styles['logo']}
                 isWhite={!scrolled && headerTheme !== 'light'}
-              />
+              /> */}
+              <div className={styles['logo']}>
+                <LogoTest
+                  className={styles['logo__icon']}
+                  isWhite={headerTheme !== 'light'}
+                  withoutText={scrolledClassToAdd && width > 991}
+                />
+              </div>
             </Link>
             <NavigationLayout />
           </div>
