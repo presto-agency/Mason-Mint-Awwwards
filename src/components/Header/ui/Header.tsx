@@ -24,6 +24,8 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
   const [scrolledClassToAdd, setScrolledClassToAdd] = useState(false)
 
   const [menuOpened, setMenuOpened] = useState(false)
+  const [menuOpenedClass, setMenuOpenedClass] = useState(false)
+
   const [headerTheme, setHeaderTheme] = useState(initialTheme)
   const { width } = useWindowDimensions()
   const router = useRouter()
@@ -32,12 +34,23 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
   const mods = {
     [styles[headerTheme]]: true,
     [styles.scrolled]: scrolledClassToAdd,
-    [styles.opened]: menuOpened,
+    [styles.opened]: menuOpenedClass,
   }
 
   const toggleMenu = () => {
     setMenuOpened((prev) => !prev)
   }
+
+  useEffect(() => {
+    if (menuOpened) {
+      setMenuOpenedClass(true)
+    } else {
+      const removeOpenedClass = setTimeout(() => {
+        setMenuOpenedClass(false)
+      }, 1000)
+      return () => clearInterval(removeOpenedClass)
+    }
+  }, [menuOpened])
 
   const handleScroll = useCallback(() => {
     if (menuOpened) {
@@ -58,23 +71,23 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
   }, [handleScroll])
 
   useEffect(() => {
-    if (menuOpened && !scrolled) {
+    if (menuOpenedClass && !scrolled) {
       setHeaderTheme('dark')
     }
 
-    if (!menuOpened && !scrolled) {
+    if (!menuOpenedClass && !scrolled) {
       setHeaderTheme(initialTheme)
     }
 
-    if (menuOpened && scrolled) {
+    if (menuOpenedClass && scrolled) {
       setHeaderTheme('dark')
     }
 
-    if (!menuOpened && scrolled && width <= 991) {
+    if (!menuOpenedClass && scrolled && width <= 991) {
       setHeaderTheme('light')
       setScrolledClassToAdd(true)
     }
-  }, [menuOpened, initialTheme, scrolled])
+  }, [menuOpenedClass, initialTheme, scrolled])
 
   useEffect(() => {
     if (width > 991) setMenuOpened(false)
@@ -129,10 +142,6 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
                 }
               }}
             >
-              {/* <Logo
-                className={styles['logo']}
-                isWhite={!scrolled && headerTheme !== 'light'}
-              /> */}
               <div className={styles['logo']}>
                 <LogoTest
                   className={styles['logo__icon']}
@@ -148,6 +157,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
           scrolled={scrolled}
           theme={headerTheme}
           menuOpened={menuOpened}
+          menuOpenedClass={menuOpenedClass}
           toggleMenu={toggleMenu}
         />
       </motion.header>

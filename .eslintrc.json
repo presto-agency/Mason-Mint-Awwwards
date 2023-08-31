@@ -15,7 +15,8 @@
     "prettier/prettier": ["error", {
       "tabWidth": 2,
       "semi": false,
-      "singleQuote": true
+      "singleQuote": true,
+      "endOfLine": "auto"
     }],
     "@typescript-eslint/ban-ts-comment": [
       "error",

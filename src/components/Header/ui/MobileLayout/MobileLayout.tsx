@@ -11,17 +11,18 @@ type MobileLayoutProps = {
   scrolled: boolean
   theme: 'dark' | 'light'
   menuOpened: boolean
+  menuOpenedClass: boolean
   toggleMenu: () => void
 }
 
 export const MobileLayout: FC<MobileLayoutProps> = memo(
-  ({ menuOpened, scrolled, theme, toggleMenu }) => {
+  ({ menuOpened, menuOpenedClass, scrolled, theme, toggleMenu }) => {
     return (
       <div className={styles['header__content_mobile']}>
         <Burger
           scrolled={scrolled}
           theme={theme}
-          opened={menuOpened}
+          opened={menuOpenedClass}
           toggleMenu={toggleMenu}
         />
         <AnimatePresence>{menuOpened && <MobileMenu />}</AnimatePresence>
