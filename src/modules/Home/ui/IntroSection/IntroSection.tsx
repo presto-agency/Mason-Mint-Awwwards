@@ -24,7 +24,10 @@ const IntroSection = () => {
         <VideoComponent src="/video/hero_video_bg-compress.mp4" />
       </ParallaxSection>
       <Container>
-        <div className={styles['intro__content']}>
+        <ParallaxSection
+          className={styles['intro__content']}
+          parallaxValues={[200, -250]}
+        >
           <div className={styles['intro__content_top']}>
             <h1 className={classNames('h1', styles['title'])}>
               <AnimatedText title withBlueDot>
@@ -58,7 +61,7 @@ const IntroSection = () => {
               </AnimatedElement>
             </div>
           </div>
-        </div>
+        </ParallaxSection>
       </Container>
     </section>
   )

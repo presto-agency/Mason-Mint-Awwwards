@@ -4,45 +4,46 @@
   position: relative;
   padding: 160rem 0 31rem;
   overflow: hidden;
+  background-color: var(--white);
   
+  @media (width <= $breakpoint-mob) {
+    padding: 78rem 0 20rem;
+  }
+  
+  &__title{
+    margin: 20rem 0 10rem;
+      
     @media (width <= $breakpoint-mob) {
-      padding: 78rem 0 20rem;
+      margin: 18rem 0 0;
     }
+  }
   
-    &__title{
-      margin: 20rem 0 10rem;
-      
-        @media (width <= $breakpoint-mob) {
-          margin: 18rem 0 0;
-        }
-    }
+  &__subtitle{
+    color: var(--gray-700);
+    font-weight: 500;
+    font-family: var(--font-family-primary);
+    letter-spacing: -0.01em;
+    text-transform: lowercase;
+  }
   
-    &__subtitle{
-      color: var(--gray-700);
-      font-weight: 500;
-      font-family: var(--font-family-primary);
-      letter-spacing: -0.01em;
-      text-transform: lowercase;
-    }
-  
-    &__actions{
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      height: 100%;
-      padding-top: 20rem;
+  &__actions{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    padding-top: 20rem;
       
-        @media (width <= $breakpoint-mob) {
-          align-items: flex-start;
-          margin-bottom: 20rem;
-          padding-top: 3rem;
-        }
-      
-        a, button,
-        & > div{
-          @media (width <= $breakpoint-mob) {
-            width: 100%;
-          }
-        }
+    @media (width <= $breakpoint-mob) {
+      align-items: flex-start;
+      margin-bottom: 20rem;
+      padding-top: 3rem;
     }
+      
+    a, button,
+    & > div{
+      @media (width <= $breakpoint-mob) {
+        width: 100%;
+      }
+    }
+  }
 }

@@ -7,6 +7,7 @@ import Accordion from '@/modules/Home/ui/FAQSection/Accordion/Accordion'
 import data from './data'
 
 import styles from './FAQSection.module.scss'
+import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
 
 const FAQSection = () => {
   const [expanded, setExpanded] = useState<false | number>(0)
@@ -15,7 +16,10 @@ const FAQSection = () => {
     <section className={styles['FAQSection']}>
       <Container>
         <div className={styles['FAQSection__content']}>
-          <div className={styles['FAQSection__content_left']}>
+          <ParallaxSection
+            className={styles['FAQSection__content_left']}
+            parallaxValues={[100, -100]}
+          >
             <h2 className={classNames('h2', styles['title'])}>
               <AnimatedText title withBlueDot>
                 You have question we have answers
@@ -35,8 +39,11 @@ const FAQSection = () => {
               description="suppert"
               descriptionPositionRight={true}
             />
-          </div>
-          <div className={styles['FAQSection__content_right']}>
+          </ParallaxSection>
+          <ParallaxSection
+            className={styles['FAQSection__content_right']}
+            parallaxValues={[200, -400]}
+          >
             <ul>
               {data.map((item) => (
                 <Accordion
@@ -50,7 +57,7 @@ const FAQSection = () => {
                 />
               ))}
             </ul>
-          </div>
+          </ParallaxSection>
         </div>
       </Container>
     </section>

@@ -20,7 +20,10 @@ const StorySection: FC = () => {
       />
       <Container>
         <div className={styles['story__content']}>
-          <div className={styles['story__content_left']}>
+          <ParallaxSection
+            className={styles['story__content_left']}
+            parallaxValues={[100, -100]}
+          >
             <h3 className={classNames('h3', styles['title'])}>
               <AnimatedText title>
                 Mason Mint was born from the idea of producing world-class
@@ -42,10 +45,10 @@ const StorySection: FC = () => {
               parallax
               parallaxValues={[-100, 100]}
             />
-          </div>
+          </ParallaxSection>
           <ParallaxSection
             className={styles['story__content_right']}
-            parallaxValues={[-100, 200]}
+            parallaxValues={[200, -400]}
           >
             <BackgroundImage
               src="/images/home/home_story_2.png"

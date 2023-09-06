@@ -1,81 +1,84 @@
 @import '@/app/styles/variables/breackpoints';
 
 .footer {
+  position: sticky;
+  bottom: 0;
+  z-index: -1;
   width: 100%;
   overflow: hidden;
   background-color: var(--black);
   background-image: linear-gradient(180deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 32%) 93.75%);
 
-    &__content {
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    &::before{
+      position: absolute;
+      top: -161rem;
+      left: 286rem;
+      width: 1395rem;
+      height: 1551rem;
+      background-image: url("/images/home/drawn_arrow_bg.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 1395rem 1551rem;
+      transform: scaleX(-1);
+      opacity: .2;
+      content: '';
+    }
+  
+    &_top {
+      position: relative;
+      display: grid;
+      grid-template-areas:
+        "logo nav"
+        "info nav";
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 60% 40%;
+      width: 100%;
+      padding: 80rem 0 42rem;
+    }
+  
+    &_bottom {
       position: relative;
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: space-between;
-  
-      &::before{
-        position: absolute;
-        top: -161rem;
-        left: 286rem;
-        width: 1395rem;
-        height: 1551rem;
-        background-image: url("/images/home/drawn_arrow_bg.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 1395rem 1551rem;
-        transform: scaleX(-1);
-        opacity: .2;
-        content: '';
-      }
-  
-      &_top {
-        position: relative;
-        display: grid;
-        grid-template-areas:
-      "logo nav"
-      "info nav";
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 60% 40%;
-        width: 100%;
-        padding: 80rem 0 42rem;
-      }
-  
-      &_bottom {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 32rem 0;
-        color: var(--gray-800);
-        font: var(--font-s);
-        border-top: 1px solid rgb(255 255 255 / 10%);
+      padding: 32rem 0;
+      color: var(--gray-800);
+      font: var(--font-s);
+      border-top: 1px solid rgb(255 255 255 / 10%);
   
         
-          .creators {
-            display: flex;
-            align-items: center;
-            color: var(--gray-800);
-            transition: color var(--hover-duration) var(--ease);
+      .creators {
+        display: flex;
+        align-items: center;
+        color: var(--gray-800);
+        transition: color var(--hover-duration) var(--ease);
     
-            @media (min-width: $breakpoint-tablet) {
-              &:hover{
-                color: var(--primary-color);
+        @media (min-width: $breakpoint-tablet) {
+          &:hover{
+            color: var(--primary-color);
     
-                .creators{
-                  &__logo{
-                    fill: var(--primary-color)
-                  }
-                }
+            .creators{
+              &__logo{
+                fill: var(--primary-color)
               }
             }
-    
-            &__logo {
-              margin: 0 16rem;
-              transition: fill var(--hover-duration) var(--ease);
-              fill: var(--gray-800);
-            }
           }
+        }
+    
+        &__logo {
+          margin: 0 16rem;
+          transition: fill var(--hover-duration) var(--ease);
+          fill: var(--gray-800);
+        }
       }
     }
+  }
 }
 
 .arrow {
@@ -158,9 +161,9 @@
 
       &_top {
         grid-template-areas:
-      "logo"
-      "nav"
-      "info";
+          "logo"
+          "nav"
+          "info";
         grid-template-rows: 1fr;
         grid-template-columns: 1fr;
         gap: 0;

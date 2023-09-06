@@ -1,0 +1,62 @@
+@import '@/app/styles/variables/breackpoints';
+
+.DiscoverMasonMintSection {
+  height: 500vh;
+  margin-top: -100rem;
+  background-color: var(--white);
+
+  @media (width <= $breakpoint-mob) {
+    margin-top: -400rem;
+  }
+}
+
+.stickyContainer{
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+
+  &::before{
+    position: absolute;
+    top: 20%;
+    right: 176rem;
+    width: 1539rem;
+    height: 1710rem;
+    background-image: url("/images/home/circled_arrow_bg.svg");
+    background-size: 1539rem 1710rem;
+    content: '';
+
+    @media(width <= $breakpoint-mob) {
+      right: 0;
+    }
+  }
+}
+
+.marqueeTextContainer {
+  z-index: 1;
+  color: var(--gray-600);
+  font: var(--font-decorative);
+  letter-spacing: -1.1812rem;
+  white-space: nowrap;
+
+  @media (width <= $breakpoint-mob) {
+    letter-spacing: -0.42rem;
+  }
+
+  span {
+    display: inline-block;
+    user-select: none;
+  }
+}
+
+.imageContainer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}

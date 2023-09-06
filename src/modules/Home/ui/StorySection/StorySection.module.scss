@@ -3,24 +3,25 @@
 .story {
   position: relative;
   padding: 164rem 0 153rem;
+  padding-bottom: 0;
   overflow: hidden;
   
-    &__abstract{
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
+  &__abstract{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
       
-        &::before{
-          position: absolute;
-          top: -84rem;
-          right: 153rem;
-          width: 1395rem;
-          height: 1550rem;
-          background-image: url("/images/home/circled_arrow_bg.svg");
-          background-size: 1395rem 1550rem;
-          content: '';
-        }
+    &::before{
+      position: absolute;
+      top: -84rem;
+      right: 153rem;
+      width: 1395rem;
+      height: 1550rem;
+      background-image: url("/images/home/circled_arrow_bg.svg");
+      background-size: 1395rem 1550rem;
+      content: '';
     }
+  }
 
   &__content{
     display: flex;
@@ -69,6 +70,7 @@
 @media (width <= $breakpoint-mob) {
   .story {
     padding: 80rem 0;
+    padding-bottom: 0;
 
     &::before{
       display: none;

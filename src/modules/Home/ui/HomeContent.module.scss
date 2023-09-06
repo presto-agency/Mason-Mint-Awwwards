@@ -2,11 +2,34 @@
 
 .HomeContent {
   display: block;
-  padding-bottom: 164rem;
+
+  // padding-bottom: 164rem;
+}
+
+.storyWrapper {
+  background-color: var(--white);
+}
+
+.discoverMasonMintWrapper {
+  top: 0;
+  bottom: 0;
+}
+
+.fixedWrapper{
+  height: 200vh;
+}
+
+.fixed{
+  position: sticky;
+  top: 0;
+
+  // bottom: 0;
+
+  // height: 500vh;
 }
 
 @media (width<=$breakpoint-mob) {
   .HomeContent {
-    padding-bottom: 80rem;
+    padding-bottom: 0;
   }
 }

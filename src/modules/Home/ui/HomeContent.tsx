@@ -1,37 +1,65 @@
+import { CSSProperties, useMemo, useRef } from 'react'
+import { useInView } from 'framer-motion'
 import dynamic from 'next/dynamic'
+
 import IntroSection from './IntroSection/IntroSection'
 import StorySection from './StorySection/StorySection'
+import { DiscoverMasonMintSection } from './DisocoverMasonMintSection/DiscoverMasonMintSection'
 
-import FAQSection from '@/modules/Home/ui/FAQSection/FAQSection'
-import BecomeDistributorSection from '@/components/BecomeDistributorSection/BecomeDistributorSection'
-import SellSection from '@/modules/Home/ui/SellSection/SellSection'
+import FAQSection from './FAQSection/FAQSection'
+import SellSection from './SellSection/SellSection'
+
 const FeaturedDesignsSection = dynamic(
-  () =>
-    import('@/modules/Home/ui/FeaturedDesignsSection/FeaturedDesignsSection'),
+  () => import('./FeaturedDesignsSection/FeaturedDesignsSection'),
   { ssr: false }
 )
 const ExploreDesignsSection = dynamic(
-  () => import('@/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection'),
+  () => import('./ExploreDesignsSection/ExploreDesignsSection'),
   { ssr: false }
 )
 const CustomDesignsSection = dynamic(
-  () => import('@/modules/Home/ui/CustomDesignsSection/CustomDesignsSection'),
+  () => import('./CustomDesignsSection/CustomDesignsSection'),
   { ssr: false }
 )
+import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
 
 import styles from './HomeContent.module.scss'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
+import BecomeDistributorNew from '@/components/BecomeDistributorSection/BecomeDistributorNew'
 
 const HomeContent = () => {
+  const { width } = useWindowDimensions()
+  const exploreDesignsSectionRef = useRef<HTMLDivElement | null>(null)
+  const inView = useInView(exploreDesignsSectionRef, {
+    margin: width > 768 ? '100px' : '400px',
+  })
+
+  const style: CSSProperties = useMemo(() => {
+    return { position: inView ? 'sticky' : 'relative' }
+  }, [inView])
+
   return (
     <main className={styles['HomeContent']}>
-      <IntroSection />
-      <StorySection />
-      <ExploreDesignsSection />
+      <ParallaxSection parallaxValues={[-400, 400]}>
+        <IntroSection />
+      </ParallaxSection>
+      <ParallaxSection
+        parallaxValues={[10, 20]}
+        className={styles['storyWrapper']}
+      >
+        <StorySection />
+      </ParallaxSection>
+      <div style={style} className={styles['discoverMasonMintWrapper']}>
+        <DiscoverMasonMintSection />
+      </div>
+      <div ref={exploreDesignsSectionRef}>
+        <ExploreDesignsSection />
+      </div>
       <FeaturedDesignsSection />
       <CustomDesignsSection />
       <SellSection />
       <FAQSection />
-      <BecomeDistributorSection />
+      <BecomeDistributorNew />
     </main>
   )
 }

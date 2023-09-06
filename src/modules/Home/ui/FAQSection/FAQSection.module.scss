@@ -1,8 +1,10 @@
 @import '@/app/styles/variables/breackpoints';
 
 .FAQSection{
+  position: relative;
   display: flex;
-  margin: 155rem 0;
+  padding: 155rem 0;
+  background-color: var(--white);
 
   &__content{
     display: flex;
