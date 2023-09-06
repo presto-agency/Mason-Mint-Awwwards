@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import classNames from 'classnames'
-import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
+
 import Container from '@/app/layouts/Container'
+import Accordion from './Accordion/Accordion'
+import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
+import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
-import Accordion from '@/modules/Home/ui/FAQSection/Accordion/Accordion'
 import data from './data'
 
 import styles from './FAQSection.module.scss'
-import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
 
 const FAQSection = () => {
   const [expanded, setExpanded] = useState<false | number>(0)

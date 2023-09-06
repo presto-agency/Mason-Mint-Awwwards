@@ -2,8 +2,6 @@
 
 .BecomeDistributorSection {
   position: relative;
-
-  // overflow: hidden;
   height: 300vh;
   color: var(--white);
   text-align: center;
@@ -26,60 +24,11 @@
     }
   }
 
-
   .stickyContainer {
     position: sticky;
     top: 0;
     z-index: 2;
     height: 100vh;
-
-    // background-color: var(--black);
-
-    .wrapper {
-      position: absolute;
-      top: 0;
-      z-index: 3;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-
-      .top, .bottom {
-        position: absolute;
-        width: 100%;
-        height: 50vh;
-        padding: 0 30rem;
-        overflow: hidden;
-        background-color: var(--white);
-
-        .text{
-          display: block;
-          color: var(--black);
-          font: var(--font-decorative);
-
-          // font-size: 230rem;
-          letter-spacing: -10rem;
-          white-space: nowrap;
-        }
-      }
-
-      .top {
-        top: 0;
-
-        .text  {
-          position: absolute;
-          top: 100%;
-        }
-      }
-
-      .bottom {
-        bottom: 0;
-
-        .text  {
-          position: absolute;
-          bottom: 100%;
-        }
-      }
-    }
   }
 
 
@@ -90,7 +39,8 @@
     z-index: 2;
     width: 1458rem;
     height: 1617rem;
-    background-image: url("/images/home/drawn_arrow_bg.svg");
+
+    // background-image: url("/images/home/drawn_arrow_bg.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 1458rem 1617rem;
@@ -98,6 +48,52 @@
     opacity: .5;
     content: '';
     pointer-events: none;
+  }
+
+  .animationWrapper {
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .top, .bottom {
+      position: absolute;
+      width: 100%;
+      height: 50vh;
+      padding: 0 30rem;
+      overflow: hidden;
+      background-color: var(--white);
+
+      .text{
+        display: block;
+        color: var(--black);
+        font: var(--font-decorative);
+
+        // font-size: 230rem;
+        letter-spacing: -10rem;
+        white-space: nowrap;
+      }
+    }
+
+    .top {
+      top: 0;
+
+      .text  {
+        position: absolute;
+        top: 100%;
+      }
+    }
+
+    .bottom {
+      bottom: 0;
+
+      .text  {
+        position: absolute;
+        bottom: 100%;
+      }
+    }
   }
 
   &__content {
@@ -124,17 +120,15 @@
   .BecomeDistributorSection {
     margin: 80rem 0 0;
 
-    .stickyContainer {
-      .wrapper {
-        .top, .bottom {
-          padding: 0;
+    .animationWrapper {
+      .top, .bottom {
+        padding: 0;
 
-          .text {
-            font-size: 90rem;
-            letter-spacing: -4rem;
-            white-space: normal;
-            text-align: center;
-          }
+        .text {
+          font-size: 90rem;
+          letter-spacing: -4rem;
+          white-space: normal;
+          text-align: center;
         }
       }
     }

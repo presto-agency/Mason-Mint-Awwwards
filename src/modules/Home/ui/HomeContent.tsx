@@ -1,6 +1,7 @@
 import { CSSProperties, useMemo, useRef } from 'react'
 import { useInView } from 'framer-motion'
 import dynamic from 'next/dynamic'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
 
 import IntroSection from './IntroSection/IntroSection'
 import StorySection from './StorySection/StorySection'
@@ -22,10 +23,9 @@ const CustomDesignsSection = dynamic(
   { ssr: false }
 )
 import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
+import BecomeDistributorNew from '@/components/BecomeDistributorSection/BecomeDistributorNew'
 
 import styles from './HomeContent.module.scss'
-import useWindowDimensions from '@/hooks/useWindowDimensions'
-import BecomeDistributorNew from '@/components/BecomeDistributorSection/BecomeDistributorNew'
 
 const HomeContent = () => {
   const { width } = useWindowDimensions()

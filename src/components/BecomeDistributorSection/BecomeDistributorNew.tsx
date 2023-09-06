@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react'
+import { FC, useMemo, useRef } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import classNames from 'classnames'
@@ -21,6 +21,11 @@ type BecomeDistributorNewProps = {
   className?: string
 }
 
+const transition = {
+  ease: 'easeInOut',
+  duration: 0.3,
+}
+
 const BecomeDistributorNew: FC<BecomeDistributorNewProps> = ({ className }) => {
   const ref = useRef<HTMLElement | null>(null)
   const { width } = useWindowDimensions()
@@ -29,15 +34,34 @@ const BecomeDistributorNew: FC<BecomeDistributorNewProps> = ({ className }) => {
     target: ref,
   })
 
-  const progress = useTransform(scrollYProgress, [0, 1], ['0%', '-80%'])
-  const spanTop = useTransform(scrollYProgress, [0, 1], ['-50%', '0%'])
-  const spanBottom = useTransform(scrollYProgress, [0, 1], ['50%', '0%'])
-
   const title = useTransform(
     scrollYProgress,
     [0, 1],
     ['0%', width > 767 ? '750%' : '300%']
   )
+  const slice = useTransform(scrollYProgress, [0, 1], ['0%', '-80%'])
+  const spanTop = useTransform(scrollYProgress, [0, 1], ['-50%', '0%'])
+  const spanBottom = useTransform(scrollYProgress, [0, 1], ['50%', '0%'])
+
+  const titleStyles = useMemo(() => {
+    return { x: '-50%', y: title }
+  }, [title])
+
+  const sliceTopPartStyles = useMemo(() => {
+    return { top: slice }
+  }, [slice])
+
+  const sliceBottomPartStyles = useMemo(() => {
+    return { bottom: slice }
+  }, [slice])
+
+  const spanTopStyles = useMemo(() => {
+    return { y: spanTop }
+  }, [spanTop])
+
+  const spanBottomStyles = useMemo(() => {
+    return { y: spanBottom }
+  }, [spanBottom])
 
   return (
     <section
@@ -69,35 +93,32 @@ const BecomeDistributorNew: FC<BecomeDistributorNewProps> = ({ className }) => {
             </Link>
           </AnimatedElement>
         </div>
-        <div className={styles['wrapper']}>
+        <div className={styles['animationWrapper']}>
           <motion.div
-            transition={{ ease: 'easeInOut', duration: 0.3 }}
-            style={{ top: progress }}
+            transition={transition}
+            style={sliceTopPartStyles}
             className={styles['top']}
           >
-            <motion.div
-              className={styles['title']}
-              style={{ x: '-50%', y: title }}
-            >
+            <motion.div className={styles['title']} style={titleStyles}>
               <h6>content</h6>
               <h4>This is your chance</h4>
             </motion.div>
             <motion.span
-              style={{ y: spanTop }}
+              style={spanTopStyles}
               className={styles['text']}
-              transition={{ ease: 'easeInOut', duration: 0.6 }}
+              transition={transition}
             >
               don&apos;t miss it <BlueDot />
             </motion.span>
           </motion.div>
           <motion.div
-            transition={{ ease: 'easeInOut', duration: 0.3 }}
-            style={{ bottom: progress }}
+            transition={transition}
+            style={sliceBottomPartStyles}
             className={styles['bottom']}
           >
             <motion.span
-              transition={{ ease: 'easeInOut', duration: 0.6 }}
-              style={{ y: spanBottom }}
+              transition={transition}
+              style={spanBottomStyles}
               className={styles['text']}
             >
               don&apos;t miss it <BlueDot />

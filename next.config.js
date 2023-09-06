@@ -24,6 +24,7 @@ const hashOnlyIdent = (context, _, exportName) =>
 
 const nextConfig = {
   reactStrictMode: true,
+  profiler: process.env.NODE_ENV === 'development',
   webpack(config, { dev }) {
     config.module.rules.push({
       test: /\.svg$/i,

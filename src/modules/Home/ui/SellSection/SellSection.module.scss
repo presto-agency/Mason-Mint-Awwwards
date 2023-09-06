@@ -2,10 +2,13 @@
 
 .sellSection{
   position: relative;
+  z-index: 3;
   height: 200vh;
+  background: none;
   background-color: var(--white);
 
   &__content{
+    position: relative;
     display: flex;
     justify-content: space-between;
     padding: 94rem 112rem;

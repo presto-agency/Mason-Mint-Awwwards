@@ -1,19 +1,22 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import Container from '@/app/layouts/Container'
-import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import classNames from 'classnames'
+import { useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
+import Lottie, { LottieRefCurrentProps } from 'lottie-react'
+
+import Container from '@/app/layouts/Container'
+import { FlipCoinTypes } from '@/modules/Home/ui/SellSection/assets/FlipCoinTypes'
+import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
-import { useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
+
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import routes from '@/utils/routes'
-import Lottie, { LottieRefCurrentProps } from 'lottie-react'
-const loaderJsonPromise = import('./assets/flipCoin.json')
-import { FlipCoinTypes } from '@/modules/Home/ui/SellSection/assets/FlipCoinTypes'
 
 import styles from './SellSection.module.scss'
+
+const loaderJsonPromise = import('./assets/flipCoin.json')
 
 const SellSection = () => {
   const refLottie = useRef<LottieRefCurrentProps | null>(null)
