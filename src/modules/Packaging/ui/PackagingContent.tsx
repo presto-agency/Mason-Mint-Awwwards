@@ -2,12 +2,17 @@ import React, { FC } from 'react'
 import dynamic from 'next/dynamic'
 import HeroInner from '@/ui/HeroInner/HeroInner'
 import WhatWeDo from '@/components/WhatWeDo/WhatWeDo'
-import BecomeDistributorSection from '@/components/BecomeDistributorSection/BecomeDistributorSection'
 import NaturalVehicle from '@/modules/Packaging/ui/NaturalVehicle/NaturalVehicle'
 import NumismaticPackaging from '@/modules/Packaging/ui/NumismaticPackaging/NumismaticPackaging'
 const HeroDetail = dynamic(() => import('@/ui/HeroDetail/HeroDetail'), {
   ssr: false,
 })
+
+const BecomeDistributorSection = dynamic(
+  () =>
+    import('@/components/BecomeDistributorSection/BecomeDistributorSection'),
+  { ssr: false }
+)
 
 import styles from './PackagingContent.module.scss'
 

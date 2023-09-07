@@ -37,9 +37,7 @@ export const CustomMintingContent: FC = () => {
           className={styles['CustomMintingContent__marketing']}
         />
       </Container>
-      <BecomeDistributorSection
-        className={styles['CustomMintingContent__becomeADistributor']}
-      />
+      <BecomeDistributorSection />
     </main>
   )
 }

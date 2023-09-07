@@ -1,4 +1,12 @@
-import { FC, useCallback, useEffect, useState, memo, useContext } from 'react'
+import {
+  FC,
+  useCallback,
+  useEffect,
+  useState,
+  memo,
+  useContext,
+  useMemo,
+} from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import classNames from 'classnames'
@@ -17,6 +25,15 @@ import styles from './Header.module.scss'
 
 type HeaderProps = {
   theme: 'dark' | 'light'
+}
+
+const inititalHeader = {
+  y: '-100%',
+}
+
+const transition = {
+  duration: 1,
+  ease: 'easeInOut',
 }
 
 const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
@@ -109,25 +126,36 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
     }
   }, [router])
 
+  const headerAnimation = useMemo(() => {
+    return {
+      y:
+        scrollDirection === 'down' || store?.state.isFirstLoading ? '-100%' : 0,
+    }
+  }, [scrollDirection, store?.state.isFirstLoading])
+
+  const handleHeaderAnimationComplete = useCallback(() => {
+    if (scrolled && scrollDirection === 'down' && width > 991) {
+      setScrolledClassToAdd(true)
+      setHeaderTheme('light')
+      return
+    }
+  }, [scrollDirection, scrolled, width])
+
+  const handleLogoClick = useCallback(() => {
+    if (router.pathname !== '/') {
+      setHeaderTheme('light')
+      setScrolledClassToAdd(false)
+    }
+  }, [router.pathname])
+
   return (
     <>
       <motion.header
         className={classNames(styles['header'], mods)}
-        initial={{ y: '-100%' }}
-        animate={{
-          y:
-            scrollDirection === 'down' || store?.state.isFirstLoading
-              ? '-100%'
-              : 0,
-        }}
-        transition={{ duration: 1, ease: 'easeInOut' }}
-        onAnimationComplete={() => {
-          if (scrolled && scrollDirection === 'down' && width > 991) {
-            setScrolledClassToAdd(true)
-            setHeaderTheme('light')
-            return
-          }
-        }}
+        initial={inititalHeader}
+        animate={headerAnimation}
+        transition={transition}
+        onAnimationComplete={handleHeaderAnimationComplete}
       >
         <Container className={styles['header__container']}>
           <div className={styles['header__content']}>
@@ -135,12 +163,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
               scroll={false}
               className={styles['header__content_link']}
               href={'/'}
-              onClick={() => {
-                if (router.pathname !== '/') {
-                  setHeaderTheme('light')
-                  setScrolledClassToAdd(false)
-                }
-              }}
+              onClick={handleLogoClick}
             >
               <div className={styles['logo']}>
                 <LogoTest

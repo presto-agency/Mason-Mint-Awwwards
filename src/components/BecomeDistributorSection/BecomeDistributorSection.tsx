@@ -1,12 +1,15 @@
-import { FC } from 'react'
+import { FC, useMemo, useRef } from 'react'
 import dynamic from 'next/dynamic'
-import classNames from 'classnames'
 import Link from 'next/link'
+import classNames from 'classnames'
+import { useScroll, useTransform, motion } from 'framer-motion'
+import useWindowDimensions from '@/hooks/useWindowDimensions'
+
 import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
-import Container from '@/app/layouts/Container'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import routes from '@/utils/routes'
+import { BlueDot } from '@/ui/BlueDot'
 
 const VideoComponent = dynamic(
   () => import('@/ui/VideoComponent/VideoComponent')
@@ -18,14 +21,56 @@ type BecomeDistributorSectionProps = {
   className?: string
 }
 
+const transition = {
+  ease: 'easeInOut',
+  duration: 0.3,
+}
+
 const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
   className,
 }) => {
+  const ref = useRef<HTMLElement | null>(null)
+  const { width } = useWindowDimensions()
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+  })
+
+  const title = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ['0%', width > 767 ? '750%' : '300%']
+  )
+  const slice = useTransform(scrollYProgress, [0, 1], ['0%', '-80%'])
+  const spanTop = useTransform(scrollYProgress, [0, 1], ['-50%', '0%'])
+  const spanBottom = useTransform(scrollYProgress, [0, 1], ['50%', '0%'])
+
+  const titleStyles = useMemo(() => {
+    return { x: '-50%', y: title }
+  }, [title])
+
+  const sliceTopPartStyles = useMemo(() => {
+    return { top: slice }
+  }, [slice])
+
+  const sliceBottomPartStyles = useMemo(() => {
+    return { bottom: slice }
+  }, [slice])
+
+  const spanTopStyles = useMemo(() => {
+    return { y: spanTop }
+  }, [spanTop])
+
+  const spanBottomStyles = useMemo(() => {
+    return { y: spanBottom }
+  }, [spanBottom])
+
   return (
     <section
+      ref={ref}
       className={classNames(styles['BecomeDistributorSection'], className)}
     >
-      <Container size={'xl'}>
+      <div className={styles['stickyContainer']}>
         <div className={styles['BecomeDistributorSection__content']}>
           <VideoComponent src="/video/CTA.mp4" />
           <h2 className="h2">
@@ -50,7 +95,39 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
             </Link>
           </AnimatedElement>
         </div>
-      </Container>
+        <div className={styles['animationWrapper']}>
+          <motion.div
+            transition={transition}
+            style={sliceTopPartStyles}
+            className={styles['top']}
+          >
+            <motion.div className={styles['title']} style={titleStyles}>
+              <h6>content</h6>
+              <h4>This is your chance</h4>
+            </motion.div>
+            <motion.span
+              style={spanTopStyles}
+              className={styles['text']}
+              transition={transition}
+            >
+              don&apos;t miss it <BlueDot />
+            </motion.span>
+          </motion.div>
+          <motion.div
+            transition={transition}
+            style={sliceBottomPartStyles}
+            className={styles['bottom']}
+          >
+            <motion.span
+              transition={transition}
+              style={spanBottomStyles}
+              className={styles['text']}
+            >
+              don&apos;t miss it <BlueDot />
+            </motion.span>
+          </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

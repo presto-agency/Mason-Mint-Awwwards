@@ -1,16 +1,22 @@
-import { CategoryProps, ProductProps } from '@/utils/types'
-
+import dynamic from 'next/dynamic'
 import { FC, useCallback, useContext, useEffect, useState } from 'react'
-import Container from '@/app/layouts/Container'
-import BecomeDistributorSection from '@/components/BecomeDistributorSection/BecomeDistributorSection'
-import HeroInner from '@/ui/HeroInner/HeroInner'
 
+import { CategoryProps, ProductProps } from '@/utils/types'
+import Container from '@/app/layouts/Container'
+
+import HeroInner from '@/ui/HeroInner/HeroInner'
 import ProductList from './ProductList/ProductList'
 import ProductFilter from './ProductFilter/ProductFilter'
 import ProductSearch from './ProductSearch/ProductSearch'
 import { Store } from '@/utils/Store'
 
 import styles from './DesignsContent.module.scss'
+
+const BecomeDistributorSection = dynamic(
+  () =>
+    import('@/components/BecomeDistributorSection/BecomeDistributorSection'),
+  { ssr: false }
+)
 
 type DesignsContentProps = {
   categories: CategoryProps[]

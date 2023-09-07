@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import axios from 'axios'
-import { motion } from 'framer-motion'
 
 import routes from '@/utils/routes'
 import { ProductProps } from '@/utils/types'

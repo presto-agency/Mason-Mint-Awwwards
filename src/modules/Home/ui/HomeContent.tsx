@@ -22,8 +22,13 @@ const CustomDesignsSection = dynamic(
   () => import('./CustomDesignsSection/CustomDesignsSection'),
   { ssr: false }
 )
+const BecomeDistributorSection = dynamic(
+  () =>
+    import('@/components/BecomeDistributorSection/BecomeDistributorSection'),
+  { ssr: false }
+)
+
 import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
-import BecomeDistributorNew from '@/components/BecomeDistributorSection/BecomeDistributorNew'
 
 import styles from './HomeContent.module.scss'
 
@@ -59,7 +64,7 @@ const HomeContent = () => {
       <CustomDesignsSection />
       <SellSection />
       <FAQSection />
-      <BecomeDistributorNew />
+      <BecomeDistributorSection />
     </main>
   )
 }

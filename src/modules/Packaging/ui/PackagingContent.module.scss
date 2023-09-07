@@ -2,13 +2,10 @@
 
 .PackagingContent {
   display: block;
-  padding-bottom: 164rem;
 }
 
 @media (width<=$breakpoint-mob) {
   .PackagingContent {
-    padding-bottom: 80rem;
-
     .HeroInner{
       height: 352rem;
       min-height: 352rem;
