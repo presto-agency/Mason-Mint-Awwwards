@@ -95,38 +95,36 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
             </Link>
           </AnimatedElement>
         </div>
-        <div className={styles['animationWrapper']}>
-          <motion.div
-            transition={transition}
-            style={sliceTopPartStyles}
-            className={styles['top']}
-          >
-            <motion.div className={styles['title']} style={titleStyles}>
-              <h6>content</h6>
-              <h4>This is your chance</h4>
-            </motion.div>
-            <motion.span
-              style={spanTopStyles}
-              className={styles['text']}
-              transition={transition}
-            >
-              don&apos;t miss it <BlueDot />
-            </motion.span>
+        <motion.div
+          transition={transition}
+          style={sliceTopPartStyles}
+          className={styles['top']}
+        >
+          <motion.div className={styles['title']} style={titleStyles}>
+            <h6>content</h6>
+            <h4>This is your chance</h4>
           </motion.div>
-          <motion.div
+          <motion.span
+            style={spanTopStyles}
+            className={styles['text']}
             transition={transition}
-            style={sliceBottomPartStyles}
-            className={styles['bottom']}
           >
-            <motion.span
-              transition={transition}
-              style={spanBottomStyles}
-              className={styles['text']}
-            >
-              don&apos;t miss it <BlueDot />
-            </motion.span>
-          </motion.div>
-        </div>
+            don&apos;t miss it <BlueDot />
+          </motion.span>
+        </motion.div>
+        <motion.div
+          transition={transition}
+          style={sliceBottomPartStyles}
+          className={styles['bottom']}
+        >
+          <motion.span
+            transition={transition}
+            style={spanBottomStyles}
+            className={styles['text']}
+          >
+            don&apos;t miss it <BlueDot />
+          </motion.span>
+        </motion.div>
       </div>
     </section>
   )
