@@ -5,6 +5,7 @@ import WasBorn from '@/modules/About/ui/WasBorn/WasBorn'
 import AllProducts from '@/modules/About/ui/AllProducts/AllProducts'
 import WhatWeDo from '@/components/WhatWeDo/WhatWeDo'
 import { useScroll } from 'framer-motion'
+import { DiscoverMasonMintSection } from '@/components/DisocoverMasonMintSection/DiscoverMasonMintSection'
 
 const BecomeDistributorSection = dynamic(
   () =>
@@ -46,6 +47,7 @@ export const AboutContent: FC = () => {
     <main>
       <HeroSection />
       <WasBorn />
+      <DiscoverMasonMintSection />
       <AllProducts />
       <WhatWeDo />
       <BecomeDistributorSection />

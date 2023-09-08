@@ -5,7 +5,7 @@ import useWindowDimensions from '@/hooks/useWindowDimensions'
 
 import IntroSection from './IntroSection/IntroSection'
 import StorySection from './StorySection/StorySection'
-import { DiscoverMasonMintSection } from './DisocoverMasonMintSection/DiscoverMasonMintSection'
+import { DiscoverMasonMintSection } from '@/components/DisocoverMasonMintSection/DiscoverMasonMintSection'
 
 import FAQSection from './FAQSection/FAQSection'
 import SellSection from './SellSection/SellSection'
