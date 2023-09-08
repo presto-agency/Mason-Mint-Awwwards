@@ -17,7 +17,10 @@ const NaturalVehicle: FC<{ className?: string }> = ({ className }) => {
       <ParallaxSection className={styles['NaturalVehicle__abstract']} />
       <Container>
         <div className={styles['NaturalVehicle__content']}>
-          <ParallaxSection className={styles['NaturalVehicle__content_left']}>
+          <ParallaxSection
+            parallaxValues={[0, -40]}
+            className={styles['NaturalVehicle__content_left']}
+          >
             <h3 className={classNames('h3', styles['title'])}>
               <AnimatedText title>
                 The packaging is a natural vehicle for telling the story behind
@@ -42,40 +45,45 @@ const NaturalVehicle: FC<{ className?: string }> = ({ className }) => {
               description="Packaging"
             />
           </ParallaxSection>
-          <div className={styles['NaturalVehicle__content_right']}>
-            <BackgroundImage
-              className={styles['image']}
-              cover
-              src="/images/packaging/pack.png"
-              alt="image"
-            />
-            <h4 className={classNames(styles['title'], 'h4')}>
-              <AnimatedText title>
-                While creating its packaging, Mason Mint applies the knowledge
-                and know-how from over a decade of product-development work.
-                Your options are limitless for creating the perfect packaging to
-                match your minted silver products.
-              </AnimatedText>
-            </h4>
-            <p className={styles['description']}>
-              <AnimatedText>
-                Our company&apos;s innovative and uncompromising approach to
-                both design and quality has made packaging for Mason Mint coins
-                and bars an integral part of its premium products, creating a
-                new benchmark for quality.
-              </AnimatedText>
-            </p>
-            <AnimatedElement className={styles['buttonContainer']} delay={0.2}>
-              <Link scroll={false} href={routes.public.contactUs}>
-                <ButtonPrimary
-                  className={styles['button']}
-                  variant="transparent"
-                >
-                  Contact Us
-                </ButtonPrimary>
-              </Link>
-            </AnimatedElement>
-          </div>
+          <ParallaxSection parallaxValues={[300, -100]}>
+            <div className={styles['NaturalVehicle__content_right']}>
+              <BackgroundImage
+                className={styles['image']}
+                cover
+                src="/images/packaging/pack.png"
+                alt="image"
+              />
+              <h4 className={classNames(styles['title'], 'h4')}>
+                <AnimatedText title>
+                  While creating its packaging, Mason Mint applies the knowledge
+                  and know-how from over a decade of product-development work.
+                  Your options are limitless for creating the perfect packaging
+                  to match your minted silver products.
+                </AnimatedText>
+              </h4>
+              <p className={styles['description']}>
+                <AnimatedText>
+                  Our company&apos;s innovative and uncompromising approach to
+                  both design and quality has made packaging for Mason Mint
+                  coins and bars an integral part of its premium products,
+                  creating a new benchmark for quality.
+                </AnimatedText>
+              </p>
+              <AnimatedElement
+                className={styles['buttonContainer']}
+                delay={0.2}
+              >
+                <Link scroll={false} href={routes.public.contactUs}>
+                  <ButtonPrimary
+                    className={styles['button']}
+                    variant="transparent"
+                  >
+                    Contact Us
+                  </ButtonPrimary>
+                </Link>
+              </AnimatedElement>
+            </div>
+          </ParallaxSection>
         </div>
       </Container>
     </section>

@@ -26,8 +26,8 @@ const WhatWeDo: FC<{ className?: string }> = ({ className }) => {
               description="our team"
             />
           </div>
-          <div className={styles['WhatWeDo__content_right']}>
-            <ParallaxSection parallaxValues={[-150, 150]}>
+          <ParallaxSection parallaxValues={[300, -100]}>
+            <div className={styles['WhatWeDo__content_right']}>
               <div className={styles['descriptionContainer']}>
                 <h2 className={classNames('h2', styles['title'])}>
                   <AnimatedText title withBlueDot>
@@ -64,8 +64,8 @@ const WhatWeDo: FC<{ className?: string }> = ({ className }) => {
                 src="/images/about/best_2.jpg"
                 alt="image"
               />
-            </ParallaxSection>
-          </div>
+            </div>
+          </ParallaxSection>
         </div>
       </Container>
     </section>

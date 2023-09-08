@@ -18,18 +18,20 @@ const WasBorn: FC<{ className?: string }> = ({ className }) => {
           </AnimatedText>
         </h2>
         <div className={styles['WasBorn__content']}>
-          <div className={styles['WasBorn__content_left']}>
-            <BackgroundImage
-              className={styles['image']}
-              parallax
-              cover
-              src="/images/about/pict_1.jpg"
-              alt="image"
-              description="What we believe"
-            />
-          </div>
-          <div className={styles['WasBorn__content_right']}>
-            <ParallaxSection parallaxValues={[0, 200]}>
+          <ParallaxSection>
+            <div className={styles['WasBorn__content_left']}>
+              <BackgroundImage
+                className={styles['image']}
+                parallax
+                cover
+                src="/images/about/pict_1.jpg"
+                alt="image"
+                description="What we believe"
+              />
+            </div>
+          </ParallaxSection>
+          <ParallaxSection parallaxValues={[300, -100]}>
+            <div className={styles['WasBorn__content_right']}>
               <BackgroundImage
                 className={styles['image']}
                 parallax
@@ -50,8 +52,8 @@ const WasBorn: FC<{ className?: string }> = ({ className }) => {
                   silver market with superior products that are sure to impress.
                 </AnimatedText>
               </p>
-            </ParallaxSection>
-          </div>
+            </div>
+          </ParallaxSection>
         </div>
       </Container>
     </section>

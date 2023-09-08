@@ -2,7 +2,7 @@
 
 .WasBorn{
   position: relative;
-  margin: 164rem 0 250rem;
+  margin: 164rem 0 150rem;
 
   &::before{
     position: absolute;
@@ -31,7 +31,10 @@
   &__content{
     display: flex;
     justify-content: space-between;
-    margin: 64rem 0 0;
+
+    @media (width <= $breakpoint-tablet){
+      margin: 64rem 0 0;
+    }
 
     &_left{
       padding: 157rem 0 0 120rem;

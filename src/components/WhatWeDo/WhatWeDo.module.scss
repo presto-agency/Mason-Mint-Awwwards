@@ -2,7 +2,11 @@
 
 .WhatWeDo{
   position: relative;
-  padding: 164rem 0;
+  z-index: 3;
+
+  @media (width<=$breakpoint-tablet) {
+    padding-top: 164rem;
+  }
 
   @media (width<=$breakpoint-mob) {
     margin: 80rem 0 75rem;
@@ -10,24 +14,24 @@
   }
   
   &__abstract{
-   position: absolute;
+    position: absolute;
     inset: 0;
     
-      &::before{
-        position: absolute;
-        top: 102rem;
-        left: 119rem;
-        width: 1227rem;
-        height: 1363rem;
-        background-image: url("/images/home/circled_arrow_bg.svg");
-        background-size: 1227rem 1363rem;
-        transform: scaleX(-1);
-        content: '';
+    &::before{
+      position: absolute;
+      top: 102rem;
+      left: 119rem;
+      width: 1227rem;
+      height: 1363rem;
+      background-image: url("/images/home/circled_arrow_bg.svg");
+      background-size: 1227rem 1363rem;
+      transform: scaleX(-1);
+      content: '';
           
-          @media (width<=$breakpoint-mob) {
-            display: none;
-          }
+      @media (width<=$breakpoint-mob) {
+        display: none;
       }
+    }
   }
 
   &__content{
@@ -80,9 +84,9 @@
         .title{
           margin: 0 0 17rem;
           
-            @media (width <=$breakpoint-mob) {
-              margin: 0 0 4rem;
-            }
+          @media (width <=$breakpoint-mob) {
+            margin: 0 0 4rem;
+          }
         }
 
         .subtitle{
