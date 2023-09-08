@@ -7,12 +7,15 @@
 }
 
 .storyWrapper {
+  position: relative;
+  z-index: 2;
   background-color: var(--white);
 }
 
 .discoverMasonMintWrapper {
   top: 0;
   bottom: 0;
+
 }
 
 .fixedWrapper{
