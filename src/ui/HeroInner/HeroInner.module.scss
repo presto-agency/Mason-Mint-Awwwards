@@ -5,73 +5,86 @@
 	padding: 208rem 0 80rem;
 	overflow: hidden;
 	
-		@media (width <= $breakpoint-mob) {
-			padding: 150rem 0 65rem;
-		}
-	
-		&__title{
-			margin-top: 18rem;
+	@media (width <= $breakpoint-mob) {
+		padding: 150rem 0 65rem;
+	}
 
-				@media (width <= $breakpoint-mob) {
-					margin-top: 20rem;
-				}
-			
-				&:empty{
-					display: none;
-				}
+	& .centeredDesktop {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+
+
+		@media (width <= $breakpoint-mob) {
+			justify-content: flex-start;
+			width: 100% !important;
+			text-align: left;
 		}
+	}
+	
+	&__title{
+		margin-top: 18rem;
+
+		@media (width <= $breakpoint-mob) {
+			margin-top: 20rem;
+		}
+			
+		&:empty{
+			display: none;
+		}
+	}
 		
-		&__subtitle{
-			color: var(--gray-700);
-			font-weight: 500;
-			font-family: var(--font-family-primary);
-			letter-spacing: -0.01em;
-			text-transform: lowercase;
+	&__subtitle{
+		color: var(--gray-700);
+		font-weight: 500;
+		font-family: var(--font-family-primary);
+		letter-spacing: -0.01em;
+		text-transform: lowercase;
 			
-				&:empty{
-					display: none;
-				}
+		&:empty{
+			display: none;
 		}
+	}
 	
-		&__description{
-			margin-top: 15rem;
-			color: var(--gray-800);
+	&__description{
+		margin-top: 15rem;
+		color: var(--gray-800);
 			
-				@media (width <= $breakpoint-mob) {
-					margin-top: -2rem;
-				}
-			
-				&:empty{
-					display: none;
-				}
+		@media (width <= $breakpoint-mob) {
+			margin-top: -2rem;
 		}
+			
+		&:empty{
+			display: none;
+		}
+	}
 	
-		& &__abstract{
-			top: 97rem;
-			left: 80rem;
-			width: 89%;
+	& &__abstract{
+		top: 97rem;
+		left: 80rem;
+		width: 89%;
 			
-				@media (width <= $breakpoint-mob) {
-					top: 60%;
-					right: 24rem;
-					left: auto;
-					width: 170vw;
-				}
+		@media (width <= $breakpoint-mob) {
+			top: 60%;
+			right: 24rem;
+			left: auto;
+			width: 170vw;
 		}
+	}
 	
-		&.white{
-			background-color: var(--white);
+	&.white{
+		background-color: var(--white);
 			
-				.hero__abstract{
-					color: var(--gray-300);
-				}
+		.hero__abstract{
+			color: var(--gray-300);
 		}
+	}
 	
-		&.gray{
-			background-color: var(--gray-300);
+	&.gray{
+		background-color: var(--gray-300);
 			
-				.hero__abstract{
-					color: var(--white);
-				}
+		.hero__abstract{
+			color: var(--white);
 		}
+	}
 }

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useRef } from 'react'
 import dynamic from 'next/dynamic'
 import HeroInner from '@/ui/HeroInner/HeroInner'
 import WhatWeDo from '@/components/WhatWeDo/WhatWeDo'
@@ -15,23 +15,38 @@ const BecomeDistributorSection = dynamic(
 )
 
 import styles from './PackagingContent.module.scss'
+import { useScroll } from 'framer-motion'
 
 const sliderImages = ['/images/packaging/hero.jpg']
 
-export const PackagingContent: FC = () => {
+const HeroSection = () => {
+  const targetRef = useRef<HTMLDivElement | null>(null)
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  })
   return (
-    <main className={styles['PackagingContent']}>
+    <div ref={targetRef}>
       <HeroInner
         title="Creation of custom packaging always starts with the coin"
         subtitle="Packaging"
         description="Your options are limitless for creating the perfect packaging to match your minted silver products."
-        columns={9}
+        centeredOnDesktop
+        width="90%"
       />
       <HeroDetail
         sliderImages={sliderImages}
         image="/images/packaging/hero.jpg"
         className={styles['HeroInner']}
+        scrollYProgress={scrollYProgress}
       />
+    </div>
+  )
+}
+
+export const PackagingContent: FC = () => {
+  return (
+    <main className={styles['PackagingContent']}>
+      <HeroSection />
       <NaturalVehicle />
       <NumismaticPackaging />
       <WhatWeDo />

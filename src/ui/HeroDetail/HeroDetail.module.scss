@@ -13,19 +13,26 @@
     margin: 0 0 80rem;
   }
   
-  &__image{
+  
+  &__imageWrapper {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  &__image{
     width: 100%;
     height: 100%;
     background-color: var(--black);
 
-      .image{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+    .image{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   .container{
@@ -40,20 +47,20 @@
     height: 100%;
     padding: 64rem 112rem;
 
-      @media (width <= $breakpoint-mob) {
-        padding: 64rem 0;
+    @media (width <= $breakpoint-mob) {
+      padding: 64rem 0;
+    }
+  
+    &_description{
+      max-width: 304rem;
+  
+      .title, .subtitle{
+        color: var(--white);
       }
-  
-      &_description{
-        max-width: 304rem;
-  
-          .title, .subtitle{
-            color: var(--white);
-          }
     
-          .title{
-            margin: 0 0 16rem;
-          }
+      .title{
+        margin: 0 0 16rem;
       }
+    }
   }
 }

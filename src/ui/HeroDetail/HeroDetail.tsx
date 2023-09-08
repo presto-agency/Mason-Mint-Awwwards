@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useMemo } from 'react'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
@@ -6,6 +6,7 @@ import AnimatedText from '@/ui/AnimatedText/AnimatedText'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import AnimateScaleBg from '@/ui/AnimateScaleBG/AnimateScaleBG'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { MotionValue, Transition, motion, useTransform } from 'framer-motion'
 
 import styles from './HeroDetail.module.scss'
 
@@ -15,6 +16,7 @@ type HeroDetail = {
   bottomDescription?: string
   image: string
   sliderImages: string[]
+  scrollYProgress: MotionValue<number>
 }
 
 const HeroDetail: FC<HeroDetail> = ({
@@ -23,24 +25,40 @@ const HeroDetail: FC<HeroDetail> = ({
   bottomDescription,
   image,
   sliderImages,
+  scrollYProgress,
 }) => {
   const { width } = useWindowDimensions()
 
+  const imageWidthTransform = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    ['75%', '100%']
+  )
+
+  const imageStyles = useMemo(() => {
+    return { width: width > 767 ? imageWidthTransform : '100%' }
+  }, [width, imageWidthTransform])
+
   return (
     <section className={classNames(styles['HeroDetail'], className)}>
-      <AnimatedElement delay={0.2} className={styles['HeroDetail__image']}>
-        {width > 767 ? (
-          <AnimateScaleBg images={sliderImages} />
-        ) : (
-          <BackgroundImage
-            className={styles['image']}
-            parallax
-            cover
-            src={image}
-            alt="image"
-          />
-        )}
-      </AnimatedElement>
+      <motion.div
+        className={styles['HeroDetail__imageWrapper']}
+        style={imageStyles}
+      >
+        <AnimatedElement delay={0.2} className={styles['HeroDetail__image']}>
+          {width > 767 ? (
+            <AnimateScaleBg images={sliderImages} />
+          ) : (
+            <BackgroundImage
+              className={styles['image']}
+              parallax
+              cover
+              src={image}
+              alt="image"
+            />
+          )}
+        </AnimatedElement>
+      </motion.div>
       {topDescription || bottomDescription ? (
         <Container className={styles['container']}>
           <div className={styles['HeroDetail__content']}>

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
@@ -17,6 +17,8 @@ type HeroInnerProps = {
   theme?: 'white' | 'gray'
   withBlueDot?: boolean
   columns?: number
+  centeredOnDesktop?: boolean
+  width?: string
 }
 
 const HeroInner: FC<HeroInnerProps> = ({
@@ -26,14 +28,24 @@ const HeroInner: FC<HeroInnerProps> = ({
   description,
   theme = 'white',
   withBlueDot = true,
-  columns = 8,
+  centeredOnDesktop = false,
+  columns = centeredOnDesktop ? 12 : 8,
+  width = centeredOnDesktop ? '85%' : '100%',
 }) => {
+  const mods = {
+    [styles['centeredDesktop']]: centeredOnDesktop,
+  }
+
+  const containerWidth = useMemo(() => {
+    return { width }
+  }, [width])
+
   const colClassName = `col-md-${columns}`
   return (
     <div className={classNames(styles['hero'], styles[theme], className)}>
       <AbstractLogo className={styles['hero__abstract']} parallax />
-      <Container>
-        <div className="row">
+      <Container className={classNames(mods)}>
+        <div style={containerWidth} className={classNames('row', mods)}>
           <div className={colClassName}>
             <p className={styles['hero__subtitle']}>
               <AnimatedText>{`${subtitle}`}</AnimatedText>
