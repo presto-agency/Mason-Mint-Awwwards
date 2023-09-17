@@ -2,7 +2,7 @@ import { FC, useRef } from 'react'
 import { useScroll } from 'framer-motion'
 
 import { Coin } from './Coin/Coin'
-import { MarqueeText } from './MarqueeText/MarqueeText'
+import { MarqueeText } from '@/ui/MarqueeText/MarqueeText'
 
 import styles from './DiscoverMasonMintSection.module.scss'
 import classNames from 'classnames'
@@ -29,6 +29,7 @@ export const DiscoverMasonMintSection: FC<DiscoverMasonMintSectionProps> = ({
         <MarqueeText
           text={'discover meet mason mint.'}
           scrollYProgress={scrollYProgress}
+          outputRange={['75%', '-100%']}
         />
       </div>
     </section>

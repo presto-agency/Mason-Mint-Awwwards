@@ -9,7 +9,7 @@ export const data = [
     ],
   },
   {
-    title: 'Example of Finalized Artwork',
+    title: 'Example of Finalized<br>Artwork',
     description:
       'This sketch is then sent to the client for feedback. Once approved the artwork is completed and finalized.',
     thumbs: [
@@ -18,7 +18,7 @@ export const data = [
     ],
   },
   {
-    title: 'Example of completed 3D Model',
+    title: 'Example of completed 3D<br>Model',
     description:
       'Next the finalized artwork is turned into a 3D Model.  Once the model has been completed it is again sent to the client for feedback and approval. Once approved the 3D model is used to create the coining dies.',
     thumbs: [

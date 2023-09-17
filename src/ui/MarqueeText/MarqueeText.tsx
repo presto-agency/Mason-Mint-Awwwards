@@ -1,9 +1,13 @@
 import { FC, useMemo } from 'react'
 import { motion, MotionValue, useTransform, Variants } from 'framer-motion'
-import styles from '../DiscoverMasonMintSection.module.scss'
+import styles from './MarqueeText.module.scss'
+import classNames from 'classnames'
 
 type MarqueeTextProps = {
+  className?: string
   text: string
+  inputRange?: number[]
+  outputRange?: unknown[]
   scrollYProgress: MotionValue<number>
 }
 
@@ -25,11 +29,14 @@ const containerTrasnition = {
 }
 
 export const MarqueeText: FC<MarqueeTextProps> = ({
+  className,
   text,
   scrollYProgress,
+  inputRange = [0, 1],
+  outputRange = ['100%', '-100%'],
 }) => {
   const arrayOfText = useMemo(() => Array.from(text), [text])
-  const marqueeX = useTransform(scrollYProgress, [0, 1], ['75%', '-100%'])
+  const marqueeX = useTransform(scrollYProgress, inputRange, outputRange)
 
   const style = useMemo(() => {
     return {
@@ -39,7 +46,7 @@ export const MarqueeText: FC<MarqueeTextProps> = ({
 
   return (
     <motion.div
-      className={styles['marqueeTextContainer']}
+      className={classNames(styles['marqueeTextContainer'], className)}
       transition={containerTrasnition}
       style={style}
     >

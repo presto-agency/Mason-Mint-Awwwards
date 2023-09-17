@@ -1,0 +1,18 @@
+@import '@/app/styles/variables/breackpoints';
+
+.marqueeTextContainer {
+  z-index: 1;
+  color: var(--gray-600);
+  font: var(--font-decorative);
+  letter-spacing: -1.1812rem;
+  white-space: nowrap;
+
+  @media (width <= $breakpoint-mob) {
+    letter-spacing: -0.42rem;
+  }
+
+  span {
+    display: inline-block;
+    user-select: none;
+  }
+}

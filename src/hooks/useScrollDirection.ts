@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 
 const THRESHOLD = 0
 
-const useScrollDirection = () => {
-  const [scrollDirection, setScrollDirection] = useState('up')
+const useScrollDirection = (defaultDirection?: 'up' | 'down') => {
+  const [scrollDirection, setScrollDirection] = useState(
+    defaultDirection || 'up'
+  )
 
   const blocking = useRef(false)
   const prevScrollY = useRef(0)

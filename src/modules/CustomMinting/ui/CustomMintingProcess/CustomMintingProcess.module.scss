@@ -1,249 +1,143 @@
 @import "@/app/styles/variables/breackpoints";
 
-.process{
-	position: relative;
-	z-index: 1;
-	height: 450vh;
-	background-color: var(--gray-300);
-	
-		@media (width <= $breakpoint-mob) {
-			height: auto;
-		}
-	
-		&__mask{
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100vw;
-			height: 100%;
-			overflow: hidden;
-			opacity: .8;
-			pointer-events: none;
-		}
-	
-		& &__abstract{
-			top: -4.25%;
-			left: 72%;
-			width: 1515rem;
-			height: auto;
-			color: var(--white);
+.CustomMintingProcess{
+  height: 800vh;
+}
 
-				svg{
-					transform: scaleX(-1);
-				}
-		}
-	
-		&__body{
-			position: sticky;
-			top: 0;
-			height: 812rem;
-			padding: 136rem 0;
-			
-				@media (width <= $breakpoint-mob) {
-					height: auto;
-					padding: 65rem 0 54rem;
-				}
-		}
-	
-		&__photos{
-			display: flex;
-			gap: 32rem;
-			align-items: center;
-			margin: 40rem 0;
-			
-				@media (width <= $breakpoint-mob) {
-					gap: 24rem;
-					margin: 22rem 0 16rem;
-				}
-			
-				&_item{
-					position: relative;
-					overflow: hidden;
-					border-radius: 50%;
-					
-						&.__1{
-							width: 304rem;
-							min-width: 304rem;
-							height: 304rem;
-							
-								@media (width <= $breakpoint-mob) {
-									width: 120rem;
-									min-width: 120rem;
-									height: 120rem;
-								}
-							
-								.process__photos_mask_item{
-									width: 302rem;
-									height: 302rem;
-									margin: 1rem;
-								}
-						}
+.hero {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24rem;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 212rem;
+  text-align: center;
 
-						&.__2{
-							width: 416rem;
-							min-width: 416rem;
-							height: 416rem;
-							
-								@media (width <= $breakpoint-mob) {
-									width: 168rem;
-									min-width: 168rem;
-									height: 168rem;
-								}
-							
-								.process__photos_mask_item{
-									width: 414rem;
-									height: 414rem;
-									margin: 1rem;
-								}
-						}
-				}
-			
-				&_mask{
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 0;
-					overflow: hidden;
-					backface-visibility: hidden;
-					transition: height .1s var(--ease);
-					
-						&:nth-child(1){
-							height: 100%;
-						}
-					
-						&_item{
-							position: relative;
-							padding: 1px;
-							background-color: var(--gray-300);
-						}
-					
-						img{
-							width: 100%;
-							height: 100%;
-							object-fit: contain;
-							object-position: center;
-						}
-				}
-		}
-	
-		&__navigation{
-			position: relative;
-			display: flex;
-			align-items: center;
-			max-width: 305rem;
-			padding: 16rem 0;
-			color: var(--gray-700);
-			
-				@media (width <= $breakpoint-mob) {
-					max-width: 100%;
-					padding: 17rem 0;
-				}
-			
-				&::before{
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					width: 100%;
-					height: 1rem;
-					background-color: var(--black);
-					opacity: .1;
-					content: '';
-					
-						@media (width<=$breakpoint-mob) {
-							height: 1px;
-						}
-				}
-			
-				&_current{
-					position: relative;
-					width: 28rem;
-					height: 1.15em;
-					color: var(--primary-color);
-					
-						@media (width<=$breakpoint-mob) {
-							width: 25rem;
-						}
-					
-						span{
-							position: absolute;
-							top: 0;
-							left: 0;
-						}
-				}
-		}
-	
-		&__content{
-			padding-top: 50rem;
-		}
-	
-		&__description{
-			position: relative;
-			max-width: 305rem;
-			padding: 50rem 0;
-			
-				@media (width <= $breakpoint-mob) {
-					max-width: 100%;
-					padding: 10rem 0;
-				}
-			
-				&_box{
-					position: absolute;
-					top: 50rem;
-					left: 0;
-				}
-			
-				&_title{
-					margin-bottom: 14rem;
-					
-						@media (width <= $breakpoint-mob) {
-							margin-bottom: 17rem;
-						}
-				}
-			
-				&_item{
-					color: var(--gray-800);
-					font-weight: 400;
-					font-family: var(--font-family-secondary);
-					line-height: 1.6em;
-						
-						p{
-								&:not(:last-child){
-									margin-bottom: 8rem;
-								}
-						}
-				}
-		}
-	
-		&__slides{
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			pointer-events: none;
-			
-				@media (width <= $breakpoint-mob) {
-					display: none;
-				}
-			
-				&_item{
-					width: 100%;
-					height: 100vh;
-					
-						@media (width <= $breakpoint-mob) {
-							height: auto;
-						}
-				}
-		}
-	
-		&__box{
-				&:not(:last-child){
-					margin-bottom: 15rem;
-				}
-			
-				& > div{
-					width: 100%;
-				}
-		}
+  h1 {
+    width: 60%;
+  }
+
+  h6 {
+    color: var(--gray-700);
+  }
+}
+
+.abstract {
+  top: 66rem;
+  left: -20rem;
+  width: 1385rem;
+  height: 1550rem;
+  color: var(--gray-300);
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.contentBlock{
+  position: absolute;
+  display: grid; 
+  place-items: center;
+  grid-auto-columns: 1fr; 
+  grid-template-areas: 
+    "description coin counter"; 
+  grid-template-rows: 1fr; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  gap: 0 0; 
+  max-width: 100%;
+  height: 100vh;
+  padding: 0 64rem;
+}
+
+.coin {
+  position: relative;
+  z-index: 2;
+  grid-area: coin;
+
+}
+
+.counter {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  grid-area: counter;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.description {
+  z-index: 2;
+  width: 100%;
+  padding-right: 144rem;
+}
+
+
+.marqueeBlock{
+  align-self: center;
+  margin-top: -5%;
+}
+
+@media (width<=$breakpoint-tablet) {
+  .hero {
+    height: 45vh;
+  }
+}
+
+@media (width<=$breakpoint-mob) {
+  .hero {
+    h1 {
+      width: 100%;
+    }
+  }
+
+  .abstract {
+    top: 227rem;
+    left: -166rem;
+    width: 511rem;
+    height: 568rem;
+    color: var(--gray-300);
+  }
+
+  .contentBlock {
+    grid-auto-columns: 1fr; 
+    grid-template-areas: 
+      "counter"
+      "coin"
+      "description"; 
+    grid-template-rows: 1fr 248rem 1.5fr; 
+    grid-template-columns: 1fr; 
+    gap: 0 0; 
+    height: 100vh;
+    padding: 0 24rem;
+  }
+  
+  .counter {
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 16rem;
+  }
+
+  .marqueeBlock{
+    margin-top: -40%;
+  }
+
+  .description {
+    flex-grow: 2;
+    max-width: 100%;
+    height: 100%;
+    padding-top: 32rem;
+    padding-right: 0;
+    overflow: hidden;
+  }
 }

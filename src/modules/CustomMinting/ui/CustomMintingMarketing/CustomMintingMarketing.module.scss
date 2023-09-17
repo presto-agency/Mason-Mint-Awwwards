@@ -1,58 +1,139 @@
 @import "@/app/styles/variables/breackpoints";
 
-.marketing{
-	position: relative;
-	
-		&__row{
-			position: relative;
-			z-index: 1;
-			padding: 16rem 0;
-		}
-	
-		&__thumb{
-			height: 700rem;
-			
-				@media (width <= $breakpoint-mob) {
-					height: 341rem;
-				}
-			
-				&_item{
-					width: 100%;
-					height: 100%;
-					
-						img{
-							object-fit: cover;
-						}
-				}
-		}
-	
-		&__description{
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			justify-content: center;
-			height: 100%;
-			
-				@media (width <= $breakpoint-mob) {
-					padding: 33rem 0;
-				}
-			
-				&_item{
-					color: var(--gray-800);
-					
-						@media (width <= $breakpoint-mob) {
-							margin-top: -4rem;
-						}
-				}
-		}
-	
-		&__abstract{
-			top: -118rem;
-			right: 55.5%;
-			width: 1785rem;
-			height: auto;
-			color: var(--gray-300);
-			opacity: .6;
-		}
+
+.CustomMintingMarketing {
+  position: relative;
+  width: 100%;
+  padding: 164rem 64rem;
+  padding-bottom: 32rem;
+  background-color: var(--gray-300);
+}
+
+.abstract {
+  z-index: 1;
+  display: none;
+  color: var(--white);
+}
+
+.contentBlock {
+  position: sticky;
+  top: 0; 
+  z-index: 2;
+  display: grid;
+  grid-auto-columns: 1fr; 
+  grid-template-areas: 
+    "title photo"
+    "descriptor photo"; 
+  grid-template-rows: 1fr 1fr; 
+  grid-template-columns: 1fr 580rem; 
+  gap: 0 0;
+  height: 630rem;
+  padding-top: 32rem;
+  padding-bottom: 32rem;
+  font: var(--font-h1);
+  background-color: var(--gray-300); 
+
+  &:nth-child(1) {
+    margin-top: 0;
+
+  }
+}
+
+.title { 
+  display: flex;
+  flex-direction: column;
+  grid-area: title;
+  gap: 24rem;
+  justify-content: center;
+  padding-right: 144rem;
+
+  h2 {
+    span {
+      padding-bottom: 0;
+    }
+  }
+
+  p {
+    color: var(--gray-800);
+    font: var(--font-l);
+  }
+}
+
+.descriptor {
+  display: flex; 
+  grid-area: descriptor;
+
+  h6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 95rem;
+    color: var(--gray-700);
+  }
+  
+}
+
+.photo { 
+  grid-area: photo;
+  width: 100%;
+
+
+  &__item {
+    width: 100%;
+    height: 100%;
+  }  
+}
+
+@media (width <= $breakpoint-mob) {
+  .CustomMintingMarketing {
+    padding: 64rem 24rem;
+  }
+
+  .abstract {
+    top: 41rem;
+    left: 232rem;
+    z-index: 2;
+    display: block;
+    width: 658rem;
+    height: 710rem;
+  }
+
+  .contentBlock { 
+    position: relative;
+    z-index: 2;
+    grid-auto-columns: auto;
+    grid-template-areas: 
+      "descriptor"
+      "photo"
+      "title";
+    grid-template-rows: auto; 
+    grid-template-columns: auto; 
+    gap: 32rem 0; 
+    height: auto;
+    padding-top: 32rem;
+
+    &:nth-child(1) {
+      background-color: transparent;
+    }
+  }
+
+  
+  .title {
+    gap: 16rem;
+    height: fit-content; 
+    padding-right: 0;
+  }
+
+  .photo { 
+    width: 312rem;
+    min-height: 341rem;
+  }
+
+  .descriptor {
+    height: fit-content;
+
+    h6 {
+      padding-bottom: 0;
+    }
+  }
 }

@@ -2,21 +2,8 @@
 
 .CustomMintingContent {
   min-height: 100vh;
+}
 
-  &__moment{
-    margin: 164rem 0;
-      
-    @media (width <= $breakpoint-mob) {
-      margin: 81rem 0;
-    }
-  }
-  
-  &__marketing{
-    padding: 148rem 0;
-      
-    @media (width <= $breakpoint-mob) {
-      padding: 64rem 0 0;
-    }
-  }
-  
+.proccess {
+  z-index: 1;
 }

@@ -1,0 +1,21 @@
+@import "@/app/styles/variables/breackpoints";
+
+.descriptionBlock {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: flex-start;
+ 
+
+  &_current {
+    position: relative;
+    padding: 8rem 0;
+    overflow: hidden;
+
+    p {
+      margin-bottom: 10rem;
+      color: var(--gray-800);
+      font: var(--font-l);
+    }
+  }
+}

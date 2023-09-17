@@ -1,0 +1,43 @@
+@import "@/app/styles/variables/breackpoints";
+
+.counterBlock {
+  position: relative;
+  display: flex;
+  color: var(--primary-color);
+  font: var(--font-h4);
+  
+  &_sum {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &_current {
+    position: relative;
+    display: flex;
+    gap: 30rem;
+    padding-right: 50rem;
+    overflow: hidden;
+
+    span {
+      display: block;
+      width: 125rem;
+      color: var(--gray-500);
+      font: var(--font-decorative);
+      line-height: 0.7;
+    }
+  }
+
+  @media (width<=$breakpoint-mob) {
+    & {
+      width: 100%;
+    }
+
+    &_current {
+      span {
+        width: 30rem;
+      }
+    }
+  }
+
+}
