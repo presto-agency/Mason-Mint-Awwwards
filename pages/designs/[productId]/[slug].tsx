@@ -1,5 +1,6 @@
-import { DesignsDetailContent } from '@/modules/DesignsDetail'
+// import { DesignsDetailContent } from '@/modules/DesignsDetailOld'
 import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
+import { DesignsDetailContent } from '@/modules/DesignDetail'
 import { useRouter } from 'next/router'
 
 const Index = () => {

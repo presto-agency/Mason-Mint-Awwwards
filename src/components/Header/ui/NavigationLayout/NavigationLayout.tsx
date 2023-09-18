@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, memo, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
@@ -81,7 +81,7 @@ const button = (
   </ButtonPrimary>
 )
 
-export const NavigationLayout: FC<MobileMenuProps> = ({
+const NavigationLayout: FC<MobileMenuProps> = ({
   className,
   isAnimated = false,
 }) => {
@@ -159,3 +159,5 @@ export const NavigationLayout: FC<MobileMenuProps> = ({
     </div>
   )
 }
+
+export default memo(NavigationLayout)

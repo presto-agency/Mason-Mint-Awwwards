@@ -96,9 +96,9 @@
 	justify-content: center;
 	margin-top: 24rem;
 	
-		@media (width <= $breakpoint-mob) {
-			margin-top: 12rem;
-		}
+	@media (width <= $breakpoint-mob) {
+		margin-top: 12rem;
+	}
 	
 	&__item{
 		position: relative;
@@ -106,20 +106,20 @@
 		height: 64rem;
 		border-radius: 50%;
 			
-			@media (width <= $breakpoint-mob) {
-				width: 72rem;
-				height: 72rem;
-			}
+		@media (width <= $breakpoint-mob) {
+			width: 72rem;
+			height: 72rem;
+		}
 			
-			img{
-				width: 100%;
-				height: 100%;
-				object-fit: contain;
-				object-position: center;
-			}
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+		}
 			
-			&:hover{
-				cursor: pointer;
-			}
+		&:hover{
+			cursor: pointer;
+		}
 	}
 }

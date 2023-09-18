@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
-import { NavigationLayout } from '@/components/Header/ui/NavigationLayout/NavigationLayout'
+import NavigationLayout from '@/components/Header/ui/NavigationLayout/NavigationLayout'
 
 import styles from './MobileMenu.module.scss'
 import headerStyles from '../Header.module.scss'
@@ -33,4 +33,4 @@ const MobileMenu: FC<MobileMenuProps> = ({ className }) => {
   )
 }
 
-export default MobileMenu
+export default memo(MobileMenu)

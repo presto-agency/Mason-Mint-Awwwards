@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import classNames from 'classnames'
 
 import styles from './LogoTest.module.scss'
@@ -9,7 +9,7 @@ type LogoProps = {
   withoutText?: boolean
 }
 
-export const LogoTest: FC<LogoProps> = ({
+const LogoTest: FC<LogoProps> = ({
   className,
   isWhite = true,
   withoutText = false,
@@ -206,3 +206,5 @@ export const LogoTest: FC<LogoProps> = ({
     </svg>
   )
 }
+
+export default memo(LogoTest)

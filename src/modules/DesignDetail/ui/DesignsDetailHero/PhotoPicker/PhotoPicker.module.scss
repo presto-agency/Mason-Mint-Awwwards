@@ -1,0 +1,69 @@
+@import "@/app/styles/variables/breackpoints";
+
+.PhotoPicker{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+}
+
+.thumbs{
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 24rem;
+}
+
+.thumbs__itemWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72rem;
+}
+
+.thumbs__itemWrapper.selected {
+  width: 72rem;
+  height: 72rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border: 1rem solid var(--gray-300);
+  border-radius: 50%;
+
+  .thumbs__item {
+    width: 48rem;
+    height: 48rem;
+  }
+}
+
+.thumbs__item{
+  position: relative;
+  width: 56rem;
+  height: 56rem;
+  border-radius: 50%;
+  transition: .3s ease;
+    
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+    
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .PhotoPicker{
+    align-items: center;
+  }
+
+  .title{
+    display: none;
+  }
+
+  .thumbs{
+    margin-top: 0;
+  }
+}

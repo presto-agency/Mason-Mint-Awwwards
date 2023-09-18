@@ -1,13 +1,19 @@
-import { FC, Fragment, useEffect, useState } from 'react'
+import { FC, Fragment, useCallback, useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
-import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide'
+import {
+  Options,
+  Splide,
+  SplideSlide,
+  SplideTrack,
+} from '@splidejs/react-splide'
 import ProductCard from '@/ui/ProductCard/ProductCard'
 import Container from '@/app/layouts/Container'
 import { ProductProps } from '@/utils/types'
 const AnimatedText = dynamic(() => import('@/ui/AnimatedText/AnimatedText'))
 
 import styles from './ProductCarousel.module.scss'
+import { useCursor } from '@/app/layouts/CursorLayout/CursorLayout'
 
 type ProductCarouselProps = {
   data?: ProductProps[]
@@ -33,6 +39,7 @@ const ProductCarousel: FC<ProductCarouselProps> = ({
   const [countOfActiveSlides, setCountOfActiveSlides] = useState<number>(4)
   const [gap, setGap] = useState<number>(32)
   const hasArrows = data?.length ? data.length > countOfActiveSlides : false
+  const { setActionType } = useCursor()
 
   useEffect(() => {
     if (window && window.innerWidth <= 767) {
@@ -41,14 +48,14 @@ const ProductCarousel: FC<ProductCarouselProps> = ({
     }
   }, [])
 
-  const options = {
+  const options: Options = {
     type: 'slide',
     autoWidth: true,
     perMove: 1,
     perPage: countOfActiveSlides,
     gap: `${gap}rem`,
     pagination: false,
-    arrows: hasArrows,
+    arrows: false,
     updateOnMove: true,
     speed: 1000,
     easing: 'ease',
@@ -60,8 +67,20 @@ const ProductCarousel: FC<ProductCarouselProps> = ({
     },
   }
 
+  const handleMouseEnter = useCallback(() => {
+    setActionType?.('drag')
+  }, [setActionType])
+
+  const handleMouseLeave = useCallback(() => {
+    setActionType?.('default')
+  }, [setActionType])
+
   return (
-    <div className={classNames(styles['carousel'], className)}>
+    <div
+      className={classNames(styles['carousel'], className)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Container>
         <div className="row">
           {showResults && (
@@ -96,6 +115,7 @@ const ProductCarousel: FC<ProductCarouselProps> = ({
           <Splide
             options={options}
             hasTrack={false}
+            onDragging={handleMouseLeave}
             className={styles['carousel__item']}
           >
             <SplideTrack className={styles['carousel__track']}>

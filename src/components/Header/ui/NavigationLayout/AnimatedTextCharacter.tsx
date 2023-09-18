@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import { motion } from 'framer-motion'
 
 type CharacterProps = {
@@ -52,4 +52,4 @@ const AnimatedTextCharacter: FC<CharacterProps> = ({ text }) => {
   )
 }
 
-export default AnimatedTextCharacter
+export default memo(AnimatedTextCharacter)

@@ -1,0 +1,106 @@
+@import '@/app/styles/variables/breackpoints';
+
+.DesignsDetailHero {
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    'productDescription photoMain photoPicker'
+    'productDescription photoMain deliveryInfo'
+    'productDescription photoMain shareCoins';
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0 64rem;
+  padding: 173rem 64rem 163rem;
+  overflow: hidden;
+}
+
+.goBack{
+  position: absolute;
+  top: 173rem;
+  left: 64rem;
+  z-index: 3;
+}
+
+.abstract {
+  position: absolute;
+  top: 311rem;
+  left: -637rem;
+  width: 2048rem;
+  height: 2275rem;
+  color: var(--gray-300);
+}
+
+.sound {
+  display: none;
+}
+
+.photoMain {
+  z-index: 2;
+  grid-area: photoMain;
+}
+
+.productDescription {
+  z-index: 2;
+  grid-area: productDescription;
+}
+
+.photoPicker {
+  z-index: 2;
+  grid-area: photoPicker;
+}
+
+.deliveryInfo {
+  z-index: 2;
+  grid-area: deliveryInfo;
+}
+
+.shareCoins {
+  z-index: 2;
+  grid-area: shareCoins;
+}
+
+
+@media (width <= $breakpoint-mob) {
+  .DesignsDetailHero { 
+    grid-template-areas: 
+      "photoMain"
+      "photoPicker"
+      "productDescription"
+      "deliveryInfo"
+      "shareCoins"; 
+    grid-template-rows: auto;
+    grid-template-columns: 1fr; 
+    gap: 0 0; 
+    padding: 146rem 24rem 80rem;
+  }
+
+  .abstract {
+    top: 483rem;
+    left: -446rem;
+    width: 833rem;
+    height: 922rem;
+  }
+
+  .goBack{
+    top: 98rem;
+    right: 24rem;
+    left: auto;
+
+  }
+
+  .photoPicker {
+    margin-top: 16rem;
+  }
+
+  .productDescription {
+    margin-top: 40rem;
+  }
+
+  .photoMain {
+    justify-content: center;
+  }
+
+  .deliveryInfo, .shareCoins {
+    margin-top: 40rem;
+  }
+}

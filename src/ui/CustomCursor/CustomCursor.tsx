@@ -1,16 +1,51 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, {
+  Dispatch,
+  FC,
+  ReactNode,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
 import { Store } from '@/utils/Store'
 
+import Arrow from '@/ui/Icons/Arrow'
+
 import styles from './CustomCursor.module.scss'
 
-const CustomCursor = () => {
-  const [isOnSubject, setIsOnSubject] = useState(false)
+type ActionType = 'default' | 'drag' | 'arrow' | 'disappear'
+
+type CustomCursorPrpops = {
+  actionType?: ActionType
+  setActionType?: Dispatch<SetStateAction<ActionType>>
+}
+
+const CustomCursor: FC<CustomCursorPrpops> = ({
+  actionType = 'default',
+  setActionType,
+}) => {
   const { route } = useRouter()
   const mainCursor = useRef<HTMLDivElement>(null)
+
   const store = useContext(Store)
+
+  const children: ReactNode = useMemo(() => {
+    switch (actionType) {
+      case 'drag':
+        return 'drag'
+      case 'arrow':
+        return <Arrow className={styles['arrowIcon']} />
+      case 'disappear':
+        return undefined
+
+      default:
+        return undefined
+    }
+  }, [actionType])
 
   const positionRef = useRef({
     mouseX: 0,
@@ -21,19 +56,6 @@ const CustomCursor = () => {
     distanceY: 0,
     key: -1,
   })
-
-  const cursorVariant = {
-    default: {
-      width: '12rem',
-      height: '12rem',
-      opacity: 1,
-    },
-    onSubject: {
-      width: 0,
-      height: 0,
-      opacity: 0,
-    },
-  }
 
   useEffect(() => {
     document.addEventListener('mousemove', (event) => {
@@ -86,13 +108,11 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const handleMouseEnter = () => {
-      setIsOnSubject(true)
+      setActionType?.('disappear')
     }
-
     const handleMouseLeave = () => {
-      setIsOnSubject(false)
+      setActionType?.('default')
     }
-
     if (typeof window !== 'undefined') {
       setTimeout(() => {
         const links = document.querySelectorAll(
@@ -104,16 +124,16 @@ const CustomCursor = () => {
         })
       }, 500)
     }
-  }, [route, store?.state.modal.isOpenModal])
+  }, [route, store?.state.modal.isOpenModal, setActionType])
 
   return (
     <>
       <motion.div
-        className={classNames(styles['customCursor'])}
+        className={classNames(styles['customCursor'], styles[actionType])}
         ref={mainCursor}
-        variants={cursorVariant}
-        animate={isOnSubject ? 'onSubject' : 'default'}
-      ></motion.div>
+      >
+        {children}
+      </motion.div>
     </>
   )
 }

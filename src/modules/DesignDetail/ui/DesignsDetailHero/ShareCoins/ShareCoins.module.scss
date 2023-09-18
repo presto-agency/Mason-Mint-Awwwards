@@ -1,0 +1,24 @@
+@import '@/app/styles/variables/breackpoints';
+
+.ShareCoins{
+  display: flex;
+  flex-direction: column;
+  gap: 16rem;
+}
+
+.linksList {
+  display: flex;
+  gap: 24rem;
+}
+
+.icon{
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .linksList {
+    gap: 40rem;
+  }
+}

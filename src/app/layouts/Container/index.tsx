@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, memo } from 'react'
 import classNames from 'classnames'
 
 type PageLayoutProps = {
@@ -15,4 +15,4 @@ const Container: FC<PageLayoutProps> = ({ children, className, size }) => {
   )
 }
 
-export default Container
+export default memo(Container)

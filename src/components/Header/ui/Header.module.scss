@@ -30,7 +30,9 @@
   &.scrolled{
     .header__container {
       background-color: var(--white);
-      box-shadow: 0 0 10rem -7rem #000;
+
+      // box-shadow: 0 0 10rem -7rem #000;
+      border: 1rem solid var(--gray-300);
     }
   
     .logo__icon {
@@ -53,13 +55,14 @@
 
     @media (width <= $breakpoint-mob) {
       .header__content {
-        padding-top: 13rem;
+        padding: 5rem 0;
       }
     }
   }
   
   .logo{
-    width: 200rem;
+    display: flex;
+   
 
     &__icon{
       height: 60rem;
@@ -71,6 +74,8 @@
         width: auto;
 
         &__icon{
+          display: flex;
+          align-items: center;
           height: auto;
         }
       }
@@ -117,6 +122,7 @@
       position: relative;
       z-index: 10;
       display: flex;
+      align-items: center;
     }
     
     &_desktop {

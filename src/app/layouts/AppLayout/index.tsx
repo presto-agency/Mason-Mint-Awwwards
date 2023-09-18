@@ -6,6 +6,7 @@ import { withModal } from '@/context/modal'
 import { Lenis as ReactLenis } from '@studio-freight/react-lenis'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { Header } from '@/components/Header'
+import CursorLayout from '../CursorLayout/CursorLayout'
 const CustomCursor = dynamic(() => import('@/ui/CustomCursor/CustomCursor'), {
   ssr: false,
 })
@@ -60,10 +61,12 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
           content="width=device-width, initial-scale=1, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"
         />
       </Head>
-      {!isTablet && <CustomCursor />}
+      {/* {!isTablet && <CustomCursor />} */}
       <ReactLenis root options={{ ...options }}>
-        {existHeaderFooter && <Header theme={headerTheme} />}
-        {children}
+        <CursorLayout>
+          {existHeaderFooter && <Header theme={headerTheme} />}
+          {children}
+        </CursorLayout>
       </ReactLenis>
     </>
   )

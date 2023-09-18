@@ -16,8 +16,8 @@ import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { useScroll } from '@/hooks/useScroll'
 
 import Container from '@/app/layouts/Container'
-import { NavigationLayout } from '@/components/Header/ui/NavigationLayout/NavigationLayout'
-import { LogoTest } from '@/ui/Logo/LogoTest'
+import NavigationLayout from '@/components/Header/ui/NavigationLayout/NavigationLayout'
+import LogoTest from '@/ui/Logo/LogoTest'
 import { MobileLayout } from './MobileLayout/MobileLayout'
 
 import { Store } from '@/utils/Store'
@@ -110,9 +110,9 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
     if (width > 991) setMenuOpened(false)
   }, [width])
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpened ? 'hidden' : 'auto'
-  }, [menuOpened])
+  // useEffect(() => {
+  //   document.body.style.overflow = menuOpened ? 'hidden' : 'auto'
+  // }, [menuOpened])
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -169,7 +169,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
                 <LogoTest
                   className={styles['logo__icon']}
                   isWhite={headerTheme !== 'light'}
-                  withoutText={scrolledClassToAdd && width > 991}
+                  withoutText={scrolledClassToAdd && !menuOpened}
                 />
               </div>
             </Link>

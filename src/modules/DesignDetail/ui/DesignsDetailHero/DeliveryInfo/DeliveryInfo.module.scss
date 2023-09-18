@@ -1,0 +1,24 @@
+
+.DeliveryInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 16rem;
+  justify-content: center;
+
+}
+
+.title{
+  display: flex;
+  gap: 12rem;
+  align-items: center;
+
+  h6 {
+    color: var(--black);
+    font: var(--font-h6);
+  }
+}
+
+.description {
+  color: var(--gray-700);
+  font: var(--font-s)
+}

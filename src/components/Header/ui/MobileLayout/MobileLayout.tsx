@@ -1,6 +1,6 @@
 import { FC, memo } from 'react'
 import dynamic from 'next/dynamic'
-import { Burger } from '../Burger/Burger'
+import Burger from '../Burger/Burger'
 import { AnimatePresence } from 'framer-motion'
 
 const MobileMenu = dynamic(() => import('../MobileMenu/MobileMenu'))

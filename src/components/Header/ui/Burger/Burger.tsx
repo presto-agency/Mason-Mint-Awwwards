@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import classNames from 'classnames'
 import { motion } from 'framer-motion'
 
@@ -74,12 +74,7 @@ const bottomLineVariants = {
   },
 }
 
-export const Burger: FC<BurgerProps> = ({
-  opened,
-  scrolled,
-  theme,
-  toggleMenu,
-}) => {
+const Burger: FC<BurgerProps> = ({ opened, scrolled, theme, toggleMenu }) => {
   const mods = {
     [styles.opened]: opened,
     [styles.scrolled]: scrolled,
@@ -108,3 +103,5 @@ export const Burger: FC<BurgerProps> = ({
     </motion.div>
   )
 }
+
+export default memo(Burger)

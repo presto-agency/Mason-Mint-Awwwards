@@ -8,5 +8,42 @@
   background-color: var(--primary-color);
   border-radius: 50%;
   transform: translate3d(0, 0, 0);
+  transition: width .2s ease, height .2s ease, background-color .3s ease;
   pointer-events: none;
+}
+
+.default {
+  width: 12rem;
+  height: 12rem;
+}
+
+.disappear {
+  // display: none;
+  width: 0;
+  height: 0;
+}
+
+.customCursor.drag, .customCursor.arrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72rem;
+  height: 72rem;
+  color: var(--primary-color);
+  font: var(--font-h6);
+  background-color: var(--white);
+  border: 1rem solid var(--primary-color);
+  border-radius: 50%;
+  fill: var(--primary-color);
+}
+
+.arrowIcon {
+  width: 24rem;
+  height: 24rem;
+}
+
+@media (width < $breakpoint-tablet) {
+  .customCursor {
+    display: none;
+  }
 }

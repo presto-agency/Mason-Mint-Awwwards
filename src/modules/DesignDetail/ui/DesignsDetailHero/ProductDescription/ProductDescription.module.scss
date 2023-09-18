@@ -1,0 +1,42 @@
+@import '@/app/styles/variables/breackpoints';
+
+.ProductDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.category {
+  width: fit-content;
+  margin-bottom: 24rem;
+  padding: 6rem 12rem;
+  color: var(--black);
+  font: var(--font-s);
+  white-space: nowrap;
+  background-color: var(--gray-300);
+  border-radius: 100rem;
+}
+
+.name{
+  margin-bottom: 16rem;
+}
+
+.description{
+  color: var(--gray-800);
+  font: var(--font-l);
+
+}
+
+.follow{
+  margin-top: 40rem;
+}
+
+@media (width <= $breakpoint-mob) {
+  .follow{
+    margin-top: 24rem;
+    
+    .fullWidth{
+      width: 100%;
+    }
+  }  
+}

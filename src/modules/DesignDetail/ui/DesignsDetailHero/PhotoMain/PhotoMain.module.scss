@@ -1,0 +1,54 @@
+@import '@/app/styles/variables/breackpoints';
+
+.photoMain {
+  display: flex;
+}
+
+.image {
+  position: relative;
+  width: 576rem;
+  height: 576rem;
+  transform-style: preserve-3d;
+  transition: transform .5s ease-in-out;
+    
+  &__side{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    will-change: transform;
+        
+    &.front{
+      transform: rotateY(0deg);
+    }
+
+    &.back{
+      transform: rotateY(180deg);
+    }
+        
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &.active-side-obverse{
+    transform: rotateY(0deg);
+  
+  }
+  
+  &.active-side-reverse{
+    transform: rotateY(180deg);
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .image {
+    width: 280rem;
+    height: 280rem;
+  }
+}

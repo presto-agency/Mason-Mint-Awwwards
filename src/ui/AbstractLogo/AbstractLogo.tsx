@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import classNames from 'classnames'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
