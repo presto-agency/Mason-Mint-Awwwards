@@ -79,17 +79,17 @@ export const CoinBlock: FC<CoinBlockProps> = ({
     >
       <motion.div className={styles['coin']}>
         <motion.div style={photoBlockStyle} className={styles['coin__photo']}>
-          <Image src={data[0].thumbs[1]} alt={data[0].title} fill />
+          <Image src={data[0].thumbs[0]} alt={data[0].title} fill />
         </motion.div>
       </motion.div>
       <motion.div style={{ height: height2 }} className={styles['coin']}>
         <motion.div style={photoBlockStyle} className={styles['coin__photo']}>
-          <Image src={data[1].thumbs[1]} alt={data[1].title} fill />
+          <Image src={data[1].thumbs[0]} alt={data[1].title} fill />
         </motion.div>
       </motion.div>
       <motion.div style={{ height: height3 }} className={styles['coin']}>
         <motion.div style={photoBlockStyle} className={styles['coin__photo']}>
-          <Image src={data[2].thumbs[1]} alt={data[2].title} fill />
+          <Image src={data[2].thumbs[0]} alt={data[2].title} fill />
         </motion.div>
       </motion.div>
       <motion.div style={{ height: height4 }} className={styles['coin']}>
