@@ -1,0 +1,136 @@
+@import "@/app/styles/variables/breackpoints";
+
+
+.DesignsDetailSpecifications{
+  display: block;
+  padding: 164rem 120rem 164rem 64rem;
+  background-color: var(--gray-300);
+}
+
+.contentBlock{
+  display: flex;
+  gap: 200rem;
+}
+
+
+.photo {
+  position: relative;
+  width: 100%;
+
+  img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 164rem;
+  align-items: center;
+  justify-content: flex-start;
+  width: 50%;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    gap: 24rem;
+    width: 75%;
+
+    h6 {
+      color: var(--gray-700);
+    }
+  }
+
+  .photo {
+    height: 750rem;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 64rem;
+  width: 416rem;
+  padding-top: 108rem;
+
+  &.noPhotos {
+    padding-top: 0;
+  }
+
+  .photo {
+    height: 335rem;
+  }
+}
+
+.specifications__list {
+  margin: 0;
+  padding: 8rem 0;
+  list-style-type: none;
+  
+  h4 {
+    margin-bottom: 24rem;
+  }
+}
+
+.specifications__list_item{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13rem 0 14rem;
+  border-bottom: 1rem var(--gray-600) solid;
+
+  &_label {
+    color: var(--gray-800);
+    font: var(--font-l);
+  }
+
+}
+
+
+@media (width <= $breakpoint-mob) {
+  .DesignsDetailSpecifications{
+    padding: 80rem 24rem;
+  }
+
+  .contentBlock{
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .left {
+    gap: 40rem;
+
+    .title {
+      width: 100%;
+    }
+
+    .photo {
+      max-height: 240rem;
+    }
+  }
+
+  .right {
+    gap: 0;
+    padding-top: 0;
+
+    .photo {
+      max-height: 240rem;
+      margin-top: 17rem;
+    }
+  }
+
+  .specifications__list {
+    h4 {
+      margin-top: 40rem;
+      margin-bottom: 32rem;
+    }
+  }
+}
