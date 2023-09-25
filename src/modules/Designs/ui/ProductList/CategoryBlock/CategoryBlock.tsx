@@ -1,13 +1,38 @@
 import { FC, useRef } from 'react'
-import styles from '../ProductList.module.scss'
+import { motion } from 'framer-motion'
+
+import ProductCard from '@/ui/ProductCard/ProductCard'
 import { ProductProps } from '@/utils/types'
 import { useCategoryBlockInView } from './useCategoryBlockInView'
-import ProductCard from '@/ui/ProductCard/ProductCard'
+
+import styles from '../ProductList.module.scss'
 
 type CategoryBlockProps = {
   categoryId: string
-  // categoryName: string
   products: ProductProps[]
+}
+
+const boxVariant = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      when: 'beforeChildren',
+      staggerChildren: 0.05,
+    },
+  },
+}
+const listVariant = {
+  hidden: {
+    y: 10,
+    opacity: 0,
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
 }
 
 export const CategoryBlock: FC<CategoryBlockProps> = ({
@@ -16,11 +41,22 @@ export const CategoryBlock: FC<CategoryBlockProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null)
   useCategoryBlockInView(ref, categoryId)
+
   return (
-    <div className={styles['categoryList']} key={categoryId} ref={ref}>
+    <motion.div
+      variants={boxVariant}
+      animate="visible"
+      initial="hidden"
+      exit="hidden"
+      className={styles['categoryList']}
+      key={categoryId}
+      ref={ref}
+    >
       {products.map((product) => (
-        <ProductCard data={product} key={product.id} />
+        <motion.div key={product.id} variants={listVariant}>
+          <ProductCard data={product} />
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   )
 }

@@ -1,4 +1,12 @@
-import { Dispatch, FC, SetStateAction, useContext, useMemo } from 'react'
+import {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react'
 import classNames from 'classnames'
 import { CategoryProps } from '@/utils/types'
 import styles from './ProductFilters.module.scss'
@@ -9,7 +17,7 @@ type ProductFiltersProps = {
   categories: CategoryProps[]
   filters: ProductsFilter
   setFilters: Dispatch<SetStateAction<ProductsFilter>>
-  scrollTop: () => void
+  scrollTop: () => Promise<void>
   className?: string
 }
 
@@ -33,14 +41,15 @@ const ProductFilters: FC<ProductFiltersProps> = ({
       <div
         className={styles['allProductsCount']}
         onClick={() => {
-          scrollTop()
-          clearSearch()
-          setFilters((prev) => {
-            return {
-              ...prev,
-              search: '',
-              category: undefined,
-            }
+          scrollTop().then(() => {
+            clearSearch()
+            setFilters((prev) => {
+              return {
+                ...prev,
+                search: '',
+                category: undefined,
+              }
+            })
           })
         }}
       >
@@ -56,14 +65,15 @@ const ProductFilters: FC<ProductFiltersProps> = ({
                 filters.category === category.id ? styles['active'] : ''
               )}
               onClick={() => {
-                scrollTop()
-                clearSearch()
-                setFilters((prev) => {
-                  return {
-                    ...prev,
-                    search: '',
-                    category: category.id,
-                  }
+                scrollTop().then(() => {
+                  clearSearch()
+                  setFilters((prev) => {
+                    return {
+                      ...prev,
+                      search: '',
+                      category: category.id,
+                    }
+                  })
                 })
               }}
             >

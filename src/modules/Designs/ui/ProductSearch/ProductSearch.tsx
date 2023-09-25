@@ -18,7 +18,7 @@ type Props = {
   searchQuery: string
   setSearchQuery: Dispatch<SetStateAction<string>>
   setFilters: Dispatch<SetStateAction<ProductsFilter>>
-  scrollTop: () => void
+  scrollTop: () => Promise<void>
 }
 
 const ProductSearch: FC<Props> = ({
@@ -38,15 +38,16 @@ const ProductSearch: FC<Props> = ({
   )
 
   useEffect(() => {
-    scrollTop()
-    setFilters((prev) => {
-      const category =
-        debouncedSearchQuery && prev.category ? undefined : prev.category
-      return {
-        ...prev,
-        category: category,
-        search: debouncedSearchQuery,
-      }
+    scrollTop().then(() => {
+      setFilters((prev) => {
+        const category =
+          debouncedSearchQuery && prev.category ? undefined : prev.category
+        return {
+          ...prev,
+          category: category,
+          search: debouncedSearchQuery,
+        }
+      })
     })
   }, [debouncedSearchQuery, setFilters])
 

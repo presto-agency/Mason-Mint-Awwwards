@@ -78,14 +78,31 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
   const loadMoreButtonRef = useRef<HTMLDivElement | null>(null)
 
   const scrollTop = () => {
-    if (lenis) {
-      lenis.stop()
-      window.scrollTo({
-        top: productSectionRef.current?.offsetTop,
-        behavior: 'smooth',
-      })
-      lenis.start()
-    }
+    return new Promise<void>((resolve) => {
+      if (lenis) {
+        lenis.stop()
+
+        const targetOffsetTop = productSectionRef.current?.offsetTop || 0
+        window.scrollTo({
+          top: targetOffsetTop,
+          behavior: 'smooth',
+        })
+
+        const checkScrollEnd = () => {
+          const nearEnd = Math.abs(window.scrollY - targetOffsetTop) < 5
+          if (nearEnd) {
+            resolve()
+            lenis.start()
+          } else {
+            requestAnimationFrame(checkScrollEnd)
+          }
+        }
+
+        requestAnimationFrame(checkScrollEnd)
+      } else {
+        resolve()
+      }
+    })
   }
 
   useEffect(() => {

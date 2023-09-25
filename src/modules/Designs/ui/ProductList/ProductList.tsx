@@ -16,6 +16,7 @@ import { ProductsFilter, SusccessResponse } from '../../api/products'
 import { ProductProps } from '@/utils/types'
 
 import styles from './ProductList.module.scss'
+import { AnimatePresence } from 'framer-motion'
 
 type ProductListProps = {
   products: InfiniteData<SusccessResponse<ProductProps[]>> | undefined
@@ -79,15 +80,17 @@ const ProductList: FC<ProductListProps> = ({
 
   return (
     <div className={classNames(styles['ProductList'], className)}>
-      {data.map((categoryBlock) => {
-        return (
-          <CategoryBlock
-            categoryId={categoryBlock.categoryId}
-            products={categoryBlock.products}
-            key={categoryBlock.categoryId}
-          />
-        )
-      })}
+      <AnimatePresence mode="sync">
+        {data.map((categoryBlock) => {
+          return (
+            <CategoryBlock
+              categoryId={categoryBlock.categoryId}
+              products={categoryBlock.products}
+              key={categoryBlock.categoryId}
+            />
+          )
+        })}
+      </AnimatePresence>
     </div>
   )
 }
