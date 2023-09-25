@@ -27,86 +27,85 @@ const ListTitle: FC<ListTitleProps> = ({
   currentCategoryInView,
   count,
 }) => {
-  const selectedCategory = useMemo(() => {
-    return (
-      categories.find((item) => item.id === filters.category) || categories[0]
-    )
-  }, [filters.category, categories])
-
   const animationVariants: Variants = useMemo(() => {
     return {
       initial: {
-        y: scrollDirection === 'down' ? -300 : 300,
+        y: scrollDirection === 'down' ? -150 : 150,
       },
       animate: {
         y: 0,
       },
       exit: {
-        y: scrollDirection === 'down' ? 300 : -300,
+        y: scrollDirection === 'down' ? 150 : -150,
       },
     }
   }, [scrollDirection])
 
-  const categoryInView = useMemo(() => {
-    return (
-      categories.find((item) => item.name === currentCategoryInView) ||
-      categories[0]
-    )
-  }, [currentCategoryInView])
+  const displayContent = useMemo(() => {
+    if (filters.search) {
+      return {
+        title: 'Results',
+        result: `${count} results found for <span>&quot;${filters.search}&quot;`,
+      }
+    }
+
+    const categoryToFind = !filters.category
+      ? currentCategoryInView
+      : filters.category
+
+    const selectedCategory =
+      categories.find((item) => item.id === categoryToFind) || categories[0]
+
+    if (!filters.search && filters.category) {
+      return {
+        title: selectedCategory.name,
+        result: `${selectedCategory.products?.length} results`,
+      }
+    }
+
+    if (!filters.search && !filters.category) {
+      return {
+        title: selectedCategory.name,
+        result: `${selectedCategory.products?.length} results`,
+      }
+    }
+
+    return { title: categories[0].name, result: categories[0].products?.length }
+  }, [
+    filters.search,
+    filters.category,
+    count,
+    currentCategoryInView,
+    categories,
+  ])
 
   return (
     <div className={classNames(styles['ListTitle'], className)}>
-      {filters.search && (
-        <>
-          <h3>
-            Results
-            <BlueDot />
-          </h3>
-          <h6>
-            {count} results found for <span>&quot;{filters.search}&quot;</span>
-          </h6>
-        </>
-      )}
-      {!filters.search && !filters.category && (
-        <>
-          <AnimatePresence mode="popLayout">
-            <motion.h3
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={animationVariants}
-              transition={transition}
-              key={categoryInView.name}
-            >
-              {categoryInView.name}
-              <BlueDot />
-            </motion.h3>
-          </AnimatePresence>
+      <AnimatePresence mode="popLayout">
+        <motion.h3
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={animationVariants}
+          transition={transition}
+          key={displayContent.title}
+        >
+          {displayContent.title}
+          <BlueDot />
+        </motion.h3>
+      </AnimatePresence>
 
-          <AnimatePresence mode="popLayout">
-            <motion.h6
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={animationVariants}
-              transition={transition}
-              key={categoryInView.name}
-            >
-              {categoryInView.products?.length} results
-            </motion.h6>
-          </AnimatePresence>
-        </>
-      )}
-
-      {!filters.search && filters.category && (
-        <>
-          <h3>
-            {selectedCategory.name || ''}
-            <BlueDot />
-          </h3>
-          <h6>{selectedCategory.products?.length} results</h6>
-        </>
-      )}
+      <AnimatePresence mode="popLayout">
+        <motion.h6
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={animationVariants}
+          transition={transition}
+          key={displayContent.title}
+          dangerouslySetInnerHTML={{ __html: displayContent.result || '' }}
+        ></motion.h6>
+      </AnimatePresence>
     </div>
   )
 }

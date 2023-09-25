@@ -10,7 +10,6 @@ import classNames from 'classnames'
 import { InfiniteData } from 'react-query'
 
 import Emoji from 'public/icons/emoji.svg'
-import { ProductListContext } from './ProductListContext'
 import { CategoryBlock } from './CategoryBlock/CategoryBlock'
 
 import { ProductsFilter, SusccessResponse } from '../../api/products'
@@ -21,7 +20,7 @@ import styles from './ProductList.module.scss'
 type ProductListProps = {
   products: InfiniteData<SusccessResponse<ProductProps[]>> | undefined
   filters: ProductsFilter
-  setCurrentCategoryInView: Dispatch<SetStateAction<string | undefined>>
+
   loading: boolean
   className?: string
 }
@@ -29,7 +28,6 @@ type ProductListProps = {
 const ProductList: FC<ProductListProps> = ({
   className,
   products,
-  setCurrentCategoryInView,
   loading,
   filters,
 }) => {
@@ -38,24 +36,24 @@ const ProductList: FC<ProductListProps> = ({
 
     for (const item of products?.pages || []) {
       for (const product of item.data.docs) {
-        const categoryName = product?.category?.name
-        if (categoryName) {
-          if (!hash.has(categoryName)) {
-            hash.set(categoryName, [product])
+        const categoryId = product?.category?.id
+        if (categoryId) {
+          if (!hash.has(categoryId)) {
+            hash.set(categoryId, [product])
             continue
           }
 
-          if (hash.has(categoryName)) {
-            const productsInCategory = hash.get(categoryName)!
-            hash.set(categoryName, [...productsInCategory, product])
+          if (hash.has(categoryId)) {
+            const productsInCategory = hash.get(categoryId)!
+            hash.set(categoryId, [...productsInCategory, product])
           }
         }
       }
     }
 
-    const result = Array.from(hash, ([categoryName, products]) => {
+    const result = Array.from(hash, ([categoryId, products]) => {
       return {
-        categoryName,
+        categoryId,
         products,
       }
     })
@@ -63,12 +61,6 @@ const ProductList: FC<ProductListProps> = ({
     hash.clear()
     return result
   }, [products])
-
-  const [activeSection, setActiveSection] = useState<string | null>(null)
-
-  useEffect(() => {
-    setCurrentCategoryInView(activeSection || undefined)
-  }, [activeSection])
 
   if (!data.length && !loading) {
     return (
@@ -87,17 +79,15 @@ const ProductList: FC<ProductListProps> = ({
 
   return (
     <div className={classNames(styles['ProductList'], className)}>
-      <ProductListContext.Provider value={{ activeSection, setActiveSection }}>
-        {data.map((categoryBlock) => {
-          return (
-            <CategoryBlock
-              categoryName={categoryBlock.categoryName}
-              products={categoryBlock.products}
-              key={categoryBlock.categoryName}
-            />
-          )
-        })}
-      </ProductListContext.Provider>
+      {data.map((categoryBlock) => {
+        return (
+          <CategoryBlock
+            categoryId={categoryBlock.categoryId}
+            products={categoryBlock.products}
+            key={categoryBlock.categoryId}
+          />
+        )
+      })}
     </div>
   )
 }

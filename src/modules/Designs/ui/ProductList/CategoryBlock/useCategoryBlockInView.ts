@@ -1,11 +1,11 @@
 import { RefObject, useContext, useEffect } from 'react'
-import { ProductListContext } from '../ProductListContext'
+import { ProducsSectionContext } from '../../../lib/ProductListContext'
 
 export const useCategoryBlockInView = (
   ref: RefObject<HTMLDivElement>,
   sectionId: string
 ) => {
-  const { setActiveSection } = useContext(ProductListContext)
+  const { setActiveSection } = useContext(ProducsSectionContext)
 
   useEffect(() => {
     const observer = new IntersectionObserver(

@@ -5,7 +5,6 @@ import {
   SetStateAction,
   useCallback,
   useEffect,
-  useState,
 } from 'react'
 import classNames from 'classnames'
 import Search from '@/ui/Icons/Search'
@@ -15,12 +14,20 @@ import { ProductsFilter } from '../../api/products'
 
 type Props = {
   className?: string
+  filters: ProductsFilter
+  searchQuery: string
+  setSearchQuery: Dispatch<SetStateAction<string>>
   setFilters: Dispatch<SetStateAction<ProductsFilter>>
   scrollTop: () => void
 }
 
-const ProductSearch: FC<Props> = ({ className, setFilters, scrollTop }) => {
-  const [searchQuery, setSearchQuery] = useState<string>('')
+const ProductSearch: FC<Props> = ({
+  searchQuery,
+  setSearchQuery,
+  className,
+  setFilters,
+  scrollTop,
+}) => {
   const debouncedSearchQuery = useDebounce(searchQuery, 500)
 
   const handleChange = useCallback(
@@ -33,9 +40,11 @@ const ProductSearch: FC<Props> = ({ className, setFilters, scrollTop }) => {
   useEffect(() => {
     scrollTop()
     setFilters((prev) => {
+      const category =
+        debouncedSearchQuery && prev.category ? undefined : prev.category
       return {
         ...prev,
-        category: undefined,
+        category: category,
         search: debouncedSearchQuery,
       }
     })

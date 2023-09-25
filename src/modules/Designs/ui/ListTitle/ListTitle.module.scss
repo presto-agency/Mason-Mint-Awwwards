@@ -1,6 +1,7 @@
 @import "@/app/styles/variables/breackpoints";
 
 .ListTitle {
+  position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -42,3 +43,4 @@
     }
   }
 }
+

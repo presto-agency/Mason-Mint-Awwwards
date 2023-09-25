@@ -5,18 +5,19 @@ import { useCategoryBlockInView } from './useCategoryBlockInView'
 import ProductCard from '@/ui/ProductCard/ProductCard'
 
 type CategoryBlockProps = {
-  categoryName: string
+  categoryId: string
+  // categoryName: string
   products: ProductProps[]
 }
 
 export const CategoryBlock: FC<CategoryBlockProps> = ({
-  categoryName,
+  categoryId,
   products,
 }) => {
   const ref = useRef<HTMLDivElement>(null)
-  useCategoryBlockInView(ref, categoryName)
+  useCategoryBlockInView(ref, categoryId)
   return (
-    <div className={styles['categoryList']} key={categoryName} ref={ref}>
+    <div className={styles['categoryList']} key={categoryId} ref={ref}>
       {products.map((product) => (
         <ProductCard data={product} key={product.id} />
       ))}

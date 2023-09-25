@@ -1,8 +1,9 @@
-import { Dispatch, FC, SetStateAction, useMemo } from 'react'
+import { Dispatch, FC, SetStateAction, useContext, useMemo } from 'react'
 import classNames from 'classnames'
 import { CategoryProps } from '@/utils/types'
 import styles from './ProductFilters.module.scss'
 import { ProductsFilter } from '../../api/products'
+import { ProducsSectionContext } from '../../lib/ProductListContext'
 
 type ProductFiltersProps = {
   categories: CategoryProps[]
@@ -19,6 +20,7 @@ const ProductFilters: FC<ProductFiltersProps> = ({
   scrollTop,
   setFilters,
 }) => {
+  const { clearSearch } = useContext(ProducsSectionContext)
   const allProductsCount = useMemo(() => {
     return categories.reduce(
       (prev, curr) => prev + (curr.products?.length || 0),
@@ -32,9 +34,11 @@ const ProductFilters: FC<ProductFiltersProps> = ({
         className={styles['allProductsCount']}
         onClick={() => {
           scrollTop()
+          clearSearch()
           setFilters((prev) => {
             return {
               ...prev,
+              search: '',
               category: undefined,
             }
           })
@@ -53,10 +57,11 @@ const ProductFilters: FC<ProductFiltersProps> = ({
               )}
               onClick={() => {
                 scrollTop()
+                clearSearch()
                 setFilters((prev) => {
                   return {
                     ...prev,
-                    search: undefined,
+                    search: '',
                     category: category.id,
                   }
                 })

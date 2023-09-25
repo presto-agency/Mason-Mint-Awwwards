@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
+import React, { FC, useEffect, useMemo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { useMotionValueEvent, useScroll } from 'framer-motion'
 import { useInfiniteQuery } from 'react-query'
@@ -15,6 +15,7 @@ import { CategoryProps } from '@/utils/types'
 
 import styles from './DesignsContent.module.scss'
 import { useLenis } from '@studio-freight/react-lenis'
+import { ProducsSectionContext } from '../lib/ProductListContext'
 
 const BecomeDistributorSection = dynamic(
   () => import('@/components/BecomeDistributorSection/BecomeDistributorSection')
@@ -25,6 +26,7 @@ type DesignsContentProps = {
 }
 
 const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
+  const [searchQuery, setSearchQuery] = useState<string>('')
   const [filters, setFilters] = useState<ProductsFilter>({})
   const [currentCategoryInView, setCurrentCategoryInView] = useState<string>()
 
@@ -60,6 +62,12 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
   useEffect(() => {
     window.scrollTo({ top: 0 })
   }, [])
+
+  useEffect(() => {
+    if (!filters.category) {
+      setCurrentCategoryInView(undefined)
+    }
+  }, [filters.category])
 
   const lenis = useLenis()
 
@@ -99,6 +107,18 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
     }
   }, [hasNextPage, fetchNextPage])
 
+  useEffect(() => {
+    setCurrentCategoryInView(currentCategoryInView)
+  }, [currentCategoryInView])
+
+  const contextValues = useMemo(() => {
+    return {
+      activeSection: currentCategoryInView,
+      setActiveSection: setCurrentCategoryInView,
+      clearSearch: () => setSearchQuery(''),
+    }
+  }, [currentCategoryInView, setCurrentCategoryInView])
+
   return (
     <main ref={pageRef} className={styles['DesignsContent']}>
       <HeroInner
@@ -109,45 +129,49 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
         withBlueDot
         columns={10}
       />
-      <section className={styles['productsSection']} ref={productSectionRef}>
-        <div className={classNames(styles['left'], mods)}>
-          <ProductSearch
-            className={styles['search']}
-            setFilters={setFilters}
-            scrollTop={scrollTop}
-          />
-          <ProductFilters
-            className={styles['filters']}
-            categories={categories}
-            filters={filters}
-            setFilters={setFilters}
-            scrollTop={scrollTop}
-          />
-        </div>
-        <div className={styles['right']}>
-          <div className={classNames(styles['stickyHeader'], mods)}>
-            <ListTitle
-              className={styles['title']}
+      <ProducsSectionContext.Provider value={contextValues}>
+        <section className={styles['productsSection']} ref={productSectionRef}>
+          <div className={classNames(styles['left'], mods)}>
+            <ProductSearch
+              className={styles['search']}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
               filters={filters}
-              scrollDirection={direction}
-              currentCategoryInView={currentCategoryInView}
+              setFilters={setFilters}
+              scrollTop={scrollTop}
+            />
+            <ProductFilters
+              className={styles['filters']}
               categories={categories}
-              count={data?.pages[0].data.total || 0}
+              filters={filters}
+              setFilters={setFilters}
+              scrollTop={scrollTop}
             />
           </div>
-          <ProductList
-            className={styles['products']}
-            filters={filters}
-            loading={isFetching}
-            setCurrentCategoryInView={setCurrentCategoryInView}
-            products={data}
-          />
-          <div
-            className={styles['loadingTrigger']}
-            ref={loadMoreButtonRef}
-          ></div>
-        </div>
-      </section>
+          <div className={styles['right']}>
+            <div className={classNames(styles['stickyHeader'], mods)}>
+              <ListTitle
+                className={styles['title']}
+                filters={filters}
+                scrollDirection={direction}
+                currentCategoryInView={currentCategoryInView}
+                categories={categories}
+                count={data?.pages[0].data.total || 0}
+              />
+            </div>
+            <ProductList
+              className={styles['products']}
+              filters={filters}
+              loading={isFetching}
+              products={data}
+            />
+            <div
+              className={styles['loadingTrigger']}
+              ref={loadMoreButtonRef}
+            ></div>
+          </div>
+        </section>
+      </ProducsSectionContext.Provider>
       <BecomeDistributorSection />
     </main>
   )
