@@ -39,3 +39,13 @@
   z-index: 2;
   transform: translate(-50%, -50%);
 }
+
+@media(width <= $breakpoint-mob) {
+  .imageContainer{
+    width: 60%;
+
+    image{
+      width: 100%;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-
+import mongoosePaginate from 'mongoose-paginate'
 const imageSchema = new mongoose.Schema(
   {
     ImageUrl: { type: String },
@@ -36,6 +36,7 @@ const productSchema = new mongoose.Schema({
   description: String,
 })
 
+productSchema.plugin(mongoosePaginate)
 const Product =
   mongoose.models.Product || mongoose.model('Product', productSchema)
 

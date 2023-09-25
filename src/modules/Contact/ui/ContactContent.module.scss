@@ -3,25 +3,25 @@
 .contactContent{
 	position: relative;
 	padding-top: 214rem;
-	padding-bottom: 100rem;
+
 	
+	@media (width <= $breakpoint-mob) {
+		padding-top: 154rem;
+	}
+	
+	&__body{
+		padding-bottom: 64rem;
+			
 		@media (width <= $breakpoint-mob) {
-			padding-top: 154rem;
+			padding-bottom: 20rem;
 		}
+	}
 	
-		&__body{
-			padding-bottom: 64rem;
+	&__form{
+		padding-bottom: 64rem;
 			
-				@media (width <= $breakpoint-mob) {
-					padding-bottom: 20rem;
-				}
+		@media (width <= $breakpoint-mob) {
+			padding-bottom: 45rem;
 		}
-	
-		&__form{
-			padding-bottom: 64rem;
-			
-				@media (width <= $breakpoint-mob) {
-					padding-bottom: 45rem;
-				}
-		}
+	}
 }

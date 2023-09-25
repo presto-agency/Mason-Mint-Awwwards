@@ -46,6 +46,7 @@ export const Coin: FC<CoinProps> = ({ scrollYProgress }) => {
   return (
     <div className={styles['imageContainer']}>
       <Lottie
+        className={styles['lottie']}
         animationData={loaderJson}
         lottieRef={refLottie}
         autoplay={false}

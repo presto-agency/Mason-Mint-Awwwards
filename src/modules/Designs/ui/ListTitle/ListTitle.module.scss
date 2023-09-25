@@ -1,0 +1,44 @@
+@import "@/app/styles/variables/breackpoints";
+
+.ListTitle {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 18rem;
+  overflow: hidden;
+  border-bottom: 1rem solid var(--black);
+
+  h3 {
+    white-space: nowrap;
+  }
+
+  h6 {
+    white-space: nowrap;
+
+    span {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.titleWrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+@media (width <= $breakpoint-mob) {
+  .ListTitle {
+    align-items: center;
+    padding-top: 10rem;
+    padding-bottom: 16rem;
+
+    h3 {
+      white-space: wrap;
+    }
+  
+    h6 {
+      display: none;
+      white-space: nowrap;
+    }
+  }
+}

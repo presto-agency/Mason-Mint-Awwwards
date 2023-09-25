@@ -1,0 +1,53 @@
+.ProductFilters{
+  display: flex;
+  flex-direction: column;
+  gap: 32rem;
+}
+
+.allProductsCount {
+  font: var(--font-s);
+
+  &:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14rem;
+  color: var(--gray-800);
+  font: var(--font-l);
+  list-style-type: none;
+}
+
+.listItem {
+  display: flex;
+  gap: 8rem;
+  white-space: nowrap;
+  transition: .2s ease;
+
+  &.active, &:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+  
+    .categoryCount {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }  
+}
+
+.categoryCount{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 19rem;
+  height: 19rem;
+  color: var(--gray-500);
+  font: var(--font-s);
+  border: 0.5rem solid var(--gray-500);
+  border-radius: 100%;
+  transition: .2s ease;
+}

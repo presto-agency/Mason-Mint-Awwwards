@@ -6,7 +6,7 @@ import { getError } from '@/utils/error'
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     await db.connect()
-    const categories = await CategoryModel.find()
+    const categories = await CategoryModel.find().sort({ name: 1 })
     // await db.disconnect()
     res.status(200).json({
       success: true,

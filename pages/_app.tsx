@@ -10,6 +10,9 @@ import localFont from 'next/font/local'
 
 import 'bootstrap/scss/bootstrap-grid.scss'
 import '@/app/styles/index.scss'
+import { QueryClientProvider, QueryClient, Hydrate } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import { useState } from 'react'
 
 const gambetta = localFont({
   src: [
@@ -55,8 +58,11 @@ const suisseIntl = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   const onExitComplete = () => {
+    history.scrollRestoration = 'manual'
     window.scrollTo({ top: 0 })
   }
+
+  const [queryClient] = useState(() => new QueryClient())
 
   useNextCssRemovalPrevention()
   const router = useRouter()
@@ -70,15 +76,22 @@ export default function App({ Component, pageProps }: AppProps) {
           --font-family-secondary: ${suisseIntl.style.fontFamily};
         }
       `}</style>
-      <StoreProvider>
-        <AppLayout>
-          <NextNProgress color="#266ef9" />
-          <MainPreloaderWrapper />
-          <AnimatePresence onExitComplete={onExitComplete} mode="wait">
-            <Component {...pageProps} key={pageKey} />
-          </AnimatePresence>
-        </AppLayout>
-      </StoreProvider>
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          {process.env.NODE_ENV === 'development' && (
+            <ReactQueryDevtools initialIsOpen={false} />
+          )}
+          <StoreProvider>
+            <AppLayout>
+              <NextNProgress color="#266ef9" />
+              <MainPreloaderWrapper />
+              <AnimatePresence onExitComplete={onExitComplete} mode="wait">
+                <Component {...pageProps} key={pageKey} />
+              </AnimatePresence>
+            </AppLayout>
+          </StoreProvider>
+        </Hydrate>
+      </QueryClientProvider>
     </>
   )
 }

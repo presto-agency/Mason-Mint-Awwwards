@@ -2,22 +2,21 @@ import React, { FC } from 'react'
 import Head from 'next/head'
 import { GetStaticProps } from 'next'
 
-import { DesignsContent } from '@/modules/Designs'
+import { DesignsContent, getProducts } from '@/modules/Designs'
 
-import db from '@/utils/db'
-import { CategoryProps, ProductProps } from '@/utils/types'
+import { CategoryProps } from '@/utils/types'
 import { transformObjectsToJson } from '@/utils/json/transformObjectsToJson'
 
 import CategoryModel from '../../models/Category'
-import ProductTestModel from '../../models/Product'
 import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
+import { QueryClient, dehydrate } from 'react-query'
+import db from '@/utils/db'
 
 type DesignsProps = {
   categories: CategoryProps[]
-  products: ProductProps[]
 }
 
-const Index: FC<DesignsProps> = ({ categories, products }) => {
+const Index: FC<DesignsProps> = ({ categories }) => {
   return (
     <>
       <Head>
@@ -28,26 +27,40 @@ const Index: FC<DesignsProps> = ({ categories, products }) => {
         />
       </Head>
       <PageTransitionLayout>
-        <DesignsContent products={products} categories={categories} />
+        <DesignsContent categories={categories} />
       </PageTransitionLayout>
     </>
   )
 }
 
-export const getStaticProps: GetStaticProps<{
-  categories: CategoryProps[]
-  products: ProductProps[]
-}> = async () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const queryClient = new QueryClient()
   await db.connect()
-  const categories = await CategoryModel.find().lean()
-  const products = await ProductTestModel.find().lean()
+  await queryClient.prefetchQuery('getProducts', () => getProducts(1, {}))
+  const categories = await CategoryModel.find().sort({ name: 1 })
 
   return {
     props: {
+      dehydratedState: dehydrate(queryClient),
       categories: transformObjectsToJson(categories),
-      products: transformObjectsToJson(products),
     },
   }
 }
+
+// export const getStaticProps: GetStaticProps<{
+//   categories: CategoryProps[]
+//   products: ProductProps[]
+// }> = async () => {
+//   await db.connect()
+//   const categories = await CategoryModel.find().lean()
+//   const products = await ProductTestModel.find().lean()
+
+//   return {
+//     props: {
+//       categories: transformObjectsToJson(categories),
+//       products: transformObjectsToJson(products),
+//     },
+//   }
+// }
 
 export default Index

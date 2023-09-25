@@ -1,4 +1,11 @@
-import React, { FC, ReactNode, useEffect, useRef, useState } from 'react'
+import React, {
+  FC,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 
@@ -30,21 +37,20 @@ const ParallaxSection: FC<ParallaxSection> = ({
   useEffect(() => {
     setIsMounted(true)
   }, [])
+
+  const style = useMemo(() => {
+    return { y: isMounted && width <= 991 ? 0 : y }
+  }, [y, width, isMounted])
+
+  // useEffect(() => {
+  //   console.log(style)
+  // }, [style])
+
   return (
     <>
-      {isMounted && width <= 991 ? (
-        <div className={className}>{children}</div>
-      ) : (
-        <motion.div
-          ref={refTarget}
-          className={className}
-          style={{
-            y,
-          }}
-        >
-          {children}
-        </motion.div>
-      )}
+      <motion.div ref={refTarget} className={className} style={style}>
+        {children}
+      </motion.div>
     </>
   )
 }

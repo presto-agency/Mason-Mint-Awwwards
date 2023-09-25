@@ -21,7 +21,7 @@ const FeaturedDesignsSection: FC<{ className?: string }> = ({ className }) => {
         const res = await axios.get(
           `/api/products?category=64b7f098ffe22650abb78018`
         )
-        setProducts(res.data.data)
+        setProducts(res.data.data.docs)
       } catch (error) {
         console.log(error)
       }

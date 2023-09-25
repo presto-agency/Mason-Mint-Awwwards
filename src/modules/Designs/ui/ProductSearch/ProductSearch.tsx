@@ -1,56 +1,56 @@
-import { ChangeEvent, FC, useCallback, useEffect, useState } from 'react'
+import {
+  ChangeEvent,
+  Dispatch,
+  FC,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react'
 import classNames from 'classnames'
-import { useDebounce } from 'usehooks-ts'
-import TextField from '@/ui/TextField/TextField'
-import SearchIcon from '@/ui/Icons/Search'
-
+import Search from '@/ui/Icons/Search'
 import styles from './ProductSearch.module.scss'
+import { useDebounce } from 'usehooks-ts'
+import { ProductsFilter } from '../../api/products'
 
-type ProductSearchProps = {
+type Props = {
   className?: string
-  onValues: (query: string) => void
+  setFilters: Dispatch<SetStateAction<ProductsFilter>>
+  scrollTop: () => void
 }
 
-const ProductSearch: FC<ProductSearchProps> = ({ className, onValues }) => {
-  const [query, setQuery] = useState<string>('')
-  const [enableSearch, setEnableSearch] = useState<boolean>(false)
-  const debouncedSearchQuery = useDebounce(query, 500)
+const ProductSearch: FC<Props> = ({ className, setFilters, scrollTop }) => {
+  const [searchQuery, setSearchQuery] = useState<string>('')
+  const debouncedSearchQuery = useDebounce(searchQuery, 500)
 
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setQuery(e.target.value)
-      setEnableSearch(true)
+      setSearchQuery(e.target.value)
     },
-    [setQuery]
+    [setSearchQuery]
   )
 
   useEffect(() => {
-    const search = async () => {
-      if (enableSearch) {
-        await onValues(debouncedSearchQuery)
+    scrollTop()
+    setFilters((prev) => {
+      return {
+        ...prev,
+        category: undefined,
+        search: debouncedSearchQuery,
       }
-    }
-
-    search()
-  }, [debouncedSearchQuery])
+    })
+  }, [debouncedSearchQuery, setFilters])
 
   return (
-    <div className={classNames(styles['search'], className)}>
-      <TextField
-        name="search"
+    <div className={classNames(styles['ProductSearch'], className)}>
+      <Search className={styles['icon']} />
+      <input
+        className={styles['searchInput']}
+        placeholder="SEARCH"
+        value={searchQuery}
         onChange={handleChange}
-        placeholder="Search by name"
-        value={query}
-        className={styles['search__field']}
       />
-      {debouncedSearchQuery ? (
-        <button
-          className={styles['search__reset']}
-          onClick={() => setQuery('')}
-        />
-      ) : (
-        <SearchIcon className={styles['search__icon']} />
-      )}
+      <div className={styles['line']}></div>
     </div>
   )
 }
