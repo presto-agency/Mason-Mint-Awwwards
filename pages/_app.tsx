@@ -84,6 +84,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <StoreProvider>
             <AppLayout>
               <NextNProgress color="#266ef9" />
+              <div id="portal"></div>
               <MainPreloaderWrapper />
               <AnimatePresence onExitComplete={onExitComplete} mode="wait">
                 <Component {...pageProps} key={pageKey} />

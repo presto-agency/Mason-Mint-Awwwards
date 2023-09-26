@@ -10,7 +10,9 @@
   border-bottom: 1rem solid var(--black);
 
   h3 {
+    overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   h6 {
@@ -27,19 +29,44 @@
   overflow: hidden;
 }
 
+.mobileRight {
+  display: flex;
+  gap: 12rem;
+  align-items: center;
+}
+
 @media (width <= $breakpoint-mob) {
   .ListTitle {
+    gap: 15rem;
     align-items: center;
     padding-top: 10rem;
     padding-bottom: 16rem;
 
-    h3 {
-      white-space: wrap;
-    }
   
+    h3 {
+      flex: 1;
+      font: var(--font-h4)
+    }
+
     h6 {
-      display: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24rem;
+      padding: 5rem;
       white-space: nowrap;
+      border: 1rem solid var(--gray-500);
+      border-radius: 50%;
+    }
+  }
+
+  .dropdownIcon{
+    width: 24rem;
+    height: 24rem;
+
+    &.opened {
+      color: var(--primary-color);
+      transform: rotate(-180deg);
     }
   }
 }

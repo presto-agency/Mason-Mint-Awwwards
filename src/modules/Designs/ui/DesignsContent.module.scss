@@ -44,13 +44,35 @@
   top: 76rem;
 }
 
+.filtersMobile {
+  top: 0;
+  bottom: 0;
+  width: 100%;
 
-.loadingTrigger {
+  // height: 90vh;
+}
+
+
+.buttonScrollTop{
+  position: fixed;
+  right: 8rem;
+  bottom: 8rem;
+  z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 300rem;
-  font: var(--font-h3);
+  width: 56rem;
+  height: 56rem;
+  background-color: rgb(255 255 255 / 70%);
+  border: 1rem solid var(--primary-color);
+  border-radius: 50%;
+
+  .arrowIcon{
+    width: 24rem;
+    height: 24rem;
+    color: var(--primary-color);
+    transform: rotate(-180deg);
+  }
 }
 
 @media (width <= $breakpoint-mob) {
@@ -61,7 +83,9 @@
 
   .left {
     position: static;
+    padding-top: 0;
   }
+
 
   .stickyHeader {
     padding: 0;
@@ -74,4 +98,5 @@
   .headerShown {
     top: 50rem;
   }
+
 }

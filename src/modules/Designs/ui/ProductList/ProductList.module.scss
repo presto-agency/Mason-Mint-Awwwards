@@ -53,10 +53,20 @@
 @media (width <= $breakpoint-mob) {
   .ProductList{
     gap: 64rem;
+
+    h4 {
+      margin-top: 32rem;
+      margin-bottom: 16rem;
+    }
   }
 
   .categoryList{
     grid-template-columns: repeat(2, 1fr);
     gap: 24rem;
+  }
+
+  .notFound {
+    width: 100%;
+    height: 400rem;
   }
 }

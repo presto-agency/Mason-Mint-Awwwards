@@ -1,12 +1,4 @@
-import {
-  Dispatch,
-  FC,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-} from 'react'
+import { Dispatch, FC, SetStateAction, useContext, useMemo } from 'react'
 import classNames from 'classnames'
 import { CategoryProps } from '@/utils/types'
 import styles from './ProductFilters.module.scss'

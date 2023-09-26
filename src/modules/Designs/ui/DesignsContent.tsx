@@ -16,6 +16,9 @@ import { CategoryProps } from '@/utils/types'
 import styles from './DesignsContent.module.scss'
 import { useLenis } from '@studio-freight/react-lenis'
 import { ProducsSectionContext } from '../lib/ProductListContext'
+import { useWindowSize } from 'usehooks-ts'
+import ArrowSelect from '@/ui/Icons/ArrowSelect'
+import { Portal } from '@/ui/Portal/Portal'
 
 const BecomeDistributorSection = dynamic(
   () => import('@/components/BecomeDistributorSection/BecomeDistributorSection')
@@ -29,6 +32,11 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [filters, setFilters] = useState<ProductsFilter>({})
   const [currentCategoryInView, setCurrentCategoryInView] = useState<string>()
+
+  const [showMobileFilter, setShowMobileFilter] = useState(false)
+  const [showScrollToTopButton, setShowScrollToTopButton] = useState(false)
+
+  const { width } = useWindowSize()
 
   const { data, isFetching, fetchNextPage, hasNextPage } = useInfiniteQuery(
     ['getProducts', filters],
@@ -52,6 +60,14 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
   const scroll = useScroll({ target: pageRef })
 
   useMotionValueEvent(scroll.scrollY, 'change', (l) => {
+    if (l > 1100) {
+      setShowScrollToTopButton(true)
+    }
+
+    if (l <= 1100) {
+      setShowScrollToTopButton(false)
+    }
+
     if (l > scroll.scrollY.getPrevious()) {
       setDirection('down')
     } else {
@@ -64,6 +80,12 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
   }, [])
 
   useEffect(() => {
+    if (width > 767) {
+      setShowMobileFilter(false)
+    }
+  }, [width])
+
+  useEffect(() => {
     if (!filters.category) {
       setCurrentCategoryInView(undefined)
     }
@@ -73,6 +95,14 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
 
   const mods = {
     [styles['headerShown']]: direction === 'up',
+  }
+
+  const toggleMobileFilters = () => {
+    if (width >= 767) {
+      return false
+    }
+
+    setShowMobileFilter((prev) => !prev)
   }
 
   const loadMoreButtonRef = useRef<HTMLDivElement | null>(null)
@@ -166,15 +196,28 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
             />
           </div>
           <div className={styles['right']}>
-            <div className={classNames(styles['stickyHeader'], mods)}>
+            <div
+              className={classNames(styles['stickyHeader'], mods)}
+              onClick={toggleMobileFilters}
+            >
               <ListTitle
                 className={styles['title']}
                 filters={filters}
                 scrollDirection={direction}
                 currentCategoryInView={currentCategoryInView}
                 categories={categories}
+                menuOpened={showMobileFilter}
                 count={data?.pages[0].data.total || 0}
               />
+              {showMobileFilter && (
+                <ProductFilters
+                  className={styles['filtersMobile']}
+                  categories={categories}
+                  filters={filters}
+                  setFilters={setFilters}
+                  scrollTop={scrollTop}
+                />
+              )}
             </div>
             <ProductList
               className={styles['products']}
@@ -189,6 +232,18 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
           </div>
         </section>
       </ProducsSectionContext.Provider>
+
+      {width < 767 && showScrollToTopButton && (
+        <Portal>
+          <button
+            className={styles['buttonScrollTop']}
+            onClick={() => scrollTop()}
+          >
+            <ArrowSelect className={styles['arrowIcon']} />
+          </button>
+        </Portal>
+      )}
+
       <BecomeDistributorSection />
     </main>
   )

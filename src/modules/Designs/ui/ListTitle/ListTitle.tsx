@@ -7,6 +7,8 @@ import { ProductsFilter } from '../../api/products'
 import { CategoryProps } from '@/utils/types'
 import dynamic from 'next/dynamic'
 import { AnimatePresence, Transition, Variants, motion } from 'framer-motion'
+import { useWindowSize } from 'usehooks-ts'
+import ArrowSelect from '@/ui/Icons/ArrowSelect'
 
 type ListTitleProps = {
   className?: string
@@ -14,6 +16,7 @@ type ListTitleProps = {
   currentCategoryInView?: string
   filters: ProductsFilter
   categories: CategoryProps[]
+  menuOpened?: boolean
   count: number
 }
 
@@ -25,8 +28,13 @@ const ListTitle: FC<ListTitleProps> = ({
   categories,
   scrollDirection,
   currentCategoryInView,
+  menuOpened = false,
   count,
 }) => {
+  const { width } = useWindowSize()
+  const mods = {
+    [styles['opened']]: menuOpened,
+  }
   const animationVariants: Variants = useMemo(() => {
     return {
       initial: {
@@ -46,6 +54,7 @@ const ListTitle: FC<ListTitleProps> = ({
       return {
         title: 'Results',
         result: `${count} results found for <span>&quot;${filters.search}&quot;`,
+        count: count,
       }
     }
 
@@ -60,6 +69,7 @@ const ListTitle: FC<ListTitleProps> = ({
       return {
         title: selectedCategory.name,
         result: `${selectedCategory.products?.length} results`,
+        count: selectedCategory.products?.length,
       }
     }
 
@@ -67,6 +77,7 @@ const ListTitle: FC<ListTitleProps> = ({
       return {
         title: selectedCategory.name,
         result: `${selectedCategory.products?.length} results`,
+        count: selectedCategory.products?.length,
       }
     }
 
@@ -95,17 +106,27 @@ const ListTitle: FC<ListTitleProps> = ({
         </motion.h3>
       </AnimatePresence>
 
-      <AnimatePresence mode="popLayout">
-        <motion.h6
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          variants={animationVariants}
-          transition={transition}
-          key={displayContent.title}
-          dangerouslySetInnerHTML={{ __html: displayContent.result || '' }}
-        ></motion.h6>
-      </AnimatePresence>
+      <div className={styles['mobileRight']}>
+        <AnimatePresence mode="popLayout">
+          <motion.h6
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={animationVariants}
+            transition={transition}
+            key={displayContent.title}
+            dangerouslySetInnerHTML={{
+              __html:
+                width < 767
+                  ? `${displayContent.count}`
+                  : displayContent.result || '',
+            }}
+          ></motion.h6>
+          {width < 767 && (
+            <ArrowSelect className={classNames(styles['dropdownIcon'], mods)} />
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   )
 }

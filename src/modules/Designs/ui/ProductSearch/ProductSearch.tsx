@@ -2,9 +2,11 @@ import {
   ChangeEvent,
   Dispatch,
   FC,
+  KeyboardEvent,
   SetStateAction,
   useCallback,
   useEffect,
+  useRef,
 } from 'react'
 import classNames from 'classnames'
 import Search from '@/ui/Icons/Search'
@@ -55,6 +57,7 @@ const ProductSearch: FC<Props> = ({
     <div className={classNames(styles['ProductSearch'], className)}>
       <Search className={styles['icon']} />
       <input
+        // ref={inputRef}
         className={styles['searchInput']}
         placeholder="SEARCH"
         value={searchQuery}

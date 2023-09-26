@@ -1,3 +1,5 @@
+@import "@/app/styles/variables/breackpoints";
+
 .ProductFilters{
   display: flex;
   flex-direction: column;
@@ -50,4 +52,23 @@
   border: 0.5rem solid var(--gray-500);
   border-radius: 100%;
   transition: .2s ease;
+}
+
+
+@media (width <= $breakpoint-mob) {
+  .ProductFilters {
+    justify-content: space-between;
+    padding-top: 40rem;
+    padding-bottom: 32rem;
+
+  }
+
+  .list {
+    gap: 24rem;
+ 
+  }
+
+  .allProductsCount {
+    order: 1;
+  }
 }
