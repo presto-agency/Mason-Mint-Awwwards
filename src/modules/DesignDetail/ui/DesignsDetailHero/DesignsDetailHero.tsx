@@ -1,8 +1,7 @@
 import { FC, memo, useCallback, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
-import { ProductProps } from '@/utils/types'
-import styles from './DesignsDetailHero.module.scss'
 
 import PhotoMain from './PhotoMain/PhotoMain'
 import ProductDescription from './ProductDescription/ProductDescription'
@@ -10,11 +9,10 @@ import { PhotoPicker } from './PhotoPicker/PhotoPicker'
 import DeliveryInfo from './DeliveryInfo/DeliveryInfo'
 import ShareCoins from './ShareCoins/ShareCoins'
 import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
-import { useRouter } from 'next/router'
+import { ProductProps } from '@/utils/types'
 
-const AnimatedElement = dynamic(
-  () => import('@/ui/AnimatedElement/AnimatedElement')
-)
+import styles from './DesignsDetailHero.module.scss'
+import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 
 const AbstractLogo = dynamic(() => import('@/ui/AbstractLogo/AbstractLogo'), {
   ssr: false,

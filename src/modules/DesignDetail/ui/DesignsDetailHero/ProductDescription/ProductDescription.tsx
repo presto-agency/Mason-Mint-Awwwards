@@ -9,10 +9,9 @@ import routes from '@/utils/routes'
 import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
 
 const AnimatedText = dynamic(() => import('@/ui/AnimatedText/AnimatedText'))
-const AnimatedElement = dynamic(
-  () => import('@/ui/AnimatedElement/AnimatedElement')
-)
+
 import styles from './ProductDescription.module.scss'
+import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 
 type ProductDescriptionProps = {
   className?: string

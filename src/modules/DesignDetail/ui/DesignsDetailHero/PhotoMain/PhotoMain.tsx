@@ -1,9 +1,9 @@
+import { FC, memo } from 'react'
 import { ProductProps } from '@/utils/types'
-import styles from './PhotoMain.module.scss'
-import { FC, memo, useRef, useState } from 'react'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import styles from './PhotoMain.module.scss'
 
 type PhotoMainProps = {
   className?: string

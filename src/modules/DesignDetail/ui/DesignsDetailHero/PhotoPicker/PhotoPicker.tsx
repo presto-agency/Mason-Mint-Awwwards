@@ -1,14 +1,11 @@
 import { FC } from 'react'
 import classNames from 'classnames'
 import { ProductProps } from '@/utils/types'
-import styles from './PhotoPicker.module.scss'
 import Image from 'next/image'
 import { toLoverCaseAndSpacesToHyphen } from '@/utils/string/toLoverCaseAndSpacesToHyphen'
 import dynamic from 'next/dynamic'
-
-const AnimatedElement = dynamic(
-  () => import('@/ui/AnimatedElement/AnimatedElement')
-)
+import styles from './PhotoPicker.module.scss'
+import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 
 type PhotoPickerProps = {
   className?: string

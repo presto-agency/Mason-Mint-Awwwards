@@ -1,11 +1,14 @@
 import { FC, useEffect, useMemo } from 'react'
-import { ProductProps } from '@/utils/types'
-import styles from './DesignsDetailSpecifications.module.scss'
-import classNames from 'classnames'
-import { BlueDot } from '@/ui/BlueDot'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
+
+import { ProductProps } from '@/utils/types'
+import classNames from 'classnames'
+
+import { BlueDot } from '@/ui/BlueDot'
 import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
+
+import styles from './DesignsDetailSpecifications.module.scss'
 
 const AnimatedText = dynamic(() => import('@/ui/AnimatedText/AnimatedText'))
 

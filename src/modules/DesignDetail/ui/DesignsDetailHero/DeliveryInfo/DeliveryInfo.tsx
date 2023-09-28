@@ -6,11 +6,9 @@ import { ProductProps } from '@/utils/types'
 import Car from 'public/icons/car.svg'
 
 const AnimatedText = dynamic(() => import('@/ui/AnimatedText/AnimatedText'))
-const AnimatedElement = dynamic(
-  () => import('@/ui/AnimatedElement/AnimatedElement')
-)
 
 import styles from './DeliveryInfo.module.scss'
+import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 
 type DeliveryInfoProps = {
   className?: string
