@@ -1,0 +1,22 @@
+
+.ScrollTopButton{
+  position: fixed;
+  right: 8rem;
+  bottom: 8rem;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56rem;
+  height: 56rem;
+  background-color: rgb(255 255 255 / 70%);
+  border: 1rem solid var(--primary-color);
+  border-radius: 50%;
+
+  .arrowIcon{
+    width: 24rem;
+    height: 24rem;
+    color: var(--primary-color);
+    transform: rotate(-180deg);
+  }
+}
