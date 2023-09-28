@@ -37,7 +37,7 @@ const FAQSection = () => {
               className={styles['photoContainer']}
               quality={75}
               alt="Coin photo"
-              description="suppert"
+              description="support"
               descriptionPositionRight={true}
             />
           </ParallaxSection>
