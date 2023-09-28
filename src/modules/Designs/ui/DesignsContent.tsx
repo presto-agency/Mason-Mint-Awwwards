@@ -1,6 +1,11 @@
 import React, { FC, useEffect, useMemo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
-import { useMotionValueEvent, useScroll } from 'framer-motion'
+import {
+  AnimatePresence,
+  motion,
+  useMotionValueEvent,
+  useScroll,
+} from 'framer-motion'
 import { useInfiniteQuery } from 'react-query'
 import classNames from 'classnames'
 
@@ -49,6 +54,8 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
           ? lastPage.data.page + 1
           : undefined
       },
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
     }
   )
 
@@ -219,6 +226,7 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
                 />
               )}
             </div>
+            {showMobileFilter && <div className={styles['overlay']} />}
             <ProductList
               className={styles['products']}
               filters={filters}
@@ -233,16 +241,22 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
         </section>
       </ProducsSectionContext.Provider>
 
-      {width < 767 && showScrollToTopButton && (
-        <Portal>
-          <button
-            className={styles['buttonScrollTop']}
-            onClick={() => scrollTop()}
-          >
-            <ArrowSelect className={styles['arrowIcon']} />
-          </button>
-        </Portal>
-      )}
+      <AnimatePresence mode="wait">
+        {width < 767 && showScrollToTopButton && (
+          <Portal>
+            <motion.button
+              initial={{ y: 100 }}
+              animate={{ y: 0 }}
+              exit={{ y: 100 }}
+              transition={{ duration: 0.4, ease: 'anticipate' }}
+              className={styles['buttonScrollTop']}
+              onClick={() => scrollTop()}
+            >
+              <ArrowSelect className={styles['arrowIcon']} />
+            </motion.button>
+          </Portal>
+        )}
+      </AnimatePresence>
 
       <BecomeDistributorSection />
     </main>

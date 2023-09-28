@@ -10,9 +10,8 @@
   border-bottom: 1rem solid var(--black);
 
   h3 {
-    overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
+  
   }
 
   h6 {
@@ -45,7 +44,9 @@
   
     h3 {
       flex: 1;
-      font: var(--font-h4)
+      overflow: hidden;
+      font: var(--font-h4);
+      text-overflow: ellipsis
     }
 
     h6 {
@@ -63,10 +64,11 @@
   .dropdownIcon{
     width: 24rem;
     height: 24rem;
+    transition: .2s ease;
 
     &.opened {
       color: var(--primary-color);
-      transform: rotate(-180deg);
+      transform: rotateX(-180deg);
     }
   }
 }
