@@ -21,16 +21,23 @@ const hashOnlyIdent = (context, _, exportName) =>
     .replace(/[^a-zA-Z0-9-_]/g, "_")
     .replace(/^(-?\d|--)/, "_$1");
 
-
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   reactStrictMode: true,
   profiler: process.env.NODE_ENV === 'development',
+  images: {
+   domains: [
+    'mason-mint-products-dev.nyc3.digitaloceanspaces.com'
+   ]
+  },
   webpack(config, { dev }) {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
-    })
+    })  
     
     config.resolve.alias = {
       ...config.resolve.alias,
