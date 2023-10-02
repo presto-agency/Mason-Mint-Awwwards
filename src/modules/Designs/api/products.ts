@@ -38,7 +38,6 @@ export const getProducts = async (page = 1, filters: ProductsFilter) => {
   if (category) {
     url += `&category=${category}`
   }
-
   const response = await axios.get<ResponseType<ProductProps[]>>(url)
   if (response.data.success) {
     return response.data

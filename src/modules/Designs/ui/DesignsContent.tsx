@@ -11,8 +11,8 @@ import ProductList from './ProductList/ProductList'
 import { ScrollTopButton } from './ScrollTopButton/ScrollTopButton'
 import ListTitle from './ListTitle/ListTitle'
 
-import { ProductsFilter, getProducts } from '../api/products'
-import { CategoryProps } from '@/utils/types'
+import { ProductsFilter, SusccessResponse, getProducts } from '../api/products'
+import { CategoryProps, ProductProps } from '@/utils/types'
 import { useWindowSize } from 'usehooks-ts'
 import { useLenis } from '@studio-freight/react-lenis'
 import { ProducsSectionContext } from '../lib/ProductListContext'
@@ -25,9 +25,10 @@ const BecomeDistributorSection = dynamic(
 
 type DesignsContentProps = {
   categories: CategoryProps[]
+  products: SusccessResponse<ProductProps[]>
 }
 
-const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
+const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [filters, setFilters] = useState<ProductsFilter>({
     category: undefined,
@@ -42,12 +43,13 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories }) => {
   const { width } = useWindowSize()
 
   const { data, isFetching, fetchNextPage, hasNextPage, refetch } =
-    useInfiniteQuery(
+    useInfiniteQuery<SusccessResponse<ProductProps[]>>(
       ['getProducts'],
       ({ pageParam }) => {
         return getProducts(pageParam, filters)
       },
       {
+        initialData: { pageParams: [undefined], pages: [products] },
         getNextPageParam: (lastPage) => {
           return lastPage.data.page < lastPage.data.pages
             ? lastPage.data.page + 1
