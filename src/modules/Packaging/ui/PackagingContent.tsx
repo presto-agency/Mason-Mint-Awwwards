@@ -1,5 +1,11 @@
-import React, { FC, useRef } from 'react'
+import React, { FC, useContext, useRef } from 'react'
 import dynamic from 'next/dynamic'
+import { useScroll } from 'framer-motion'
+import {
+  MarqueCarouselContext,
+  MarqueCarouselContextType,
+} from '@/components/MarqueeCarousel/MarqueeCarouselWrapper'
+
 import HeroInner from '@/ui/HeroInner/HeroInner'
 import WhatWeDo from '@/components/WhatWeDo/WhatWeDo'
 import NaturalVehicle from '@/modules/Packaging/ui/NaturalVehicle/NaturalVehicle'
@@ -15,7 +21,6 @@ const BecomeDistributorSection = dynamic(
 )
 
 import styles from './PackagingContent.module.scss'
-import { useScroll } from 'framer-motion'
 
 const sliderImages = ['/images/packaging/hero.jpg']
 
@@ -44,8 +49,12 @@ const HeroSection = () => {
 }
 
 export const PackagingContent: FC = () => {
+  const { onWheel } = useContext(
+    MarqueCarouselContext
+  ) as MarqueCarouselContextType
+
   return (
-    <main className={styles['PackagingContent']}>
+    <main className={styles['PackagingContent']} onWheel={onWheel}>
       <HeroSection />
       <NaturalVehicle />
       <NumismaticPackaging />

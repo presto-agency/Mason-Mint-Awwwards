@@ -1,15 +1,8 @@
-import {
-  Dispatch,
-  FC,
-  Fragment,
-  ReactNode,
-  SetStateAction,
-  useState,
-} from 'react'
+import { FC, Fragment, useState } from 'react'
 import classNames from 'classnames'
 import Link from 'next/link'
 import type SwiperCore from 'swiper'
-import { SwiperSlide, Swiper, useSwiper } from 'swiper/react'
+import { SwiperSlide, Swiper } from 'swiper/react'
 import { Controller, EffectCreative } from 'swiper/modules'
 import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
@@ -17,7 +10,7 @@ import Container from '@/app/layouts/Container'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import { AnimatePresence, motion } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
-import SliderArrow from '@/ui/SliderArrow/SliderArrow'
+
 import { data } from '@/modules/Home/ui/ExploreDesignsSection/data'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
@@ -25,76 +18,11 @@ import routes from '@/utils/routes'
 
 import 'swiper/css'
 import styles from './ExploreDesignsSection.module.scss'
+import { useCursor } from '@/app/layouts/CursorLayout/CursorLayout'
 
-type SwiperButtonProps = {
-  children?: ReactNode
-  setRevertAnimation: Dispatch<SetStateAction<boolean>>
-  setIsFirstSlide: Dispatch<SetStateAction<boolean>>
-  setIsLastSlide: Dispatch<SetStateAction<boolean>>
-  isFirstSlide?: boolean
-  isLastSlide?: boolean
-}
 type SlideInner = {
   title: string
   subtitle: string
-}
-
-const SwiperButtonNext: FC<SwiperButtonProps> = ({
-  setRevertAnimation,
-  setIsLastSlide,
-  setIsFirstSlide,
-  isLastSlide,
-}) => {
-  const swiper = useSwiper()
-
-  const handleClick = () => {
-    if (swiper) {
-      setRevertAnimation(true)
-      setTimeout(() => {
-        swiper.slideNext()
-        setIsLastSlide(swiper.isEnd)
-        setIsFirstSlide(swiper.isBeginning)
-      }, 100)
-    }
-  }
-
-  return (
-    <div
-      className={classNames(styles['arrowDesign'], styles['arrowDesign__next'])}
-      onClick={handleClick}
-    >
-      <SliderArrow disabled={isLastSlide} />
-    </div>
-  )
-}
-
-const SwiperButtonPrev: FC<SwiperButtonProps> = ({
-  setRevertAnimation,
-  setIsLastSlide,
-  setIsFirstSlide,
-  isFirstSlide,
-}) => {
-  const swiper = useSwiper()
-
-  const handleClick = () => {
-    if (swiper) {
-      setRevertAnimation(false)
-      setTimeout(() => {
-        swiper.slidePrev()
-        setIsLastSlide(swiper.isEnd)
-        setIsFirstSlide(swiper.isBeginning)
-      }, 100)
-    }
-  }
-
-  return (
-    <div
-      className={classNames(styles['arrowDesign'], styles['arrowDesign__prev'])}
-      onClick={handleClick}
-    >
-      <SliderArrow disabled={isFirstSlide} type="prev" />
-    </div>
-  )
 }
 
 const SlideInner: FC<SlideInner> = ({ title, subtitle }) => {
@@ -120,8 +48,6 @@ const ExploreDesignsSection = () => {
     null
   )
   const [revertAnimation, setRevertAnimation] = useState(true)
-  const [isFirstSlide, setIsFirstSlide] = useState(true)
-  const [isLastSlide, setIsLastSlide] = useState(false)
   const { width } = useWindowDimensions()
 
   const motionPropsText = {
@@ -163,6 +89,30 @@ const ExploreDesignsSection = () => {
   const motionPropsForBackCoin = {
     ...motionProps,
     transition: { ...motionProps.transition, delay: 0 },
+  }
+
+  const { setActionType } = useCursor()
+
+  const handleMouseEnter = () => {
+    setActionType?.('arrow')
+  }
+
+  const handleMouseLeave = () => {
+    setActionType?.('default')
+  }
+
+  const handleClick = (swiper: SwiperCore) => {
+    if (swiper) {
+      setRevertAnimation(true)
+
+      if (swiper.isEnd) {
+        console.log('qq')
+
+        swiper.slideTo(0)
+      } else {
+        swiper.slideNext()
+      }
+    }
   }
 
   return (
@@ -216,7 +166,11 @@ const ExploreDesignsSection = () => {
               </>
             ) : null}
           </div>
-          <div className={styles['ExploreDesignsSection__content_sliderCoin']}>
+          <div
+            className={styles['ExploreDesignsSection__content_sliderCoin']}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             <Swiper
               style={{ overflow: 'visible' }}
               className={styles['sliderCoin']}
@@ -235,6 +189,7 @@ const ExploreDesignsSection = () => {
               allowTouchMove={false}
               controller={{ control: controlledSwiper }}
               slidesPerView={1}
+              onClick={handleClick}
             >
               {data.map((slide) => (
                 <SwiperSlide
@@ -285,18 +240,6 @@ const ExploreDesignsSection = () => {
                   )}
                 </SwiperSlide>
               ))}
-              <SwiperButtonPrev
-                setRevertAnimation={setRevertAnimation}
-                setIsFirstSlide={setIsFirstSlide}
-                setIsLastSlide={setIsLastSlide}
-                isFirstSlide={isFirstSlide}
-              />
-              <SwiperButtonNext
-                setRevertAnimation={setRevertAnimation}
-                setIsFirstSlide={setIsFirstSlide}
-                setIsLastSlide={setIsLastSlide}
-                isLastSlide={isLastSlide}
-              />
             </Swiper>
           </div>
         </div>

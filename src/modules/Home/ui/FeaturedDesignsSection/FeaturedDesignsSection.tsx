@@ -1,35 +1,27 @@
-import { FC, useEffect, useState } from 'react'
-import classNames from 'classnames'
-import axios from 'axios'
+import { FC } from 'react'
 import Link from 'next/link'
-import ProductCarousel from '@/ui/ProductCarousel/ProductCarousel'
+import classNames from 'classnames'
+
+import Container from '@/app/layouts/Container'
+import { MarqueeCarousel } from '@/components/MarqueeCarousel/MarqueeCarousel'
 import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
-import { ProductProps } from '@/utils/types'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
-import Container from '@/app/layouts/Container'
+
 import routes from '@/utils/routes'
+import { ProductProps } from '@/utils/types'
 
 import styles from './FeaturedDesignsSection.module.scss'
 
-const FeaturedDesignsSection: FC<{ className?: string }> = ({ className }) => {
-  const [products, setProducts] = useState<ProductProps[]>([])
+type FeaturedDesignsSectionProps = {
+  className?: string
+  products: ProductProps[]
+}
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const res = await axios.get(
-          `/api/products?category=64b7f098ffe22650abb78018`
-        )
-        setProducts(res.data.data.docs)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-
-    fetchProduct()
-  }, [])
-
+const FeaturedDesignsSection: FC<FeaturedDesignsSectionProps> = ({
+  className,
+  products,
+}) => {
   return (
     <section className={classNames(styles['featureDesigns'], className)}>
       <Container>
@@ -56,7 +48,7 @@ const FeaturedDesignsSection: FC<{ className?: string }> = ({ className }) => {
         </div>
       </Container>
       {products.length > 0 ? (
-        <ProductCarousel data={products} showResults={false} />
+        <MarqueeCarousel data={products} className={styles['productMarquee']} />
       ) : null}
     </section>
   )

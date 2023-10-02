@@ -8,6 +8,7 @@ import ProductTestModel from '../../../models/Product'
 import { transformObjectsToJson } from '@/utils/json/transformObjectsToJson'
 import { ProductProps } from '@/utils/types'
 import db from '@/utils/db'
+import { MarqueCarouselWrapper } from '@/components/MarqueeCarousel/MarqueeCarouselWrapper'
 
 type DesignDetailProps = {
   product: ProductProps
@@ -17,7 +18,9 @@ type DesignDetailProps = {
 const Index: FC<DesignDetailProps> = ({ product, sameProducts }) => {
   return (
     <PageTransitionLayout>
-      <DesignsDetailContent product={product} sameProducts={sameProducts} />
+      <MarqueCarouselWrapper>
+        <DesignsDetailContent product={product} sameProducts={sameProducts} />
+      </MarqueCarouselWrapper>
     </PageTransitionLayout>
   )
 }

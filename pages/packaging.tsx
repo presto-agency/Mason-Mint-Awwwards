@@ -1,6 +1,7 @@
 import Head from 'next/head'
+import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import { PackagingContent } from '@/modules/Packaging'
-import PageTransitionLayout from '../src/app/layouts/PageTransitionLayout'
+import { MarqueCarouselWrapper } from '@/components/MarqueeCarousel/MarqueeCarouselWrapper'
 
 const CustomMintingPage = () => {
   return (
@@ -9,7 +10,9 @@ const CustomMintingPage = () => {
         <title>Packaging | Mason Mint</title>
       </Head>
       <PageTransitionLayout>
-        <PackagingContent />
+        <MarqueCarouselWrapper>
+          <PackagingContent />
+        </MarqueCarouselWrapper>
       </PageTransitionLayout>
     </>
   )

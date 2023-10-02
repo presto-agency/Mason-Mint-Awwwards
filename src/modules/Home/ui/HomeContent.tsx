@@ -1,4 +1,4 @@
-import { CSSProperties, useMemo, useRef } from 'react'
+import { CSSProperties, FC, useContext, useMemo, useRef } from 'react'
 import { useInView } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
@@ -31,20 +31,33 @@ const BecomeDistributorSection = dynamic(
 import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
 
 import styles from './HomeContent.module.scss'
+import { ProductProps } from '@/utils/types'
+import {
+  MarqueCarouselContext,
+  MarqueCarouselContextType,
+} from '@/components/MarqueeCarousel/MarqueeCarouselWrapper'
 
-const HomeContent = () => {
+type HomeContentProps = {
+  products: ProductProps[]
+}
+
+const HomeContent: FC<HomeContentProps> = ({ products }) => {
   const { width } = useWindowDimensions()
   const exploreDesignsSectionRef = useRef<HTMLDivElement | null>(null)
   const inView = useInView(exploreDesignsSectionRef, {
     margin: width > 768 ? '100px' : '400px',
   })
 
+  const { onWheel } = useContext(
+    MarqueCarouselContext
+  ) as MarqueCarouselContextType
+
   const style: CSSProperties = useMemo(() => {
     return { position: inView ? 'sticky' : 'relative' }
   }, [inView])
 
   return (
-    <main className={styles['HomeContent']}>
+    <main className={styles['HomeContent']} onWheel={onWheel}>
       <ParallaxSection parallaxValues={[-400, 400]}>
         <IntroSection />
       </ParallaxSection>
@@ -60,7 +73,7 @@ const HomeContent = () => {
       <div ref={exploreDesignsSectionRef}>
         <ExploreDesignsSection />
       </div>
-      <FeaturedDesignsSection />
+      <FeaturedDesignsSection products={products} />
       <CustomDesignsSection />
       <SellSection />
       <FAQSection />

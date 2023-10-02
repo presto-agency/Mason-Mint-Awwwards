@@ -1,22 +1,43 @@
 import Head from 'next/head'
 import { HomeContent } from '@/modules/Home'
 import PageTransitionLayout from '../src/app/layouts/PageTransitionLayout'
+import Product from '../models/Product'
+import { transformObjectsToJson } from '@/utils/json/transformObjectsToJson'
+import { ProductProps } from '@/utils/types'
+import { FC } from 'react'
+import db from '@/utils/db'
+import { MarqueCarouselWrapper } from '@/components/MarqueeCarousel/MarqueeCarouselWrapper'
 
-export default function Home() {
+type HomeProps = {
+  products: ProductProps[]
+}
+
+const Home: FC<HomeProps> = ({ products }) => {
   return (
     <>
       <Head>
         <title>Mason Mint Silver Coins and Rounds</title>
       </Head>
       <PageTransitionLayout>
-        <HomeContent />
+        <MarqueCarouselWrapper>
+          <HomeContent products={products} />
+        </MarqueCarouselWrapper>
       </PageTransitionLayout>
     </>
   )
 }
 
-export const getStaticProps = () => {
+export const getStaticProps = async () => {
+  await db.connect()
+  const products = await Product.find({
+    'category.id': '64b7f098ffe22650abb78018',
+  })
+
   return {
-    props: {},
+    props: {
+      products: transformObjectsToJson(products),
+    },
   }
 }
+
+export default Home

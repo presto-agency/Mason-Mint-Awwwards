@@ -1,0 +1,34 @@
+@import "@/app/styles/variables/breackpoints";
+
+.DesignsDetailSameProducts{
+  display: flex;
+  flex-direction: column;
+  gap: 64rem;
+  padding: 164rem 64rem 0;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  gap: 24rem;
+
+  h6 {
+    color: var(--gray-700);
+  } 
+}
+
+@media (width <= $breakpoint-mob) {
+  .DesignsDetailSameProducts{
+    gap: 24rem;
+    padding: 80rem 24rem 0;
+  }
+
+  
+  .title h2 {
+    font: var(--font-h3);
+  }
+
+  .title h6 {
+    color: var(--gray-700);
+  } 
+}

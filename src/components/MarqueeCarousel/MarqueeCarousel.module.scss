@@ -1,0 +1,33 @@
+@import "@/app/styles/variables/breackpoints";
+
+.marquee {
+  display: flex;
+  align-items: center;
+  cursor: grab;
+}
+
+.item {
+  display: flex;
+  gap: 32rem;
+  padding-right: 32rem;
+  user-select: none;
+  will-change: transform; 
+
+}
+
+.image-container {
+  position: relative;
+  width: 416rem;
+  height: 383rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media (width <= $breakpoint-mob) {
+  .item{ 
+    gap: 24rem;
+  }
+}

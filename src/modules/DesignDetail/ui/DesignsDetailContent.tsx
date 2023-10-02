@@ -1,19 +1,21 @@
-import React, { FC } from 'react'
+import React, { FC, useContext } from 'react'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
 
 import DesignsDetailHero from './DesignsDetailHero/DesignsDetailHero'
 import DesignsDetailSpecifications from './DesignsDetailSpecifications/DesignsDetailSpecifications'
+import {
+  MarqueCarouselContext,
+  MarqueCarouselContextType,
+} from '@/components/MarqueeCarousel/MarqueeCarouselWrapper'
 
 import { ProductProps } from '@/utils/types'
 
 import styles from './DesignsDetailContent.module.scss'
+import DesignsDetailSameProducts from './DesignsDetailSameProducts/DesignsDetailSameProducts'
 
 const BecomeDistributorSection = dynamic(
   () => import('@/components/BecomeDistributorSection/BecomeDistributorSection')
-)
-const ProductCarousel = dynamic(
-  () => import('@/ui/ProductCarousel/ProductCarousel')
 )
 
 type DesignDetailProps = {
@@ -25,23 +27,22 @@ const DesignsDetailContent: FC<DesignDetailProps> = ({
   product,
   sameProducts,
 }) => {
+  const { onWheel } = useContext(
+    MarqueCarouselContext
+  ) as MarqueCarouselContextType
+
   return (
     <>
       <Head>
         <title>{product?.ProductName} | Mason Mint</title>
       </Head>
-      <main className={styles['detail']}>
+      <main className={styles['detail']} onWheel={onWheel}>
         <DesignsDetailHero product={product} />
         <DesignsDetailSpecifications product={product} />
         {sameProducts.length > 0 && (
-          <ProductCarousel
-            className={styles['detail__carousel']}
-            title="Сoins from this category."
-            titleWithBlueDot={false}
-            subtitle={product?.category?.name}
-            data={sameProducts}
-            showResults={false}
-            reloadPageOnCardClick={true}
+          <DesignsDetailSameProducts
+            products={sameProducts}
+            category={product.category?.name}
           />
         )}
         <BecomeDistributorSection />

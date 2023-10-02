@@ -7,88 +7,105 @@
 	justify-content: center;
 	max-width: 304rem;
 	
-		@media (width <= $breakpoint-mob) {
-			max-width: 144rem;
-		}
-	
-		&__thumb{
-			position: relative;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			width: 304rem;
-			height: 304rem;
-			margin: 8rem 0;
-			overflow: hidden;
-			background-repeat: no-repeat;
-			background-size: 100% 100%;
-			border: 1rem var(--gray-200) solid;
-			border-radius: 50%;
-			perspective: 500px;
-			pointer-events: none;
-			
-				@media (width <= $breakpoint-mob) {
-					width: 144rem;
-					height: 144rem;
-					margin: 0;
-					border-width: 1px;
-				}
-			
-				&_item{
-					position: relative;
-					width: 186rem;
-					height: 186rem;
-					transform-style: preserve-3d;
-					transition: transform .5s ease-in-out;
-					
-						@media (width <= $breakpoint-mob) {
-							width: 112rem;
-							height: 112rem;
-						}
-					
-						img{
-							width: 100%;
-							height: 100%;
-							object-fit: contain;
-							object-position: center;
-						}
-				}
-		}
-	
-		&__side{
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			backface-visibility: hidden;
-			will-change: transform;
-			
-				&.front{
-					transform: rotateY(0deg);
-				}
 
-				&.back{
-					transform: rotateY(180deg);
-				}
+	&:hover {
+		.product__thumb_img{
+			transform: rotate(-45deg);
 		}
+	}
 	
-		@media (width > $breakpoint-tablet) {
-			&.enable-flip:hover{
-				.product{
-					&__thumb{
-						&_item{
-							transform: rotateY(180deg);
-						}
+	@media (width <= $breakpoint-mob) {
+		max-width: 144rem;
+	}
+
+	.product__thumb_img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		transition: .4s ease;
+	}
+	
+	&__thumb{
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 304rem;
+		height: 304rem;
+		margin: 8rem 0;
+		overflow: hidden;
+		border: 1rem var(--gray-200) solid;
+		border-radius: 50%;
+		perspective: 500px;
+		pointer-events: none;
+
+
+		@media (width <= $breakpoint-mob) {
+			width: 144rem;
+			height: 144rem;
+			margin: 0;
+			border-width: 1px;
+		}
+			
+		&_item{
+			position: relative;
+			width: 186rem;
+			height: 186rem;
+			transform-style: preserve-3d;
+			transition: transform .5s ease-in-out;
+					
+			@media (width <= $breakpoint-mob) {
+				width: 112rem;
+				height: 112rem;
+			}
+					
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				object-position: center;
+			}
+		}
+	}
+	
+	&__side{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
+		will-change: transform;
+			
+		&.front{
+			transform: rotateY(0deg);
+		}
+
+		&.back{
+			transform: rotateY(180deg);
+		}
+	}
+	
+	@media (width > $breakpoint-tablet) {
+		&.enable-flip:hover{
+			.product{
+				&__thumb{
+					&_item{
+						transform: rotateY(180deg);
 					}
 				}
 			}
 		}
+	}
 	
-		&__content{
-			max-width: 256rem;
-			margin: 0 auto;
-			padding: 8rem 0;
-			text-align: center;
-		}
+	&__content{
+		max-width: 256rem;
+		margin: 0 auto;
+		padding: 8rem 0;
+		text-align: center;
+	}
 }

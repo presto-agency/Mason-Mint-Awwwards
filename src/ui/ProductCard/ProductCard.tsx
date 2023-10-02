@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, MouseEvent, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import classNames from 'classnames'
@@ -11,6 +11,7 @@ import styles from './ProductCard.module.scss'
 type ProductCardProps = {
   data: ProductProps
   className?: string
+  isDragging?: boolean
   flip?: boolean
   reloadPageOnClick?: boolean
 }
@@ -18,10 +19,21 @@ type ProductCardProps = {
 const ProductCard: FC<ProductCardProps> = ({
   data,
   className,
+  isDragging = false,
   flip = true,
 }) => {
   const categorySlug = toLoverCaseAndSpacesToHyphen(
     data.category?.name as string
+  )
+
+  const handleClick = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>) => {
+      if (isDragging) {
+        e.stopPropagation()
+        e.preventDefault()
+      }
+    },
+    [isDragging]
   )
 
   return (
@@ -30,18 +42,21 @@ const ProductCard: FC<ProductCardProps> = ({
       href={{
         pathname: `${routes.public.designs}/${data.id}/${data.slug}`,
       }}
+      draggable={false}
       className={classNames(
         styles['product'],
         flip ? styles['enable-flip'] : '',
         className
       )}
+      onClick={handleClick}
     >
-      <div
-        className={styles['product__thumb']}
-        style={{
-          backgroundImage: `url(/images/category-shadows/${categorySlug}.svg)`,
-        }}
-      >
+      <div className={styles['product__thumb']}>
+        <div
+          className={styles['product__thumb_img']}
+          style={{
+            backgroundImage: `url(/images/category-shadows/${categorySlug}.svg)`,
+          }}
+        ></div>
         <div className={styles['product__thumb_item']}>
           {flip ? (
             <>

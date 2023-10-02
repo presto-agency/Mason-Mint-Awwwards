@@ -106,25 +106,25 @@ const CustomCursor: FC<CustomCursorPrpops> = ({
     followMouse()
   }, [])
 
-  useEffect(() => {
-    const handleMouseEnter = () => {
-      setActionType?.('disappear')
-    }
-    const handleMouseLeave = () => {
-      setActionType?.('default')
-    }
-    if (typeof window !== 'undefined') {
-      setTimeout(() => {
-        const links = document.querySelectorAll(
-          'a, button, input, textarea, [data-id="select-field"]'
-        )
-        links.forEach((link) => {
-          link.addEventListener('mouseenter', handleMouseEnter)
-          link.addEventListener('mouseleave', handleMouseLeave)
-        })
-      }, 500)
-    }
-  }, [route, store?.state.modal.isOpenModal, setActionType])
+  // useEffect(() => {
+  //   const handleMouseEnter = () => {
+  //     setActionType?.('disappear')
+  //   }
+  //   const handleMouseLeave = () => {
+  //     setActionType?.('default')
+  //   }
+  //   if (typeof window !== 'undefined') {
+  //     setTimeout(() => {
+  //       const links = document.querySelectorAll(
+  //         'a, button, input, textarea, [data-id="select-field"]'
+  //       )
+  //       links.forEach((link) => {
+  //         link.addEventListener('mouseenter', handleMouseEnter)
+  //         link.addEventListener('mouseleave', handleMouseLeave)
+  //       })
+  //     }, 500)
+  //   }
+  // }, [route, store?.state.modal.isOpenModal, setActionType])
 
   return (
     <>

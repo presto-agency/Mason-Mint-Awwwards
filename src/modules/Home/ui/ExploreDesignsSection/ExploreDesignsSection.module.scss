@@ -8,21 +8,21 @@
   overflow: hidden;
   background-color: var(--gray-300);
   
-    &__abstract{
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
+  &__abstract{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
       
-        &::before{
-          position: absolute;
-          top: -312rem;
-          left: 153rem;
-          width: 1223rem;
-          height: 1318rem;
-          background-image: url("/images/home/circled_arrow_bg_w.svg");
-          background-size: 1223rem 1318rem;
-          content: '';
-        }
+    &::before{
+      position: absolute;
+      top: -312rem;
+      left: 153rem;
+      width: 1223rem;
+      height: 1318rem;
+      background-image: url("/images/home/circled_arrow_bg_w.svg");
+      background-size: 1223rem 1318rem;
+      content: '';
+    }
   }
 
   &__content{
@@ -106,35 +106,18 @@
 
         }
       }
-
-      .arrowDesign{
-        position: absolute;
-        right: 0;
-        bottom: 55rem;
-        z-index: 2;
-        width: 56rem;
-        height: 56rem;
-
-        &__prev{
-          right: 64rem;
-        }
-
-        &__next{
-          right: 0;
-        }
-      }
     }
   }
 }
 
 .textSwiper{
-    &__title{
-      margin-bottom: 16rem;
-    }
+  &__title{
+    margin-bottom: 16rem;
+  }
   
-    &__description{
-      margin-bottom: 21rem;
-    }
+  &__description{
+    margin-bottom: 21rem;
+  }
 }
 
 @media (width <= $breakpoint-mob) {
@@ -182,20 +165,6 @@
               width: 175rem;
               height: 175rem;
             }
-          }
-        }
-
-        .arrowDesign{
-          right: 0;
-          bottom: 0;
-
-          &__prev{
-            right: calc(50% + 6rem);
-          }
-
-          &__next{
-            right: 0;
-            left: calc(50% + 6rem);
           }
         }
       }

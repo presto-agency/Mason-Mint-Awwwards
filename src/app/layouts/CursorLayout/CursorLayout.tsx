@@ -12,6 +12,7 @@ import {
   useMemo,
   useState,
 } from 'react'
+import { useWindowSize } from 'usehooks-ts'
 
 type ActionType = 'default' | 'drag' | 'arrow' | 'disappear'
 
@@ -36,7 +37,7 @@ export const useCursor = () => {
 const CursorLayout: FC<CursorLayoutProps> = ({ children }) => {
   const [actionType, setActionType] = useState<ActionType>('default')
   const router = useRouter()
-  const { width } = useWindowDimensions()
+  const { width } = useWindowSize()
   const value = useMemo(() => {
     return {
       actionType,
@@ -45,8 +46,16 @@ const CursorLayout: FC<CursorLayoutProps> = ({ children }) => {
   }, [actionType, setActionType])
 
   useEffect(() => {
-    setActionType('default')
-  }, [router.pathname])
+    const handleRouteChange = () => {
+      setActionType('default')
+    }
+
+    router.events.on('routeChangeStart', handleRouteChange)
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
+  }, [])
 
   useEffect(() => {
     if (width < 991) {
