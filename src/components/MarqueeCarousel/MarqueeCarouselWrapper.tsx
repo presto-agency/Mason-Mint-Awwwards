@@ -3,6 +3,8 @@ import {
   ReactNode,
   WheelEvent,
   createContext,
+  useCallback,
+  useMemo,
   useRef,
   useState,
 } from 'react'
@@ -65,36 +67,42 @@ export const MarqueCarouselWrapper: FC<MarqueCarouselWrapperProps> = ({
   ).current
   const skewX = useTransform(_speed, [-w * 0.25, 0, w * 0.25], [-25, 0, 25])
 
-  const onWheel = (e: WheelEvent<HTMLDivElement>) => {
-    const normalized = normalizeWheel(e)
+  const onWheel = useCallback(
+    (e: WheelEvent<HTMLDivElement>) => {
+      const normalized = normalizeWheel(e)
 
-    x.current = normalized.pixelY * wheelFactor
+      x.current = normalized.pixelY * wheelFactor
 
-    window.clearTimeout(isScrolling.current)
-    isScrolling.current = setTimeout(function () {
-      _speed.set(speed)
-    }, 30)
-  }
+      window.clearTimeout(isScrolling.current)
+      isScrolling.current = setTimeout(function () {
+        _speed.set(speed)
+      }, 30)
+    },
+    [_speed, speed, wheelFactor]
+  )
 
-  const onDragStart = () => {
+  const onDragStart = useCallback(() => {
     setIsDragging(true)
     slowDown.current = true
 
     _speed.set(0)
-  }
+  }, [_speed])
 
-  const onDrag = (e: DragEventType, info: PanInfo) => {
-    _speed.set(dragFactor * -info.delta.x)
-  }
+  const onDrag = useCallback(
+    (e: DragEventType, info: PanInfo) => {
+      _speed.set(dragFactor * -info.delta.x)
+    },
+    [_speed, dragFactor]
+  )
 
-  const onDragEnd = () => {
+  const onDragEnd = useCallback(() => {
     setIsDragging(false)
     slowDown.current = false
 
     x.current = speed
-  }
+  }, [speed])
 
-  const loop = () => {
+  const loop = useCallback(() => {
     if (slowDown.current || Math.abs(x.current) < threshold) return
     x.current *= 0.66
     if (x.current < 0) {
@@ -103,19 +111,21 @@ export const MarqueCarouselWrapper: FC<MarqueCarouselWrapperProps> = ({
       x.current = Math.max(x.current, 0)
     }
     _speed.set(speed + x.current)
-  }
+  }, [_speed, speed, threshold])
 
   useRafLoop(loop, true)
 
-  const props = {
-    onWheel: onWheel,
-    onDrag: onDrag,
-    onDragStart: onDragStart,
-    onDragEnd: onDragEnd,
-    isDragging,
-    speed: _speed,
-    skewX,
-  }
+  const props = useMemo(() => {
+    return {
+      onWheel: onWheel,
+      onDrag: onDrag,
+      onDragStart: onDragStart,
+      onDragEnd: onDragEnd,
+      isDragging,
+      speed: _speed,
+      skewX,
+    }
+  }, [_speed, skewX, onDragEnd, onDragStart, onDrag, onWheel, isDragging])
 
   return (
     <MarqueCarouselContext.Provider value={props}>

@@ -1,11 +1,4 @@
-import React, {
-  FC,
-  ReactNode,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import React, { FC, ReactNode, useMemo, useRef } from 'react'
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 
@@ -20,10 +13,10 @@ const ParallaxSection: FC<ParallaxSection> = ({
   parallaxValues = [0, 150],
   className,
 }) => {
-  const useParallax = (value: MotionValue<number>) => {
-    return useTransform(value, [0, 1], parallaxValues)
-  }
   const { width } = useWindowDimensions()
+  const useParallax = (value: MotionValue<number>) => {
+    return useTransform(value, [0, 1], width > 991 ? parallaxValues : [0, 0])
+  }
 
   const refTarget = useRef(null)
 
@@ -32,19 +25,10 @@ const ParallaxSection: FC<ParallaxSection> = ({
     offset: ['start end', 'end start'],
   })
   const y = useParallax(scrollYProgress)
-  const [isMounted, setIsMounted] = useState(false)
-
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
 
   const style = useMemo(() => {
-    return { y: isMounted && width <= 991 ? 0 : y }
-  }, [y, width, isMounted])
-
-  // useEffect(() => {
-  //   console.log(style)
-  // }, [style])
+    return { y: y }
+  }, [y])
 
   return (
     <>

@@ -58,7 +58,7 @@ const CustomCursor: FC<CustomCursorPrpops> = ({
   })
 
   useEffect(() => {
-    document.addEventListener('mousemove', (event) => {
+    const handleMouseMove = (event: MouseEvent) => {
       const { clientX, clientY } = event
 
       if (mainCursor.current) {
@@ -67,10 +67,9 @@ const CustomCursor: FC<CustomCursorPrpops> = ({
         positionRef.current.mouseY =
           clientY - mainCursor.current.clientHeight / 2
       }
-    })
-  }, [])
+    }
+    document.addEventListener('mousemove', handleMouseMove)
 
-  useEffect(() => {
     const followMouse = () => {
       positionRef.current.key = requestAnimationFrame(followMouse)
       const {
@@ -104,7 +103,16 @@ const CustomCursor: FC<CustomCursorPrpops> = ({
       }
     }
     followMouse()
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove)
+      cancelAnimationFrame(positionRef.current.key)
+    }
   }, [])
+
+  // useEffect(() => {
+
+  // }, [])
 
   // useEffect(() => {
   //   const handleMouseEnter = () => {
@@ -127,14 +135,12 @@ const CustomCursor: FC<CustomCursorPrpops> = ({
   // }, [route, store?.state.modal.isOpenModal, setActionType])
 
   return (
-    <>
-      <motion.div
-        className={classNames(styles['customCursor'], styles[actionType])}
-        ref={mainCursor}
-      >
-        {children}
-      </motion.div>
-    </>
+    <motion.div
+      className={classNames(styles['customCursor'], styles[actionType])}
+      ref={mainCursor}
+    >
+      {children}
+    </motion.div>
   )
 }
 

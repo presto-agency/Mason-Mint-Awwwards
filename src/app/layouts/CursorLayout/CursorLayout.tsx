@@ -1,4 +1,3 @@
-import useWindowDimensions from '@/hooks/useWindowDimensions'
 import CustomCursor from '@/ui/CustomCursor/CustomCursor'
 import { useRouter } from 'next/router'
 import {
@@ -55,19 +54,13 @@ const CursorLayout: FC<CursorLayoutProps> = ({ children }) => {
     return () => {
       router.events.off('routeChangeStart', handleRouteChange)
     }
-  }, [])
-
-  useEffect(() => {
-    if (width < 991) {
-      setActionType('disappear')
-    } else {
-      setActionType('default')
-    }
-  }, [width])
+  }, [router.events])
 
   return (
     <CursorLayoutContext.Provider value={value}>
-      <CustomCursor actionType={actionType} setActionType={setActionType} />
+      {width > 991 && (
+        <CustomCursor actionType={actionType} setActionType={setActionType} />
+      )}
       {children}
     </CursorLayoutContext.Provider>
   )

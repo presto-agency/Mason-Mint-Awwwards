@@ -6,7 +6,7 @@ import Lottie, { LottieRefCurrentProps } from 'lottie-react'
 const loaderJsonPromise = import('../assets/flipCoin.json')
 
 import styles from '../DiscoverMasonMintSection.module.scss'
-import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { useWindowSize } from 'usehooks-ts'
 
 type CoinProps = {
   scrollYProgress: MotionValue<number>
@@ -15,7 +15,7 @@ type CoinProps = {
 export const Coin: FC<CoinProps> = ({ scrollYProgress }) => {
   const refLottie = useRef<LottieRefCurrentProps | null>(null)
   const progress = useTransform(scrollYProgress, [0, 1], [0, 61])
-  const { width } = useWindowDimensions()
+  const { width } = useWindowSize()
 
   const [loaderJson, setLoaderJson] = useState<FlipCoinTypes | null>(null)
   const [prevProgress, setPrevProgress] = useState(0)

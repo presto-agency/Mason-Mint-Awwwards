@@ -1,8 +1,9 @@
-import { FC, ReactNode, useContext } from 'react'
+import { FC, ReactNode, useContext, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Footer } from '@/components/Footer/Footer'
 import { Store } from '@/utils/Store'
 import { useLenis } from '@studio-freight/react-lenis'
+import { useCursor } from '../CursorLayout/CursorLayout'
 
 const variants = {
   initial: {
@@ -51,6 +52,7 @@ const PageTransitionLayout: FC<{ children: ReactNode; isFooter?: boolean }> = ({
   isFooter = true,
 }) => {
   const store = useContext(Store)
+  const { setActionType } = useCursor()
   const lenis = useLenis()
 
   const isFirstLoading = () => {
@@ -62,6 +64,10 @@ const PageTransitionLayout: FC<{ children: ReactNode; isFooter?: boolean }> = ({
       lenis.start()
     }
   }
+
+  useEffect(() => {
+    setActionType?.('default')
+  }, [setActionType])
 
   return (
     <motion.div

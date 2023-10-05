@@ -27,6 +27,11 @@
 }
 
 @media (width <= $breakpoint-mob) {
+  .image-container {
+    width: 224rem;
+    height: 206rem;
+  }
+
   .item{ 
     gap: 24rem;
   }

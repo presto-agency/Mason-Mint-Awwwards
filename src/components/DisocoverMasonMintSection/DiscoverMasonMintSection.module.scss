@@ -2,7 +2,8 @@
 
 .DiscoverMasonMintSection {
   height: 500vh;
-  margin-top: -100rem;
+
+  // margin-top: -100rem;
   background-color: var(--white);
 }
 
@@ -37,12 +38,18 @@
   top: 50%;
   left: 50%;
   z-index: 2;
+  max-width: 35%;
   transform: translate(-50%, -50%);
 }
 
 @media(width <= $breakpoint-mob) {
+  .DiscoverMasonMintSection {
+    margin-top: -50rem;
+  }
+
   .imageContainer{
     width: 60%;
+    max-width: none;
 
     image{
       width: 100%;

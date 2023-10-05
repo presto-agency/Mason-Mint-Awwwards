@@ -54,9 +54,9 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
     [styles.opened]: menuOpenedClass,
   }
 
-  const toggleMenu = () => {
+  const toggleMenu = useCallback(() => {
     setMenuOpened((prev) => !prev)
-  }
+  }, [])
 
   useEffect(() => {
     if (menuOpened) {

@@ -10,9 +10,8 @@ import {
   MarqueCarouselContext,
   MarqueCarouselContextType,
 } from './MarqueeCarouselWrapper'
-import styles from './MarqueeCarousel.module.scss'
-import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import Image from 'next/image'
+import styles from './MarqueeCarousel.module.scss'
 
 type MarqueeCarouselPhotoProps = {
   data: {
