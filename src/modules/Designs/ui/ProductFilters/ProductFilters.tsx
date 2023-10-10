@@ -1,51 +1,30 @@
-import { Dispatch, FC, SetStateAction, useContext, useMemo } from 'react'
+import { FC, useContext } from 'react'
 import classNames from 'classnames'
+import { useWindowSize } from 'usehooks-ts'
+
 import { CategoryProps } from '@/utils/types'
-import styles from './ProductFilters.module.scss'
-import { ProductsFilter } from '../../api/products'
 import { ProducsSectionContext } from '../../lib/ProductListContext'
 
+import styles from './ProductFilters.module.scss'
+
 type ProductFiltersProps = {
-  categories: CategoryProps[]
-  filters: ProductsFilter
-  setFilters: Dispatch<SetStateAction<ProductsFilter>>
-  scrollTop: () => Promise<void>
   className?: string
+  categories: CategoryProps[]
+  productsCount: number
 }
 
 const ProductFilters: FC<ProductFiltersProps> = ({
   className,
   categories,
-  filters,
-  scrollTop,
-  setFilters,
+  productsCount,
 }) => {
-  const { clearSearch } = useContext(ProducsSectionContext)
-  const allProductsCount = useMemo(() => {
-    return categories.reduce(
-      (prev, curr) => prev + (curr.products?.length || 0),
-      0
-    )
-  }, [categories])
+  const { width } = useWindowSize()
+  const { activeSection, scrollTop } = useContext(ProducsSectionContext)
 
   return (
     <div className={classNames(styles['ProductFilters'], className)}>
-      <div
-        className={styles['allProductsCount']}
-        onClick={() => {
-          scrollTop().then(() => {
-            clearSearch()
-            setFilters((prev) => {
-              return {
-                ...prev,
-                search: '',
-                category: undefined,
-              }
-            })
-          })
-        }}
-      >
-        All products, {allProductsCount} results
+      <div className={styles['allProductsCount']}>
+        All products, {productsCount} results
       </div>
       <ul className={styles['list']}>
         {categories?.map((category, index) => {
@@ -54,19 +33,27 @@ const ProductFilters: FC<ProductFiltersProps> = ({
               key={category.id}
               className={classNames(
                 styles['listItem'],
-                filters.category === category.id ? styles['active'] : ''
+                activeSection === category.id ? styles['active'] : ''
               )}
               onClick={() => {
-                scrollTop().then(() => {
-                  clearSearch()
-                  setFilters((prev) => {
-                    return {
-                      ...prev,
-                      search: '',
-                      category: category.id,
-                    }
+                if (index === 0) {
+                  scrollTop?.()
+                  return
+                }
+
+                const element = document.getElementById(
+                  `category-${category.id}`
+                )
+
+                if (element) {
+                  const pos =
+                    element?.getBoundingClientRect().top + window.scrollY + 1
+
+                  window.scrollTo({
+                    top: pos,
+                    behavior: width > 767 ? 'smooth' : 'auto', // for some reason "smooth" gives wrong position of element on mobile
                   })
-                })
+                }
               }}
             >
               <span>{category.name}</span>

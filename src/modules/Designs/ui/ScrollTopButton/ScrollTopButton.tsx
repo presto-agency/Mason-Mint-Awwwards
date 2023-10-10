@@ -1,13 +1,10 @@
-import { FC } from 'react'
+import { useContext } from 'react'
 import { motion } from 'framer-motion'
 import ArrowSelect from '@/ui/Icons/ArrowSelect'
 import { Portal } from '@/ui/Portal/Portal'
 
+import { ProducsSectionContext } from '../../lib/ProductListContext'
 import styles from './ScrollTopButton.module.scss'
-
-type ScrollTopButtonProps = {
-  scrollTop: () => Promise<void>
-}
 
 const buttonVariants = {
   hidden: {
@@ -22,7 +19,8 @@ const buttonVariants = {
   },
 }
 
-export const ScrollTopButton: FC<ScrollTopButtonProps> = ({ scrollTop }) => {
+export const ScrollTopButton = () => {
+  const { scrollTop } = useContext(ProducsSectionContext)
   return (
     <Portal>
       <motion.button

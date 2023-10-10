@@ -1,35 +1,25 @@
 import {
   ChangeEvent,
-  Dispatch,
   FC,
-  KeyboardEvent,
-  SetStateAction,
   useCallback,
+  useContext,
   useEffect,
-  useRef,
+  useState,
 } from 'react'
 import classNames from 'classnames'
 import Search from '@/ui/Icons/Search'
+
 import styles from './ProductSearch.module.scss'
 import { useDebounce } from 'usehooks-ts'
-import { ProductsFilter } from '../../api/products'
+import { ProducsSectionContext } from '../../lib/ProductListContext'
 
-type Props = {
+type ProductSearchProps = {
   className?: string
-  filters: ProductsFilter
-  searchQuery: string
-  setSearchQuery: Dispatch<SetStateAction<string>>
-  setFilters: Dispatch<SetStateAction<ProductsFilter>>
-  scrollTop: () => Promise<void>
 }
 
-const ProductSearch: FC<Props> = ({
-  searchQuery,
-  setSearchQuery,
-  className,
-  setFilters,
-  scrollTop,
-}) => {
+const ProductSearch: FC<ProductSearchProps> = ({ className }) => {
+  const { setFilters, scrollTop } = useContext(ProducsSectionContext)
+  const [searchQuery, setSearchQuery] = useState<string>('')
   const debouncedSearchQuery = useDebounce(searchQuery, 500)
 
   const handleChange = useCallback(
@@ -39,30 +29,34 @@ const ProductSearch: FC<Props> = ({
     [setSearchQuery]
   )
 
+  const resetSearch = useCallback(() => {
+    setSearchQuery('')
+  }, [setSearchQuery])
+
   useEffect(() => {
-    scrollTop().then(() => {
+    scrollTop?.().then(() => {
       setFilters((prev) => {
-        const category =
-          debouncedSearchQuery && prev.category ? undefined : prev.category
         return {
           ...prev,
-          category: category,
           search: debouncedSearchQuery,
         }
       })
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearchQuery, setFilters])
 
   return (
     <div className={classNames(styles['ProductSearch'], className)}>
       <Search className={styles['icon']} />
       <input
-        // ref={inputRef}
         className={styles['searchInput']}
         placeholder="SEARCH"
         value={searchQuery}
         onChange={handleChange}
       />
+      {searchQuery && (
+        <button className={styles['reset']} onClick={resetSearch} />
+      )}
       <div className={styles['line']}></div>
     </div>
   )

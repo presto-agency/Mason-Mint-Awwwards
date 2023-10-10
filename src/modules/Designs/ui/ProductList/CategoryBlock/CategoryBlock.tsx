@@ -50,6 +50,7 @@ export const CategoryBlock: FC<CategoryBlockProps> = ({
       exit="hidden"
       className={styles['categoryList']}
       key={categoryId}
+      id={`category-${categoryId}`}
       ref={ref}
     >
       {products.map((product) => (

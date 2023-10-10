@@ -1,7 +1,14 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from 'react'
+import React, {
+  FC,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import dynamic from 'next/dynamic'
 import { AnimatePresence, useMotionValueEvent, useScroll } from 'framer-motion'
-import { useInfiniteQuery } from 'react-query'
+import { useQuery } from 'react-query'
 import classNames from 'classnames'
 
 import HeroInner from '@/ui/HeroInner/HeroInner'
@@ -11,13 +18,16 @@ import ProductList from './ProductList/ProductList'
 import { ScrollTopButton } from './ScrollTopButton/ScrollTopButton'
 import ListTitle from './ListTitle/ListTitle'
 
-import { ProductsFilter, SusccessResponse, getProducts } from '../api/products'
+import { ProductsFilter, getProducts } from '../api/products'
 import { CategoryProps, ProductProps } from '@/utils/types'
-import { useWindowSize } from 'usehooks-ts'
+
 import { useLenis } from '@studio-freight/react-lenis'
 import { ProducsSectionContext } from '../lib/ProductListContext'
 
 import styles from './DesignsContent.module.scss'
+import _ from 'lodash'
+import { useWindowSize } from 'usehooks-ts'
+import BackgroundOverlay from './BackgroundOverlay/BackgroundOverlay'
 
 const BecomeDistributorSection = dynamic(
   () => import('@/components/BecomeDistributorSection/BecomeDistributorSection')
@@ -25,52 +35,62 @@ const BecomeDistributorSection = dynamic(
 
 type DesignsContentProps = {
   categories: CategoryProps[]
-  products: SusccessResponse<ProductProps[]>
+  products: ProductProps[]
 }
 
 const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
-  const [searchQuery, setSearchQuery] = useState<string>('')
+  const { width } = useWindowSize()
   const [filters, setFilters] = useState<ProductsFilter>({
-    category: undefined,
-    search: undefined,
-    limit: undefined,
+    search: '',
   })
-  const [currentCategoryInView, setCurrentCategoryInView] = useState<string>()
-
   const [showMobileFilter, setShowMobileFilter] = useState(false)
   const [showScrollToTopButton, setShowScrollToTopButton] = useState(false)
 
-  const { width } = useWindowSize()
-
-  const { data, isFetching, fetchNextPage, hasNextPage, refetch } =
-    useInfiniteQuery<SusccessResponse<ProductProps[]>>(
-      ['getProducts'],
-      ({ pageParam }) => {
-        return getProducts(pageParam, filters)
-      },
-      {
-        initialData: { pageParams: [undefined], pages: [products] },
-        getNextPageParam: (lastPage) => {
-          return lastPage.data.page < lastPage.data.pages
-            ? lastPage.data.page + 1
-            : undefined
-        },
-        refetchOnMount: false,
-        refetchOnWindowFocus: false,
-      }
-    )
   const [direction, setDirection] = useState<'up' | 'down'>('down')
+  const mods = {
+    [styles['headerShown']]: direction === 'up',
+  }
+
+  const [categoryIntersecting, setCategoryIntersecting] = useState<string>(
+    categories[0].id!
+  )
+  const throttledSetCategoryIntersecting = useCallback(
+    _.debounce((nextValue) => {
+      return setCategoryIntersecting(nextValue)
+    }, 50),
+    []
+  )
+
+  const currentCategory = useMemo(() => {
+    if (categoryIntersecting) {
+      const selectedCategoryIndex =
+        categories.findIndex((item) => item.id === categoryIntersecting) || 0
+
+      return selectedCategoryIndex
+    } else {
+      return 0
+    }
+  }, [categoryIntersecting, categories])
+
+  const { data, isFetching } = useQuery<ProductProps[]>(
+    ['getProducts', filters],
+    () => getProducts(filters),
+    {
+      initialData: [...products],
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+    }
+  )
 
   const pageRef = useRef<HTMLElement | null>(null)
   const productSectionRef = useRef<HTMLElement | null>(null)
+  const lenis = useLenis()
 
   const scroll = useScroll({ target: pageRef })
-
   useMotionValueEvent(scroll.scrollY, 'change', (l) => {
     if (l > 1100) {
       setShowScrollToTopButton(true)
     }
-
     if (l <= 1100) {
       setShowScrollToTopButton(false)
     }
@@ -93,26 +113,14 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
   }, [width])
 
   useEffect(() => {
-    if (!filters.category) {
-      setCurrentCategoryInView(undefined)
+    if (filters.search) {
+      throttledSetCategoryIntersecting(undefined)
+    } else {
+      throttledSetCategoryIntersecting(categories[0].id)
     }
-  }, [filters.category])
+  }, [filters.search])
 
-  const lenis = useLenis()
-
-  const mods = {
-    [styles['headerShown']]: direction === 'up',
-  }
-
-  const toggleMobileFilters = () => {
-    if (width >= 767) {
-      return false
-    }
-
-    setShowMobileFilter((prev) => !prev)
-  }
-
-  const scrollTop = () => {
+  const scrollTop = useCallback(() => {
     return new Promise<void>((resolve) => {
       if (lenis) {
         lenis.stop()
@@ -138,46 +146,33 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
         resolve()
       }
     })
-  }
+  }, [lenis])
 
-  const loadMoreButtonRef = useRef<HTMLDivElement | null>(null)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && hasNextPage) {
-          fetchNextPage()
-        }
-      },
-      { threshold: 0 }
-    )
-
-    if (loadMoreButtonRef.current) {
-      observer.observe(loadMoreButtonRef.current)
+  const toggleMobileFilters = useCallback(() => {
+    if (width >= 767) {
+      return false
     }
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [hasNextPage, fetchNextPage])
-
-  useEffect(() => {
-    refetch()
-  }, [filters])
-
-  useEffect(() => {
-    setCurrentCategoryInView(currentCategoryInView)
-  }, [currentCategoryInView])
+    setShowMobileFilter((prev) => !prev)
+  }, [width])
 
   const contextValues = useMemo(() => {
     return {
-      activeSection: currentCategoryInView,
-      setActiveSection: setCurrentCategoryInView,
-      clearSearch: () => setSearchQuery(''),
+      filters: filters,
+      setFilters: setFilters,
+      activeSection: categoryIntersecting,
+      setActiveSection: throttledSetCategoryIntersecting,
+      scrollTop,
     }
-  }, [currentCategoryInView, setCurrentCategoryInView])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    filters,
+    setFilters,
+    categoryIntersecting,
+    throttledSetCategoryIntersecting,
+  ])
 
   return (
-    <main ref={pageRef} className={styles['DesignsContent']}>
+    <main className={styles['DesignsContent']} ref={pageRef}>
       <HeroInner
         title="Dreams in silver, brought alive"
         subtitle="browse by categories"
@@ -189,20 +184,11 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
       <ProducsSectionContext.Provider value={contextValues}>
         <section className={styles['productsSection']} ref={productSectionRef}>
           <div className={classNames(styles['left'], mods)}>
-            <ProductSearch
-              className={styles['search']}
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              filters={filters}
-              setFilters={setFilters}
-              scrollTop={scrollTop}
-            />
+            <ProductSearch className={styles['search']} />
             <ProductFilters
               className={styles['filters']}
               categories={categories}
-              filters={filters}
-              setFilters={setFilters}
-              scrollTop={scrollTop}
+              productsCount={products.length}
             />
           </div>
           <div className={styles['right']}>
@@ -210,45 +196,39 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
               className={classNames(styles['stickyHeader'], mods)}
               onClick={toggleMobileFilters}
             >
-              <ListTitle
-                className={styles['title']}
-                filters={filters}
-                scrollDirection={direction}
-                currentCategoryInView={currentCategoryInView}
-                categories={categories}
-                menuOpened={showMobileFilter}
-                count={data?.pages[0].data.total || 0}
-              />
-              {showMobileFilter && (
-                <ProductFilters
-                  className={styles['filtersMobile']}
+              <div className={styles['stickyHeader__inner']}>
+                <ListTitle
+                  className={styles['title']}
+                  products={data}
+                  fetching={isFetching}
                   categories={categories}
-                  filters={filters}
-                  setFilters={setFilters}
-                  scrollTop={scrollTop}
+                  currentCategoryIndex={currentCategory}
+                  menuOpened={showMobileFilter}
                 />
-              )}
+                {showMobileFilter && (
+                  <ProductFilters
+                    className={styles['filtersMobile']}
+                    categories={categories}
+                    productsCount={products.length}
+                  />
+                )}
+              </div>
             </div>
-            {showMobileFilter && <div className={styles['overlay']} />}
             <ProductList
               className={styles['products']}
-              filters={filters}
+              products={data || []}
               loading={isFetching}
-              products={data}
             />
-            <div className={styles['loadingTrigger']} ref={loadMoreButtonRef}>
-              {isFetching && <div className={styles['loader']}></div>}
-            </div>
+            <BackgroundOverlay
+              className={styles['overlay']}
+              showMobileFilter={showMobileFilter}
+            />
           </div>
         </section>
+        <AnimatePresence mode="wait">
+          {width < 767 && showScrollToTopButton && <ScrollTopButton />}
+        </AnimatePresence>
       </ProducsSectionContext.Provider>
-
-      <AnimatePresence mode="wait">
-        {width < 767 && showScrollToTopButton && (
-          <ScrollTopButton scrollTop={scrollTop} />
-        )}
-      </AnimatePresence>
-
       <BecomeDistributorSection />
     </main>
   )

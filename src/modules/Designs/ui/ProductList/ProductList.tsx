@@ -1,42 +1,33 @@
-import {
-  Dispatch,
-  FC,
-  SetStateAction,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react'
+import { FC, useContext, useMemo } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import classNames from 'classnames'
-import { InfiniteData } from 'react-query'
 
 import Emoji from 'public/icons/emoji.svg'
 import { CategoryBlock } from './CategoryBlock/CategoryBlock'
 
-import { ProductsFilter, SusccessResponse } from '../../api/products'
 import { ProductProps } from '@/utils/types'
+import { ProducsSectionContext } from '../../lib/ProductListContext'
 
 import styles from './ProductList.module.scss'
-import { AnimatePresence } from 'framer-motion'
 
 type ProductListProps = {
-  products: InfiniteData<SusccessResponse<ProductProps[]>> | undefined
-  filters: ProductsFilter
-
-  loading: boolean
   className?: string
+  loading: boolean
+  products: ProductProps[]
 }
 
 const ProductList: FC<ProductListProps> = ({
   className,
   products,
   loading,
-  filters,
 }) => {
+  const { filters } = useContext(ProducsSectionContext)
+
   const data = useMemo(() => {
     const hash = new Map<string, ProductProps[]>()
 
-    for (const item of products?.pages || []) {
-      for (const product of item.data.docs) {
+    if (products.length) {
+      for (const product of products) {
         const categoryId = product?.category?.id
         if (categoryId) {
           if (!hash.has(categoryId)) {
@@ -63,33 +54,34 @@ const ProductList: FC<ProductListProps> = ({
     return result
   }, [products])
 
-  if (!data.length && !loading) {
-    return (
-      <div className={classNames(styles['fullSize'], styles['notFound'])}>
-        <Emoji />
-        <h4>
-          We were unable to find any products for
-          <span>&quot;{filters.search}&quot;</span>
-        </h4>
-        <p>
-          Don&apos;t give up! Check the spelling or rephrase your search query.
-        </p>
-      </div>
-    )
-  }
-
   return (
     <div className={classNames(styles['ProductList'], className)}>
       <AnimatePresence mode="sync">
-        {data.map((categoryBlock) => {
-          return (
-            <CategoryBlock
-              categoryId={categoryBlock.categoryId}
-              products={categoryBlock.products}
-              key={categoryBlock.categoryId}
-            />
-          )
-        })}
+        {!data.length && (
+          <div className={classNames(styles['fullSize'], styles['notFound'])}>
+            <Emoji />
+            <h4>
+              We were unable to find any products for
+              <span>&quot;{filters.search}&quot;</span>
+            </h4>
+            <p>
+              Don&apos;t give up! Check the spelling or rephrase your search
+              query.
+            </p>
+          </div>
+        )}
+
+        {data.length &&
+          !loading &&
+          data.map((categoryBlock) => {
+            return (
+              <CategoryBlock
+                categoryId={categoryBlock.categoryId}
+                products={categoryBlock.products}
+                key={categoryBlock.categoryId}
+              />
+            )
+          })}
       </AnimatePresence>
     </div>
   )

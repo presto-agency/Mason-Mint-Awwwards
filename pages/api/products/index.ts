@@ -6,9 +6,7 @@ import Product from '../../../models/Product'
 import { FilterQuery } from 'mongoose'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { page = 1, limit = 10, search = '', category = '' } = req.query
-  const _page = Number(page)
-  const _limit = Number(limit)
+  const { search = '', category = '' } = req.query
 
   try {
     await db.connect()
@@ -23,13 +21,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       filters['category.id'] = category
     }
 
-    //@ts-ignore for some reason doesn't see paginate method
-    const data = await Product.paginate(filters, {
-      page: _page,
-      limit: _limit,
-      sort: { 'category.name': 1, _id: 1 },
-      lean: true,
-    })
+    const data = await Product.find(filters)
+      .sort({ 'category.name': 1, _id: 1 })
+      .lean()
 
     res.status(200).json({
       success: true,

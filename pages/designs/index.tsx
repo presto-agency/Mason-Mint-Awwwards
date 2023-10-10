@@ -1,21 +1,19 @@
 import React, { FC } from 'react'
-import Head from 'next/head'
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 
+import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
 import { DesignsContent } from '@/modules/Designs'
 
+import db from '@/utils/db'
 import { CategoryProps, ProductProps } from '@/utils/types'
 import { transformObjectsToJson } from '@/utils/json/transformObjectsToJson'
 
 import CategoryModel from '../../models/Category'
-import PageTransitionLayout from '@/app/layouts/PageTransitionLayout'
-
-import db from '@/utils/db'
 import Product from '../../models/Product'
-import { SusccessResponse } from '@/modules/Designs/api/products'
 
 type DesignsProps = {
-  products: SusccessResponse<ProductProps[]>
+  products: ProductProps[]
   categories: CategoryProps[]
 }
 
@@ -39,24 +37,15 @@ const Index: FC<DesignsProps> = ({ categories, products }) => {
 export const getStaticProps: GetStaticProps = async () => {
   await db.connect()
 
-  //@ts-ignore for some reason doesn't see paginate method
-  const products = await Product.paginate(
-    {},
-    {
-      page: 1,
-      limit: 10,
-      sort: { 'category.name': 1, _id: 1 },
-      lean: true,
-    }
-  )
+  const products = await Product.find()
+    .sort({ 'category.name': 1, _id: 1 })
+    .lean()
+
   const categories = await CategoryModel.find().sort({ name: 1 })
 
   return {
     props: {
-      products: {
-        success: true,
-        data: transformObjectsToJson(products),
-      },
+      products: transformObjectsToJson(products),
       categories: transformObjectsToJson(categories),
     },
   }

@@ -2,12 +2,18 @@
 
 .ListTitle {
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding-bottom: 18rem;
+  height: 65rem;
   overflow: hidden;
   border-bottom: 1rem solid var(--black);
+
+  &__inner {
+    display: flex;
+    align-items: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 36rem;
+    overflow: hidden;
+  }
 
   h3 {
     white-space: nowrap;
@@ -28,18 +34,19 @@
   overflow: hidden;
 }
 
-.mobileRight {
-  display: flex;
-  gap: 12rem;
-  align-items: center;
-}
 
 @media (width <= $breakpoint-mob) {
   .ListTitle {
     gap: 15rem;
     align-items: center;
+    height: 50rem;
     padding-top: 10rem;
-    padding-bottom: 16rem;
+
+    &__inner {
+      gap: 10rem;
+      padding-right: 32rem;
+      padding-bottom: 16rem;
+    }
 
   
     h3 {
@@ -62,13 +69,17 @@
   }
 
   .dropdownIcon{
+    position: absolute;
+    top: 50%;
+    right: 0;
     width: 24rem;
     height: 24rem;
+    transform: translateY(-50%);
     transition: .2s ease;
 
     &.opened {
       color: var(--primary-color);
-      transform: rotateX(-180deg);
+      transform: translateY(-50%) rotateX(-180deg);
     }
   }
 }

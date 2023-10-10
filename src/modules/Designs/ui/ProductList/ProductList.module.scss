@@ -3,7 +3,6 @@
 .ProductList {
   display: flex;
   flex-direction: column;
-  gap: 120rem;
   min-height: 80vh;
   padding-top: 32rem;
 }
@@ -13,6 +12,11 @@
   grid-auto-rows: auto;
   grid-template-columns: repeat(3, 1fr);
   gap: 32rem;
+  padding-top: 120rem;
+
+  &:first-child {
+    padding-top: 0;
+  }
 }
 
 
@@ -52,8 +56,6 @@
 
 @media (width <= $breakpoint-mob) {
   .ProductList{
-    gap: 64rem;
-
     h4 {
       margin-top: 32rem;
       margin-bottom: 16rem;
@@ -63,10 +65,12 @@
   .categoryList{
     grid-template-columns: repeat(2, 1fr);
     gap: 24rem;
+    padding-top: 64rem;
   }
 
   .notFound {
     width: 100%;
     height: 400rem;
+    padding: 0 24rem;
   }
 }

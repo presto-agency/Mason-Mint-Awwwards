@@ -20,7 +20,7 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
   const options = {
     duration: 1.5,
     smoothWheel: true,
-    smoothTouch: true,
+    // smoothTouch: true,
   }
 
   useEffect(() => {

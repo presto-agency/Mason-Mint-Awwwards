@@ -7,12 +7,8 @@
 }
 
 .allProductsCount {
+  color: var(--gray-700);
   font: var(--font-s);
-
-  &:hover {
-    color: var(--primary-color);
-    cursor: pointer;
-  }
 }
 
 .list {

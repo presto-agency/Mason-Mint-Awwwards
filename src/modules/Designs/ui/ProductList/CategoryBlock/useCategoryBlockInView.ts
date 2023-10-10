@@ -19,7 +19,7 @@ export const useCategoryBlockInView = (
       },
       {
         root: null,
-        rootMargin: '0px 0px -100% 0px',
+        rootMargin: '0% 0% -100% 0%',
         threshold: 0,
       }
     )
