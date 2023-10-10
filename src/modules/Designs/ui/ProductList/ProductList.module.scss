@@ -54,6 +54,23 @@
   }
 }
 
+
+.loader {
+  width:75rem;
+  height: 75rem;
+  border: 2rem solid var(--gray-500);
+  border-top-color:var(--gray-700);
+  border-radius:50%;
+  animation:rotate 1s infinite ease;
+}
+
+@keyframes rotate{
+  100%{
+    rotate:360deg;
+  }
+}
+
+
 @media (width <= $breakpoint-mob) {
   .ProductList{
     h4 {
@@ -72,5 +89,9 @@
     width: 100%;
     height: 400rem;
     padding: 0 24rem;
+  }
+
+  .fullSize {
+    width: 100%;
   }
 }

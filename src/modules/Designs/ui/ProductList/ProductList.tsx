@@ -54,6 +54,16 @@ const ProductList: FC<ProductListProps> = ({
     return result
   }, [products])
 
+  if (loading) {
+    return (
+      <div className={classNames(styles['ProductList'], className)}>
+        <div className={classNames(styles['fullSize'])}>
+          <div className={styles['loader']}></div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className={classNames(styles['ProductList'], className)}>
       <AnimatePresence mode="sync">
