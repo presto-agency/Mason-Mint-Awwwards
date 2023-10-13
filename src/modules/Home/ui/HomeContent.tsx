@@ -73,7 +73,8 @@ const HomeContent: FC<HomeContentProps> = ({ products }) => {
       <div ref={exploreDesignsSectionRef}>
         <ExploreDesignsSection />
       </div>
-      <FeaturedDesignsSection products={products} />
+      {products.length > 0 && <FeaturedDesignsSection products={products} />}
+
       <CustomDesignsSection />
       <SellSection />
       <FAQSection />

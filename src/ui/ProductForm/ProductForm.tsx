@@ -21,6 +21,7 @@ const SelectField = dynamic(() => import('@/ui/SelectField/SelectField'), {
 
 import styles from './ProductForm.module.scss'
 import classNames from 'classnames'
+import Checkbox from '../Checkbox/Checkbox'
 
 type FormProps = {
   ProductName: string
@@ -38,6 +39,7 @@ type FormProps = {
   mainImages: MainImagesProps
   additionalImages: ImagesProps[]
   slug: string
+  isFeatured: boolean
   description?: string
 }
 
@@ -98,6 +100,7 @@ const ProductForm: FC<{
     label: product.category?.name || '',
     value: product.category?.id || '',
   })
+  console.log(product, 'prod')
 
   const [obverseImage, setObverseImage] = useState<ImageToUpload>({
     file: null,
@@ -133,6 +136,7 @@ const ProductForm: FC<{
       additionalImages: product.additionalImages,
       slug: product.slug,
       description: product.description || '',
+      isFeatured: product.isFeatured,
     }),
     [product]
   )
@@ -326,8 +330,8 @@ const ProductForm: FC<{
                 <TextField
                   {...field}
                   value={getValues().ProductName}
-                  placeholder="ProductOld name"
-                  label="ProductOld should have a name*"
+                  placeholder="Product name"
+                  label="Product should have a name*"
                   error={errors['ProductName']?.message}
                 />
               )
@@ -342,7 +346,7 @@ const ProductForm: FC<{
                   {...field}
                   value={getValues().slug}
                   placeholder="Slug"
-                  label="ProductOld should have a name*"
+                  label="Product should have a name*"
                   error={errors['slug']?.message}
                   readOnly
                 />
@@ -358,7 +362,7 @@ const ProductForm: FC<{
                   {...field}
                   value={getValues().description}
                   placeholder="Description"
-                  label="ProductOld can have a some description*"
+                  label="Product can have a some description*"
                   error={errors['description']?.message}
                 />
               )
@@ -521,6 +525,21 @@ const ProductForm: FC<{
                   options={categoriesOptions}
                   onChange={handleCategoryChange}
                   selectedOption={selectedCategory}
+                />
+              )
+            }}
+          />
+          <Controller
+            control={control}
+            name="isFeatured"
+            render={({ field }) => {
+              return (
+                <Checkbox
+                  {...field}
+                  id={'isFeaturedCheck'}
+                  className={styles['isFeatured']}
+                  checked={getValues().isFeatured}
+                  label="Is featured product?"
                 />
               )
             }}

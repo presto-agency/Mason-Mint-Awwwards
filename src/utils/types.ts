@@ -6,6 +6,7 @@ export type ProductProps = {
   additionalImages: ImagesProps[]
   specification: SpecificationProps[]
   slug: string
+  isFeatured: boolean
   category?: CategoryProps
   description?: string
 }

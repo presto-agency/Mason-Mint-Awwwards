@@ -47,9 +47,7 @@ const FeaturedDesignsSection: FC<FeaturedDesignsSectionProps> = ({
           </div>
         </div>
       </Container>
-      {products.length > 0 ? (
-        <MarqueeCarousel data={products} className={styles['productMarquee']} />
-      ) : null}
+      <MarqueeCarousel data={products} className={styles['productMarquee']} />
     </section>
   )
 }

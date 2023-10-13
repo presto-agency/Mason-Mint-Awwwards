@@ -30,7 +30,7 @@ const Home: FC<HomeProps> = ({ products }) => {
 export const getStaticProps = async () => {
   await db.connect()
   const products = await Product.find({
-    'category.id': '64b7f098ffe22650abb78018',
+    isFeatured: true,
   })
 
   return {
