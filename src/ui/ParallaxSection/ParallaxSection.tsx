@@ -1,17 +1,30 @@
 import React, { FC, ReactNode, useMemo, useRef } from 'react'
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
+import {off} from "react-use/lib/misc/util";
+
+type offsetVariant = 'start start'
+  | 'start center'
+  | 'start end'
+  | 'center start'
+  | 'center center'
+  | 'center end'
+  | 'end start'
+  | 'end center'
+  | 'end end'
 
 type ParallaxSection = {
   children?: ReactNode
   parallaxValues?: [number, number]
-  className?: string
+  className?: string,
+  offset?: [offsetVariant, offsetVariant]
 }
 
 const ParallaxSection: FC<ParallaxSection> = ({
   children,
   parallaxValues = [0, 150],
   className,
+  offset = ['start end', 'end start']
 }) => {
   const { width } = useWindowDimensions()
   const useParallax = (value: MotionValue<number>) => {
@@ -22,7 +35,7 @@ const ParallaxSection: FC<ParallaxSection> = ({
 
   const { scrollYProgress } = useScroll({
     target: refTarget,
-    offset: ['start end', 'end start'],
+    offset: offset,
   })
   const y = useParallax(scrollYProgress)
 

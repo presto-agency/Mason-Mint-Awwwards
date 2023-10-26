@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ef804d-45c4-4faf-99f2-b64dc44c1bcb" name="Changes" comment="" />
+    <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/HomeContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/HomeContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/ParallaxSection/ParallaxSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ParallaxSection/ParallaxSection.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="SCSS File" />
-        <option value="TypeScript JSX File" />
-        <option value="TypeScript File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,474 +22,45 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2QVvw1icpbJVWTOpVuTdY86tnN8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2XG3babM2Dm7ZEFNPPw5fHWAJ8y" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/anton_kamarhin/Desktop/Projects/Mason-Mint&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.stylelint&quot;: &quot;/Users/anton_kamarhin/Desktop/Projects/Mason-Mint/node_modules/stylelint&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/anton_kamarhin/Desktop/Projects/Mason-Mint/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/anton_kamarhin/Desktop/Projects/Mason-Mint/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.stylelint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.stylelint": "/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards/node_modules/stylelint",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/modules/Home/ui/SellSection/assets" />
-      <recent name="$PROJECT_DIR$/src/modules/Packaging/ui" />
-      <recent name="$PROJECT_DIR$/src/ui" />
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/public/images/home" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="10ef804d-45c4-4faf-99f2-b64dc44c1bcb" name="Changes" comment="" />
-      <created>1685451798505</created>
+      <changelist id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="" />
+      <created>1698241661961</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685451798505</updated>
-      <workItem from="1685451799814" duration="3609000" />
-      <workItem from="1685516466254" duration="3191000" />
-      <workItem from="1685606921027" duration="27485000" />
-      <workItem from="1686037332230" duration="553000" />
-      <workItem from="1686061951930" duration="5673000" />
-      <workItem from="1686131048717" duration="11521000" />
-      <workItem from="1686810377641" duration="3515000" />
-      <workItem from="1686818897751" duration="45609000" />
-      <workItem from="1687160941274" duration="20822000" />
-      <workItem from="1687425445453" duration="27770000" />
-      <workItem from="1687766042625" duration="34482000" />
-      <workItem from="1688024624139" duration="14429000" />
-      <workItem from="1688108234733" duration="20803000" />
-      <workItem from="1688366472951" duration="31901000" />
-      <workItem from="1688973566610" duration="14287000" />
-      <workItem from="1688996388473" duration="613000" />
-      <workItem from="1689145401691" duration="52286000" />
-      <workItem from="1689577119846" duration="71124000" />
-      <workItem from="1689921175923" duration="21983000" />
-      <workItem from="1690025430866" duration="15014000" />
-      <workItem from="1690354317927" duration="23000" />
-      <workItem from="1690354345499" duration="34680000" />
-      <workItem from="1690785883856" duration="16811000" />
-      <workItem from="1691389436432" duration="40169000" />
-      <workItem from="1691563168185" duration="16030000" />
-      <workItem from="1691593715780" duration="596000" />
-      <workItem from="1691665918870" duration="9925000" />
-      <workItem from="1691738614372" duration="15565000" />
+      <updated>1698241661961</updated>
+      <workItem from="1698241663000" duration="13114000" />
     </task>
-    <task id="LOCAL-00043" summary="fet: finish slider DesignSection">
-      <created>1689685412299</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1689685412299</updated>
-    </task>
-    <task id="LOCAL-00044" summary="fix: some animation">
-      <created>1689710991291</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1689710991291</updated>
-    </task>
-    <task id="LOCAL-00045" summary="fix: eslintrc file update">
-      <created>1689714193316</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1689714193316</updated>
-    </task>
-    <task id="LOCAL-00046" summary="feat: add variants of slider animation">
-      <created>1689750807277</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1689750807277</updated>
-    </task>
-    <task id="LOCAL-00047" summary="fix: type error swiper">
-      <created>1689758674698</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1689758674698</updated>
-    </task>
-    <task id="LOCAL-00048" summary="fix: type error swiper #2">
-      <created>1689758966810</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1689758966810</updated>
-    </task>
-    <task id="LOCAL-00049" summary="fix: type error swiper #3">
-      <created>1689766103052</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1689766103052</updated>
-    </task>
-    <task id="LOCAL-00050" summary="fix: swiper #4">
-      <created>1689780515511</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1689780515513</updated>
-    </task>
-    <task id="LOCAL-00051" summary="feat: add sliderArrow component">
-      <created>1689861573044</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1689861573044</updated>
-    </task>
-    <task id="LOCAL-00052" summary="fix: animation mobile fix">
-      <created>1689862906614</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1689862906614</updated>
-    </task>
-    <task id="LOCAL-00053" summary="fix: animation slider">
-      <created>1689884094556</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1689884094556</updated>
-    </task>
-    <task id="LOCAL-00054" summary="feat: add animateScaleBG">
-      <created>1689932806671</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1689932806671</updated>
-    </task>
-    <task id="LOCAL-00055" summary="fix: animateScaleBG styles">
-      <created>1689939161150</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1689939161150</updated>
-    </task>
-    <task id="LOCAL-00056" summary="feat: start sell section animation">
-      <created>1689953520790</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1689953520790</updated>
-    </task>
-    <task id="LOCAL-00057" summary="feat: add section FindPartner">
-      <created>1690300959826</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1690300959826</updated>
-    </task>
-    <task id="LOCAL-00058" summary="feat: add wasBorn section">
-      <created>1690305353687</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1690305353687</updated>
-    </task>
-    <task id="LOCAL-00059" summary="fix: some about page fixes">
-      <created>1690356480710</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1690356480711</updated>
-    </task>
-    <task id="LOCAL-00060" summary="feat: add AllProduct">
-      <created>1690365359145</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1690365359145</updated>
-    </task>
-    <task id="LOCAL-00061" summary="feat: add whatWeDo">
-      <created>1690376268294</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1690376268295</updated>
-    </task>
-    <task id="LOCAL-00062" summary="fix: about page animation, animationScaleBg">
-      <created>1690446871396</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1690446871397</updated>
-    </task>
-    <task id="LOCAL-00063" summary="fix: custom minting banner">
-      <created>1690448587733</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1690448587733</updated>
-    </task>
-    <task id="LOCAL-00064" summary="fix: some transform fixes">
-      <created>1690449268453</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1690449268453</updated>
-    </task>
-    <task id="LOCAL-00065" summary="fix: some fixes">
-      <created>1690450398143</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1690450398144</updated>
-    </task>
-    <task id="LOCAL-00066" summary="fix: some fixes">
-      <created>1690450853093</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1690450853093</updated>
-    </task>
-    <task id="LOCAL-00067" summary="feat: create heroDetail">
-      <created>1690469057635</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1690469057635</updated>
-    </task>
-    <task id="LOCAL-00068" summary="feat: add NaturalVehicle section">
-      <created>1690795542426</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1690795542426</updated>
-    </task>
-    <task id="LOCAL-00069" summary="feat: add NumismaticPackaging section">
-      <created>1690811215741</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1690811215741</updated>
-    </task>
-    <task id="LOCAL-00070" summary="fix: some fixes">
-      <created>1690968176195</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1690968176195</updated>
-    </task>
-    <task id="LOCAL-00071" summary="fix: add 3d coin animation">
-      <created>1691010689352</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1691010689352</updated>
-    </task>
-    <task id="LOCAL-00072" summary="fix: add some refactor">
-      <created>1691011285526</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1691011285526</updated>
-    </task>
-    <task id="LOCAL-00073" summary="fix: add some refactor#2">
-      <created>1691054429466</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1691054429466</updated>
-    </task>
-    <task id="LOCAL-00074" summary="fix: some picture optimization">
-      <created>1691069795946</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1691069795946</updated>
-    </task>
-    <task id="LOCAL-00075" summary="feat: add some page transition">
-      <created>1691139994003</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1691139994003</updated>
-    </task>
-    <task id="LOCAL-00076" summary="feat: add transition to header">
-      <created>1691158469505</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1691158469506</updated>
-    </task>
-    <task id="LOCAL-00077" summary="fix: header transition">
-      <created>1691158913844</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1691158913844</updated>
-    </task>
-    <task id="LOCAL-00078" summary="fix: page transition#3">
-      <created>1691163293968</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1691163293968</updated>
-    </task>
-    <task id="LOCAL-00079" summary="fix: sell section fixes">
-      <created>1691391279216</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1691391279216</updated>
-    </task>
-    <task id="LOCAL-00080" summary="fix: footer location">
-      <created>1691393215376</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1691393215376</updated>
-    </task>
-    <task id="LOCAL-00081" summary="fix: horizontal scroll">
-      <created>1691394457682</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1691394457682</updated>
-    </task>
-    <task id="LOCAL-00082" summary="fix: key framer motion">
-      <created>1691400502436</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1691400502436</updated>
-    </task>
-    <task id="LOCAL-00083" summary="feat: add preloader animation">
-      <created>1691492712046</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1691492712047</updated>
-    </task>
-    <task id="LOCAL-00084" summary="fix: MASON-016">
-      <created>1691501759665</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1691501759665</updated>
-    </task>
-    <task id="LOCAL-00085" summary="fix: image about">
-      <created>1691505280722</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1691505280722</updated>
-    </task>
-    <task id="LOCAL-00086" summary="fix: some fixes">
-      <created>1691583945865</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1691583945865</updated>
-    </task>
-    <task id="LOCAL-00087" summary="feat: add readme.md">
-      <created>1691668140133</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1691668140133</updated>
-    </task>
-    <task id="LOCAL-00088" summary="fix: clients fixes">
-      <created>1691678513070</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1691678513071</updated>
-    </task>
-    <task id="LOCAL-00089" summary="fix: optimize fonts">
-      <created>1691753321509</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1691753321509</updated>
-    </task>
-    <task id="LOCAL-00090" summary="fix: optimize fonts#2">
-      <created>1691753421335</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1691753421335</updated>
-    </task>
-    <task id="LOCAL-00091" summary="fix: optimize JSON files">
-      <created>1691760730667</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1691760730667</updated>
-    </task>
-    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix: some transform fixes" />
-    <MESSAGE value="feat: create heroDetail" />
-    <MESSAGE value="feat: add NaturalVehicle section" />
-    <MESSAGE value="feat: add NumismaticPackaging section" />
-    <MESSAGE value="fix: add 3d coin animation" />
-    <MESSAGE value="fix: add some refactor" />
-    <MESSAGE value="fix: add some refactor#2" />
-    <MESSAGE value="fix: some picture optimization" />
-    <MESSAGE value="feat: add some page transition" />
-    <MESSAGE value="feat: add transition to header" />
-    <MESSAGE value="fix: header transition" />
-    <MESSAGE value="fix: page transition#3" />
-    <MESSAGE value="fix: sell section fixes" />
-    <MESSAGE value="fix: footer location" />
-    <MESSAGE value="fix: horizontal scroll" />
-    <MESSAGE value="fix: key framer motion" />
-    <MESSAGE value="feat: add preloader animation" />
-    <MESSAGE value="fix: MASON-016" />
-    <MESSAGE value="fix: image about" />
-    <MESSAGE value="fix: some fixes" />
-    <MESSAGE value="feat: add readme.md" />
-    <MESSAGE value="fix: clients fixes" />
-    <MESSAGE value="fix: optimize fonts" />
-    <MESSAGE value="fix: optimize fonts#2" />
-    <MESSAGE value="fix: optimize JSON files" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: optimize JSON files" />
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

@@ -52,9 +52,9 @@ const HomeContent: FC<HomeContentProps> = ({ products }) => {
     MarqueCarouselContext
   ) as MarqueCarouselContextType
 
-  const style: CSSProperties = useMemo(() => {
-    return { position: inView ? 'sticky' : 'relative' }
-  }, [inView])
+  // const style: CSSProperties = useMemo(() => {
+  //   return { position: inView ? 'sticky' : 'relative' }
+  // }, [inView])
 
   return (
     <main className={styles['HomeContent']} onWheel={onWheel}>
@@ -67,9 +67,11 @@ const HomeContent: FC<HomeContentProps> = ({ products }) => {
       >
         <StorySection />
       </ParallaxSection>
-      <div style={style} className={styles['discoverMasonMintWrapper']}>
+      <ParallaxSection offset={['end end', 'end start']} parallaxValues={[0, 400]}>
+      <div className={styles['discoverMasonMintWrapper']}>
         <DiscoverMasonMintSection />
       </div>
+      </ParallaxSection>
       <div ref={exploreDesignsSectionRef}>
         <ExploreDesignsSection />
       </div>
