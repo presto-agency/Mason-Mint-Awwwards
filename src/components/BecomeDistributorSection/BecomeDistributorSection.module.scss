@@ -2,7 +2,8 @@
 
 .BecomeDistributorSection {
   position: relative;
-  height: 300vh;
+  //z-index: 3;
+  height: 200vh;
   color: var(--white);
   text-align: center;
 
@@ -92,14 +93,22 @@
   &__content {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    //justify-content: center;
     height: 100vh;
-    padding: 158rem 0;
+    //padding: 158rem 0;
     overflow: hidden;
     background-color: var(--black);
+
+    &_inner{
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
     &_description {
       max-width: 540rem;

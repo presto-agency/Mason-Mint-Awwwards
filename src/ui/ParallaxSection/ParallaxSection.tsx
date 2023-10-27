@@ -1,7 +1,6 @@
 import React, { FC, ReactNode, useMemo, useRef } from 'react'
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
-import {off} from "react-use/lib/misc/util";
 
 type offsetVariant = 'start start'
   | 'start center'

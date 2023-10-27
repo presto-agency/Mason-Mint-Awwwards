@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/home/circled_arrow_bg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/home/circled_arrow_bg.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/FAQSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/FAQSection.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/HomeContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/HomeContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/ParallaxSection/ParallaxSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ParallaxSection/ParallaxSection.tsx" afterDir="false" />
     </list>
@@ -15,6 +17,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,11 +65,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698241661961</updated>
-      <workItem from="1698241663000" duration="13114000" />
+      <workItem from="1698241663000" duration="29006000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: finish home page coin">
+      <option name="closed" value="true" />
+      <created>1698331319845</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698331319845</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix: finish home page coin" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: finish home page coin" />
   </component>
 </project>

@@ -1,7 +1,5 @@
-import { CSSProperties, FC, useContext, useMemo, useRef } from 'react'
-import { useInView } from 'framer-motion'
+import { FC, useContext,  useRef } from 'react'
 import dynamic from 'next/dynamic'
-import useWindowDimensions from '@/hooks/useWindowDimensions'
 
 import IntroSection from './IntroSection/IntroSection'
 import StorySection from './StorySection/StorySection'
@@ -42,19 +40,9 @@ type HomeContentProps = {
 }
 
 const HomeContent: FC<HomeContentProps> = ({ products }) => {
-  const { width } = useWindowDimensions()
-  const exploreDesignsSectionRef = useRef<HTMLDivElement | null>(null)
-  const inView = useInView(exploreDesignsSectionRef, {
-    margin: width > 768 ? '100px' : '400px',
-  })
-
   const { onWheel } = useContext(
     MarqueCarouselContext
   ) as MarqueCarouselContextType
-
-  // const style: CSSProperties = useMemo(() => {
-  //   return { position: inView ? 'sticky' : 'relative' }
-  // }, [inView])
 
   return (
     <main className={styles['HomeContent']} onWheel={onWheel}>
@@ -72,11 +60,8 @@ const HomeContent: FC<HomeContentProps> = ({ products }) => {
         <DiscoverMasonMintSection />
       </div>
       </ParallaxSection>
-      <div ref={exploreDesignsSectionRef}>
-        <ExploreDesignsSection />
-      </div>
+      <ExploreDesignsSection />
       {products.length > 0 && <FeaturedDesignsSection products={products} />}
-
       <CustomDesignsSection />
       <SellSection />
       <FAQSection />

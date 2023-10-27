@@ -18,19 +18,6 @@
       flex-direction: column;
       max-width: 500rem;
 
-      &::before{
-        position: absolute;
-        top: 336rem;
-        right: 154rem;
-        width: 915rem;
-        height: 1116rem;
-        background-image: url("/images/home/circled_arrow_bg.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 915rem 1116rem;
-        content: '';
-      }
-
       .subtitle {
         max-width: 416rem;
         color: var(--gray-800);
