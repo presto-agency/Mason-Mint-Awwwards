@@ -125,15 +125,16 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
           className={styles['top']}
         >
           <motion.div className={styles['title']} style={titleStyles}>
-            <h6>content</h6>
-            <h4>This is your chance</h4>
+            <h6>Mason Mint</h6>
+            <h4>Crafted Coin Creations</h4>
           </motion.div>
           <motion.span
             style={spanTopStyles}
             className={styles['text']}
             transition={transition}
           >
-            don&apos;t miss it <BlueDot />
+            create today
+            <BlueDot />
           </motion.span>
         </motion.div>
         <motion.div
@@ -146,7 +147,8 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
             style={spanBottomStyles}
             className={styles['text']}
           >
-            don&apos;t miss it <BlueDot />
+            create today
+            <BlueDot />
           </motion.span>
         </motion.div>
       </div>

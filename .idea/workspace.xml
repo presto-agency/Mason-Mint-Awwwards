@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/HomeContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/HomeContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/ParallaxSection/ParallaxSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ParallaxSection/ParallaxSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +67,8 @@
       <option name="presentableId" value="Default" />
       <updated>1698241661961</updated>
       <workItem from="1698241663000" duration="31603000" />
-      <workItem from="1698651101811" duration="305000" />
+      <workItem from="1698651101811" duration="1089000" />
+      <workItem from="1698654215181" duration="10567000" />
     </task>
     <task id="LOCAL-00001" summary="fix: finish home page coin">
       <option name="closed" value="true" />
@@ -86,7 +86,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698413939301</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix: eslint, jslint">
+      <option name="closed" value="true" />
+      <created>1698651563450</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698651563451</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -95,6 +103,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: finish home page coin" />
     <MESSAGE value="fix: finish home page becomeDistributor transform" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: finish home page becomeDistributor transform" />
+    <MESSAGE value="fix: eslint, jslint" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: eslint, jslint" />
   </component>
 </project>

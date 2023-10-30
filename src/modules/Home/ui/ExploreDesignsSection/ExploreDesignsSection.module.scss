@@ -144,26 +144,29 @@
 
       &_sliderCoin{
         .sliderCoin{
-          padding: 40rem 0 90rem;
+          margin: 0 -24rem 0 0;
+          padding: 40rem 0 0;
 
           &__slide{
+            width: 80%;
+
             .coinsContainer{
               height: 234rem;
               margin: 0 0 20rem;
             }
 
             &_containerFront{
-              top: 5rem;
-              left: 25rem;
-              width: 225rem;
-              height: 225rem;
+              top: 8rem;
+              left: 0;
+              width: 213rem;
+              height: 213rem;
             }
 
             &_containerBack{
-              right: 20rem;
+              right: 0;
               left: initial;
-              width: 175rem;
-              height: 175rem;
+              width: 165rem;
+              height: 165rem;
             }
           }
         }

@@ -23,10 +23,11 @@ import { useCursor } from '@/app/layouts/CursorLayout/CursorLayout'
 type SlideInner = {
   title: string
   subtitle: string
+  width?: number
 }
 
-const SlideInner: FC<SlideInner> = ({ title, subtitle }) => {
-  return (
+const SlideInner: FC<SlideInner> = ({ title, subtitle, width }) => {
+  return width && width > 767 ? (
     <>
       <h4 className={classNames('h4', styles['textSwiper__title'])}>
         <AnimatedText>{title}</AnimatedText>
@@ -39,6 +40,14 @@ const SlideInner: FC<SlideInner> = ({ title, subtitle }) => {
           <ButtonPrimary variant="noStroked">View catalog</ButtonPrimary>
         </Link>
       </AnimatedElement>
+    </>
+  ) : (
+    <>
+      <h4 className={classNames('h4', styles['textSwiper__title'])}>{title}</h4>
+      <p className={styles['textSwiper__description']}>{subtitle}</p>
+      <Link scroll={false} href={routes.public.designs}>
+        <ButtonPrimary variant="noStroked">View catalog</ButtonPrimary>
+      </Link>
     </>
   )
 }
@@ -106,8 +115,6 @@ const ExploreDesignsSection = () => {
       setRevertAnimation(true)
 
       if (swiper.isEnd) {
-        console.log('qq')
-
         swiper.slideTo(0)
       } else {
         swiper.slideNext()
@@ -127,121 +134,156 @@ const ExploreDesignsSection = () => {
               </AnimatedText>
             </h2>
             {width > 767 ? (
-              <>
-                <Swiper
-                  style={{ overflow: 'visible' }}
-                  className={styles['sliderText']}
-                  modules={[Controller, EffectCreative]}
-                  onSwiper={setControlledSwiper}
-                  effect={'creative'}
-                  virtualTranslate={true}
-                  creativeEffect={{
-                    prev: {
-                      translate: [0, 0, 0],
-                    },
-                    next: {
-                      translate: [0, 0, 0],
-                    },
-                  }}
-                  slidesPerView={1}
-                  allowTouchMove={false}
-                >
-                  {data.map((slide) => (
-                    <SwiperSlide key={slide.id}>
-                      {({ isActive }) => (
-                        <AnimatePresence>
-                          {isActive && (
-                            <motion.div {...motionPropsText}>
-                              <SlideInner
-                                title={slide.title}
-                                subtitle={slide.subtitle}
-                              />
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      )}
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </>
+              <Swiper
+                style={{ overflow: 'visible' }}
+                className={styles['sliderText']}
+                modules={[Controller, EffectCreative]}
+                onSwiper={setControlledSwiper}
+                effect={'creative'}
+                virtualTranslate={true}
+                creativeEffect={{
+                  prev: {
+                    translate: [0, 0, 0],
+                  },
+                  next: {
+                    translate: [0, 0, 0],
+                  },
+                }}
+                slidesPerView={1}
+                allowTouchMove={false}
+              >
+                {data.map((slide) => (
+                  <SwiperSlide key={slide.id}>
+                    {({ isActive }) => (
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.div {...motionPropsText}>
+                            <SlideInner
+                              title={slide.title}
+                              subtitle={slide.subtitle}
+                            />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    )}
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             ) : null}
           </div>
-          <div
-            className={styles['ExploreDesignsSection__content_sliderCoin']}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <Swiper
-              style={{ overflow: 'visible' }}
-              className={styles['sliderCoin']}
-              modules={[Controller, EffectCreative]}
-              speed={1000}
-              effect={'creative'}
-              virtualTranslate={true}
-              creativeEffect={{
-                prev: {
-                  translate: [0, 0, 0],
-                },
-                next: {
-                  translate: [0, 0, 0],
-                },
-              }}
-              allowTouchMove={false}
-              controller={{ control: controlledSwiper }}
-              slidesPerView={1}
-              onClick={handleClick}
+          {width > 767 ? (
+            <div
+              className={styles['ExploreDesignsSection__content_sliderCoin']}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              {data.map((slide) => (
-                <SwiperSlide
-                  className={styles['sliderCoin__slide']}
-                  key={slide.id}
-                >
-                  {({ isActive }) => (
-                    <AnimatePresence>
-                      {isActive && (
-                        <Fragment key={slide.id}>
-                          <div className={styles['coinsContainer']}>
-                            <motion.div
-                              className={
-                                styles['sliderCoin__slide_containerBack']
-                              }
-                              {...motionPropsForBackCoin}
-                            >
-                              <BackgroundImage
-                                className={styles['coinBack']}
-                                src={slide.url.back}
-                                alt="coin back"
-                              />
-                            </motion.div>
-                            <motion.div
-                              className={
-                                styles['sliderCoin__slide_containerFront']
-                              }
-                              {...motionProps}
-                            >
-                              <BackgroundImage
-                                className={styles['coinFront']}
-                                src={slide.url.front}
-                                alt="coin front"
-                              />
-                            </motion.div>
-                          </div>
-                          {width <= 767 ? (
-                            <motion.div {...motionPropsText}>
-                              <SlideInner
-                                title={slide.title}
-                                subtitle={slide.subtitle}
-                              />
-                            </motion.div>
-                          ) : null}
-                        </Fragment>
-                      )}
-                    </AnimatePresence>
-                  )}
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+              <Swiper
+                style={{ overflow: 'visible' }}
+                className={styles['sliderCoin']}
+                modules={[Controller, EffectCreative]}
+                speed={1000}
+                effect={'creative'}
+                virtualTranslate={true}
+                creativeEffect={{
+                  prev: {
+                    translate: [0, 0, 0],
+                  },
+                  next: {
+                    translate: [0, 0, 0],
+                  },
+                }}
+                allowTouchMove={false}
+                controller={{ control: controlledSwiper }}
+                slidesPerView={1}
+                onClick={handleClick}
+              >
+                {data.map((slide) => (
+                  <SwiperSlide
+                    className={styles['sliderCoin__slide']}
+                    key={slide.id}
+                  >
+                    {({ isActive }) => (
+                      <AnimatePresence>
+                        {isActive && (
+                          <Fragment key={slide.id}>
+                            <div className={styles['coinsContainer']}>
+                              <motion.div
+                                className={
+                                  styles['sliderCoin__slide_containerBack']
+                                }
+                                {...motionPropsForBackCoin}
+                              >
+                                <BackgroundImage
+                                  className={styles['coinBack']}
+                                  src={slide.url.back}
+                                  alt="coin back"
+                                />
+                              </motion.div>
+                              <motion.div
+                                className={
+                                  styles['sliderCoin__slide_containerFront']
+                                }
+                                {...motionProps}
+                              >
+                                <BackgroundImage
+                                  className={styles['coinFront']}
+                                  src={slide.url.front}
+                                  alt="coin front"
+                                />
+                              </motion.div>
+                            </div>
+                          </Fragment>
+                        )}
+                      </AnimatePresence>
+                    )}
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          ) : (
+            <div
+              className={styles['ExploreDesignsSection__content_sliderCoin']}
+            >
+              <Swiper
+                className={styles['sliderCoin']}
+                slidesPerView={'auto'}
+                spaceBetween={44}
+              >
+                {data.map((slide) => (
+                  <SwiperSlide
+                    className={styles['sliderCoin__slide']}
+                    key={slide.id}
+                  >
+                    <div className={styles['coinsContainer']}>
+                      <div
+                        className={styles['sliderCoin__slide_containerBack']}
+                      >
+                        <BackgroundImage
+                          className={styles['coinBack']}
+                          src={slide.url.back}
+                          alt="coin back"
+                        />
+                      </div>
+                      <div
+                        className={styles['sliderCoin__slide_containerFront']}
+                      >
+                        <BackgroundImage
+                          className={styles['coinFront']}
+                          src={slide.url.front}
+                          alt="coin front"
+                        />
+                      </div>
+                    </div>
+                    <SlideInner
+                      title={slide.title}
+                      subtitle={slide.subtitle}
+                      width={width}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          )}
         </div>
       </Container>
     </section>
