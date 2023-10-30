@@ -1,4 +1,4 @@
-import { FC, useContext,  useRef } from 'react'
+import { FC, useContext } from 'react'
 import dynamic from 'next/dynamic'
 
 import IntroSection from './IntroSection/IntroSection'
@@ -55,10 +55,13 @@ const HomeContent: FC<HomeContentProps> = ({ products }) => {
       >
         <StorySection />
       </ParallaxSection>
-      <ParallaxSection offset={['end end', 'end start']} parallaxValues={[0, 400]}>
-      <div className={styles['discoverMasonMintWrapper']}>
-        <DiscoverMasonMintSection />
-      </div>
+      <ParallaxSection
+        offset={['end end', 'end start']}
+        parallaxValues={[0, 400]}
+      >
+        <div className={styles['discoverMasonMintWrapper']}>
+          <DiscoverMasonMintSection />
+        </div>
       </ParallaxSection>
       <ExploreDesignsSection />
       {products.length > 0 && <FeaturedDesignsSection products={products} />}

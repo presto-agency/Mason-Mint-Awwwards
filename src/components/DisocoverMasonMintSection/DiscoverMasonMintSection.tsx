@@ -17,7 +17,7 @@ export const DiscoverMasonMintSection: FC<DiscoverMasonMintSectionProps> = ({
   const targetRef = useRef<HTMLDivElement | null>(null)
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start start", "end start"]
+    offset: ['start start', 'end start'],
   })
 
   return (

@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/home/circled_arrow_bg.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/home/circled_arrow_bg.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/FAQSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/FAQSection.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/HomeContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/HomeContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/ParallaxSection/ParallaxSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ParallaxSection/ParallaxSection.tsx" afterDir="false" />
     </list>
@@ -36,22 +35,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.stylelint": "/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards/node_modules/stylelint",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards/node_modules/stylelint&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -65,7 +67,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1698241661961</updated>
-      <workItem from="1698241663000" duration="29006000" />
+      <workItem from="1698241663000" duration="31603000" />
+      <workItem from="1698651101811" duration="305000" />
     </task>
     <task id="LOCAL-00001" summary="fix: finish home page coin">
       <option name="closed" value="true" />
@@ -75,7 +78,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698331319845</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix: finish home page becomeDistributor transform">
+      <option name="closed" value="true" />
+      <created>1698413939301</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698413939301</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,6 +94,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: finish home page coin" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: finish home page coin" />
+    <MESSAGE value="fix: finish home page becomeDistributor transform" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: finish home page becomeDistributor transform" />
   </component>
 </project>

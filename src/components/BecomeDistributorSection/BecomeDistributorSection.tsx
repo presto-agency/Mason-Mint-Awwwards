@@ -1,22 +1,21 @@
-import {FC, useMemo, useRef} from 'react'
+import { FC, useMemo, useRef } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import classNames from 'classnames'
-import {useScroll, useTransform, motion, MotionValue} from 'framer-motion'
+import { useScroll, useTransform, motion, MotionValue } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 
-import {ButtonPrimary} from '@/ui/ButtonPrimary/ButtonPrimary'
+import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import routes from '@/utils/routes'
-import {BlueDot} from '@/ui/BlueDot'
+import { BlueDot } from '@/ui/BlueDot'
 
 const VideoComponent = dynamic(
   () => import('@/ui/VideoComponent/VideoComponent')
 )
 
 import styles from './BecomeDistributorSection.module.scss'
-import ParallaxSection from "@/ui/ParallaxSection/ParallaxSection";
 
 type BecomeDistributorSectionProps = {
   className?: string
@@ -28,25 +27,22 @@ const transition = {
 }
 
 const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
-                                                                       className,
-                                                                     }) => {
+  className,
+}) => {
   const ref = useRef<HTMLElement | null>(null)
-  const {width} = useWindowDimensions()
+  const { width } = useWindowDimensions()
 
-  const {scrollYProgress: scrollYProgress} = useScroll({
+  const { scrollYProgress: scrollYProgress } = useScroll({
     target: ref,
   })
 
-
-
-
-  const {scrollYProgress: scrollYProgressInner} = useScroll({
+  const { scrollYProgress: scrollYProgressInner } = useScroll({
     target: ref,
-    offset: ['start start', 'end end']
+    offset: ['start start', 'end end'],
   })
 
   const useParallax = (value: MotionValue<number>) => {
-    return useTransform(value, [0, 1], width > 991 ? [800, 0]: [0, 0])
+    return useTransform(value, [0, 1], width > 991 ? [800, 0] : [0, 0])
   }
 
   const y = useParallax(scrollYProgressInner)
@@ -54,10 +50,6 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
   const style = useMemo(() => {
     return { y: y }
   }, [y])
-
-
-
-
 
   const title = useTransform(
     scrollYProgress,
@@ -69,23 +61,23 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
   const spanBottom = useTransform(scrollYProgress, [0, 1], ['50%', '0%'])
 
   const titleStyles = useMemo(() => {
-    return {x: '-50%', y: title}
+    return { x: '-50%', y: title }
   }, [title])
 
   const sliceTopPartStyles = useMemo(() => {
-    return {top: slice}
+    return { top: slice }
   }, [slice])
 
   const sliceBottomPartStyles = useMemo(() => {
-    return {bottom: slice}
+    return { bottom: slice }
   }, [slice])
 
   const spanTopStyles = useMemo(() => {
-    return {y: spanTop}
+    return { y: spanTop }
   }, [spanTop])
 
   const spanBottomStyles = useMemo(() => {
-    return {y: spanBottom}
+    return { y: spanBottom }
   }, [spanBottom])
 
   return (
@@ -95,13 +87,20 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
     >
       <div className={styles['stickyContainer']}>
         <div className={styles['BecomeDistributorSection__content']}>
-          <VideoComponent src="/video/CTA.mp4"/>
-          <motion.div style={style} className={styles['BecomeDistributorSection__content_inner']}>
+          <VideoComponent src="/video/CTA.mp4" />
+          <motion.div
+            style={style}
+            className={styles['BecomeDistributorSection__content_inner']}
+          >
             <h2 className="h2">
-              <AnimatedText title>Become An Authorized Distributor</AnimatedText>
+              <AnimatedText title>
+                Become An Authorized Distributor
+              </AnimatedText>
             </h2>
             <p
-              className={styles['BecomeDistributorSection__content_description']}
+              className={
+                styles['BecomeDistributorSection__content_description']
+              }
             >
               <AnimatedText>
                 Our authorized dealer partners have access to our entire line of
@@ -134,7 +133,7 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
             className={styles['text']}
             transition={transition}
           >
-            don&apos;t miss it <BlueDot/>
+            don&apos;t miss it <BlueDot />
           </motion.span>
         </motion.div>
         <motion.div
@@ -147,7 +146,7 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
             style={spanBottomStyles}
             className={styles['text']}
           >
-            don&apos;t miss it <BlueDot/>
+            don&apos;t miss it <BlueDot />
           </motion.span>
         </motion.div>
       </div>
