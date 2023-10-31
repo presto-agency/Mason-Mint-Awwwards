@@ -125,8 +125,8 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
           className={styles['top']}
         >
           <motion.div className={styles['title']} style={titleStyles}>
-            <h6>Mason Mint</h6>
-            <h4>Crafted Coin Creations</h4>
+            <h6 className="h6">Mason Mint</h6>
+            <h4 className="h4">Crafted Coin Creations</h4>
           </motion.div>
           <motion.span
             style={spanTopStyles}
