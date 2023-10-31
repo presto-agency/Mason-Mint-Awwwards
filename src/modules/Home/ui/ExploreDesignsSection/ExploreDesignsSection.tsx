@@ -248,6 +248,7 @@ const ExploreDesignsSection = () => {
                 className={styles['sliderCoin']}
                 slidesPerView={'auto'}
                 spaceBetween={44}
+                speed={1000}
               >
                 {data.map((slide) => (
                   <SwiperSlide
