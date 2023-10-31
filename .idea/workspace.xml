@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/Accordion/Accordion.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/Accordion/Accordion.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/FAQSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/FAQSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +65,7 @@
       <updated>1698241661961</updated>
       <workItem from="1698241663000" duration="31603000" />
       <workItem from="1698651101811" duration="1089000" />
-      <workItem from="1698654215181" duration="16399000" />
+      <workItem from="1698654215181" duration="17394000" />
     </task>
     <task id="LOCAL-00001" summary="fix: finish home page coin">
       <option name="closed" value="true" />
@@ -108,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698746322090</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix: faq blue square">
+      <option name="closed" value="true" />
+      <created>1698747668140</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698747668140</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +127,7 @@
     <MESSAGE value="fix: eslint, jslint" />
     <MESSAGE value="fix: exploreDesign slider mob" />
     <MESSAGE value="fix: exploreDesign slider some fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: exploreDesign slider some fixes" />
+    <MESSAGE value="fix: faq blue square" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: faq blue square" />
   </component>
 </project>
