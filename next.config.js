@@ -27,10 +27,14 @@ const hashOnlyIdent = (context, _, exportName) =>
 const nextConfig = {
   reactStrictMode: true,
   profiler: process.env.NODE_ENV === 'development',
+  env: {
+    CLOUD_ACCESS_KEY: process.env.CLOUD_ACCESS_KEY,
+    CLOUD_SECRET_KEY: process.env.CLOUD_SECRET_KEY,
+    CLOUD_ENDPOINT: process.env.CLOUD_ENDPOINT,
+    CLOUD_BUCKET: process.env.CLOUD_BUCKET,
+  },
   images: {
-   domains: [
-    'mason-mint-products-dev.nyc3.digitaloceanspaces.com'
-   ]
+    domains: ['mason-mint-products-dev.nyc3.digitaloceanspaces.com'],
   },
   webpack(config, { dev }) {
     config.module.rules.push({

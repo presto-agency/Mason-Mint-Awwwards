@@ -49,6 +49,7 @@
     "yup": "^1.2.0"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.438.0",
     "@madeinhaus/nextjs-page-transition": "^3.1.0",
     "@splidejs/react-splide": "^0.7.12",
     "@studio-freight/react-lenis": "^0.0.20",
@@ -62,6 +63,7 @@
     "mongoose": "^7.3.1",
     "mongoose-paginate": "^5.0.3",
     "next": "13.4.2",
+    "next-auth": "^4.24.4",
     "nextjs-progressbar": "^0.0.16",
     "normalize-wheel": "^1.0.1",
     "react": "18.2.0",

@@ -1,0 +1,11 @@
+.alert{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100svh;
+	padding: 200rem;
+	text-align: center;
+	background-color: var(--white);
+}

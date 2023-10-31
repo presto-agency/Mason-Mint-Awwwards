@@ -51,6 +51,11 @@
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
+					
+						&_actions{
+							display: flex;
+							column-gap: 30rem;
+						}
 				}
 		}
 }

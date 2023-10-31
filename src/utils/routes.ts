@@ -12,5 +12,6 @@ export default {
     admin: '/admin',
     products: '/admin/products',
     categories: '/admin/categories',
+    productCreate: '/admin/products/create',
   },
 }

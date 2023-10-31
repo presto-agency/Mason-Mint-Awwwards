@@ -75,11 +75,9 @@
 		&:hover {
 			cursor: pointer;
 		}
-	}	
-}
+	}
 
-.isFeatured{
-	margin-bottom: 20rem;
+	
 }
 
 .grid_item {
@@ -122,6 +120,11 @@
 	
 			.image {
 				height: 100%;
+				background-color: var(--gray-400);
+					
+					img{
+						object-fit: contain;
+					}
 			}		
 	
 			.delete{

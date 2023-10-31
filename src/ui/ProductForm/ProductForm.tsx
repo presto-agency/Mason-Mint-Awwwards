@@ -1,9 +1,10 @@
 import { FC, useCallback, useMemo, useState } from 'react'
-import axios from 'axios'
+import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import {
   CategoryProps,
   ImagesProps,
+  ImageToUpload,
   MainImagesProps,
   ProductProps,
   SpecificationProps,
@@ -15,13 +16,12 @@ import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
 import { OptionInterface } from '@/utils/types'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import { generateSlug } from '@/utils/string/generateSlug'
+import { uploadFile } from '@/utils/s3Client/uploadFile'
 const SelectField = dynamic(() => import('@/ui/SelectField/SelectField'), {
   ssr: false,
 })
 
 import styles from './ProductForm.module.scss'
-import classNames from 'classnames'
-import Checkbox from '../Checkbox/Checkbox'
 
 type FormProps = {
   ProductName: string
@@ -37,15 +37,9 @@ type FormProps = {
   category?: CategoryProps
   specification?: SpecificationProps[]
   mainImages: MainImagesProps
-  additionalImages: ImagesProps[]
+  additionalImages?: ImagesProps[]
   slug: string
-  isFeatured: boolean
   description?: string
-}
-
-type ImageToUpload = {
-  file: File | null
-  ImageUrl: string | null
 }
 
 type AdditionalImageToUpload =
@@ -60,17 +54,6 @@ type AdditionalImageToUpload =
       file: null
       nameKeyToUpload: null
       ImageUrl: string
-    }
-
-type UploadImageResponse =
-  | {
-      type: 'obverse' | 'reverse'
-      url: string
-    }
-  | {
-      type: 'additional'
-      url: string
-      name: string
     }
 
 const transformAdditionalImages = (images: ImagesProps[]) => {
@@ -91,52 +74,55 @@ const transformAdditionalImages = (images: ImagesProps[]) => {
 }
 
 const ProductForm: FC<{
-  product: ProductProps
+  product?: ProductProps
   categories: CategoryProps[]
   onValues: (formData: ProductProps) => void
   loading: boolean
 }> = ({ product, categories, onValues, loading = false }) => {
+  const [_loading, setLoading] = useState(loading)
   const [selectedCategory, setSelectedCategory] = useState<OptionInterface>({
-    label: product.category?.name || '',
-    value: product.category?.id || '',
+    label: product?.category?.name || '',
+    value: product?.category?.id || '',
   })
-  console.log(product, 'prod')
 
   const [obverseImage, setObverseImage] = useState<ImageToUpload>({
     file: null,
-    ImageUrl: product.mainImages?.obverse || null,
+    ImageUrl: product?.mainImages?.obverse || null,
   })
   const [reverseImage, setReverseImage] = useState<ImageToUpload>({
     file: null,
-    ImageUrl: product.mainImages?.reverse || null,
+    ImageUrl: product?.mainImages?.reverse || null,
   })
+  const [isObserveImageDeleted, setIsObserveImageDeleted] =
+    useState<boolean>(false)
+  const [isReverseImageDeleted, setIsReverseImageDeleted] =
+    useState<boolean>(false)
 
   const [additionalImages, setAdditionalImages] = useState<
     AdditionalImageToUpload[]
   >(
-    product.additionalImages?.length
+    product?.additionalImages?.length
       ? transformAdditionalImages(product.additionalImages)
       : []
   )
 
   const defaultValues: FormProps = useMemo(
     () => ({
-      ProductName: product.ProductName,
-      Metal: product.Metal,
-      ActualMetalWeight: product.specification[0].ActualMetalWeight,
-      CoinWeight: product.specification[0].CoinWeight,
-      Diameter: product.specification[0].Diameter,
-      EdgeDesign: product.specification[0].EdgeDesign,
-      Fineness: product.specification[0].Fineness,
-      IraApproved: product.specification[0].IraApproved,
-      Series: product.specification[0].Series,
-      Thickness: product.specification[0].Thickness,
-      category: product.category,
-      mainImages: product.mainImages,
-      additionalImages: product.additionalImages,
-      slug: product.slug,
-      description: product.description || '',
-      isFeatured: product.isFeatured,
+      ProductName: product?.ProductName || '',
+      Metal: product?.Metal || '',
+      ActualMetalWeight: product?.specification[0].ActualMetalWeight || '',
+      CoinWeight: product?.specification[0].CoinWeight || '',
+      Diameter: product?.specification[0].Diameter || '',
+      EdgeDesign: product?.specification[0].EdgeDesign || '',
+      Fineness: product?.specification[0].Fineness || '',
+      IraApproved: product?.specification[0].IraApproved || '',
+      Series: product?.specification[0].Series || '',
+      Thickness: product?.specification[0].Thickness || '',
+      category: product?.category || undefined,
+      mainImages: product?.mainImages || { obverse: null, reverse: null },
+      additionalImages: product?.additionalImages || undefined,
+      slug: product?.slug || '',
+      description: product?.description || '',
     }),
     [product]
   )
@@ -179,29 +165,12 @@ const ProductForm: FC<{
     accept: 'image/jpeg, image/png',
   }
 
-  const resetObverseImage = useCallback(() => {
-    const obj = {
-      file: null,
-      ImageUrl: product.mainImages.obverse || null,
-    }
-
-    setObverseImage(obj)
-  }, [product.mainImages?.obverse])
-
-  const resetReverseImage = useCallback(() => {
-    const obj = {
-      file: null,
-      ImageUrl: product.mainImages.reverse || null,
-    }
-
-    setReverseImage(obj)
-  }, [product.mainImages?.reverse])
-
   const deleteObverseImage = useCallback(() => {
     setObverseImage({
       file: null,
       ImageUrl: null,
     })
+    setIsObserveImageDeleted(true)
   }, [])
 
   const deleteReverseImage = useCallback(() => {
@@ -209,6 +178,7 @@ const ProductForm: FC<{
       file: null,
       ImageUrl: null,
     })
+    setIsReverseImageDeleted(true)
   }, [])
 
   const deleteAdditionalImage = useCallback(
@@ -220,6 +190,7 @@ const ProductForm: FC<{
   )
 
   const onSubmit = async (formData: FormProps) => {
+    setLoading(true)
     formData.specification = [
       {
         ActualMetalWeight: formData.ActualMetalWeight || '',
@@ -243,81 +214,44 @@ const ProductForm: FC<{
     delete formData.IraApproved
     formData.slug = generateSlug(formData.slug)
 
-    formData.mainImages = {
-      obverse: obverseImage.ImageUrl,
-      reverse: reverseImage.ImageUrl,
-    }
-
-    const additionalImagesHash = new Map<string, string>()
-    const fd = new FormData()
-
+    /* main images */
     if (obverseImage.file) {
-      fd.append('obverseImage', obverseImage.file)
+      const uploadedObverseImageUrl = await uploadFile(obverseImage)
+      formData.mainImages.obverse = `${process.env.CLOUD_ENDPOINT}/${uploadedObverseImageUrl}`
+    } else if (isObserveImageDeleted && formData.mainImages) {
+      formData.mainImages.obverse = null
     }
 
     if (reverseImage.file) {
-      fd.append('reverseImage', reverseImage.file)
+      const uploadedReverseImageUrl = await uploadFile(reverseImage)
+      formData.mainImages.reverse = `${process.env.CLOUD_ENDPOINT}/${uploadedReverseImageUrl}`
+    } else if (isReverseImageDeleted && formData.mainImages) {
+      formData.mainImages.reverse = null
     }
 
-    for (const image of additionalImages) {
-      additionalImagesHash.set(
-        image.nameKeyToUpload ? image.nameKeyToUpload : image.id,
-        image.ImageUrl
-      )
-      if (image.file) {
-        fd.append(`additionalImages`, image.file)
-      }
-    }
-
-    if (
-      fd.has('obverseImage') ||
-      fd.has('reverseImage') ||
-      fd.has('additionalImages')
-    ) {
-      await axios
-        .post(`/api/files/${product.id}/upload`, fd)
-        .then(({ data: { files = [], success = false, error = null } }) => {
-          if (error) {
-            console.log(error)
-          }
-
-          if (success) {
-            Object.values<UploadImageResponse>(files).forEach((file) => {
-              switch (file.type) {
-                case 'obverse':
-                  formData.mainImages.obverse = file.url
-                  break
-                case 'reverse':
-                  formData.mainImages.reverse = file.url
-                  break
-                case 'additional':
-                  additionalImagesHash.set(file.name, file.url)
-                  break
-                default:
-                  break
-              }
+    /* additional images */
+    if (additionalImages.length > 0) {
+      const uploadedAdditionalImagesUrl = []
+      for (const image of additionalImages) {
+        if (image.file) {
+          const uploadedImageUrl = await uploadFile(image)
+          if (uploadedImageUrl) {
+            uploadedAdditionalImagesUrl.push({
+              ImageUrl: `${process.env.CLOUD_ENDPOINT}/${
+                uploadedImageUrl as string
+              }`,
             })
           }
-        })
-        .catch((error) => console.error(error))
-    }
-    const result: { ImageUrl: string }[] = []
-    additionalImages.forEach((image) => {
-      if (image.nameKeyToUpload) {
-        if (additionalImagesHash.has(image.nameKeyToUpload)) {
-          result.push({
-            ImageUrl: additionalImagesHash.get(image.nameKeyToUpload)!,
-          })
-          return
+        } else {
+          uploadedAdditionalImagesUrl.push({ ImageUrl: image.ImageUrl })
         }
       }
-      result.push({ ImageUrl: image.ImageUrl })
-      return
-    })
 
-    formData.additionalImages = [...result]
+      formData.additionalImages = [...uploadedAdditionalImagesUrl]
+    }
     ;(await onValues) && onValues(formData as ProductProps)
   }
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
       <div className="row">
@@ -330,8 +264,8 @@ const ProductForm: FC<{
                 <TextField
                   {...field}
                   value={getValues().ProductName}
-                  placeholder="Product name"
-                  label="Product should have a name*"
+                  placeholder="ProductOld name"
+                  label="ProductOld should have a name*"
                   error={errors['ProductName']?.message}
                 />
               )
@@ -346,7 +280,7 @@ const ProductForm: FC<{
                   {...field}
                   value={getValues().slug}
                   placeholder="Slug"
-                  label="Product should have a name*"
+                  label="ProductOld should have a name*"
                   error={errors['slug']?.message}
                   readOnly
                 />
@@ -362,7 +296,7 @@ const ProductForm: FC<{
                   {...field}
                   value={getValues().description}
                   placeholder="Description"
-                  label="Product can have a some description*"
+                  label="ProductOld can have a some description*"
                   error={errors['description']?.message}
                 />
               )
@@ -511,246 +445,161 @@ const ProductForm: FC<{
                 }}
               />
             </div>
+            <div className="col-md-6">
+              <Controller
+                control={control}
+                name="Metal"
+                render={({ field }) => {
+                  return (
+                    <TextField
+                      {...field}
+                      value={getValues()['Metal']}
+                      placeholder=""
+                      label="Metal"
+                      error={errors['Metal']?.message}
+                    />
+                  )
+                }}
+              />
+            </div>
+            <div className="col-md-6">
+              <Controller
+                control={control}
+                name="category"
+                render={({ field }) => {
+                  return (
+                    <SelectField
+                      {...field}
+                      placeholder="Select Categories"
+                      label="Category*"
+                      error={errors['category']?.message}
+                      options={categoriesOptions}
+                      onChange={handleCategoryChange}
+                      selectedOption={selectedCategory}
+                    />
+                  )
+                }}
+              />
+            </div>
           </div>
-          <Controller
-            control={control}
-            name="category"
-            render={({ field }) => {
-              return (
-                <SelectField
-                  {...field}
-                  placeholder="Select Categories"
-                  label="Category*"
-                  error={errors['category']?.message}
-                  options={categoriesOptions}
-                  onChange={handleCategoryChange}
-                  selectedOption={selectedCategory}
-                />
-              )
-            }}
-          />
-          <Controller
-            control={control}
-            name="isFeatured"
-            render={({ field }) => {
-              return (
-                <Checkbox
-                  {...field}
-                  id={'isFeaturedCheck'}
-                  className={styles['isFeatured']}
-                  checked={getValues().isFeatured}
-                  label="Is featured product?"
-                />
-              )
-            }}
-          />
-          <ButtonPrimary type="submit" isLoading={loading}>
+          <ButtonPrimary type="submit" isLoading={_loading}>
             Save product
           </ButtonPrimary>
         </div>
         <div
           className={classNames('col-md-6', styles['form__upload_container'])}
         >
-          {process.env.NODE_ENV === 'development' ? (
-            <>
-              <div
-                className={classNames(styles['grid_item'], styles['obverse'])}
+          <div className={classNames(styles['grid_item'], styles['obverse'])}>
+            <h5>Obverse:</h5>
+            {obverseImage.ImageUrl &&
+            !obverseImage.ImageUrl.includes('www.masonmint.com') ? (
+              <BackgroundImage
+                src={obverseImage.ImageUrl}
+                alt="Alt"
+                className={styles['form__thumbs_item']}
+              />
+            ) : (
+              <RCUploader
+                {...uploadProps}
+                beforeUpload={async (file: File) => {
+                  const imageToAdd = {
+                    file: file,
+                    ImageUrl: URL.createObjectURL(file),
+                  }
+                  setObverseImage(imageToAdd)
+                }}
+                className={styles['form__upload_item']}
               >
-                <h5>Obverse:</h5>
-                {obverseImage.ImageUrl &&
-                !obverseImage.ImageUrl.includes('www.masonmint.com') ? (
-                  <BackgroundImage
-                    src={obverseImage.ImageUrl}
-                    alt="Alt"
-                    className={styles['form__thumbs_item']}
-                  />
-                ) : (
-                  <RCUploader
-                    {...uploadProps}
-                    beforeUpload={async (file: File) => {
-                      const imageToAdd = {
-                        file: file,
-                        ImageUrl: URL.createObjectURL(file),
-                      }
-                      setObverseImage(imageToAdd)
-                    }}
-                    className={styles['form__upload_item']}
-                  >
-                    Choose, or drag the file
-                  </RCUploader>
-                )}
-                <div className={styles['buttons']}>
-                  <button
-                    className={styles['reset_button']}
-                    type="button"
-                    onClick={resetObverseImage}
-                  >
-                    Reset
-                  </button>
-                  <button
-                    type="button"
-                    className={styles['delete_button']}
-                    onClick={deleteObverseImage}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-              <div
-                className={classNames(styles['grid_item'], styles['reverse'])}
+                Choose, or drag the file
+              </RCUploader>
+            )}
+            <div className={styles['buttons']}>
+              <button
+                type="button"
+                className={styles['delete_button']}
+                onClick={deleteObverseImage}
               >
-                <h5>Reverse:</h5>
+                Delete
+              </button>
+            </div>
+          </div>
+          <div className={classNames(styles['grid_item'], styles['reverse'])}>
+            <h5>Reverse:</h5>
 
-                {reverseImage.ImageUrl &&
-                !reverseImage.ImageUrl.includes('www.masonmint.com') ? (
-                  <BackgroundImage
-                    src={reverseImage.ImageUrl}
-                    alt="Alt"
-                    className={styles['form__thumbs_item']}
-                  />
-                ) : (
-                  <RCUploader
-                    {...uploadProps}
-                    beforeUpload={async (file: File) => {
-                      const imageToAdd = {
-                        file: file,
-                        ImageUrl: URL.createObjectURL(file),
-                      }
-                      setReverseImage(imageToAdd)
-                    }}
-                    className={styles['form__upload_item']}
-                  >
-                    Choose, or drag the file
-                  </RCUploader>
-                )}
-                <div className={styles['buttons']}>
-                  <button
-                    type="button"
-                    className={styles['reset_button']}
-                    onClick={resetReverseImage}
-                  >
-                    Reset
-                  </button>
-                  <button
-                    type="button"
-                    className={styles['delete_button']}
-                    onClick={deleteReverseImage}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-              <div
-                className={classNames(
-                  styles['grid_item'],
-                  styles['additional']
-                )}
+            {reverseImage.ImageUrl &&
+            !reverseImage.ImageUrl.includes('www.masonmint.com') ? (
+              <BackgroundImage
+                src={reverseImage.ImageUrl}
+                alt="Alt"
+                className={styles['form__thumbs_item']}
+              />
+            ) : (
+              <RCUploader
+                {...uploadProps}
+                beforeUpload={async (file: File) => {
+                  const imageToAdd = {
+                    file: file,
+                    ImageUrl: URL.createObjectURL(file),
+                  }
+                  setReverseImage(imageToAdd)
+                }}
+                className={styles['form__upload_item']}
               >
-                <h5>Additional images:</h5>
-                {additionalImages.length ? (
-                  <div className={styles['images_list']}>
-                    {additionalImages.map((image) => {
-                      return (
-                        <div
-                          key={image.id}
-                          className={styles['images_list_item']}
-                        >
-                          <BackgroundImage
-                            src={image.ImageUrl}
-                            alt="Alt"
-                            className={styles['image']}
-                          />
-                          <div
-                            className={styles['delete']}
-                            onClick={() => deleteAdditionalImage(image.id)}
-                          >
-                            x
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-                ) : null}
-                <RCUploader
-                  {...uploadProps}
-                  multiple={true}
-                  beforeUpload={async (file: File & { uid: string }) => {
-                    const imageToAdd = {
-                      id: file.uid,
-                      file: file,
-                      nameKeyToUpload: file.name,
-                      ImageUrl: URL.createObjectURL(file),
-                    }
-                    setAdditionalImages((prevSate) => [...prevSate, imageToAdd])
-                  }}
-                  className={styles['form__upload_item']}
-                >
-                  Choose, or drag the files
-                </RCUploader>
-              </div>
-            </>
-          ) : (
-            <>
-              <div
-                className={classNames(styles['grid_item'], styles['obverse'])}
+                Choose, or drag the file
+              </RCUploader>
+            )}
+            <div className={styles['buttons']}>
+              <button
+                type="button"
+                className={styles['delete_button']}
+                onClick={deleteReverseImage}
               >
-                {obverseImage.ImageUrl &&
-                  !obverseImage.ImageUrl.includes('www.masonmint.com') && (
-                    <>
-                      <h5>Obverse:</h5>
+                Delete
+              </button>
+            </div>
+          </div>
+          <div
+            className={classNames(styles['grid_item'], styles['additional'])}
+          >
+            <h5>Additional images:</h5>
+            {additionalImages.length ? (
+              <div className={styles['images_list']}>
+                {additionalImages.map((image) => {
+                  return (
+                    <div key={image.id} className={styles['images_list_item']}>
                       <BackgroundImage
-                        src={obverseImage.ImageUrl}
+                        src={image.ImageUrl}
                         alt="Alt"
-                        className={styles['form__thumbs_item']}
+                        className={styles['image']}
                       />
-                    </>
-                  )}
-              </div>
-              <div
-                className={classNames(styles['grid_item'], styles['reverse'])}
-              >
-                {reverseImage.ImageUrl &&
-                  !reverseImage.ImageUrl.includes('www.masonmint.com') && (
-                    <>
-                      <h5>Reverse:</h5>
-                      <BackgroundImage
-                        src={reverseImage.ImageUrl}
-                        alt="Alt"
-                        className={styles['form__thumbs_item']}
-                      />
-                    </>
-                  )}
-              </div>
-              <div
-                className={classNames(
-                  styles['grid_item'],
-                  styles['additional']
-                )}
-              >
-                {additionalImages.length ? (
-                  <>
-                    <h5>Additional images:</h5>
-                    <div className={styles['images_list']}>
-                      {additionalImages.map((image) => {
-                        return (
-                          <div
-                            key={image.id}
-                            className={styles['images_list_item']}
-                          >
-                            <BackgroundImage
-                              src={image.ImageUrl}
-                              alt="Alt"
-                              className={styles['image']}
-                            />
-                          </div>
-                        )
-                      })}
+                      <div
+                        className={styles['delete']}
+                        onClick={() => deleteAdditionalImage(image.id)}
+                      >
+                        x
+                      </div>
                     </div>
-                  </>
-                ) : null}
+                  )
+                })}
               </div>
-            </>
-          )}
+            ) : null}
+            <RCUploader
+              {...uploadProps}
+              multiple={true}
+              beforeUpload={async (file: File & { uid: string }) => {
+                const imageToAdd = {
+                  id: file.uid,
+                  file: file,
+                  nameKeyToUpload: file.name,
+                  ImageUrl: URL.createObjectURL(file),
+                }
+                setAdditionalImages((prevSate) => [...prevSate, imageToAdd])
+              }}
+              className={styles['form__upload_item']}
+            >
+              Choose, or drag the files
+            </RCUploader>
+          </div>
         </div>
       </div>
     </form>
