@@ -1,4 +1,4 @@
-import { FC, useMemo, useRef } from 'react'
+import { FC, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import classNames from 'classnames'
@@ -16,6 +16,7 @@ const VideoComponent = dynamic(
 )
 
 import styles from './BecomeDistributorSection.module.scss'
+import { Store } from '@/utils/Store'
 
 type BecomeDistributorSectionProps = {
   className?: string
@@ -79,6 +80,36 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
   const spanBottomStyles = useMemo(() => {
     return { y: spanBottom }
   }, [spanBottom])
+
+  const store = useContext(Store)
+
+  const [prevIsVisible, setPrevIsVisible] = useState<boolean | null>(null)
+
+  const handleScroll = () => {
+    if (ref.current) {
+      const section = ref.current
+      const sectionTop = section.offsetTop
+      const viewportBottom = window.scrollY + window.innerHeight
+      const isSectionVisible =
+        viewportBottom >= sectionTop + section.clientHeight / 2
+
+      if (isSectionVisible !== prevIsVisible) {
+        setPrevIsVisible(isSectionVisible)
+        store?.dispatch({
+          type: 'IS_BECOME_DISTRIBUTOR_VISIBLE',
+          payload: isSectionVisible,
+        })
+      }
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [prevIsVisible])
 
   return (
     <section
