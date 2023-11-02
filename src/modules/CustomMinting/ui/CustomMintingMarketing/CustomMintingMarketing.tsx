@@ -10,6 +10,7 @@ const AbstractLogo = dynamic(() => import('@/ui/AbstractLogo/AbstractLogo'), {
 })
 
 import styles from './CustomMintingMarketing.module.scss'
+import CustomMintingContentBlock from '@/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingContentBlock'
 
 const CustomMintingMarketing: FC<{ className?: string }> = ({ className }) => {
   return (
@@ -18,33 +19,18 @@ const CustomMintingMarketing: FC<{ className?: string }> = ({ className }) => {
     >
       <AbstractLogo className={styles['abstract']} />
       {data.map((item, index) => {
+        const isMirror = index % 2 === 1
+
         return (
-          <div key={index} className={styles['contentBlock']}>
-            <div className={styles['title']}>
-              <h2>
-                <AnimatedText title withBlueDot>
-                  {item.title}
-                </AnimatedText>
-              </h2>
-              <p>
-                <AnimatedText>{item.description}</AnimatedText>
-              </p>
-            </div>
-            <div className={styles['descriptor']}>
-              <h6>
-                <AnimatedText>{item.descriptor}</AnimatedText>
-              </h6>
-            </div>
-            <div className={styles['photo']}>
-              <BackgroundImage
-                alt={item.title}
-                src={item.thumb}
-                className={styles['photo__item']}
-                parallax
-                parallaxValues={[-100, 100]}
-              />
-            </div>
-          </div>
+          <CustomMintingContentBlock
+            key={item.title}
+            index={index}
+            title={item.title}
+            description={item.description}
+            descriptor={item.descriptor}
+            thumb={item.thumb}
+            isMirror={isMirror}
+          />
         )
       })}
     </section>
