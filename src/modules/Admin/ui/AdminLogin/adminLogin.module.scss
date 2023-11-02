@@ -1,0 +1,19 @@
+.page{
+	position: relative;
+	min-height: 100svh;
+	padding: 30vh 0 20rem;
+	background-color: var(--white);
+	
+		&__form{
+			max-width: 400rem;
+			margin: 0 auto;
+			
+				&_message{
+					margin-top: 30rem;
+					padding: 0 10rem;
+					color: var(--error);
+					font-weight: 500;
+					font-size: 14rem;
+				}
+		}
+}

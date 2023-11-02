@@ -1,13 +1,12 @@
-import { FC, useState } from 'react'
-import { useRouter } from 'next/router'
+import { CategoryProps, ProductProps } from '@/utils/types'
 import dynamic from 'next/dynamic'
 import axios, { AxiosResponse } from 'axios'
 import Container from '@/app/layouts/Container'
-import { CategoryProps, ProductProps } from '@/utils/types'
 import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
-import { useModal } from '@/hooks/useModal'
-import ProductForm from '@/ui/ProductForm/ProductForm'
 import routes from '@/utils/routes'
+import ProductForm from '@/ui/ProductForm/ProductForm'
+import { useState } from 'react'
+import { useModal } from '@/hooks/useModal'
 const ProductManipulatedSuccessModal = dynamic(
   () => import('@/modals/ProductManipulatedSuccess/ProductManipulatedSuccess'),
   { ssr: false }
@@ -15,24 +14,18 @@ const ProductManipulatedSuccessModal = dynamic(
 
 import styles from '@/modules/Admin/Admin.module.scss'
 
-const ProductEdit: FC<{
-  product: ProductProps
-  categories: CategoryProps[]
-}> = ({ product, categories }) => {
-  const { query } = useRouter()
-  const [productState, setProductState] = useState(product)
+const ProductCreate = ({ categories }: { categories: CategoryProps[] }) => {
   const [loading, setLoading] = useState(false)
   const openSuccessModal = useModal(ProductManipulatedSuccessModal, {
     size: 'md',
   })
 
-  const handleEdit = async (data: ProductProps) => {
+  const handleCreate = async (data: ProductProps) => {
     setLoading(true)
     await axios
-      .put(`/api/products/${query.id}/edit`, data)
+      .post(`/api/products/create`, data)
       .then(({ data: { success, data } }: AxiosResponse) => {
         if (success) {
-          setProductState(data)
           setLoading(false)
           openSuccessModal()
         }
@@ -50,9 +43,8 @@ const ProductEdit: FC<{
           Back to list
         </ButtonPrimary>
         <ProductForm
-          product={productState}
           categories={categories}
-          onValues={handleEdit}
+          onValues={handleCreate}
           loading={loading}
         />
       </Container>
@@ -60,4 +52,4 @@ const ProductEdit: FC<{
   )
 }
 
-export default ProductEdit
+export default ProductCreate
