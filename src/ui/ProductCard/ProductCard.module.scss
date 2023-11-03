@@ -6,17 +6,19 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	max-width: 304rem;
-	
+	cursor: default;
 
-	&:hover {
-		.product__thumb_img{
-			transform: rotate(-45deg);
+		&:hover {
+			cursor: pointer;
+			
+				.product__thumb_img{
+					transform: rotate(-45deg);
+				}
 		}
-	}
 	
-	@media (width <= $breakpoint-mob) {
-		max-width: 224rem;
-	}
+		@media (width <= $breakpoint-mob) {
+			max-width: 224rem;
+		}
 
 	.product__thumb_img{
 		position: absolute;

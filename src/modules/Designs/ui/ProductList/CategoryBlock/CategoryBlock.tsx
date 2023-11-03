@@ -55,7 +55,10 @@ export const CategoryBlock: FC<CategoryBlockProps> = ({
     >
       {products.map((product) => (
         <motion.div key={product.id} variants={listVariant}>
-          <ProductCard data={product} />
+          <ProductCard
+            data={product}
+            className={styles['categoryList-product']}
+          />
         </motion.div>
       ))}
     </motion.div>
