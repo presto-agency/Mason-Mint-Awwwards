@@ -121,6 +121,14 @@
         }
       }
 
+    .top{
+      .title{
+        h6, h4{
+          white-space: nowrap;
+        }
+      }
+    }
+
     &::before {
       top: -178rem;
       right: 168rem;

@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingContentBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,7 @@
       <updated>1698241661961</updated>
       <workItem from="1698241663000" duration="31603000" />
       <workItem from="1698651101811" duration="1089000" />
-      <workItem from="1698654215181" duration="14915000" />
+      <workItem from="1698654215181" duration="50193000" />
     </task>
     <task id="LOCAL-00001" summary="fix: finish home page coin">
       <option name="closed" value="true" />
@@ -100,7 +101,47 @@
       <option name="project" value="LOCAL" />
       <updated>1698674614690</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix: exploreDesign slider some fixes">
+      <option name="closed" value="true" />
+      <created>1698746322090</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698746322090</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix: faq blue square">
+      <option name="closed" value="true" />
+      <created>1698747668140</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698747668140</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix: DiscoverMasonMint some fixes">
+      <option name="closed" value="true" />
+      <created>1698748912297</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1698748912297</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: footer mob some fixes">
+      <option name="closed" value="true" />
+      <created>1698763882010</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698763882010</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: footer design bug">
+      <option name="closed" value="true" />
+      <created>1698849887839</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698849887839</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,6 +152,11 @@
     <MESSAGE value="fix: finish home page becomeDistributor transform" />
     <MESSAGE value="fix: eslint, jslint" />
     <MESSAGE value="fix: exploreDesign slider mob" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: exploreDesign slider mob" />
+    <MESSAGE value="fix: exploreDesign slider some fixes" />
+    <MESSAGE value="fix: faq blue square" />
+    <MESSAGE value="fix: DiscoverMasonMint some fixes" />
+    <MESSAGE value="fix: footer mob some fixes" />
+    <MESSAGE value="fix: footer design bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: footer design bug" />
   </component>
 </project>

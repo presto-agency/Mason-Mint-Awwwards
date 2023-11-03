@@ -8,11 +8,12 @@ export interface IInitialStateProps {
   products: ProductProps[]
   isFirstLoading: boolean
   isPreloadFinished: boolean
+  isBecomeDistributorVisible: boolean
 }
 
 export interface IActionProps {
   type: string
-  payload?: object
+  payload?: object | boolean
 }
 
 const initialState: IInitialStateProps = {
@@ -22,6 +23,7 @@ const initialState: IInitialStateProps = {
   products: [],
   isFirstLoading: true,
   isPreloadFinished: false,
+  isBecomeDistributorVisible: false,
 }
 
 export const Store = createContext<{
@@ -73,6 +75,13 @@ const reducer = (state: IInitialStateProps, action: IActionProps) => {
       return {
         ...state,
         isPreloadFinished: true,
+      }
+    }
+    //Visible section
+    case 'IS_BECOME_DISTRIBUTOR_VISIBLE': {
+      return {
+        ...state,
+        isBecomeDistributorVisible: action.payload as boolean,
       }
     }
     default:

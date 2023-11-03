@@ -149,6 +149,8 @@
 
 @media (width <= $breakpoint-mob) {
   .footer {
+    position: static;
+
     &__content {
       &::before{
         top: 84rem;

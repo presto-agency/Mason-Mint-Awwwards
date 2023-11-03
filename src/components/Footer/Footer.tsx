@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import Link from 'next/link'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
@@ -8,6 +8,8 @@ import PrestoLogo from '../../../public/icons/presto-logo.svg'
 import routes from '@/utils/routes'
 
 import styles from './Footer.module.scss'
+import { Store } from '@/utils/Store'
+import { useWindowSize } from 'usehooks-ts'
 
 const LogoBlock = () => {
   return (
@@ -71,8 +73,17 @@ const NavigationBlock = () => {
 }
 
 export const Footer: FC = () => {
+  const store = useContext(Store)
+  const { width } = useWindowSize()
+  const isVisible = width > 767 && store?.state.isBecomeDistributorVisible
+
   return (
-    <footer className={styles['footer']}>
+    <footer
+      style={{
+        position: isVisible ? 'sticky' : 'relative',
+      }}
+      className={styles['footer']}
+    >
       <Container>
         <div className={styles['footer__content']}>
           <div className={styles['footer__content_top']}>
