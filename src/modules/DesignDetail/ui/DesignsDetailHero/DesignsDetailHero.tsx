@@ -67,7 +67,6 @@ const DesignsDetailHero: FC<DesignsDetailHeroProps> = ({
             activeSide={activeSide}
             product={product}
           />
-
           {product.mainImages && (
             <PhotoPicker
               className={styles['photoPicker']}

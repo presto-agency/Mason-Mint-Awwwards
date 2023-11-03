@@ -14,6 +14,7 @@ import '@/app/styles/index.scss'
 import { QueryClientProvider, QueryClient, Hydrate } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { useState } from 'react'
+import { Toaster } from 'react-hot-toast'
 
 const gambetta = localFont({
   src: [
@@ -88,6 +89,21 @@ export default function App({
           <SessionProvider session={session}>
             <StoreProvider>
               <AppLayout>
+                <Toaster
+                  position="bottom-right"
+                  toastOptions={{
+                    style: {
+                      fontSize: '16rem',
+                      lineHeight: '24rem',
+                      fontWeight: '400',
+                      fontFamily: 'var(--font-family-secondary)',
+                    },
+                    iconTheme: {
+                      primary: '#21D184',
+                      secondary: '#FFF',
+                    },
+                  }}
+                />
                 <NextNProgress color="#266ef9" />
                 <div id="portal"></div>
                 <MainPreloaderWrapper />

@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingContentBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/styles/variables/breackpoints.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/styles/variables/breackpoints.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/CustomMintingProcess.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/CustomMintingProcess.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/DesignsDetailHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/DesignsDetailHero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/ShareCoins/ShareCoins.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/ShareCoins/ShareCoins.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +25,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -146,6 +153,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: finish home page coin" />

@@ -86,14 +86,17 @@
   margin-top: -5%;
 }
 
-@media (width<=$breakpoint-tablet) {
-  .hero {
-    height: 45vh;
-  }
-}
+//@media (width<=$breakpoint-tablet) {
+//  .hero {
+//    height: 45vh;
+//  }
+//}
 
 @media (width<=$breakpoint-mob) {
   .hero {
+    height: initial;
+    padding: 72rem 0 0;
+
     h1 {
       width: 100%;
     }
