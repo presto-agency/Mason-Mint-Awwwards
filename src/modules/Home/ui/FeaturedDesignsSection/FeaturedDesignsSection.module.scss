@@ -7,7 +7,7 @@
   background-color: var(--white);
   
   @media (width <= $breakpoint-mob) {
-    padding: 78rem 0 20rem;
+    padding: 78rem 0 60rem;
   }
   
   &__title{
@@ -51,4 +51,9 @@
 .productMarquee{
   padding-top: 64rem;
   padding-bottom: 164rem;
+  
+    @media (width <= $breakpoint-mob) {
+      padding-top: 20rem;
+      padding-bottom: 2rem;
+    }
 }

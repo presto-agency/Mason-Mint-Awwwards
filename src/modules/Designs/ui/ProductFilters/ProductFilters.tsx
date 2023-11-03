@@ -6,6 +6,7 @@ import { CategoryProps } from '@/utils/types'
 import { ProducsSectionContext } from '../../lib/ProductListContext'
 
 import styles from './ProductFilters.module.scss'
+import { useLenis } from '@studio-freight/react-lenis'
 
 type ProductFiltersProps = {
   className?: string
@@ -20,6 +21,7 @@ const ProductFilters: FC<ProductFiltersProps> = ({
 }) => {
   const { width } = useWindowSize()
   const { activeSection, scrollTop } = useContext(ProducsSectionContext)
+  const lenis = useLenis()
 
   return (
     <div className={classNames(styles['ProductFilters'], className)}>
@@ -49,10 +51,15 @@ const ProductFilters: FC<ProductFiltersProps> = ({
                   const pos =
                     element?.getBoundingClientRect().top + window.scrollY + 1
 
-                  window.scrollTo({
-                    top: pos,
-                    behavior: width > 767 ? 'smooth' : 'auto', // for some reason "smooth" gives wrong position of element on mobile
+                  lenis.scrollTo(pos, {
+                    duration: 1.5,
+                    force: true,
                   })
+
+                  // window.scrollTo({
+                  //   top: pos,
+                  //   // behavior: width > 767 ? 'smooth' : 'auto', // for some reason "smooth" gives wrong position of element on mobile
+                  // })
                 }
               }}
             >

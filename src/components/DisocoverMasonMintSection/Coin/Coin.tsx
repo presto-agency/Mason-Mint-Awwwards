@@ -5,8 +5,8 @@ import { MotionValue, useMotionValueEvent, useTransform } from 'framer-motion'
 import Lottie, { LottieRefCurrentProps } from 'lottie-react'
 const loaderJsonPromise = import('../assets/flipCoin.json')
 
-import styles from '../DiscoverMasonMintSection.module.scss'
 import { useWindowSize } from 'usehooks-ts'
+import styles from '../DiscoverMasonMintSection.module.scss'
 
 type CoinProps = {
   scrollYProgress: MotionValue<number>

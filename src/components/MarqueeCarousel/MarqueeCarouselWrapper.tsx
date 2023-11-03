@@ -90,7 +90,7 @@ export const MarqueCarouselWrapper: FC<MarqueCarouselWrapperProps> = ({
 
   const onDrag = useCallback(
     (e: DragEventType, info: PanInfo) => {
-      _speed.set(dragFactor * -info.delta.x)
+      _speed.set(dragFactor * -info.delta.x * 2)
     },
     [_speed, dragFactor]
   )

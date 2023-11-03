@@ -36,17 +36,18 @@
   top: 50%;
   left: 50%;
   z-index: 2;
-  max-width: 35%;
+  width: 496rem;
+  height: 496rem;
   transform: translate(-50%, -50%);
+  
+    @media(width <= $breakpoint-mob) {
+      width: 210rem;
+      height: 210rem;
+    }
 }
 
 @media(width <= $breakpoint-mob) {
-  .imageContainer{
-    width: 60%;
-    max-width: none;
-
-    image{
-      width: 100%;
-    }
+  .DiscoverMasonMintSection {
+    margin-top: -50rem;
   }
 }
