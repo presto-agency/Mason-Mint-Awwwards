@@ -2,13 +2,12 @@
 
 .ListTitle {
   position: relative;
-  height: 65rem;
+  height: 64rem;
   overflow: hidden;
   border-bottom: 1rem solid var(--black);
 
   &__inner {
     display: flex;
-    align-items: flex-end;
     align-items: center;
     justify-content: space-between;
     padding-bottom: 36rem;

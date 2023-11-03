@@ -2,10 +2,12 @@
 
 
 .ProductSearch {
-  position: relative;
+  position: sticky;
+  top: 32rem;
   display: flex;
   align-items: center;
   min-height: 64rem;
+  transition: 1s ease-out;
 
   span {
     font: var(--font-button-m);
