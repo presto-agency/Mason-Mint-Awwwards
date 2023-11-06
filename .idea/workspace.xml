@@ -5,12 +5,95 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/styles/variables/breakpoints.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/variables.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/styles/variables/breackpoints.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/styles/variables/breackpoints.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layouts/CursorLayout/CursorLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layouts/CursorLayout/CursorLayout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/styles/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/styles/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/styles/variables/breackpoints.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BecomeDistributorSection/BecomeDistributorSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/Coin/Coin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/Coin/Coin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DisocoverMasonMintSection/DiscoverMasonMintSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Burger/Burger.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Burger/Burger.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Header.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainPreloader/MainPreloader.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainPreloader/MainPreloader.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MarqueeCarousel/MarqueeCarousel.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MarqueeCarousel/MarqueeCarousel.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/WhatWeDo/WhatWeDo.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/WhatWeDo/WhatWeDo.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modals/Thanks/Thanks.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modals/Thanks/Thanks.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/About/ui/AllProducts/AllProducts.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/About/ui/AllProducts/AllProducts.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/About/ui/WasBorn/WasBorn.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/About/ui/WasBorn/WasBorn.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/BecomeADistributor/ui/BecomeADistributorBody/BecomeADistributorBody.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/BecomeADistributor/ui/BecomeADistributorBody/BecomeADistributorBody.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/BecomeADistributor/ui/BecomeADistributorContent.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/BecomeADistributor/ui/BecomeADistributorContent.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/BecomeADistributor/ui/BecomeADistributorForm/BecomeADistributorForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/BecomeADistributor/ui/BecomeADistributorForm/BecomeADistributorForm.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Contact/ui/ContactBody/ContactBody.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Contact/ui/ContactBody/ContactBody.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Contact/ui/ContactContent.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Contact/ui/ContactContent.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Contact/ui/ContactForm/ContactForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Contact/ui/ContactForm/ContactForm.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingContent.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingContent.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/CoinBlock/CoinBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/CoinBlock/CoinBlock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/CoinBlock/CoinBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/CoinBlock/CoinBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/CounterBlock/CounterBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/CounterBlock/CounterBlock.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/CustomMintingProcess.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/CustomMintingProcess.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/DesignsDetailHero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/DesignsDetailHero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/ShareCoins/ShareCoins.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/ShareCoins/ShareCoins.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/DescriptionBlock/DescriptionBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingProcess/DescriptionBlock/DescriptionBlock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailContent.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailContent.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/DesignsDetailHero.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/DesignsDetailHero.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/PhotoMain/PhotoMain.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/PhotoMain/PhotoMain.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/PhotoPicker/PhotoPicker.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/PhotoPicker/PhotoPicker.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/ProductDescription/ProductDescription.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/ProductDescription/ProductDescription.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/ShareCoins/ShareCoins.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/ShareCoins/ShareCoins.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailSameProducts/DesignsDetailSameProducts.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailSameProducts/DesignsDetailSameProducts.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailSpecifications/DesignsDetailSpecifications.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailSpecifications/DesignsDetailSpecifications.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/DesignsContent.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/DesignsContent.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/DesignsContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/DesignsContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/ListTitle/ListTitle.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/ListTitle/ListTitle.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/ListTitle/ListTitle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/ListTitle/ListTitle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/ProductFilters/ProductFilters.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/ProductFilters/ProductFilters.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/ProductFilters/ProductFilters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/ProductFilters/ProductFilters.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/ProductList/ProductList.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/ProductList/ProductList.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/ProductSearch/ProductSearch.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/ProductSearch/ProductSearch.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/CustomDesignsSection/CustomDesignsSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/CustomDesignsSection/CustomDesignsSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/CustomDesignsSection/CustomDesignsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/CustomDesignsSection/CustomDesignsSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/ExploreDesignsSection/ExploreDesignsSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/Accordion/Accordion.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/Accordion/Accordion.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/FAQSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/FAQSection/FAQSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/FeaturedDesignsSection/FeaturedDesignsSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/FeaturedDesignsSection/FeaturedDesignsSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/HomeContent.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/HomeContent.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/IntroSection/IntroSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/IntroSection/IntroSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/SellSection/SellSection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/SellSection/SellSection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/SellSection/SellSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/SellSection/SellSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Home/ui/StorySection/StorySection.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Home/ui/StorySection/StorySection.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Packaging/ui/NaturalVehicle/NaturalVehicle.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Packaging/ui/NaturalVehicle/NaturalVehicle.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Packaging/ui/NumismaticPackaging/NumismaticPackaging.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Packaging/ui/NumismaticPackaging/NumismaticPackaging.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Packaging/ui/PackagingContent.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Packaging/ui/PackagingContent.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/PageNotFound/PageNotFound.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/PageNotFound/PageNotFound.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/AnimatedElement/AnimatedElement.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/AnimatedElement/AnimatedElement.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/ButtonPrimary/ButtonPrimary.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ButtonPrimary/ButtonPrimary.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Clock/Clock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Clock/Clock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/CustomCursor/CustomCursor.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/CustomCursor/CustomCursor.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Dropdown/Dropdown.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Dropdown/Dropdown.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/HeroDetail/HeroDetail.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/HeroDetail/HeroDetail.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/HeroDetail/HeroDetail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/HeroDetail/HeroDetail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/HeroInner/HeroInner.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/HeroInner/HeroInner.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Icons/Icons.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Icons/Icons.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Logo/Logo.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/Logo.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Logo/LogoTest.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/LogoTest.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/MarqueeText/MarqueeText.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MarqueeText/MarqueeText.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/ModalWindow/ModalWindow.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ModalWindow/ModalWindow.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/ParallaxSection/ParallaxSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ParallaxSection/ParallaxSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/ProductCard/ProductCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ProductCard/ProductCard.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/ProductCarousel/ProductCarousel.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ProductCarousel/ProductCarousel.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/ProductCarousel/ProductCarousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ProductCarousel/ProductCarousel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/ProductForm/ProductForm.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ProductForm/ProductForm.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/SelectField/SelectField.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/SelectField/SelectField.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/SelectField/SelectField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/SelectField/SelectField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/SliderArrow/SliderArrow.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/SliderArrow/SliderArrow.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/TextField/TextField.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/TextField/TextField.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +104,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>

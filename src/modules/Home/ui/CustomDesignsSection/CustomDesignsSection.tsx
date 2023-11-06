@@ -11,6 +11,7 @@ import routes from '@/utils/routes'
 import AnimateScaleBg from '@/ui/AnimateScaleBG/AnimateScaleBG'
 
 import styles from './CustomDesignsSection.module.scss'
+import { breakpointMob } from '@/utils/variables'
 
 const images = [
   '/images/home/customDesign/slide_1.jpg',
@@ -25,7 +26,7 @@ const CustomDesignsSection: FC<{ className?: string }> = ({ className }) => {
 
   return (
     <section className={classNames(styles['CustomDesignsSection'], className)}>
-      {width > 767 ? (
+      {width > breakpointMob ? (
         <AnimateScaleBg images={images} />
       ) : (
         <div className={styles['CustomDesignsSection__mob']}>

@@ -28,6 +28,7 @@ import styles from './DesignsContent.module.scss'
 import _ from 'lodash'
 import { useWindowSize } from 'usehooks-ts'
 import BackgroundOverlay from './BackgroundOverlay/BackgroundOverlay'
+import { breakpointMob } from '@/utils/variables'
 
 const BecomeDistributorSection = dynamic(
   () => import('@/components/BecomeDistributorSection/BecomeDistributorSection')
@@ -107,7 +108,7 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
   }, [])
 
   useEffect(() => {
-    if (width > 767) {
+    if (width > breakpointMob) {
       setShowMobileFilter(false)
     }
   }, [width])
@@ -149,7 +150,7 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
   }, [lenis])
 
   const toggleMobileFilters = useCallback(() => {
-    if (width >= 767) {
+    if (width >= breakpointMob) {
       return false
     }
     setShowMobileFilter((prev) => !prev)
@@ -226,7 +227,9 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
           </div>
         </section>
         <AnimatePresence mode="wait">
-          {width < 767 && showScrollToTopButton && <ScrollTopButton />}
+          {width < breakpointMob && showScrollToTopButton && (
+            <ScrollTopButton />
+          )}
         </AnimatePresence>
       </ProducsSectionContext.Provider>
       <BecomeDistributorSection />

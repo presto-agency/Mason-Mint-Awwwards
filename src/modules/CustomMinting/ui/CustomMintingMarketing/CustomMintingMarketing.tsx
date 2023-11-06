@@ -2,9 +2,7 @@ import { FC } from 'react'
 import classNames from 'classnames'
 import dynamic from 'next/dynamic'
 import { data } from './data'
-import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 
-const AnimatedText = dynamic(() => import('@/ui/AnimatedText/AnimatedText'))
 const AbstractLogo = dynamic(() => import('@/ui/AbstractLogo/AbstractLogo'), {
   ssr: false,
 })

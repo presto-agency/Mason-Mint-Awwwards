@@ -6,6 +6,7 @@ import { CategoryProps } from '@/utils/types'
 import { ProducsSectionContext } from '../../lib/ProductListContext'
 
 import styles from './ProductFilters.module.scss'
+import { breakpointMob } from '@/utils/variables'
 
 type ProductFiltersProps = {
   className?: string
@@ -51,7 +52,7 @@ const ProductFilters: FC<ProductFiltersProps> = ({
 
                   window.scrollTo({
                     top: pos,
-                    behavior: width > 767 ? 'smooth' : 'auto', // for some reason "smooth" gives wrong position of element on mobile
+                    behavior: width > breakpointMob ? 'smooth' : 'auto',
                   })
                 }
               }}

@@ -22,6 +22,7 @@ import { MobileLayout } from './MobileLayout/MobileLayout'
 
 import { Store } from '@/utils/Store'
 import styles from './Header.module.scss'
+import { breakpointTablet } from '@/utils/variables'
 
 type HeaderProps = {
   theme: 'dark' | 'light'
@@ -100,14 +101,14 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
       setHeaderTheme('dark')
     }
 
-    if (!menuOpenedClass && scrolled && width <= 991) {
+    if (!menuOpenedClass && scrolled && width <= breakpointTablet) {
       setHeaderTheme('light')
       setScrolledClassToAdd(true)
     }
   }, [menuOpenedClass, initialTheme, scrolled])
 
   useEffect(() => {
-    if (width > 991) setMenuOpened(false)
+    if (width > breakpointTablet) setMenuOpened(false)
   }, [width])
 
   // useEffect(() => {
@@ -134,7 +135,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
   }, [scrollDirection, store?.state.isFirstLoading])
 
   const handleHeaderAnimationComplete = useCallback(() => {
-    if (scrolled && scrollDirection === 'down' && width > 991) {
+    if (scrolled && scrollDirection === 'down' && width > breakpointTablet) {
       setScrolledClassToAdd(true)
       setHeaderTheme('light')
       return

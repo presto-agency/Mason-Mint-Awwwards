@@ -7,6 +7,7 @@ const loaderJsonPromise = import('../assets/flipCoin.json')
 
 import styles from '../DiscoverMasonMintSection.module.scss'
 import { useWindowSize } from 'usehooks-ts'
+import { breakpointMob } from '@/utils/variables'
 
 type CoinProps = {
   scrollYProgress: MotionValue<number>
@@ -23,7 +24,7 @@ export const Coin: FC<CoinProps> = ({ scrollYProgress }) => {
   useMotionValueEvent(progress, 'change', (latest) => {
     const roundedLatest = Math.round(latest)
 
-    if (width < 767) {
+    if (width < breakpointMob) {
       if (roundedLatest === 0 && prevProgress > 50) return
     }
 

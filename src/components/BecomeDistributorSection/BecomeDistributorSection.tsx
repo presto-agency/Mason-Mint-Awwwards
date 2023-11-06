@@ -17,6 +17,7 @@ const VideoComponent = dynamic(
 
 import styles from './BecomeDistributorSection.module.scss'
 import { Store } from '@/utils/Store'
+import { breakpointMob, breakpointTablet } from '@/utils/variables'
 
 type BecomeDistributorSectionProps = {
   className?: string
@@ -43,7 +44,11 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
   })
 
   const useParallax = (value: MotionValue<number>) => {
-    return useTransform(value, [0, 1], width > 991 ? [800, 0] : [0, 0])
+    return useTransform(
+      value,
+      [0, 1],
+      width > breakpointTablet ? [800, 0] : [0, 0]
+    )
   }
 
   const y = useParallax(scrollYProgressInner)
@@ -55,7 +60,7 @@ const BecomeDistributorSection: FC<BecomeDistributorSectionProps> = ({
   const title = useTransform(
     scrollYProgress,
     [0, 1],
-    ['0%', width > 767 ? '750%' : '300%']
+    ['0%', width > breakpointMob ? '750%' : '300%']
   )
   const slice = useTransform(scrollYProgress, [0, 1], ['0%', '-80%'])
   const spanTop = useTransform(scrollYProgress, [0, 1], ['-50%', '0%'])

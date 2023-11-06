@@ -1,9 +1,10 @@
-@import "@/app/styles/variables/breackpoints";
+@import "@/app/styles/variables/breakpoints";
 
 .CustomMintingMarketing {
   position: relative;
   width: 100%;
   padding: 164rem 64rem 32rem;
+  overflow: hidden;
   background-color: var(--gray-300);
 }
 

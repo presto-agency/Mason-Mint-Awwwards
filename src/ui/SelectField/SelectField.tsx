@@ -18,6 +18,7 @@ import ArrowSelect from '@/ui/Icons/ArrowSelect'
 import { OptionInterface } from '@/utils/types'
 
 import styles from './SelectField.module.scss'
+import { breakpointMob } from '@/utils/variables'
 
 type SelectOptionProps = {
   name: string
@@ -64,7 +65,7 @@ const SelectField = forwardRef<HTMLInputElement, SelectOptionProps>(
         ...base,
         margin: '0',
         fontSize: '15rem',
-        '@media (max-width: 767px)': {
+        [`@media (max-width: ${breakpointMob}px)`]: {
           fontSize: '13rem',
         },
         fontWeight: '500',
