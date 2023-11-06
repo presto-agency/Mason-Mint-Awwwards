@@ -185,7 +185,7 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
       <ProducsSectionContext.Provider value={contextValues}>
         <section className={styles['productsSection']} ref={productSectionRef}>
           <div className={classNames(styles['left'], mods)}>
-            <ProductSearch className={styles['search']} />
+            <ProductSearch className={classNames(styles['search'], mods)} />
             <ProductFilters
               className={styles['filters']}
               categories={categories}

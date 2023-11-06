@@ -4,19 +4,21 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	max-width: 304rem;
-	
+	cursor: default;
 
-	&:hover {
-		.product__thumb_img{
-			transform: rotate(-45deg);
+		&:hover {
+			cursor: pointer;
+			
+				.product__thumb_img{
+					transform: rotate(-45deg);
+				}
 		}
-	}
 	
-	@media (width <= $breakpoint-mob) {
-		max-width: 144rem;
-	}
+		@media (width <= $breakpoint-mob) {
+			max-width: 224rem;
+		}
 
 	.product__thumb_img{
 		position: absolute;
@@ -45,8 +47,8 @@
 
 
 		@media (width <= $breakpoint-mob) {
-			width: 144rem;
-			height: 144rem;
+			width: 224rem;
+			height: 224rem;
 			margin: 0;
 			border-width: 1px;
 		}
@@ -59,8 +61,8 @@
 			transition: transform .5s ease-in-out;
 					
 			@media (width <= $breakpoint-mob) {
-				width: 112rem;
-				height: 112rem;
+				width: 156rem;
+				height: 156rem;
 			}
 					
 			img{
@@ -107,5 +109,9 @@
 		margin: 0 auto;
 		padding: 8rem 0;
 		text-align: center;
+		
+			@media (width <= $breakpoint-mob) {
+				padding: 13rem 0;
+			}
 	}
 }

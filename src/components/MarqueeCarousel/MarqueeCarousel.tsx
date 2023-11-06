@@ -1,4 +1,4 @@
-import { useRef, useEffect, FC, useContext } from 'react'
+import { useRef, useEffect, FC, useContext, useCallback } from 'react'
 import { MotionValue, motion } from 'framer-motion'
 import { useRafLoop } from 'react-use'
 import { useWindowSize } from 'usehooks-ts'
@@ -36,6 +36,9 @@ const MarqueeCarouselItem: FC<MarqueeCarouselItemProps> = ({
   const x = useRef(0)
 
   const { width, height } = useWindowSize()
+  const { marqueeDirection } = useContext(
+    MarqueCarouselContext
+  ) as MarqueCarouselContextType
 
   const setX = () => {
     if (rect.current.width) {
@@ -53,10 +56,14 @@ const MarqueeCarouselItem: FC<MarqueeCarouselItemProps> = ({
     }
   }, [width, height])
 
-  const loop = () => {
-    x.current -= speed.get()
+  const loop = useCallback(() => {
+    if (marqueeDirection === 'right') {
+      x.current += speed.get()
+    } else {
+      x.current -= speed.get()
+    }
     setX()
-  }
+  }, [marqueeDirection])
 
   useRafLoop(loop, true)
 

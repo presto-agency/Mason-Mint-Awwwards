@@ -4,7 +4,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: calc(100vh - 93rem);
+
+  //height: calc(100vh - 93rem);
+  height: 100svh;
   min-height: 450rem;
   padding: 50rem 0;
   overflow: hidden;
@@ -13,7 +15,9 @@
   
     @media (width <= $breakpoint-mob) {
       align-items: flex-start;
-      height: calc(100vh - 70rem);
+
+      //height: calc(100vh - 70rem);
+      height: 100svh;
       min-height: 0;
       padding: 63rem 0;
     }
@@ -75,7 +79,8 @@
       pointer-events: none;
       
         &_slide{
-          height: calc(100vh - 95rem);
+          //height: calc(100vh - 95rem);
+          height: 100svh;
           min-height: 450rem;
           
             @media (width <= $breakpoint-mob) {

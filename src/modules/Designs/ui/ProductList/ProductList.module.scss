@@ -5,18 +5,44 @@
   flex-direction: column;
   min-height: 80vh;
   padding-top: 32rem;
+  
+    @media (width <= $breakpoint-mob) {
+      padding-top: 64rem;
+    }
 }
 
 .categoryList{
   display: grid;
   grid-auto-rows: auto;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32rem;
   padding-top: 120rem;
+  column-gap: 24rem;
+  row-gap: 10rem;
 
-  &:first-child {
-    padding-top: 0;
-  }
+    &:first-child {
+      padding-top: 0;
+    }
+  
+    &-product{
+      @media (width <= $breakpoint-mob) {
+        max-width: 144rem;
+      }
+      
+      
+        & > div:first-child{
+          @media (width <= $breakpoint-mob) {
+            width: 144rem;
+            height: 144rem;
+          }
+          
+          & > div{
+            @media (width <= $breakpoint-mob) {
+              width: 120rem;
+              height: 120rem;
+            }
+          }
+        }
+    }
 }
 
 

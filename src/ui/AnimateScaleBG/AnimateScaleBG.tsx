@@ -32,7 +32,7 @@ const AnimateScaleBg: FC<{ images: string[] }> = ({ images }) => {
     offset: ['end end', 'end start'],
   })
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 300])
+  const y = useTransform(scrollYProgress, [0, 1], [0, 500])
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
 
   return (

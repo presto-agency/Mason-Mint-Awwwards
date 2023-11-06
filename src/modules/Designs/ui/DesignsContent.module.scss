@@ -54,6 +54,12 @@
   animation:rotate 1s infinite ease;
 }
 
+.search{
+    &.headerShown {
+      top: 107rem;
+    }
+}
+
 @keyframes rotate{
   100%{
     rotate:360deg;

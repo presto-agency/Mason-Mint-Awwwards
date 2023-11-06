@@ -36,7 +36,7 @@ const FeaturedDesignsSection: FC<FeaturedDesignsSectionProps> = ({
               </AnimatedText>
             </p>
           </div>
-          <div className="col-md-6">
+          <div className="d-none d-md-block col-md-6">
             <div className={styles['featureDesigns__actions']}>
               <AnimatedElement delay={0}>
                 <Link scroll={false} href={routes.public.designs}>
@@ -48,6 +48,19 @@ const FeaturedDesignsSection: FC<FeaturedDesignsSectionProps> = ({
         </div>
       </Container>
       <MarqueeCarousel data={products} className={styles['productMarquee']} />
+      <Container>
+        <div className="row">
+          <div className="d-md-none col-12">
+            <div className={styles['featureDesigns__actions']}>
+              <AnimatedElement delay={0}>
+                <Link scroll={false} href={routes.public.designs}>
+                  <ButtonPrimary variant="transparent">View all</ButtonPrimary>
+                </Link>
+              </AnimatedElement>
+            </div>
+          </div>
+        </div>
+      </Container>
     </section>
   )
 }

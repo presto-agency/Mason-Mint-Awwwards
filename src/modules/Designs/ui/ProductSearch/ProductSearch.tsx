@@ -46,7 +46,10 @@ const ProductSearch: FC<ProductSearchProps> = ({ className }) => {
   }, [debouncedSearchQuery, setFilters])
 
   return (
-    <div className={classNames(styles['ProductSearch'], className)}>
+    <div
+      className={classNames(styles['ProductSearch'], className)}
+      id="product-search"
+    >
       <Search className={styles['icon']} />
       <input
         className={styles['searchInput']}
