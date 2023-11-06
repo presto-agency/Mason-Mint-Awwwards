@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/styles/variables/breakpoints.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/styles/variables/breakpoints.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/variables.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/variables.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699264880553</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fix: breakpoint">
+      <option name="closed" value="true" />
+      <created>1699269542828</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699269542828</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +189,7 @@
     <MESSAGE value="fix: footer mob some fixes" />
     <MESSAGE value="fix: footer design bug" />
     <MESSAGE value="fix: custom-minting section, add global var breakpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: custom-minting section, add global var breakpoint" />
+    <MESSAGE value="fix: breakpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: breakpoint" />
   </component>
 </project>
