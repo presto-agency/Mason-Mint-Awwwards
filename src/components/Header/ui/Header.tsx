@@ -33,7 +33,7 @@ const inititalHeader = {
 }
 
 const transition = {
-  duration: 1,
+  duration: 0.7,
   ease: 'easeInOut',
 }
 
@@ -62,11 +62,13 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
   useEffect(() => {
     if (menuOpened) {
       setMenuOpenedClass(true)
-    } else {
-      const removeOpenedClass = setTimeout(() => {
-        setMenuOpenedClass(false)
+      const setOverflowHidden = setTimeout(() => {
+        document.body.style.overflow = 'hidden'
       }, 1000)
-      return () => clearInterval(removeOpenedClass)
+      return () => clearInterval(setOverflowHidden)
+    } else {
+      setMenuOpenedClass(false)
+      document.body.style.overflow = 'auto'
     }
   }, [menuOpened])
 
@@ -110,10 +112,6 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
   useEffect(() => {
     if (width > breakpointTablet) setMenuOpened(false)
   }, [width])
-
-  // useEffect(() => {
-  //   document.body.style.overflow = menuOpened ? 'hidden' : 'auto'
-  // }, [menuOpened])
 
   useEffect(() => {
     const handleRouteChange = () => {

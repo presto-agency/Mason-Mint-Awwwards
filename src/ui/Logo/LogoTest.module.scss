@@ -27,12 +27,10 @@
 
   &.withoutText {
     .smallText {
-      // fill: #fff0;
       display: none;
     }
 
     .mainText {
-      // fill: #fff0;
       display: none;
     }
   }
@@ -41,12 +39,5 @@
     width: 125rem;
     height: auto;
   }
-  
-  // svg{
-  //   width: 100%;
-  //   height: 100%;
-  //   object-fit: contain;
-  //   object-position: left center;
-  // }
 }
 

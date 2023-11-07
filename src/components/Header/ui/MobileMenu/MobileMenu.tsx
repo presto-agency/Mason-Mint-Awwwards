@@ -5,6 +5,7 @@ import NavigationLayout from '@/components/Header/ui/NavigationLayout/Navigation
 
 import styles from './MobileMenu.module.scss'
 import headerStyles from '../Header.module.scss'
+import { Portal } from '@/ui/Portal/Portal'
 
 type MobileMenuProps = {
   className?: string
@@ -24,12 +25,17 @@ const headerVariant = {
 
 const MobileMenu: FC<MobileMenuProps> = ({ className }) => {
   return (
-    <motion.div
-      className={classNames(styles['menu'], [className])}
-      {...headerVariant}
-    >
-      <NavigationLayout className={headerStyles['mobile']} isAnimated={true} />
-    </motion.div>
+    <Portal>
+      <motion.div
+        className={classNames(styles['menu'], [className])}
+        {...headerVariant}
+      >
+        <NavigationLayout
+          className={headerStyles['mobile']}
+          isAnimated={true}
+        />
+      </motion.div>
+    </Portal>
   )
 }
 

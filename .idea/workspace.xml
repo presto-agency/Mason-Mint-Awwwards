@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Burger/Burger.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Burger/Burger.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Header.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/MobileMenu/MobileMenu.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/MobileMenu/MobileMenu.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/MobileMenu/MobileMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/MobileMenu/MobileMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Logo/LogoTest.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/LogoTest.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
