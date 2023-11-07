@@ -15,6 +15,7 @@ import useWindowDimensions from '@/hooks/useWindowDimensions'
 import routes from '@/utils/routes'
 
 import styles from './SellSection.module.scss'
+import { breakpointMob } from '@/utils/variables'
 
 const loaderJsonPromise = import('./assets/flipCoin.json')
 
@@ -46,7 +47,7 @@ const SellSection = () => {
     <section ref={ref} className={styles['sellSection']}>
       <Container>
         <div className={styles['sellSection__content']}>
-          {isClient && width > 767 ? (
+          {isClient && width > breakpointMob ? (
             <div className={styles['sellSection__content_left']}>
               <div className={styles['imageWrapper']}>
                 <Lottie

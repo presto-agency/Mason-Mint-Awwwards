@@ -1,6 +1,5 @@
 import { FC, useContext } from 'react'
 import classNames from 'classnames'
-import { useWindowSize } from 'usehooks-ts'
 
 import { CategoryProps } from '@/utils/types'
 import { ProducsSectionContext } from '../../lib/ProductListContext'
@@ -19,7 +18,6 @@ const ProductFilters: FC<ProductFiltersProps> = ({
   categories,
   productsCount,
 }) => {
-  const { width } = useWindowSize()
   const { activeSection, scrollTop } = useContext(ProducsSectionContext)
   const lenis = useLenis()
 

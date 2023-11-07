@@ -1,4 +1,4 @@
-@import "@/app/styles/variables/breackpoints";
+@import "@/app/styles/variables/breakpoints";
 
 .burger {
   position: absolute;
@@ -8,6 +8,7 @@
   box-sizing: content-box;
   width: 32rem;
   height: 16rem;
+  cursor: default;
   transition: top 0.4s ease-out;
   
   @media (width <= $breakpoint-mob) {

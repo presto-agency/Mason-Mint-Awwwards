@@ -8,6 +8,7 @@ import { useWindowSize } from 'usehooks-ts'
 import { CategoryProps, ProductProps } from '@/utils/types'
 import { ProducsSectionContext } from '../../lib/ProductListContext'
 import ArrowSelect from '@/ui/Icons/ArrowSelect'
+import { breakpointMob } from '@/utils/variables'
 
 type ListTitleProps = {
   className?: string
@@ -44,7 +45,7 @@ const ListTitle: FC<ListTitleProps> = ({
   }
 
   const transition: Transition = useMemo(() => {
-    return { duration: width > 767 ? 1 : 0.4, ease: 'easeInOut' }
+    return { duration: width > breakpointMob ? 1 : 0.4, ease: 'easeInOut' }
   }, [width])
 
   return (
@@ -67,7 +68,7 @@ const ListTitle: FC<ListTitleProps> = ({
             <h6
               dangerouslySetInnerHTML={{
                 __html:
-                  width < 767
+                  width < breakpointMob
                     ? `${!fetching ? products?.length : '...'}`
                     : `${
                         !fetching ? products?.length : '...'
@@ -103,7 +104,7 @@ const ListTitle: FC<ListTitleProps> = ({
                     <BlueDot />
                   </h3>
                   <h6>
-                    {width < 767
+                    {width < breakpointMob
                       ? `${category.products?.length}`
                       : `${category.products?.length} results`}
                   </h6>
@@ -113,7 +114,7 @@ const ListTitle: FC<ListTitleProps> = ({
           </motion.div>
         )}
       </AnimatePresence>
-      {width < 767 && (
+      {width < breakpointMob && (
         <ArrowSelect className={classNames(styles['dropdownIcon'], mods)} />
       )}
     </div>

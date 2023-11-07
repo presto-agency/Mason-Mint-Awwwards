@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 import { useCopyToClipboard } from 'usehooks-ts'
 import { ProductProps } from '@/utils/types'
 
@@ -37,12 +37,13 @@ const ShareCoins: FC<ShareCoinsProps> = ({ className }) => {
 
   return (
     <div className={classNames(styles['ShareCoins'], className)}>
-      <Toaster position="bottom-right" />
       <AnimatedElement>
         <h6>share coins</h6>
       </AnimatedElement>
       <AnimatedElement className={styles['linksList']}>
-        <LinkIcon className={styles['icon']} onClick={handleCopy} />
+        <span>
+          <LinkIcon className={styles['icon']} onClick={handleCopy} />
+        </span>
         <Link
           href={`https://www.facebook.com/sharer/sharer.php?u=${sharedUrl}`}
         >

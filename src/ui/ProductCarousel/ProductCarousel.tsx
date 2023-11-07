@@ -14,6 +14,7 @@ const AnimatedText = dynamic(() => import('@/ui/AnimatedText/AnimatedText'))
 
 import styles from './ProductCarousel.module.scss'
 import { useCursor } from '@/app/layouts/CursorLayout/CursorLayout'
+import { breakpointMob } from '@/utils/variables'
 
 type ProductCarouselProps = {
   data?: ProductProps[]
@@ -42,7 +43,7 @@ const ProductCarousel: FC<ProductCarouselProps> = ({
   const { setActionType } = useCursor()
 
   useEffect(() => {
-    if (window && window.innerWidth <= 767) {
+    if (window && window.innerWidth <= breakpointMob) {
       setCountOfActiveSlides(2)
       setGap(24)
     }

@@ -1,11 +1,11 @@
-@import '@/app/styles/variables/breackpoints';
+@import '@/app/styles/variables/breakpoints';
 
 .header {
   position: fixed;
   z-index: 10;
   width: 100%;
   padding: 16rem 36rem;
-  transition: padding 1s ease-out;
+  transition: padding 1s var(--ease);
   
   @media (width <= $breakpoint-tablet) {
     padding: 0;
@@ -13,6 +13,7 @@
 
   &__container {
     padding: 0 28rem !important;
+    border: 1rem solid transparent;
     border-radius: 8rem;
     transition: background-color 0.4s ease-out, box-shadow .2s ease;
 
@@ -30,8 +31,6 @@
   &.scrolled{
     .header__container {
       background-color: var(--white);
-
-      // box-shadow: 0 0 10rem -7rem #000;
       border: 1rem solid var(--gray-300);
     }
   
@@ -66,7 +65,7 @@
 
     &__icon{
       height: 60rem;
-      transition: height 0.3s ease-in-out;
+      transition: height 0.3s var(--ease);
     }
 
     @media (width <= $breakpoint-mob) {
@@ -108,7 +107,6 @@
 
 
   &.opened{
-    height: 100%;
     background-color: var(--black);
   }
 
@@ -219,6 +217,12 @@
 
 @media (width <= $breakpoint-tablet) {
   .header {
+    transition: background-color 0.7s ease-out;
+
+    &.dark{
+      background-color: initial;
+    }
+
     &__content {
       padding-top: 26rem;
       transition: padding 0.4s ease-out;
@@ -248,12 +252,32 @@
       }
     }
 
+    &__container{
+      transition: background-color 0.4s 0.7s ease-out;
+    }
+
     &.opened.scrolled {
       .header__content {
         padding-top: 26rem;
       }
     }
 
+    &.scrolled{
+      background-color: var(--white);
+      
+      .header__container{
+        background-color: initial;
+        border: initial;
+      }
+    }
+
+    &.opened{
+      background-color: initial;
+
+      .header__container{
+        background-color: var(--black);
+      }
+    }
   }
 }
 

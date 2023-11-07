@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingContentBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingMarketing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Logo/LogoTest.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/LogoTest.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +17,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -141,11 +145,54 @@
       <option name="project" value="LOCAL" />
       <updated>1698849887839</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix: custom-minting section, add global var breakpoint">
+      <option name="closed" value="true" />
+      <created>1699264880553</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699264880553</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: breakpoint">
+      <option name="closed" value="true" />
+      <created>1699269542828</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699269542828</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix: some header fixes">
+      <option name="closed" value="true" />
+      <created>1699358915976</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699358915976</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: some header fixes#2">
+      <option name="closed" value="true" />
+      <created>1699360567033</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699360567033</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix: finish home page coin" />
@@ -157,6 +204,10 @@
     <MESSAGE value="fix: DiscoverMasonMint some fixes" />
     <MESSAGE value="fix: footer mob some fixes" />
     <MESSAGE value="fix: footer design bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: footer design bug" />
+    <MESSAGE value="fix: custom-minting section, add global var breakpoint" />
+    <MESSAGE value="fix: breakpoint" />
+    <MESSAGE value="fix: some header fixes" />
+    <MESSAGE value="fix: some header fixes#2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: some header fixes#2" />
   </component>
 </project>

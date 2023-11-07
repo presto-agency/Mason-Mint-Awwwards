@@ -1,4 +1,4 @@
-@import "@/app/styles/variables/breackpoints";
+@import "@/app/styles/variables/breakpoints";
 
 .CustomMintingProcess{
   height: 800vh;
@@ -86,14 +86,11 @@
   margin-top: -5%;
 }
 
-@media (width<=$breakpoint-tablet) {
-  .hero {
-    height: 45vh;
-  }
-}
-
 @media (width<=$breakpoint-mob) {
   .hero {
+    height: initial;
+    padding: 92rem 0 0;
+
     h1 {
       width: 100%;
     }
@@ -108,18 +105,18 @@
   }
 
   .contentBlock {
-    grid-auto-columns: 1fr; 
+    grid-auto-columns: 1fr;
     grid-template-areas: 
       "counter"
       "coin"
-      "description"; 
-    grid-template-rows: 1fr 248rem 1.5fr; 
-    grid-template-columns: 1fr; 
-    gap: 0 0; 
+      "description";
+    grid-template-rows: 1fr 248rem 1.5fr;
+    grid-template-columns: 1fr;
+    gap: 0 0;
     height: 100vh;
     padding: 0 24rem;
   }
-  
+
   .counter {
     align-items: flex-end;
     justify-content: space-between;

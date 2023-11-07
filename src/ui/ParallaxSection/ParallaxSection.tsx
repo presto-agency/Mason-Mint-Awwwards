@@ -1,6 +1,7 @@
 import React, { FC, ReactNode, useMemo, useRef } from 'react'
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
+import { breakpointTablet } from '@/utils/variables'
 
 type offsetVariant =
   | 'start start'
@@ -28,7 +29,11 @@ const ParallaxSection: FC<ParallaxSection> = ({
 }) => {
   const { width } = useWindowDimensions()
   const useParallax = (value: MotionValue<number>) => {
-    return useTransform(value, [0, 1], width > 991 ? parallaxValues : [0, 0])
+    return useTransform(
+      value,
+      [0, 1],
+      width > breakpointTablet ? parallaxValues : [0, 0]
+    )
   }
 
   const refTarget = useRef(null)

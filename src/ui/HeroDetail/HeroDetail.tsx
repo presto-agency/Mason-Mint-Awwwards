@@ -9,6 +9,7 @@ import useWindowDimensions from '@/hooks/useWindowDimensions'
 import { MotionValue, Transition, motion, useTransform } from 'framer-motion'
 
 import styles from './HeroDetail.module.scss'
+import { breakpointMob } from '@/utils/variables'
 
 type HeroDetail = {
   className?: string
@@ -36,7 +37,7 @@ const HeroDetail: FC<HeroDetail> = ({
   )
 
   const imageStyles = useMemo(() => {
-    return { width: width > 767 ? imageWidthTransform : '100%' }
+    return { width: width > breakpointMob ? imageWidthTransform : '100%' }
   }, [width, imageWidthTransform])
 
   return (
@@ -46,7 +47,7 @@ const HeroDetail: FC<HeroDetail> = ({
         style={imageStyles}
       >
         <AnimatedElement delay={0.2} className={styles['HeroDetail__image']}>
-          {width > 767 ? (
+          {width > breakpointMob ? (
             <AnimateScaleBg images={sliderImages} />
           ) : (
             <BackgroundImage

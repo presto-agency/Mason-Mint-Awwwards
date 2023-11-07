@@ -4,6 +4,7 @@ import { MotionValue, useTransform, motion, Transition } from 'framer-motion'
 import classNames from 'classnames'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
 import styles from './CoinBlock.module.scss'
+import { breakpointMob, breakpointTablet } from '@/utils/variables'
 
 type CoinBlockProps = {
   className?: string
@@ -44,7 +45,7 @@ export const CoinBlock: FC<CoinBlockProps> = ({
   const photoSizeTablet = useTransform(
     scrollYProgress,
     [0, 0.05],
-    ['700rem', '600rem']
+    ['600rem', '500rem']
   )
 
   const photoSizeMobile = useTransform(
@@ -56,15 +57,15 @@ export const CoinBlock: FC<CoinBlockProps> = ({
   const photoBlockStyle = useMemo(() => {
     let photoSize: MotionValue<string> | null = photoSizeDesktop
 
-    if (width > 991) {
+    if (width > breakpointTablet) {
       photoSize = photoSizeDesktop
     }
 
-    if (width > 767 && width <= 991) {
+    if (width > breakpointMob && width <= breakpointTablet) {
       photoSize = photoSizeTablet
     }
 
-    if (width <= 767) {
+    if (width <= breakpointMob) {
       photoSize = photoSizeMobile
     }
 

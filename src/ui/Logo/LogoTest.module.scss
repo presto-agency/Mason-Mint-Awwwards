@@ -1,4 +1,4 @@
-@import '@/app/styles/variables/breackpoints';
+@import '@/app/styles/variables/breakpoints';
 
 .Logo {
   height: 60rem;
@@ -10,12 +10,12 @@
   }
 
   & .smallText {
-    transition: fill 0.3s ease-in-out;
+    transition: fill 1.3s ease-in-out, opacity 0.4s 0.7s ease-in-out;
     fill: #266EF9;
   }
   
   & .mainText {
-    transition: fill 0.3s ease-in-out;
+    transition: fill 1.3s ease-in-out, opacity 0.4s 0.7s ease-in-out;
     fill: #24282C;
   }
 
@@ -27,13 +27,11 @@
 
   &.withoutText {
     .smallText {
-      // fill: #fff0;
-      display: none;
+      fill: #fff;
     }
 
     .mainText {
-      // fill: #fff0;
-      display: none;
+      fill: #fff;
     }
   }
 
@@ -41,12 +39,5 @@
     width: 125rem;
     height: auto;
   }
-  
-  // svg{
-  //   width: 100%;
-  //   height: 100%;
-  //   object-fit: contain;
-  //   object-position: left center;
-  // }
 }
 

@@ -12,6 +12,7 @@ import {
   useState,
 } from 'react'
 import { useWindowSize } from 'usehooks-ts'
+import { breakpointTablet } from '@/utils/variables'
 
 type ActionType = 'default' | 'drag' | 'arrow' | 'disappear'
 
@@ -58,7 +59,7 @@ const CursorLayout: FC<CursorLayoutProps> = ({ children }) => {
 
   return (
     <CursorLayoutContext.Provider value={value}>
-      {width > 991 && (
+      {width > breakpointTablet && (
         <CustomCursor actionType={actionType} setActionType={setActionType} />
       )}
       {children}

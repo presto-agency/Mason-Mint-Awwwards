@@ -1,4 +1,4 @@
-@import "@/app/styles/variables/breackpoints";
+@import "@/app/styles/variables/breakpoints";
 
 .CustomMintingMarketing {
   position: relative;
@@ -105,12 +105,7 @@
   }
 
   .abstract {
-    top: 41rem;
-    left: 232rem;
-    z-index: 2;
-    display: block;
-    width: 658rem;
-    height: 710rem;
+    display: none;
   }
 
   .contentBlock { 

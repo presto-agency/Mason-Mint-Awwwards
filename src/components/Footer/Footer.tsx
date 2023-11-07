@@ -10,6 +10,7 @@ import routes from '@/utils/routes'
 import styles from './Footer.module.scss'
 import { Store } from '@/utils/Store'
 import { useWindowSize } from 'usehooks-ts'
+import { breakpointMob } from '@/utils/variables'
 
 const LogoBlock = () => {
   return (
@@ -75,7 +76,8 @@ const NavigationBlock = () => {
 export const Footer: FC = () => {
   const store = useContext(Store)
   const { width } = useWindowSize()
-  const isVisible = width > 767 && store?.state.isBecomeDistributorVisible
+  const isVisible =
+    width > breakpointMob && store?.state.isBecomeDistributorVisible
 
   return (
     <footer

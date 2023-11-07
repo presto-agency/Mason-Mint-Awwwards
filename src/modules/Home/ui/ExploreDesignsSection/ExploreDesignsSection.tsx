@@ -19,6 +19,7 @@ import routes from '@/utils/routes'
 import 'swiper/css'
 import styles from './ExploreDesignsSection.module.scss'
 import { useCursor } from '@/app/layouts/CursorLayout/CursorLayout'
+import { breakpointMob } from '@/utils/variables'
 
 type SlideInner = {
   title: string
@@ -27,7 +28,7 @@ type SlideInner = {
 }
 
 const SlideInner: FC<SlideInner> = ({ title, subtitle, width }) => {
-  return width && width > 767 ? (
+  return width && width > breakpointMob ? (
     <>
       <h4 className={classNames('h4', styles['textSwiper__title'])}>
         <AnimatedText>{title}</AnimatedText>
@@ -133,7 +134,7 @@ const ExploreDesignsSection = () => {
                 Explore Our Designs
               </AnimatedText>
             </h2>
-            {width > 767 ? (
+            {width > breakpointMob ? (
               <Swiper
                 style={{ overflow: 'visible' }}
                 className={styles['sliderText']}
@@ -171,7 +172,7 @@ const ExploreDesignsSection = () => {
               </Swiper>
             ) : null}
           </div>
-          {width > 767 ? (
+          {width > breakpointMob ? (
             <div
               className={styles['ExploreDesignsSection__content_sliderCoin']}
               onMouseEnter={handleMouseEnter}

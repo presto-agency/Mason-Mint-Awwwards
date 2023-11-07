@@ -22,6 +22,7 @@ import { MobileLayout } from './MobileLayout/MobileLayout'
 
 import { Store } from '@/utils/Store'
 import styles from './Header.module.scss'
+import { breakpointTablet } from '@/utils/variables'
 
 type HeaderProps = {
   theme: 'dark' | 'light'
@@ -32,7 +33,7 @@ const inititalHeader = {
 }
 
 const transition = {
-  duration: 1,
+  duration: 0.7,
   ease: 'easeInOut',
 }
 
@@ -61,11 +62,13 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
   useEffect(() => {
     if (menuOpened) {
       setMenuOpenedClass(true)
-    } else {
-      const removeOpenedClass = setTimeout(() => {
-        setMenuOpenedClass(false)
+      const setOverflowHidden = setTimeout(() => {
+        document.body.style.overflow = 'hidden'
       }, 1000)
-      return () => clearInterval(removeOpenedClass)
+      return () => clearInterval(setOverflowHidden)
+    } else {
+      setMenuOpenedClass(false)
+      document.body.style.overflow = 'auto'
     }
   }, [menuOpened])
 
@@ -100,19 +103,15 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
       setHeaderTheme('dark')
     }
 
-    if (!menuOpenedClass && scrolled && width <= 991) {
+    if (!menuOpenedClass && scrolled && width <= breakpointTablet) {
       setHeaderTheme('light')
       setScrolledClassToAdd(true)
     }
   }, [menuOpenedClass, initialTheme, scrolled])
 
   useEffect(() => {
-    if (width > 991) setMenuOpened(false)
+    if (width > breakpointTablet) setMenuOpened(false)
   }, [width])
-
-  // useEffect(() => {
-  //   document.body.style.overflow = menuOpened ? 'hidden' : 'auto'
-  // }, [menuOpened])
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -134,7 +133,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
   }, [scrollDirection, store?.state.isFirstLoading])
 
   const handleHeaderAnimationComplete = useCallback(() => {
-    if (scrolled && scrollDirection === 'down' && width > 991) {
+    if (scrolled && scrollDirection === 'down' && width > breakpointTablet) {
       setScrolledClassToAdd(true)
       setHeaderTheme('light')
       return
