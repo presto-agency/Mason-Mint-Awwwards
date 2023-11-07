@@ -10,12 +10,12 @@
   }
 
   & .smallText {
-    transition: fill 0.3s ease-in-out;
+    transition: fill 1.3s ease-in-out, opacity 0.4s 0.7s ease-in-out;
     fill: #266EF9;
   }
   
   & .mainText {
-    transition: fill 0.3s ease-in-out;
+    transition: fill 1.3s ease-in-out, opacity 0.4s 0.7s ease-in-out;
     fill: #24282C;
   }
 
@@ -27,11 +27,11 @@
 
   &.withoutText {
     .smallText {
-      display: none;
+      opacity: 0;
     }
 
     .mainText {
-      display: none;
+      opacity: 0;
     }
   }
 

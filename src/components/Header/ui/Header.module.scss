@@ -217,6 +217,8 @@
 
 @media (width <= $breakpoint-tablet) {
   .header {
+    transition: background-color 0.7s ease-out;
+
     &.dark{
       background-color: initial;
     }
