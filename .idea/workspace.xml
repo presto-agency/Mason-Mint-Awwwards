@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ui/Logo/ui/LogoColor/LogoColor.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/Logo/ui/LogoComponent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/Logo/ui/LogoWhite/LogoWhite.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Burger/Burger.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Burger/Burger.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Logo/Logo.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/ui/LogoComponent.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Logo/LogoTest.module.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Logo/LogoTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/ui/LogoColor/LogoColor.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Logo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699360567033</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix: some header fixes#3">
+      <option name="closed" value="true" />
+      <created>1699545197890</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699545197890</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,6 +222,7 @@
     <MESSAGE value="fix: breakpoint" />
     <MESSAGE value="fix: some header fixes" />
     <MESSAGE value="fix: some header fixes#2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: some header fixes#2" />
+    <MESSAGE value="fix: some header fixes#3" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: some header fixes#3" />
   </component>
 </project>
