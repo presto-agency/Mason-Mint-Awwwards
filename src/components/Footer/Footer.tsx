@@ -3,7 +3,6 @@ import Link from 'next/link'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import ContactInfo from '@/ui/ContactInfo/ContactInfo'
-import { Logo } from '@/ui/Logo'
 import PrestoLogo from '../../../public/icons/presto-logo.svg'
 import routes from '@/utils/routes'
 
@@ -11,11 +10,12 @@ import styles from './Footer.module.scss'
 import { Store } from '@/utils/Store'
 import { useWindowSize } from 'usehooks-ts'
 import { breakpointMob } from '@/utils/variables'
+import { LogoComponent } from '../../ui/Logo'
 
 const LogoBlock = () => {
   return (
     <Link scroll={false} href={routes.public.index} className={styles['logo']}>
-      <Logo className={styles['logo__item']} />
+      <LogoComponent className={styles['logo__item']} />
     </Link>
   )
 }

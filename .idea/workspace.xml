@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ui/Logo/ui/LogoColor/LogoColor.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/Logo/ui/LogoComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ui/Logo/ui/LogoWhite/LogoWhite.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Logo/LogoTest.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/LogoTest.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Header.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Logo/Logo.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/ui/LogoComponent.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Logo/LogoTest.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Logo/LogoTest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/ui/LogoColor/LogoColor.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/Logo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Logo/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -59,6 +68,11 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/ui/Logos/ui" />
+      <recent name="$PROJECT_DIR$/src/ui/Logos/ui/Logo" />
+      <recent name="$PROJECT_DIR$/src/ui/Logos/ui/LogoModified" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

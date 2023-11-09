@@ -17,12 +17,12 @@ import { useScroll } from '@/hooks/useScroll'
 
 import Container from '@/app/layouts/Container'
 import NavigationLayout from '@/components/Header/ui/NavigationLayout/NavigationLayout'
-import LogoTest from '@/ui/Logo/LogoTest'
 import { MobileLayout } from './MobileLayout/MobileLayout'
 
 import { Store } from '@/utils/Store'
 import styles from './Header.module.scss'
 import { breakpointTablet } from '@/utils/variables'
+import { LogoComponent } from '@/ui/Logo'
 
 type HeaderProps = {
   theme: 'dark' | 'light'
@@ -39,7 +39,7 @@ const transition = {
 
 const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
   const { scrolled, scrollDirection } = useScroll()
-  const [scrolledClassToAdd, setScrolledClassToAdd] = useState(false)
+  const [scrolledClass, setScrolledClass] = useState(false)
 
   const [menuOpened, setMenuOpened] = useState(false)
   const [menuOpenedClass, setMenuOpenedClass] = useState(false)
@@ -51,7 +51,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
 
   const mods = {
     [styles[headerTheme]]: true,
-    [styles.scrolled]: scrolledClassToAdd,
+    [styles.scrolled]: scrolledClass,
     [styles.opened]: menuOpenedClass,
   }
 
@@ -78,7 +78,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
     }
 
     if (window.scrollY < 10) {
-      setScrolledClassToAdd(false)
+      setScrolledClass(false)
       setHeaderTheme(initialTheme)
     }
   }, [menuOpened, initialTheme])
@@ -105,7 +105,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
 
     if (!menuOpenedClass && scrolled && width <= breakpointTablet) {
       setHeaderTheme('light')
-      setScrolledClassToAdd(true)
+      setScrolledClass(true)
     }
   }, [menuOpenedClass, initialTheme, scrolled])
 
@@ -134,7 +134,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
 
   const handleHeaderAnimationComplete = useCallback(() => {
     if (scrolled && scrollDirection === 'down' && width > breakpointTablet) {
-      setScrolledClassToAdd(true)
+      setScrolledClass(true)
       setHeaderTheme('light')
       return
     }
@@ -143,7 +143,7 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
   const handleLogoClick = useCallback(() => {
     if (router.pathname !== '/') {
       setHeaderTheme('light')
-      setScrolledClassToAdd(false)
+      setScrolledClass(false)
     }
   }, [router.pathname])
 
@@ -164,13 +164,11 @@ const Header: FC<HeaderProps> = ({ theme: initialTheme }) => {
               href={'/'}
               onClick={handleLogoClick}
             >
-              <div className={styles['logo']}>
-                <LogoTest
-                  className={styles['logo__icon']}
-                  isWhite={headerTheme !== 'light'}
-                  withoutText={scrolledClassToAdd && !menuOpened}
-                />
-              </div>
+              <LogoComponent
+                className={styles['logo']}
+                isWhite={headerTheme !== 'light'}
+                isSmall={scrolledClass && headerTheme == 'light'}
+              />
             </Link>
             <NavigationLayout />
           </div>

@@ -5,7 +5,7 @@
   z-index: 10;
   width: 100%;
   padding: 16rem 36rem;
-  transition: padding 1s var(--ease);
+  transition: padding 0.8s var(--ease), background-color 0.8s var(--ease);
   
   @media (width <= $breakpoint-tablet) {
     padding: 0;
@@ -33,10 +33,6 @@
       background-color: var(--white);
       border: 1rem solid var(--gray-300);
     }
-  
-    .logo__icon {
-      height: 38rem;
-    }
 
     .header__content {
       padding: 10rem 0;
@@ -45,10 +41,6 @@
     @media (width <= $breakpoint-tablet) {
       .header__content {
         padding-top: 26rem;
-      }
-
-      .logo__icon {
-        height: 60rem;
       }
     }
 
@@ -60,25 +52,7 @@
   }
   
   .logo{
-    display: flex;
-   
-
-    &__icon{
-      height: 60rem;
-      transition: height 0.3s var(--ease);
-    }
-
-    @media (width <= $breakpoint-mob) {
-      .logo {
-        width: auto;
-
-        &__icon{
-          display: flex;
-          align-items: center;
-          height: auto;
-        }
-      }
-    }
+    width: auto;
   }
 
   &.dark {
@@ -106,9 +80,9 @@
   }
 
 
-  &.opened{
-    background-color: var(--black);
-  }
+  //&.opened{
+  //  background-color: var(--black);
+  //}
 
   &__content {
     display: flex;
@@ -120,6 +94,7 @@
       position: relative;
       z-index: 10;
       display: flex;
+      flex: 0 0 192rem;
       align-items: center;
     }
     
@@ -217,11 +192,11 @@
 
 @media (width <= $breakpoint-tablet) {
   .header {
-    transition: background-color 0.7s ease-out;
-
-    &.dark{
-      background-color: initial;
-    }
+    //transition: background-color 0.7s ease-out;
+    //
+    //&.dark{
+    //  background-color: initial;
+    //}
 
     &__content {
       padding-top: 26rem;
@@ -250,34 +225,38 @@
       &_mobile {
         display: block;
       }
-    }
 
-    &__container{
-      transition: background-color 0.4s 0.7s ease-out;
-    }
-
-    &.opened.scrolled {
-      .header__content {
-        padding-top: 26rem;
+      &_link{
+        flex: 0 0 125rem;
       }
     }
+
+    //&__container{
+    //  transition: background-color 0.4s 0.7s ease-out;
+    //}
+    //
+    //&.opened.scrolled {
+    //  .header__content {
+    //    padding-top: 26rem;
+    //  }
+    //}
 
     &.scrolled{
       background-color: var(--white);
       
-      .header__container{
-        background-color: initial;
-        border: initial;
-      }
+      //.header__container{
+      //  background-color: initial;
+      //  border: initial;
+      //}
     }
 
-    &.opened{
-      background-color: initial;
-
-      .header__container{
-        background-color: var(--black);
-      }
-    }
+    //&.opened{
+    //  background-color: initial;
+    //
+    //  .header__container{
+    //    background-color: var(--black);
+    //  }
+    //}
   }
 }
 
