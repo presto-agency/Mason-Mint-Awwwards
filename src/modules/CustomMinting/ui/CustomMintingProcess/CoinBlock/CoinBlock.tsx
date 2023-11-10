@@ -1,10 +1,11 @@
 import { FC, useMemo } from 'react'
+import classNames from 'classnames'
 import Image from 'next/image'
 import { MotionValue, useTransform, motion, Transition } from 'framer-motion'
-import classNames from 'classnames'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
-import styles from './CoinBlock.module.scss'
 import { breakpointMob, breakpointTablet } from '@/utils/variables'
+
+import styles from './CoinBlock.module.scss'
 
 type CoinBlockProps = {
   className?: string

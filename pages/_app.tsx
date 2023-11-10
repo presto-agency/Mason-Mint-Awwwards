@@ -104,7 +104,7 @@ export default function App({
                     },
                   }}
                 />
-                <NextNProgress color="#266ef9" />
+                {/*<NextNProgress color="#266ef9" />*/}
                 <div id="portal"></div>
                 <MainPreloaderWrapper />
                 <AnimatePresence onExitComplete={onExitComplete} mode="wait">

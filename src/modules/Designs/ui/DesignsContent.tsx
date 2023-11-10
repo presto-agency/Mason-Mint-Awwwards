@@ -20,18 +20,19 @@ import ListTitle from './ListTitle/ListTitle'
 
 import { ProductsFilter, getProducts } from '../api/products'
 import { CategoryProps, ProductProps } from '@/utils/types'
-
 import { useLenis } from '@studio-freight/react-lenis'
 import { ProducsSectionContext } from '../lib/ProductListContext'
-
-import styles from './DesignsContent.module.scss'
 import _ from 'lodash'
 import { useWindowSize } from 'usehooks-ts'
 import BackgroundOverlay from './BackgroundOverlay/BackgroundOverlay'
 import { breakpointMob } from '@/utils/variables'
 
+import styles from './DesignsContent.module.scss'
+
 const BecomeDistributorSection = dynamic(
-  () => import('@/components/BecomeDistributorSection/BecomeDistributorSection')
+  () =>
+    import('@/components/BecomeDistributorSection/BecomeDistributorSection'),
+  { ssr: false }
 )
 
 type DesignsContentProps = {

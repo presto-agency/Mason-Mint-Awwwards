@@ -1,9 +1,9 @@
 import { FC, useMemo } from 'react'
-import { AnimatePresence, Transition, Variants, motion } from 'framer-motion'
 import classNames from 'classnames'
-
+import { AnimatePresence, Transition, Variants, motion } from 'framer-motion'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 import { numberWithZero } from '@/utils/number/numberWithZero'
+
 import styles from './CounterBlock.module.scss'
 
 type CounterBlockProps = {

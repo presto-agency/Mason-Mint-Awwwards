@@ -2,20 +2,18 @@ import { FC, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import { AnimatePresence, useMotionValueEvent, useScroll } from 'framer-motion'
-
-import { data } from './data'
-
 import { MarqueeText } from '@/ui/MarqueeText/MarqueeText'
 import { CoinBlock } from './CoinBlock/CoinBlock'
 import { CounterBlock } from './CounterBlock/CounterBlock'
 import { DescriptionBlock } from './DescriptionBlock/DescriptionBlock'
+import AnimatedText from '@/ui/AnimatedText/AnimatedText'
+import { data } from './data'
 
-import styles from './CustomMintingProcess.module.scss'
-
-const AnimatedText = dynamic(() => import('@/ui/AnimatedText/AnimatedText'))
 const AbstractLogo = dynamic(() => import('@/ui/AbstractLogo/AbstractLogo'), {
   ssr: false,
 })
+
+import styles from './CustomMintingProcess.module.scss'
 
 const CustomMintingProcess: FC<{ className?: string }> = ({ className }) => {
   const sectionRef = useRef<HTMLElement | null>(null)

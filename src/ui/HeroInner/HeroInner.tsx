@@ -2,12 +2,13 @@ import { FC, useMemo } from 'react'
 import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
+import AnimatedText from '@/ui/AnimatedText/AnimatedText'
+
+import styles from './HeroInner.module.scss'
+
 const AbstractLogo = dynamic(() => import('@/ui/AbstractLogo/AbstractLogo'), {
   ssr: false,
 })
-const AnimatedText = dynamic(() => import('@/ui/AnimatedText/AnimatedText'))
-
-import styles from './HeroInner.module.scss'
 
 type HeroInnerProps = {
   className?: string

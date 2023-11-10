@@ -6,7 +6,7 @@ import AnimatedText from '@/ui/AnimatedText/AnimatedText'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import AnimateScaleBg from '@/ui/AnimateScaleBG/AnimateScaleBG'
 import useWindowDimensions from '@/hooks/useWindowDimensions'
-import { MotionValue, Transition, motion, useTransform } from 'framer-motion'
+import { MotionValue, motion, useTransform } from 'framer-motion'
 
 import styles from './HeroDetail.module.scss'
 import { breakpointMob } from '@/utils/variables'

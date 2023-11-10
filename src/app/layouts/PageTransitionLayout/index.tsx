@@ -9,21 +9,21 @@ const variants = {
   initial: {
     opacity: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.7,
       ease: [0.22, 1, 0.36, 1],
     },
   },
   animate: {
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.7,
       ease: [0.22, 1, 0.36, 1],
     },
   },
   exit: {
     opacity: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.7,
       ease: [0.22, 1, 0.36, 1],
     },
   },
@@ -49,7 +49,6 @@ const innerVariant = {
 
 const PageTransitionLayout: FC<{ children: ReactNode; isFooter?: boolean }> = ({
   children,
-  isFooter = true,
 }) => {
   const store = useContext(Store)
   const { setActionType } = useCursor()
@@ -78,7 +77,6 @@ const PageTransitionLayout: FC<{ children: ReactNode; isFooter?: boolean }> = ({
       onAnimationComplete={isFirstLoading}
     >
       {children}
-      {isFooter && <Footer />}
     </motion.div>
   )
 }

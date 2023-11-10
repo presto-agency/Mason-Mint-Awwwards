@@ -1,14 +1,10 @@
 import { FC } from 'react'
 import classNames from 'classnames'
-import dynamic from 'next/dynamic'
+import AbstractLogo from '@/ui/AbstractLogo/AbstractLogo'
+import CustomMintingContentBlock from '@/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingContentBlock'
 import { data } from './data'
 
-const AbstractLogo = dynamic(() => import('@/ui/AbstractLogo/AbstractLogo'), {
-  ssr: false,
-})
-
 import styles from './CustomMintingMarketing.module.scss'
-import CustomMintingContentBlock from '@/modules/CustomMinting/ui/CustomMintingMarketing/CustomMintingContentBlock'
 
 const CustomMintingMarketing: FC<{ className?: string }> = ({ className }) => {
   return (
