@@ -1,0 +1,36 @@
+@import '@/app/styles/variables/breakpoints';
+
+.LogoColor {
+  &.small{
+    .LogoColor{
+      &__smallText {
+        opacity: 0;
+      }
+
+      &__mainText {
+        opacity: 0;
+      }
+    }
+  }
+  
+  &__icon {
+    transition: opacity 0.3s var(--ease);
+    fill: #266EF9;
+  }
+
+  &__smallText {
+    transition: opacity 0.3s var(--ease);
+    fill: #266EF9;
+  }
+  
+  &__mainText {
+    transition: opacity 0.3s var(--ease);
+    fill: #24282C;
+  }
+
+  @media (width <= $breakpoint-mob) {
+    width: 125rem;
+    height: auto;
+  }
+}
+

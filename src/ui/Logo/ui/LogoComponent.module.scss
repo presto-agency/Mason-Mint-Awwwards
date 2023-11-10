@@ -1,0 +1,22 @@
+@import '@/app/styles/variables/breakpoints';
+
+.LogoComponent {
+  width: 192rem;
+
+  &__container {
+    width: 100%;
+    height: 100%;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  @media (width <= $breakpoint-mob) {
+    width: 125rem;
+  }
+}
+
