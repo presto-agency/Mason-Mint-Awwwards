@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app'
 import { SessionProvider } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import NextNProgress from 'nextjs-progressbar'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { StoreProvider } from '@/utils/Store'
 import AppLayout from '@/app/layouts/AppLayout'
 import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition'
@@ -108,7 +108,9 @@ export default function App({
                 <div id="portal"></div>
                 <MainPreloaderWrapper />
                 <AnimatePresence onExitComplete={onExitComplete} mode="wait">
+                  {/*<motion.div key={router.pathname}>*/}
                   <Component {...pageProps} key={pageKey} />
+                  {/*</motion.div>*/}
                 </AnimatePresence>
               </AppLayout>
             </StoreProvider>
