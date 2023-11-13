@@ -1,12 +1,17 @@
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 
 import Container from '@/app/layouts/Container'
 import Accordion from './Accordion/Accordion'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
-import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
 import data from './data'
+
+const ParallaxSection = dynamic(
+  () => import('@/ui/ParallaxSection/ParallaxSection'),
+  { ssr: false }
+)
 
 import styles from './FAQSection.module.scss'
 

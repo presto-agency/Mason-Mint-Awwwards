@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, useState } from 'react'
 import { ProductProps } from '@/utils/types'
 import classNames from 'classnames'
 import Image from 'next/image'
@@ -12,6 +12,8 @@ type PhotoMainProps = {
 }
 
 const PhotoMain: FC<PhotoMainProps> = ({ product, className, activeSide }) => {
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false)
+
   return (
     <div className={classNames(styles['photoMain'], className)}>
       <motion.div
@@ -20,7 +22,7 @@ const PhotoMain: FC<PhotoMainProps> = ({ product, className, activeSide }) => {
           styles[`active-side-${activeSide}`]
         )}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={imageLoaded ? { opacity: 1 } : {}}
         transition={{ duration: 1 }}
       >
         <div className={classNames(styles['image__side'], styles['front'])}>
@@ -29,6 +31,7 @@ const PhotoMain: FC<PhotoMainProps> = ({ product, className, activeSide }) => {
             fill
             quality={100}
             alt={product.ProductName}
+            onLoadingComplete={() => setImageLoaded(true)}
           />
         </div>
         <div className={classNames(styles['image__side'], styles['back'])}>

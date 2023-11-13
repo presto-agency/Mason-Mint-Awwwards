@@ -1,12 +1,17 @@
 import React, { FC } from 'react'
+import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
-import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
-
-import styles from './NumismaticPackaging.module.scss'
 
 import { MarqueeCarouselPhoto } from '@/components/MarqueeCarousel/MarqueeCarouselPhoto'
+
+const ParallaxSection = dynamic(
+  () => import('@/ui/ParallaxSection/ParallaxSection'),
+  { ssr: false }
+)
+
+import styles from './NumismaticPackaging.module.scss'
 
 const data = [
   {
