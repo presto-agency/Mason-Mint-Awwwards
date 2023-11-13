@@ -2,6 +2,7 @@ import { NextApiResponse, NextApiRequest } from 'next'
 import db from '@/utils/db'
 import { getError } from '@/utils/error'
 import ProductModel from '../../../../models/Product'
+import CategoryModel from '../../../../models/Category'
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'DELETE') {
@@ -10,6 +11,25 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   try {
     const productId = req.query.id
+    const { category: productCategory = {} } = await ProductModel.findById(
+      productId
+    )
+    const categoryId = productCategory.id || null
+
+    if (categoryId) {
+      const category = await CategoryModel.findById(productCategory.id)
+      if (category && category.products) {
+        const productIndex = category.products.findIndex(
+          (product: { name: string; id: string }) => product.id === productId
+        )
+
+        if (productIndex !== -1) {
+          category.products.splice(productIndex, 1)
+
+          await category.save()
+        }
+      }
+    }
 
     await db.connect()
 

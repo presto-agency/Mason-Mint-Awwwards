@@ -45,7 +45,7 @@ const ProductCard: FC<ProductCardProps> = ({
       draggable={false}
       className={classNames(
         styles['product'],
-        flip ? styles['enable-flip'] : '',
+        flip && data.mainImages?.reverse ? styles['enable-flip'] : '',
         className
       )}
       onClick={handleClick}
@@ -58,7 +58,7 @@ const ProductCard: FC<ProductCardProps> = ({
           }}
         ></div>
         <div className={styles['product__thumb_item']}>
-          {flip ? (
+          {flip && data.mainImages?.reverse ? (
             <>
               <div
                 className={classNames(styles['product__side'], styles['front'])}
@@ -86,7 +86,7 @@ const ProductCard: FC<ProductCardProps> = ({
           ) : (
             <div className={classNames(styles['product__side'])}>
               <Image
-                src={data.mainImages.obverse || ''}
+                src={data.mainImages?.obverse || '/images/coin-placeholder.png'}
                 fill
                 alt={data.ProductName}
               />

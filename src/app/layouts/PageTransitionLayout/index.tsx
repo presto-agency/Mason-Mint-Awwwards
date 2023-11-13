@@ -9,22 +9,22 @@ const variants = {
   initial: {
     opacity: 0,
     transition: {
-      duration: 0.5,
-      ease: 'easeInOut',
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
   animate: {
     opacity: 1,
     transition: {
-      duration: 0.5,
-      ease: 'easeInOut',
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
   exit: {
     opacity: 0,
     transition: {
-      duration: 0.5,
-      ease: 'easeInOut',
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 }
@@ -34,7 +34,7 @@ const innerVariant = {
     y: '100svh',
     transition: {
       duration: 0.5,
-      ease: 'easeInOut',
+      ease: [0.22, 1, 0.36, 1],
     },
   },
   animate: {
@@ -42,15 +42,15 @@ const innerVariant = {
     transition: {
       delay: 3.7,
       duration: 0.5,
-      ease: 'easeInOut',
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 }
 
-const PageTransitionLayout: FC<{ children: ReactNode; isFooter?: boolean }> = ({
-  children,
-  isFooter = true,
-}) => {
+const PageTransitionLayout: FC<{
+  children: ReactNode
+  hasFooter?: boolean
+}> = ({ children, hasFooter = true }) => {
   const store = useContext(Store)
   const { setActionType } = useCursor()
   const lenis = useLenis()
@@ -78,7 +78,7 @@ const PageTransitionLayout: FC<{ children: ReactNode; isFooter?: boolean }> = ({
       onAnimationComplete={isFirstLoading}
     >
       {children}
-      {isFooter && <Footer />}
+      {hasFooter && <Footer />}
     </motion.div>
   )
 }

@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic'
 import Container from '@/app/layouts/Container'
 import ContactForm from '@/modules/Contact/ui/ContactForm/ContactForm'
 import ContactBody from '@/modules/Contact/ui/ContactBody/ContactBody'
@@ -8,7 +9,6 @@ const BecomeDistributorSection = dynamic(
   { ssr: false }
 )
 import styles from './ContactContent.module.scss'
-import dynamic from 'next/dynamic'
 
 export const ContactContent = () => {
   return (

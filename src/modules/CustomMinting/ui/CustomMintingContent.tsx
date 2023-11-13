@@ -1,12 +1,6 @@
 import { FC } from 'react'
 import dynamic from 'next/dynamic'
-const CustomMintingProcess = dynamic(
-  () =>
-    import(
-      '@/modules/CustomMinting/ui/CustomMintingProcess/CustomMintingProcess'
-    ),
-  { ssr: false }
-)
+import CustomMintingProcess from '@/modules/CustomMinting/ui/CustomMintingProcess/CustomMintingProcess'
 
 const CustomMintingMarketing = dynamic(
   () =>
@@ -17,7 +11,9 @@ const CustomMintingMarketing = dynamic(
 )
 
 const BecomeDistributorSection = dynamic(
-  () => import('@/components/BecomeDistributorSection/BecomeDistributorSection')
+  () =>
+    import('@/components/BecomeDistributorSection/BecomeDistributorSection'),
+  { ssr: false }
 )
 
 import styles from './CustomMintingContent.module.scss'

@@ -3,7 +3,7 @@ import PageTransitionLayout from '../src/app/layouts/PageTransitionLayout'
 
 export default function Custom404() {
   return (
-    <PageTransitionLayout isFooter={false}>
+    <PageTransitionLayout hasFooter={false}>
       <PageNotFound />
     </PageTransitionLayout>
   )

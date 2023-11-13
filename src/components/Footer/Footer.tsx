@@ -82,7 +82,7 @@ export const Footer: FC = () => {
   return (
     <footer
       style={{
-        position: isVisible ? 'sticky' : 'relative',
+        position: isVisible ? 'sticky' : 'static',
       }}
       className={styles['footer']}
     >

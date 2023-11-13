@@ -1,7 +1,7 @@
 import { FC, useMemo } from 'react'
+import classNames from 'classnames'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 import { AnimatePresence, Transition, Variants, motion } from 'framer-motion'
-import classNames from 'classnames'
 
 import styles from './DescriptionBlock.module.scss'
 
