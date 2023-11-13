@@ -40,12 +40,22 @@ type DesignsContentProps = {
   products: ProductProps[]
 }
 
+type NewCategoryProps = {
+  name?: string
+  id?: string
+  category?: CategoryProps
+  products?: { id: string; name: string }[]
+}
+
 const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
   const { width } = useWindowSize()
   const [filters, setFilters] = useState<ProductsFilter>({
     search: '',
   })
   const [showMobileFilter, setShowMobileFilter] = useState(false)
+  const [updatedCategories, setUpdatedCategories] = useState<
+    NewCategoryProps[]
+  >([])
   const [showScrollToTopButton, setShowScrollToTopButton] = useState(false)
 
   const [direction, setDirection] = useState<'up' | 'down'>('down')
@@ -83,6 +93,40 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
       refetchOnWindowFocus: false,
     }
   )
+
+  useEffect(() => {
+    if (data) {
+      const uniqueCategoriesWithProducts = data.reduce(
+        (accumulator: Record<string, NewCategoryProps>, currentObj) => {
+          const categoryName = currentObj.category?.name
+          if (categoryName) {
+            if (!accumulator[categoryName]) {
+              accumulator[categoryName] = {
+                id: currentObj.category?.id,
+                name: currentObj.category?.name,
+                category: currentObj.category,
+                products: [{ id: currentObj.id, name: currentObj.ProductName }],
+              }
+            } else {
+              accumulator[categoryName].products?.push({
+                id: currentObj.id,
+                name: currentObj.ProductName,
+              })
+            }
+          }
+
+          return accumulator
+        },
+        {}
+      )
+
+      const sortedUpdatedCategories = Object.values(
+        uniqueCategoriesWithProducts
+      ).sort((a, b) => (a.name || '').localeCompare(b.name || ''))
+
+      setUpdatedCategories([...sortedUpdatedCategories])
+    }
+  }, [data])
 
   const pageRef = useRef<HTMLElement | null>(null)
   const productSectionRef = useRef<HTMLElement | null>(null)
@@ -189,7 +233,7 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
             <ProductSearch className={classNames(styles['search'], mods)} />
             <ProductFilters
               className={styles['filters']}
-              categories={categories}
+              categories={updatedCategories}
               productsCount={products.length}
             />
           </div>
@@ -203,14 +247,14 @@ const DesignsContent: FC<DesignsContentProps> = ({ categories, products }) => {
                   className={styles['title']}
                   products={data}
                   fetching={isFetching}
-                  categories={categories}
+                  categories={updatedCategories}
                   currentCategoryIndex={currentCategory}
                   menuOpened={showMobileFilter}
                 />
                 {showMobileFilter && (
                   <ProductFilters
                     className={styles['filtersMobile']}
-                    categories={categories}
+                    categories={updatedCategories}
                     productsCount={products.length}
                   />
                 )}

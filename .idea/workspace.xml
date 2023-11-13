@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Burger/Burger.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Burger/Burger.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/ui/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/ui/Header.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/DesignsContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/DesignsContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/ProductFilters/ProductFilters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/ProductFilters/ProductFilters.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/ProductSearch/ProductSearch.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/ProductSearch/ProductSearch.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +79,8 @@
       <workItem from="1698241663000" duration="31603000" />
       <workItem from="1698651101811" duration="1089000" />
       <workItem from="1698654215181" duration="50193000" />
+      <workItem from="1699613773120" duration="11711000" />
+      <workItem from="1699867951539" duration="9110000" />
     </task>
     <task id="LOCAL-00001" summary="fix: finish home page coin">
       <option name="closed" value="true" />
@@ -191,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699545197890</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix: some header fixes#4">
+      <option name="closed" value="true" />
+      <created>1699559165193</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699559165193</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +234,7 @@
     <MESSAGE value="fix: some header fixes" />
     <MESSAGE value="fix: some header fixes#2" />
     <MESSAGE value="fix: some header fixes#3" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: some header fixes#3" />
+    <MESSAGE value="fix: some header fixes#4" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: some header fixes#4" />
   </component>
 </project>

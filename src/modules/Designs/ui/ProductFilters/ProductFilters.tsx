@@ -36,10 +36,10 @@ const ProductFilters: FC<ProductFiltersProps> = ({
                 activeSection === category.id ? styles['active'] : ''
               )}
               onClick={() => {
-                if (index === 0) {
-                  scrollTop?.()
-                  return
-                }
+                // if (index === 0) {
+                //   scrollTop?.()
+                //   return
+                // }
 
                 const element = document.getElementById(
                   `category-${category.id}`
@@ -53,11 +53,6 @@ const ProductFilters: FC<ProductFiltersProps> = ({
                     duration: 1.5,
                     force: true,
                   })
-
-                  // window.scrollTo({
-                  //   top: pos,
-                  //   // behavior: width > 767 ? 'smooth' : 'auto', // for some reason "smooth" gives wrong position of element on mobile
-                  // })
                 }
               }}
             >
