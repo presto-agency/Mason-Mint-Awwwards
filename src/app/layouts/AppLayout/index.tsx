@@ -6,7 +6,6 @@ import { Lenis as ReactLenis } from '@studio-freight/react-lenis'
 
 import { Header } from '@/components/Header'
 import CursorLayout from '../CursorLayout/CursorLayout'
-import { Footer } from '@/components/Footer/Footer'
 
 type AppLayoutProps = {
   children: ReactNode
@@ -57,7 +56,6 @@ const AppLayout: FC<AppLayoutProps> = ({ children }) => {
         <CursorLayout>
           {existHeaderFooter && <Header theme={headerTheme} />}
           {children}
-          {existHeaderFooter && <Footer />}
         </CursorLayout>
       </ReactLenis>
     </>

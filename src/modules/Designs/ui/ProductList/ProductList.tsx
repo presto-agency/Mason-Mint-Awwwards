@@ -28,7 +28,9 @@ const ProductList: FC<ProductListProps> = ({
 
     if (products.length) {
       for (const product of products) {
-        const categoryId = product?.category?.id
+        const category = product?.category
+        const categoryId = category?.id
+
         if (categoryId) {
           if (!hash.has(categoryId)) {
             hash.set(categoryId, [product])
@@ -46,9 +48,10 @@ const ProductList: FC<ProductListProps> = ({
     const result = Array.from(hash, ([categoryId, products]) => {
       return {
         categoryId,
+        categoryName: products[0].category?.name || 'Uncategorized',
         products,
       }
-    })
+    }).sort((a, b) => a.categoryName.localeCompare(b.categoryName))
 
     hash.clear()
     return result

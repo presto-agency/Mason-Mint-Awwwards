@@ -47,9 +47,10 @@ const innerVariant = {
   },
 }
 
-const PageTransitionLayout: FC<{ children: ReactNode; isFooter?: boolean }> = ({
-  children,
-}) => {
+const PageTransitionLayout: FC<{
+  children: ReactNode
+  hasFooter?: boolean
+}> = ({ children, hasFooter = true }) => {
   const store = useContext(Store)
   const { setActionType } = useCursor()
   const lenis = useLenis()
@@ -77,6 +78,7 @@ const PageTransitionLayout: FC<{ children: ReactNode; isFooter?: boolean }> = ({
       onAnimationComplete={isFirstLoading}
     >
       {children}
+      {hasFooter && <Footer />}
     </motion.div>
   )
 }

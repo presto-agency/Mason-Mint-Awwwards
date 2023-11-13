@@ -47,6 +47,7 @@ const nextConfig = {
       ...config.resolve.alias,
       ['react-is']: path.resolve(__dirname, 'node_modules/react-is'),
       ['throttle-debounce']: path.resolve(__dirname, 'node_modules/throttle-debounce'),
+      ['tslib']: path.resolve(__dirname, 'node_modules/tslib')
     }
 
     const rules = config.module.rules

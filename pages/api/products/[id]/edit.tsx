@@ -15,6 +15,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const body = req.body
     const categoryId = body.category?.id
 
+    await db.connect()
+
     if (categoryId) {
       const category = await CategoryModel.findOne({ id: categoryId })
 
@@ -31,7 +33,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       }
     }
 
-    await db.connect()
     let product = await ProductTestModel.findOneAndUpdate(
       { id: productId },
       body

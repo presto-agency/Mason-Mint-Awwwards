@@ -18,12 +18,12 @@ const AdminProducts: FC<{ products: ProductProps[] }> = ({ products }) => {
   const handleRemove = async (product: ProductProps) => {
     if (window.confirm('Do you really want to delete that product?')) {
       /* remove main images on cloud */
-      if (product.mainImages.obverse) {
+      if (product.mainImages?.obverse) {
         await deleteFile(
           getFileNameFromCloudUrl(product.mainImages.obverse as string)
         )
       }
-      if (product.mainImages.reverse) {
+      if (product.mainImages?.reverse) {
         await deleteFile(
           getFileNameFromCloudUrl(product.mainImages.reverse as string)
         )
