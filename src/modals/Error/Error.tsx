@@ -21,7 +21,7 @@ const ErrorModal: FC<ModalWindowProps> = (props) => {
           <Exclamation className={styles['modal__icon_item']} />
         </div>
         <p className={classNames('h4', styles['modal__title'])}>
-          Replying is not currently enabled on this platform!
+          Oops! Something Went Wrong.
         </p>
         <ButtonPrimary
           fullWidth
