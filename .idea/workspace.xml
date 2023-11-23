@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailSameProducts/DesignsDetailSameProducts.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailSameProducts/DesignsDetailSameProducts.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Designs/ui/ProductFilters/ProductFilters.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Designs/ui/ProductFilters/ProductFilters.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +78,7 @@
       <workItem from="1699867951539" duration="12130000" />
       <workItem from="1700503952650" duration="260000" />
       <workItem from="1700505040854" duration="5735000" />
-      <workItem from="1700513334668" duration="17393000" />
+      <workItem from="1700513334668" duration="17712000" />
     </task>
     <task id="LOCAL-00001" summary="fix: finish home page coin">
       <option name="closed" value="true" />
@@ -212,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699877917499</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix: detail page horizontal scroll">
+      <option name="closed" value="true" />
+      <created>1700751915772</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1700751915772</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +250,7 @@
     <MESSAGE value="fix: some header fixes#3" />
     <MESSAGE value="fix: some header fixes#4" />
     <MESSAGE value="fix: search fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: search fix" />
+    <MESSAGE value="fix: detail page horizontal scroll" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: detail page horizontal scroll" />
   </component>
 </project>

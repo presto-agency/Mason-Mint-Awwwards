@@ -39,7 +39,8 @@ const ProductFilters: FC<ProductFiltersProps> = ({
               )}
               onClick={() => {
                 if (index === 0) {
-                  lenis.scrollTop?.()
+                  scrollTop?.()
+                  return
                 }
 
                 const element = document.getElementById(
