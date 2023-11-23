@@ -1,10 +1,15 @@
 import React, { FC } from 'react'
+import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import Image from 'next/image'
 import Container from '@/app/layouts/Container'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
-import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
+
+const ParallaxSection = dynamic(
+  () => import('@/ui/ParallaxSection/ParallaxSection'),
+  { ssr: false }
+)
 
 import styles from './AllProducts.module.scss'
 

@@ -1,9 +1,13 @@
 import React, { FC } from 'react'
+import dynamic from 'next/dynamic'
 import Container from '@/app/layouts/Container'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import classNames from 'classnames'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
-import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
+const ParallaxSection = dynamic(
+  () => import('@/ui/ParallaxSection/ParallaxSection'),
+  { ssr: false }
+)
 
 import styles from './WhatWeDo.module.scss'
 

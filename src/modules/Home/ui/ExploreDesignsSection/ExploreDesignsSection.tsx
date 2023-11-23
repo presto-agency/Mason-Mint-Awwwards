@@ -1,4 +1,5 @@
 import { FC, Fragment, useState } from 'react'
+import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import Link from 'next/link'
 import type SwiperCore from 'swiper'
@@ -13,13 +14,17 @@ import useWindowDimensions from '@/hooks/useWindowDimensions'
 
 import { data } from '@/modules/Home/ui/ExploreDesignsSection/data'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
-import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
 import routes from '@/utils/routes'
+import { useCursor } from '@/app/layouts/CursorLayout/CursorLayout'
+import { breakpointMob } from '@/utils/variables'
+
+const ParallaxSection = dynamic(
+  () => import('@/ui/ParallaxSection/ParallaxSection'),
+  { ssr: false }
+)
 
 import 'swiper/css'
 import styles from './ExploreDesignsSection.module.scss'
-import { useCursor } from '@/app/layouts/CursorLayout/CursorLayout'
-import { breakpointMob } from '@/utils/variables'
 
 type SlideInner = {
   title: string

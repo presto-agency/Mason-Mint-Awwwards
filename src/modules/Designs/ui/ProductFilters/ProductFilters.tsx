@@ -1,11 +1,11 @@
 import { FC, useContext } from 'react'
 import classNames from 'classnames'
 
+import { useLenis } from '@studio-freight/react-lenis'
 import { CategoryProps } from '@/utils/types'
 import { ProducsSectionContext } from '../../lib/ProductListContext'
 
 import styles from './ProductFilters.module.scss'
-import { useLenis } from '@studio-freight/react-lenis'
 
 type ProductFiltersProps = {
   className?: string
@@ -23,9 +23,11 @@ const ProductFilters: FC<ProductFiltersProps> = ({
 
   return (
     <div className={classNames(styles['ProductFilters'], className)}>
-      <div className={styles['allProductsCount']}>
-        All products, {productsCount} results
-      </div>
+      {categories.length ? (
+        <div className={styles['allProductsCount']}>
+          All products, {productsCount} results
+        </div>
+      ) : null}
       <ul className={styles['list']}>
         {categories?.map((category, index) => {
           return (

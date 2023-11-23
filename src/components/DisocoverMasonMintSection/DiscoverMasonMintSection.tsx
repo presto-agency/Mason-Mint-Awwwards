@@ -1,11 +1,11 @@
 import { FC, useRef } from 'react'
-import { useScroll } from 'framer-motion'
+import classNames from 'classnames'
 
+import { useScroll } from 'framer-motion'
 import { Coin } from './Coin/Coin'
 import { MarqueeText } from '@/ui/MarqueeText/MarqueeText'
 
 import styles from './DiscoverMasonMintSection.module.scss'
-import classNames from 'classnames'
 
 type DiscoverMasonMintSectionProps = {
   className?: string

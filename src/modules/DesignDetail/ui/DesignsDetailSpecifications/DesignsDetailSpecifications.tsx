@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo } from 'react'
+import { FC, useMemo } from 'react'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 
@@ -6,7 +6,10 @@ import { ProductProps } from '@/utils/types'
 import classNames from 'classnames'
 
 import { BlueDot } from '@/ui/BlueDot'
-import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
+const ParallaxSection = dynamic(
+  () => import('@/ui/ParallaxSection/ParallaxSection'),
+  { ssr: false }
+)
 
 import styles from './DesignsDetailSpecifications.module.scss'
 

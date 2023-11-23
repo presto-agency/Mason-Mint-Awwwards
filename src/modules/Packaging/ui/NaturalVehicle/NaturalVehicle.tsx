@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import Link from 'next/link'
 import Container from '@/app/layouts/Container'
@@ -6,8 +7,12 @@ import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
 import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
 import AnimatedElement from '@/ui/AnimatedElement/AnimatedElement'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
-import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
 import routes from '@/utils/routes'
+
+const ParallaxSection = dynamic(
+  () => import('@/ui/ParallaxSection/ParallaxSection'),
+  { ssr: false }
+)
 
 import styles from './NaturalVehicle.module.scss'
 

@@ -7,6 +7,12 @@ import { DiscoverMasonMintSection } from '@/components/DisocoverMasonMintSection
 
 import FAQSection from './FAQSection/FAQSection'
 import SellSection from './SellSection/SellSection'
+import {
+  MarqueCarouselContext,
+  MarqueCarouselContextType,
+} from '@/components/MarqueeCarousel/MarqueeCarouselWrapper'
+
+import { ProductProps } from '@/utils/types'
 
 const FeaturedDesignsSection = dynamic(
   () => import('./FeaturedDesignsSection/FeaturedDesignsSection'),
@@ -26,14 +32,12 @@ const BecomeDistributorSection = dynamic(
   { ssr: false }
 )
 
-import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
+const ParallaxSection = dynamic(
+  () => import('@/ui/ParallaxSection/ParallaxSection'),
+  { ssr: false }
+)
 
 import styles from './HomeContent.module.scss'
-import { ProductProps } from '@/utils/types'
-import {
-  MarqueCarouselContext,
-  MarqueCarouselContextType,
-} from '@/components/MarqueeCarousel/MarqueeCarouselWrapper'
 
 type HomeContentProps = {
   products: ProductProps[]

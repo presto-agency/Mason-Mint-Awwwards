@@ -1,9 +1,13 @@
 import React, { FC } from 'react'
+import dynamic from 'next/dynamic'
 import classNames from 'classnames'
 import Container from '@/app/layouts/Container'
 import AnimatedText from '@/ui/AnimatedText/AnimatedText'
 import { BackgroundImage } from '@/ui/BackgroundImage/BackgroundImage'
-import ParallaxSection from '@/ui/ParallaxSection/ParallaxSection'
+const ParallaxSection = dynamic(
+  () => import('@/ui/ParallaxSection/ParallaxSection'),
+  { ssr: false }
+)
 
 import styles from './WasBorn.module.scss'
 
