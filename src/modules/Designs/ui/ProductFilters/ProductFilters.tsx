@@ -36,10 +36,9 @@ const ProductFilters: FC<ProductFiltersProps> = ({
                 activeSection === category.id ? styles['active'] : ''
               )}
               onClick={() => {
-                // if (index === 0) {
-                //   scrollTop?.()
-                //   return
-                // }
+                if (index === 0) {
+                  lenis.scrollTop?.()
+                }
 
                 const element = document.getElementById(
                   `category-${category.id}`
