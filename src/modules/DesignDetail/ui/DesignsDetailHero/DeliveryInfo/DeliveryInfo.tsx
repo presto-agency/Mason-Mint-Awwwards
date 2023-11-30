@@ -19,7 +19,7 @@ const DeliveryInfo: FC<DeliveryInfoProps> = ({ className }) => {
   return (
     <div className={classNames(styles['DeliveryInfo'], className)}>
       <AnimatedElement className={styles['title']}>
-        <Car />
+        <Car className={styles['car']} />
         <h6>delivery info</h6>
       </AnimatedElement>
       <p className={styles['description']}>

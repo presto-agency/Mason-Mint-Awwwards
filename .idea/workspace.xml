@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="" />
+    <list default="true" id="9967a77f-5319-46b8-8bb1-5bae1cbf5f2d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icons/car.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/icons/car.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/DeliveryInfo/DeliveryInfo.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/DeliveryInfo/DeliveryInfo.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/DeliveryInfo/DeliveryInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/DesignDetail/ui/DesignsDetailHero/DeliveryInfo/DeliveryInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/TextField/TextField.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/TextField/TextField.module.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,25 +41,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.stylelint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.stylelint": "/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards/node_modules/stylelint",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards/node_modules/stylelint&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/anton_kamarhin/Desktop/Projects/Mason-Mint-Awwwards/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -78,7 +85,10 @@
       <workItem from="1699867951539" duration="12130000" />
       <workItem from="1700503952650" duration="260000" />
       <workItem from="1700505040854" duration="5735000" />
-      <workItem from="1700513334668" duration="17712000" />
+      <workItem from="1700513334668" duration="28990000" />
+      <workItem from="1700836370801" duration="606000" />
+      <workItem from="1700910762876" duration="1401000" />
+      <workItem from="1701339617592" duration="2996000" />
     </task>
     <task id="LOCAL-00001" summary="fix: finish home page coin">
       <option name="closed" value="true" />
@@ -216,7 +226,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700751915772</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fix: detail page horizontal scroll#2">
+      <option name="closed" value="true" />
+      <created>1700752282962</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1700752282962</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +269,7 @@
     <MESSAGE value="fix: some header fixes#4" />
     <MESSAGE value="fix: search fix" />
     <MESSAGE value="fix: detail page horizontal scroll" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: detail page horizontal scroll" />
+    <MESSAGE value="fix: detail page horizontal scroll#2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: detail page horizontal scroll#2" />
   </component>
 </project>
