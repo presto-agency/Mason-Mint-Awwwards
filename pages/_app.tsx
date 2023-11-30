@@ -1,8 +1,7 @@
 import type { AppProps } from 'next/app'
 import { SessionProvider } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import NextNProgress from 'nextjs-progressbar'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { StoreProvider } from '@/utils/Store'
 import AppLayout from '@/app/layouts/AppLayout'
 import { useNextCssRemovalPrevention } from '@madeinhaus/nextjs-page-transition'
@@ -97,6 +96,8 @@ export default function App({
                       lineHeight: '24rem',
                       fontWeight: '400',
                       fontFamily: 'var(--font-family-secondary)',
+                      padding: '16rem 24rem',
+                      border: 'initial',
                     },
                     iconTheme: {
                       primary: '#21D184',
