@@ -17,6 +17,7 @@ const ThanksModal = dynamic(() => import('@/modals/Thanks/Thanks'), {
 const AnimatedText = dynamic(() => import('@/ui/AnimatedText/AnimatedText'))
 
 import styles from './ContactForm.module.scss'
+import {browserPostEmail} from '@/utils/email/browserPostEmail';
 
 type FormValues = {
   fullName: string
@@ -76,28 +77,41 @@ const ContactForm: FC<{ className?: string }> = ({ className }) => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     setSending(true)
-    await browserSendEmail({
+    
+    await browserPostEmail({
       subject: `Let's talk!`,
       htmlMessage: 'Hello, I want to test this mail',
       data,
     })
-      .then((response) => response.json())
-      .then(({ success = false, response = null }) => {
-        if (success && response && response.messageId) {
-          openThanksModal()
-          setSending(false)
-          reset()
-        } else {
-          openErrorModal()
-          reset()
-          setSending(false)
-        }
+      .then((response) => {
+        console.log('response ', response)
       })
       .catch((error) => {
-        openErrorModal()
-        setSending(false)
-        console.error(`Error on send email ${error}`)
+        console.log('error ', error)
       })
+    
+    // await browserSendEmail({
+    //   subject: `Let's talk!`,
+    //   htmlMessage: 'Hello, I want to test this mail',
+    //   data,
+    // })
+    //   .then((response) => response.json())
+    //   .then(({ success = false, response = null }) => {
+    //     if (success && response && response.messageId) {
+    //       openThanksModal()
+    //       setSending(false)
+    //       reset()
+    //     } else {
+    //       openErrorModal()
+    //       reset()
+    //       setSending(false)
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     openErrorModal()
+    //     setSending(false)
+    //     console.error(`Error on send email ${error}`)
+    //   })
   }
 
   return (
