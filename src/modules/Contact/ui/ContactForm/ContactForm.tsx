@@ -7,7 +7,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { validationSchema } from '@/modules/Contact/ui/ContactForm/validationSchema'
 import { ButtonPrimary } from '@/ui/ButtonPrimary/ButtonPrimary'
 import { useModal } from '@/hooks/useModal'
-import { browserSendEmail } from '@/utils/email/browserSendEmail'
+// import { browserSendEmail } from '@/utils/email/browserSendEmail'
+import { browserPostEmail } from '@/utils/email/browserPostEmail'
 import ContactInfo from '@/ui/ContactInfo/ContactInfo'
 import { useInView, motion } from 'framer-motion'
 const ErrorModal = dynamic(() => import('@/modals/Error/Error'), { ssr: false })
@@ -17,7 +18,6 @@ const ThanksModal = dynamic(() => import('@/modals/Thanks/Thanks'), {
 const AnimatedText = dynamic(() => import('@/ui/AnimatedText/AnimatedText'))
 
 import styles from './ContactForm.module.scss'
-import {browserPostEmail} from '@/utils/email/browserPostEmail';
 
 type FormValues = {
   fullName: string
@@ -77,7 +77,7 @@ const ContactForm: FC<{ className?: string }> = ({ className }) => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     setSending(true)
-    
+
     await browserPostEmail({
       subject: `Let's talk!`,
       htmlMessage: 'Hello, I want to test this mail',
@@ -89,7 +89,7 @@ const ContactForm: FC<{ className?: string }> = ({ className }) => {
       .catch((error) => {
         console.log('error ', error)
       })
-    
+
     // await browserSendEmail({
     //   subject: `Let's talk!`,
     //   htmlMessage: 'Hello, I want to test this mail',

@@ -12,8 +12,7 @@ export const data = [
   {
     title: 'Patriot series',
     id: 2,
-    subtitle:
-      'Patriot Series coins artfully depict pivotal moments and iconic figures from American history, offering a tribute to the nation\'s heritage through intricately designed collectibles.',
+    subtitle: `Patriot Series coins artfully depict pivotal moments and iconic figures from American history, offering a tribute to the nation's heritage through intricately designed collectibles.`,
     url: {
       front: '/images/home/front_coin_1.png',
       back: '/images/home/back_coin_1.png',
@@ -22,8 +21,7 @@ export const data = [
   {
     title: 'Custom series',
     id: 3,
-    subtitle:
-      'Mason Mint\'s specially crafted designs exemplify distinctiveness, presenting personalized and unique representations in each individual piece.',
+    subtitle: `Mason Mint's specially crafted designs exemplify distinctiveness, presenting personalized and unique representations in each individual piece.`,
     url: {
       front: '/images/home/front_coin_1.png',
       back: '/images/home/back_coin_1.png',
