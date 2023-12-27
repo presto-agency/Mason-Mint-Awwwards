@@ -15,12 +15,12 @@ export const browserPostEmail = async ({
           (word) => word.charAt(0).toUpperCase() + word.slice(1)
         )
         const formattedKey = capitalizedWords.join(' ')
-        htmlMessage += `<br/> <b>${formattedKey}</b>: ${data[key]}; <br/>`
+        htmlMessage += `${formattedKey}:${data[key]};`
       }
     }
   }
 
   return await axios.post(
-    `http://app.masonmint.com/api/email/sendemail?fromEmail=mark@masonmint.com&subject=TestForm&body=Hello All&apikey=3A1EFD92-919A-48D3-8762-EB4248F37241`
+    `http://app.masonmint.com/api/email/sendemail?fromEmail=mark@masonmint.com&subject=${subject}&body=${htmlMessage}&apikey=3A1EFD92-919A-48D3-8762-EB4248F37241`
   )
 }

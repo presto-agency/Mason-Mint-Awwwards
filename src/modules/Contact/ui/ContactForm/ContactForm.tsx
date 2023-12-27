@@ -79,8 +79,8 @@ const ContactForm: FC<{ className?: string }> = ({ className }) => {
     setSending(true)
 
     await browserPostEmail({
-      subject: `Let's talk!`,
-      htmlMessage: 'Hello, I want to test this mail',
+      subject: `Let's talk! Contact form.`,
+      htmlMessage: 'Hello',
       data,
     })
       .then((response) => {
